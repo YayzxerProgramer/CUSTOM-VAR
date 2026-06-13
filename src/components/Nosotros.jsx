@@ -1,55 +1,176 @@
-import React from "react";
-import "../css/Nosotros.css"
+import React, { useState } from "react";
+import colombiaMap from "../img/co.svg";
+import "../css/Nosotros.css";
 
-const Nosotros = () => {
+const ciudades = [
+    {
+        id: "cartagena",
+        ciudad: "Cartagena",
+        region: "Headquarters",
+        rol: "Headquarters, centro de distribucion y planta de produccion.",
+        anos: "Por confirmar",
+        tr: "Por confirmar",
+    clientes: "Por confirmar",
+    proyectos: "Por confirmar",
+    x: 44,
+    y: 25,
+    },
+    {
+        id: "barranquilla",
+        ciudad: "Barranquilla",
+        region: "Caribe",
+        rol: "Cobertura de servicio regional para proyectos y soporte tecnico.",
+        anos: "Por confirmar",
+        tr: "Por confirmar",
+    clientes: "Por confirmar",
+    proyectos: "Por confirmar",
+    x: 47,
+    y: 20,
+    },
+    {
+        id: "medellin",
+        ciudad: "Medellin",
+        region: "Antioquia",
+        rol: "Servicio tecnico y proyectos VAR.",
+        anos: "Por confirmar",
+        tr: "Por confirmar",
+    clientes: "Por confirmar",
+    proyectos: "Por confirmar",
+    x: 44,
+    y: 40,
+    },
+    {
+        id: "bogota",
+        ciudad: "Bogota",
+        region: "Centro",
+        rol: "Planta de produccion y servicio central.",
+        anos: "Por confirmar",
+        tr: "Por confirmar",
+    clientes: "Por confirmar",
+    proyectos: "Por confirmar",
+    x: 51,
+    y: 51,
+    },
+    {
+        id: "cali",
+        ciudad: "Cali",
+        region: "Pacifico",
+        rol: "Centro de distribucion y planta de produccion.",
+        anos: "Por confirmar",
+        tr: "Por confirmar",
+    clientes: "Por confirmar",
+    proyectos: "Por confirmar",
+    x: 39,
+    y: 55,
+    },
+];
+
+const identidad = [
+    {
+        titulo: "Filosofia CUSTOM",
+        texto: "Servicio, tradicion, soluciones personalizadas y compromiso con las necesidades reales del cliente.",
+    },
+    {
+        titulo: "Politica VAR",
+        texto: "Value Add Representative: ventilacion, aire acondicionado y refrigeracion con respaldo tecnico.",
+    },
+    {
+        titulo: "Redefiniendo el Valor",
+        texto: "Ingenieria de valor, soporte en campo, eficiencia, confiabilidad y relaciones a largo plazo.",
+    },
+];
+
+const varItems = [
+    ["V", "Ventilacion", "Value / Valor"],
+    ["A", "Aire acondicionado", "Added / Agregado"],
+    ["R", "Refrigeracion", "Representative / Representante"],
+];
+
+const infraestructura = [
+    ["Headquarters", "Cartagena"],
+    ["Centros de distribucion", "Cali / Cartagena"],
+    ["Plantas de produccion", "Cartagena / Bogota / Cali"],
+];
+
+const equipo = ["Gerencia", "Ingenieria", "Diseno", "Instalacion", "Soporte Tecnico"];
+
+const certificaciones = [
+    "Certificaciones de calidad",
+    "Certificaciones tecnicas",
+    "Normativas aplicables",
+    "Certificaciones futuras",
+];
+
+export default function Nosotros() {
+    const [ciudadActiva, setCiudadActiva] = useState(ciudades[0]);
+
     return (
-        <section class="seccion-presencia">
-            <div class="contenedor-presencia">
-                <div class="contenido-presencia">
-                    <h2 class="subtitulo-presencia">Nosotros</h2>
-                    <h3 class="titulo-presencia">Llegamos a cada rincón de Colombia</h3>
-                    <p class="descripcion-presencia">Contamos con centros de servicio y técnicos certificados en las principales ciudades del país, asegurando una respuesta inmediata ante cualquier eventualidad técnica.</p>
-                    <div class="lista-ciudades">
-                        <div class="ciudad">
-                            <span class="indicador-ciudad"></span>
-                            <span>Bogotá (HQ)</span>
-                        </div>
-                        <div class="ciudad">
-                            <span class="indicador-ciudad"></span>
-                            <span>Medellín</span>
-                        </div>
-                        <div class="ciudad">
-                            <span class="indicador-ciudad"></span>
-                            <span>Cali</span>
-                        </div>
-                        <div class="ciudad">
-                            <span class="indicador-ciudad"></span>
-                            <span>Barranquilla</span>
-                        </div>
-                    </div>
-                    <button class="boton-presencia">
-                        Contactar Sede Regional
-                    </button>
-                </div>
-                <div class="contenedor-mapa">
-                    <div class="fondo-brillo"></div>
-                    <div class="tarjeta-mapa">
-                        <img
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYRiEWAzrgBXzhL01KOgq_oIQPAZWIXG_DEx3Bu1A-tzQZNT6eFgIiWJF_ojeJEqN3kXFH75T-jpoKQiMRjWSwhOFmDzhX_7RVVVBbFySIxH4cioR0vf4Mru2NTODvnGneugh1LZHCuz7jhQNqHOhexqg3nK-BnS0ABwFMgNEo0Zsc4gsvtOGl7tDuvHUnFEzMH1_29cKXl2ycaZyeD9A26qu0KH6BYWyXq3nT0WSG2sV830oYE9TjR2S5qnAQVZSdni4jC_Qc2nw"
-                            alt="Mapa Colombia"
-                            class="imagen-mapa" />
-                        <span class="marcador marcador-bogota"></span>
-                        <span class="marcador marcador-medellin"></span>
-                        <span class="marcador marcador-cali"></span>
-                        <span class="marcador marcador-barranquilla"></span>
-                        <div class="estado-red">
-                            NETWORK_STATUS: ACTIVE // COORDS: 4.7110° N, 74.0721° W
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
+        <section className="custom-nosotros" id="nosotros">
+            <div className="nosotros-container">
 
-export default Nosotros;
+                
+
+        <section className="map-section" aria-label="Presencia nacional">
+          <div className="map-section__copy">
+            <span className="section-label">Presencia Nacional</span>
+            <h3>Operacion en las principales ciudades de Colombia.</h3>
+                        <p>
+                            Seleccione una ciudad en el mapa para consultar la informacion
+                            preparada para años de servicio, TR instaladas, clientes atendidos
+                            y proyectos ejecutados.
+                        </p>
+
+                        <div className="city-detail">
+                            <span>{ciudadActiva.region}</span>
+                            <h4>{ciudadActiva.ciudad}</h4>
+                            <p>{ciudadActiva.rol}</p>
+                            <dl>
+                                <div>
+                                    <dt>Anos de servicio</dt>
+                                    <dd>{ciudadActiva.anos}</dd>
+                                </div>
+                                <div>
+                                    <dt>TR instaladas</dt>
+                                    <dd>{ciudadActiva.tr}</dd>
+                                </div>
+                                <div>
+                                    <dt>Clientes atendidos</dt>
+                                    <dd>{ciudadActiva.clientes}</dd>
+                                </div>
+                                <div>
+                                    <dt>Proyectos ejecutados</dt>
+                                    <dd>{ciudadActiva.proyectos}</dd>
+                                </div>
+                            </dl>
+                        </div>
+          </div>
+
+          <div className="map-card">
+            <div className="map-illustration">
+              <img className="colombia-map" src={colombiaMap} alt="Mapa de Colombia" />
+
+              {ciudades.map((item) => (
+                <button
+                  className={`city-marker ${ciudadActiva.id === item.id ? "is-active" : ""}`}
+                  key={item.id}
+                  style={{ "--x": `${item.x}%`, "--y": `${item.y}%` }}
+                  onClick={() => setCiudadActiva(item)}
+                  onMouseEnter={() => setCiudadActiva(item)}
+                  aria-label={`Ver informacion de ${item.ciudad}`}
+                >
+                  <span className="city-marker__dot" />
+                  <span className="city-marker__name">{item.ciudad}</span>
+                </button>
+              ))}
+            </div>
+            <p className="map-quote">
+              "Somos profesionales al servicio de las personas y a traves de nuestro
+              trabajo, aportamos al confort y a la calidad de vida, para el disfrute
+              de espacios, productos y actividades."
+            </p>
+          </div>
+        </section>
+      </div>
+    </section>
+  );
+}
