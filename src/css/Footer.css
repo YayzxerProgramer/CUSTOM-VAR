@@ -1,0 +1,219 @@
+/* ==========================================
+   FOOTER
+========================================== */
+
+.pie-pagina{
+    background: var(--color-primario);
+    padding: 80px 0 30px;
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+========================================== */
+
+.contenedor-pie{
+    max-width: var(--ancho-maximo-contenedor);
+    margin: 0 auto;
+    padding: 0 var(--separacion-lateral);
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 50px;
+
+    border-bottom: 1px solid rgba(255,255,255,.10);
+    padding-bottom: 60px;
+}
+
+.columna-pie{
+    display:flex;
+    flex-direction:column;
+}
+
+/* ==========================================
+   EMPRESA
+========================================== */
+
+.nombre-empresa{
+    color: var(--color-blanco-puro);
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.descripcion-empresa{
+    color: rgba(255,255,255,.80);
+    line-height: 1.8;
+    margin-top: 20px;
+    font-family: var(--fuente-cuerpo);
+}
+
+.redes-sociales{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.enlace-social{
+    color: var(--color-blanco-puro);
+    font-size: 1.3rem;
+    transition:.3s;
+}
+
+.enlace-social:hover{
+    color: var(--color-texto-contenedor-primario);
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+   TÍTULOS
+========================================== */
+
+.titulo-columna{
+    color: var(--color-texto-contenedor-primario);
+    font-family: var(--fuente-cuerpo);
+    text-transform: uppercase;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   ENLACES
+========================================== */
+
+.lista-enlaces,
+.lista-contacto{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.lista-enlaces li,
+.lista-contacto li{
+    margin-bottom:15px;
+}
+
+.lista-enlaces a,
+.lista-contacto li{
+    color: rgba(255,255,255,.80);
+    text-decoration:none;
+    transition:.3s;
+    font-family: var(--fuente-cuerpo);
+}
+
+.lista-enlaces a:hover{
+    color: var(--color-texto-contenedor-primario);
+}
+
+/* ==========================================
+   BOLETÍN
+========================================== */
+
+.texto-boletin{
+    color: rgba(255,255,255,.80);
+    line-height: 1.8;
+    margin-bottom:20px;
+}
+
+.formulario-boletin{
+    display:flex;
+}
+
+.campo-correo{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:14px;
+    background: rgba(255,255,255,.10);
+    color: var(--color-blanco-puro);
+}
+
+.campo-correo::placeholder{
+    color: rgba(255,255,255,.60);
+}
+
+.boton-boletin{
+    border:none;
+    padding:14px 20px;
+    cursor:pointer;
+
+    background: var(--color-contenedor-primario);
+    color: var(--color-blanco-puro);
+
+    transition:.3s;
+}
+
+.boton-boletin:hover{
+    background: var(--color-variante-primario-fijo);
+}
+
+/* ==========================================
+   BARRA INFERIOR
+========================================== */
+
+.barra-inferior{
+    max-width: var(--ancho-maximo-contenedor);
+    margin:0 auto;
+
+    padding:30px var(--separacion-lateral) 0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.copyright{
+    color: rgba(255,255,255,.60);
+    font-size:.85rem;
+    text-transform:uppercase;
+}
+
+.enlaces-legales{
+    display:flex;
+    gap:25px;
+}
+
+.enlaces-legales a{
+    color: rgba(255,255,255,.60);
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:.85rem;
+    transition:.3s;
+}
+
+.enlaces-legales a:hover{
+    color: var(--color-texto-contenedor-primario);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 992px){
+
+    .contenedor-pie{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .barra-inferior{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    .contenedor-pie{
+        grid-template-columns: 1fr;
+    }
+
+    .formulario-boletin{
+        flex-direction:column;
+        gap:10px;
+    }
+
+}

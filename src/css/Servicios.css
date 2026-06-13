@@ -1,0 +1,241 @@
+/* ==========================================
+   CONFIGURACIÓN DE VARIABLES (Manteniendo tu Root)
+   ========================================== */
+:root {
+    /* Fuentes antiguas */
+    --fuente-titulos: 'Barlow Condensed', sans-serif;
+    --fuente-cuerpo: 'Nunito Sans', sans-serif;
+
+    /* Colores antiguos */
+    --color-primario: #002132;
+    --color-contenedor-primario: #003751;
+    --color-texto-contenedor-primario: #77a0bf;
+    --color-variante-primario-fijo: #1e4b66;
+    --color-fondo: #f9f9f9;
+    --color-texto-fondo: #1a1c1c;
+    --color-blanco-puro: #FFFFFF;
+    --color-acento-rojo: #DB2D2C;
+
+    /* Nuevos colores mapeados de tu configuración */
+    --color-secundario: #b90d18;
+    --color-esquema-borde: #72787e;
+
+    /* Espaciados antiguos y nuevos */
+    --separacion-lateral: 24px;
+    --ancho-maximo-contenedor: 1280px;
+    --separacion-menu: 32px;
+    --borde-redondeado: 0.25rem;
+    --relleno-seccion: 100px;
+}
+
+/* ==========================================
+   ESTILOS DE LA BARRA DE ESTADÍSTICAS
+   ========================================== */
+.barra-estadisticas {
+    background-color: var(--color-contenedor-primario);
+    padding-top: 32px;
+    padding-bottom: 32px;
+    z-index: 30;
+    position: relative;
+}
+
+.envoltura-estadisticas {
+    max-width: var(--ancho-maximo-contenedor);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--separacion-lateral);
+    padding-right: var(--separacion-lateral);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1xl));
+    gap: 32px;
+    text-align: center;
+}
+
+.bloque-estadistica {
+    color: var(--color-blanco-puro);
+}
+
+.numero-estadistica {
+    font-family: var(--fuente-titulos);
+    font-size: 64px;
+    /* display-lg */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    color: var(--color-texto-contenedor-primario);
+    margin: 0;
+}
+
+.etiqueta-estadistica {
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* ==========================================
+   ESTILOS DE LA SECCIÓN DE SERVICIOS
+   ========================================== */
+.seccion-servicios {
+    background-color: var(--color-blanco-puro);
+    padding-top: var(--relleno-seccion);
+    padding-bottom: var(--relleno-seccion);
+}
+
+.contenedor-servicios {
+    max-width: var(--ancho-maximo-contenedor);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--separacion-lateral);
+    padding-right: var(--separacion-lateral);
+}
+
+/* Cabecera */
+.cabecera-servicios {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 64px;
+    gap: 32px;
+}
+
+.subtitulo-seccion {
+    color: var(--color-variante-primario-fijo);
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.titulo-seccion {
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.descripcion-cabecera {
+    max-width: 448px;
+    /* max-w-md */
+}
+
+.texto-descripcion {
+    color: var(--color-esquema-borde);
+    font-family: var(--fuente-cuerpo);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Rejilla de tarjetas de servicios */
+.rejilla-servicios {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: var(--separacion-menu);
+}
+
+/* Tarjeta Individual */
+.tarjeta-servicio {
+    background-color: var(--color-blanco-puro);
+    border-top: 4px solid var(--color-secundario);
+    padding: 32px;
+    box-shadow: 0 8px 12px rgba(0, 33, 50, 0.1);
+    transform: translateY(0);
+    transition: all 0.3s duration;
+}
+
+.tarjeta-servicio:hover {
+    box-shadow: 0 20px 30px rgba(0, 33, 50, 0.2);
+    transform: translateY(-8px);
+}
+
+.icono-servicio {
+    color: var(--color-primario);
+    font-size: 48px;
+    /* text-5xl */
+    margin-bottom: 24px;
+    display: block;
+}
+
+.titulo-tarjeta {
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.texto-tarjeta {
+    color: var(--color-esquema-borde);
+    font-family: var(--fuente-cuerpo);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.enlace-tarjeta {
+    color: var(--color-contenedor-primario);
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.enlace-tarjeta:hover {
+    color: var(--color-secundario);
+}
+
+.flecha-enlace {
+    transition: transform 0.3s ease;
+}
+
+.grupo-enlace:hover .flecha-enlace {
+    transform: translateX(8px);
+}
+
+/* ==========================================
+   PUNTOS DE QUIEBRE (Responsive CSS Puro)
+   ========================================== */
+@media (min-width: 768px) {
+    .envoltura-estadisticas {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .cabecera-servicios {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .rejilla-servicios {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* ==========================================
+   EFECTOS ADICIONALES HEREDADOS
+   ========================================== */
+.corte-diagonal-inferior {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}

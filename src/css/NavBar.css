@@ -1,0 +1,204 @@
+/* ==========================================
+   CONFIGURACIÓN DE VARIABLES (Tu Tema)
+   ========================================== */
+:root {
+    --fuente-titulos: 'Barlow Condensed', sans-serif;
+    --fuente-cuerpo: 'Nunito Sans', sans-serif;
+    --color-primario: #002132;
+    --color-contenedor-primario: #003751;
+    --color-texto-contenedor-primario: #77a0bf;
+    --color-variante-primario-fijo: #1e4b66;
+    --color-fondo: #f9f9f9;
+    --color-texto-fondo: #1a1c1c;
+    --color-blanco-puro: #FFFFFF;
+    --color-whatsapp: #25D366;
+    --color-acento-rojo: #DB2D2C;
+
+    /* Espaciados y Medidas */
+    --separacion-lateral: 24px;
+    --ancho-maximo-contenedor: 1280px;
+    --separacion-menu: 32px;
+    --borde-redondeado: 0.25rem;
+}
+
+/* ==========================================
+   ESTILOS BASE Y ESTRUCTURA
+   ========================================== */
+.contenedor-principal {
+    background-color: var(--color-fondo);
+    color: var(--color-texto-fondo);
+    font-family: var(--fuente-cuerpo);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.encabezado-navegacion {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: var(--color-primario);
+    box-shadow: 0 8px 12px rgba(0, 33, 50, 0.3);
+    border-bottom: 0;
+}
+
+.envoltura-navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding-left: var(--separacion-lateral);
+    padding-right: var(--separacion-lateral);
+    max-width: var(--ancho-maximo-contenedor);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Logotipo */
+.zona-logotipo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logotipo {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.titulo-logotipo {
+    font-family: var(--fuente-titulos);
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    color: var(--color-blanco-puro);
+    display: none;
+    /* Oculto en móviles por defecto */
+}
+
+/* Menú de Navegación */
+.menu-navegacion {
+    display: none;
+    /* Oculto en móviles por defecto */
+    align-items: center;
+    gap: var(--separacion-menu);
+}
+
+.enlace-menu {
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    line-height: 1.0;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.enlace-menu:not(.enlace-activo) {
+    color: var(--color-blanco-puro);
+}
+
+.enlace-activo {
+    color: var(--color-texto-contenedor-primario);
+    border-bottom: 2px solid var(--color-texto-contenedor-primario);
+}
+
+/* Botón Contacto */
+.boton-contacto {
+    background-color: var(--color-contenedor-primario);
+    color: var(--color-blanco-puro);
+    padding: 8px 24px;
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    line-height: 1.0;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--borde-redondeado);
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.boton-contacto:hover {
+    background-color: var(--color-variante-primario-fijo);
+}
+
+.boton-contacto:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================
+   PUNTOS DE QUIEBRE (Responsive)
+   ========================================== */
+/* Pantallas medianas en adelante (Equivalente a md:) */
+@media (min-width: 768px) {
+    .menu-navegacion {
+        display: flex;
+    }
+}
+
+/* Pantallas grandes en adelante (Equivalente a lg:) */
+@media (min-width: 1024px) {
+    .titulo-logotipo {
+        display: block;
+    }
+}
+
+/* ==========================================
+   EFECTOS Y ANIMACIONES PERSONALIZADAS
+   ========================================== */
+.linea-inferior::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background-color: var(--color-acento-rojo);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.linea-inferior:hover::after {
+    width: 100%;
+}
+
+.corte-diagonal-inferior {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
+
+.corte-diagonal-superior {
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.panel-heroico {
+    transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.panel-heroico:hover {
+    flex: 2;
+}
+
+.pulso-whatsapp {
+    animation: animacion-pulso 2s infinite;
+}
+
+@keyframes animacion-pulso {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
