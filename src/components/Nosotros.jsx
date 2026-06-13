@@ -10,10 +10,10 @@ const ciudades = [
         rol: "Headquarters, centro de distribucion y planta de produccion.",
         anos: "Por confirmar",
         tr: "Por confirmar",
-    clientes: "Por confirmar",
-    proyectos: "Por confirmar",
-    x: 44,
-    y: 25,
+        clientes: "Por confirmar",
+        proyectos: "Por confirmar",
+        x: 44,
+        y: 25,
     },
     {
         id: "barranquilla",
@@ -22,10 +22,10 @@ const ciudades = [
         rol: "Cobertura de servicio regional para proyectos y soporte tecnico.",
         anos: "Por confirmar",
         tr: "Por confirmar",
-    clientes: "Por confirmar",
-    proyectos: "Por confirmar",
-    x: 47,
-    y: 20,
+        clientes: "Por confirmar",
+        proyectos: "Por confirmar",
+        x: 47,
+        y: 20,
     },
     {
         id: "medellin",
@@ -34,10 +34,10 @@ const ciudades = [
         rol: "Servicio tecnico y proyectos VAR.",
         anos: "Por confirmar",
         tr: "Por confirmar",
-    clientes: "Por confirmar",
-    proyectos: "Por confirmar",
-    x: 44,
-    y: 40,
+        clientes: "Por confirmar",
+        proyectos: "Por confirmar",
+        x: 44,
+        y: 40,
     },
     {
         id: "bogota",
@@ -46,10 +46,10 @@ const ciudades = [
         rol: "Planta de produccion y servicio central.",
         anos: "Por confirmar",
         tr: "Por confirmar",
-    clientes: "Por confirmar",
-    proyectos: "Por confirmar",
-    x: 51,
-    y: 51,
+        clientes: "Por confirmar",
+        proyectos: "Por confirmar",
+        x: 51,
+        y: 51,
     },
     {
         id: "cali",
@@ -58,10 +58,10 @@ const ciudades = [
         rol: "Centro de distribucion y planta de produccion.",
         anos: "Por confirmar",
         tr: "Por confirmar",
-    clientes: "Por confirmar",
-    proyectos: "Por confirmar",
-    x: 39,
-    y: 55,
+        clientes: "Por confirmar",
+        proyectos: "Por confirmar",
+        x: 39,
+        y: 55,
     },
 ];
 
@@ -108,12 +108,12 @@ export default function Nosotros() {
         <section className="custom-nosotros" id="nosotros">
             <div className="nosotros-container">
 
-                
 
-        <section className="map-section" aria-label="Presencia nacional">
-          <div className="map-section__copy">
-            <span className="section-label">Presencia Nacional</span>
-            <h3>Operacion en las principales ciudades de Colombia.</h3>
+
+                <section className="map-section" aria-label="Presencia nacional">
+                    <div className="map-section__copy">
+                        <span className="section-label">Presencia Nacional</span>
+                        <h3>Operacion en las principales ciudades de Colombia.</h3>
                         <p>
                             Seleccione una ciudad en el mapa para consultar la informacion
                             preparada para años de servicio, TR instaladas, clientes atendidos
@@ -143,34 +143,34 @@ export default function Nosotros() {
                                 </div>
                             </dl>
                         </div>
-          </div>
+                    </div>
 
-          <div className="map-card">
-            <div className="map-illustration">
-              <img className="colombia-map" src={colombiaMap} alt="Mapa de Colombia" />
+                    <div className="map-card">
+                        <div className="map-illustration">
+                            <img className="colombia-map" src={colombiaMap} alt="Mapa de Colombia" />
 
-              {ciudades.map((item) => (
-                <button
-                  className={`city-marker ${ciudadActiva.id === item.id ? "is-active" : ""}`}
-                  key={item.id}
-                  style={{ "--x": `${item.x}%`, "--y": `${item.y}%` }}
-                  onClick={() => setCiudadActiva(item)}
-                  onMouseEnter={() => setCiudadActiva(item)}
-                  aria-label={`Ver informacion de ${item.ciudad}`}
-                >
-                  <span className="city-marker__dot" />
-                  <span className="city-marker__name">{item.ciudad}</span>
-                </button>
-              ))}
+                            {ciudades.map((item) => (
+                                <button
+                                    className={`city-marker ${ciudadActiva.id === item.id ? "is-active" : ""}`}
+                                    key={item.id}
+                                    style={{ "--x": `${item.x}%`, "--y": `${item.y}%` }}
+                                    onClick={() => setCiudadActiva(item)}
+                                    onMouseEnter={() => setCiudadActiva(item)}
+                                    aria-label={`Ver informacion de ${item.ciudad}`}
+                                >
+                                    <span className="city-marker__dot" />
+                                    <span className="city-marker__name">{item.ciudad}</span>
+                                </button>
+                            ))}
+                        </div>
+                        <p className="map-quote">
+                            "Somos profesionales al servicio de las personas y a traves de nuestro
+                            trabajo, aportamos al confort y a la calidad de vida, para el disfrute
+                            de espacios, productos y actividades."
+                        </p>
+                    </div>
+                </section>
             </div>
-            <p className="map-quote">
-              "Somos profesionales al servicio de las personas y a traves de nuestro
-              trabajo, aportamos al confort y a la calidad de vida, para el disfrute
-              de espacios, productos y actividades."
-            </p>
-          </div>
         </section>
-      </div>
-    </section>
-  );
+    );
 }
