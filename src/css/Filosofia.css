@@ -1,0 +1,159 @@
+/* ==========================================
+   SECCIÓN FILOSOFÍA GENERAL
+   ========================================== */
+.seccion-filosofia {
+    background-color: var(--color-fondo);
+    padding-top: var(--relleno-seccion);
+    padding-bottom: var(--relleno-seccion);
+    width: 100%;
+}
+
+.contenedor-filosofia {
+    max-width: var(--ancho-maximo-contenedor);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--separacion-lateral);
+    padding-right: var(--separacion-lateral);
+}
+
+.bloque-introduccion {
+    margin-bottom: 48px;
+    max-width: 900px;
+}
+
+.titulo-filosofia {
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos);
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.texto-filosofia {
+    color: var(--color-texto-fondo);
+    font-family: var(--fuente-cuerpo);
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================
+   ESTRUCTURA DEL ACRÓSTICO
+   ========================================== */
+.lista-acrostico {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Separación entre filas */
+}
+
+.tarjeta-acrostico {
+    display: flex;
+    background-color: var(--color-blanco-puro);
+    border-radius: var(--borde-redondeado);
+    box-shadow: 0 4px 10px rgba(0, 33, 50, 0.06);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto interactivo al pasar el mouse */
+.tarjeta-acrostico:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(0, 33, 50, 0.12);
+}
+
+/* Bloque de la Letra Inicial */
+.contenedor-letra {
+    background-color: var(--color-contenedor-primario);
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    /* Evita que la cajita de la letra se deforme */
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-acrostico:hover .contenedor-letra {
+    background-color: var(--color-acento-rojo);
+    /* Cambia a tu color de acento en hover */
+}
+
+.letra-inicial {
+    color: var(--color-blanco-puro);
+    font-family: var(--fuente-titulos);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Bloque del Texto Informativo */
+.contenido-acrostico {
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.encabezado-termino {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.termino-ingles {
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos);
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.separador-termino {
+    color: var(--color-texto-contenedor-primario);
+    font-weight: 600;
+}
+
+.termino-espanol {
+    color: var(--color-variante-primario-fijo);
+    font-family: var(--fuente-cuerpo);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.descripcion-termino {
+    color: #555555;
+    font-family: var(--fuente-cuerpo);
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ==========================================
+    RESPONSIVE
+    ========================================== */
+@media (max-width: 576px) {
+    .tarjeta-acrostico {
+        flex-direction: column;
+        /* Se apila verticalmente en celulares muy pequeños */
+    }
+
+    .contenedor-letra {
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    .contenido-acrostico {
+        padding: 16px;
+    }
+
+    .encabezado-termino {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+}

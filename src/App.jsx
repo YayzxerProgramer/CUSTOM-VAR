@@ -3,9 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Hero from "./components/Hero.jsx"
 import Servicios from './components/Servcios.jsx';
-import Nosotros from './components/Nosotros.jsx';
 import CajaEstadistica from './components/CajaEstadistica.jsx';
 import Footer from './components/Footer.jsx';
+import Filosofia from './components/Filosofia.jsx';
 
 export default function App() {
   return (
@@ -16,7 +16,7 @@ export default function App() {
             <Navbar />
             <Hero />
             <CajaEstadistica />
-            <Nosotros />
+            <Filosofia />
             <Servicios />
             <Footer />
           </>
