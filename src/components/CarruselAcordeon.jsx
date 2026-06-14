@@ -12,14 +12,15 @@ export default function CarruselAcordeon({
     obtenerKey = (item, indice) => item.id ?? indice,
 }) {
     const [paginaActual, setPaginaActual] = useState(0);
+    const cantidadPorPagina = Math.max(1, Number(itemsPorPagina) || 1);
 
-    const totalPaginas = Math.ceil(items.length / itemsPorPagina);
+    const totalPaginas = Math.ceil(items.length / cantidadPorPagina);
     const paginaSegura = totalPaginas > 0 ? Math.min(paginaActual, totalPaginas - 1) : 0;
 
     const itemsVisibles = useMemo(() => {
-        const inicio = paginaSegura * itemsPorPagina;
-        return items.slice(inicio, inicio + itemsPorPagina);
-    }, [items, itemsPorPagina, paginaSegura]);
+        const inicio = paginaSegura * cantidadPorPagina;
+        return items.slice(inicio, inicio + cantidadPorPagina);
+    }, [items, cantidadPorPagina, paginaSegura]);
 
     if (!items.length) {
         return null;
@@ -54,6 +55,7 @@ export default function CarruselAcordeon({
                 {itemsVisibles.map((item, indice) => {
                     const imagen = item.imagen ?? item.ruta;
                     const enlace = item.enlace ?? '#';
+                    const mostrarBoton = item.mostrarBoton ?? true;
 
                     return (
                         <article
@@ -73,9 +75,11 @@ export default function CarruselAcordeon({
                                         {item.descripcion && (
                                             <p className="carrusel-acordeon__descripcion">{item.descripcion}</p>
                                         )}
-                                        <a href={enlace} className="carrusel-acordeon__boton">
-                                            {item.textoBoton ?? textoBoton}
-                                        </a>
+                                        {mostrarBoton && (
+                                            <a href={enlace} className="carrusel-acordeon__boton">
+                                                {item.textoBoton ?? textoBoton}
+                                            </a>
+                                        )}
                                     </div>
                                 )}
                             </div>
