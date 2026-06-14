@@ -115,6 +115,7 @@
     color: rgba(255,255,255,.80);
     line-height: 1.8;
     margin-bottom:20px;
+    font-family: 'Nunito Sans';
 }
 
 .formulario-boletin{
@@ -156,7 +157,7 @@
 .barra-inferior{
     max-width: var(--ancho-maximo-contenedor);
     margin:0 auto;
-
+    font-family: 'Nunito Sans';
     padding:30px var(--separacion-lateral) 0;
 
     display:flex;

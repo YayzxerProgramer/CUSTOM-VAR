@@ -1,0 +1,146 @@
+/* ==========================================
+   CONTENEDOR GLOBAL FLOTANTE
+   ========================================== */
+.contenedor-whatsapp-flotante {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 9999;
+    /* Asegura que esté por encima de cualquier otro elemento */
+    gap: 12px;
+}
+
+/* ==========================================
+   BOTÓN CIRCULAR DE WHATSAPP
+   ========================================== */
+.enlace-whatsapp-icono {
+    background-color: #25D366;
+    /* Verde oficial de WhatsApp */
+    color: var(--color-blanco-puro, #FFFFFF);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 33, 50, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.icono-whatsapp-svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* Efectos al pasar el cursor por el botón */
+.enlace-whatsapp-icono:hover {
+    background-color: #20ba5a;
+    transform: scale(1.1) rotate(8deg);
+    box-shadow: 0 8px 24px rgba(0, 33, 50, 0.4);
+}
+
+/* ==========================================
+   CUADRO DE TEXTO / BOCADILLO DE MENSAJE
+   ========================================== */
+.bocadillo-whatsapp {
+    position: relative;
+    background-color: var(--color-blanco-puro, #FFFFFF);
+    border-left: 4px solid #25D366;
+    padding: 16px 36px 16px 20px;
+    border-radius: var(--borde-redondeado, 8px);
+    box-shadow: 0 4px 20px rgba(0, 33, 50, 0.15);
+    max-width: 240px;
+    animation: deslizarMensaje 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.texto-bocadillo {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    color: var(--color-primario, #002132);
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.texto-bocadillo strong {
+    color: #25D366;
+    display: block;
+    margin-top: 2px;
+}
+
+.flecha-bocadillo {
+    position: absolute;
+    bottom: -8px;
+    right: 24px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--color-blanco-puro, #FFFFFF);
+}
+
+/* Botón de cierre (X) */
+.boton-cerrar-bocadillo {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    padding: 2px;
+    transition: color 0.2s ease;
+}
+
+.boton-cerrar-bocadillo:hover {
+    color: var(--color-acento-rojo, #DB2D2C);
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+@keyframes deslizarMensaje {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE MÓVIL
+   ========================================== */
+@media (max-width: 480px) {
+    .contenedor-whatsapp-flotante {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .bocadillo-whatsapp {
+        max-width: 180px;
+        padding: 12px 28px 12px 14px;
+    }
+
+    .texto-bocadillo {
+        font-size: 13px;
+    }
+
+    .enlace-whatsapp-icono {
+        width: 52px;
+        height: 52px;
+    }
+
+    .icono-whatsapp-svg {
+        width: 26px;
+        height: 26px;
+    }
+}

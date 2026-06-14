@@ -1,0 +1,125 @@
+/* ==========================================
+   SECCIÓN REDEFINIENDO EL VALOR
+   ========================================== */
+.seccion-valores {
+    background-color: var(--color-fondo);
+    padding-top: var(--relleno-seccion, 80px);
+    padding-bottom: var(--relleno-seccion, 80px);
+    width: 100%;
+}
+
+.contenedor-valores {
+    max-width: var(--ancho-maximo-contenedor, 1280px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--separacion-lateral, 24px);
+    padding-right: var(--separacion-lateral, 24px);
+    max-height: 800px;
+}
+
+.titulo-seccion-valores {
+    color: var(--color-primario, #002132);
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+    margin-bottom: 48px;
+    text-align: center;
+    position: relative;
+}
+
+/* Línea decorativa sutil debajo del título principal */
+.titulo-seccion-valores::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-acento-rojo, #DB2D2C);
+}
+
+/* ==========================================
+   ESTRUCTURA DE DOS COLUMNAS (REJILLA SIN RAYAS)
+   ========================================== */
+.rejilla-valores {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px;
+    /* Espacio amplio en medio que reemplaza la raya de la tabla */
+    align-items: start;
+}
+
+.columna-valores {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    /* Separación vertical entre los párrafos */
+}
+
+/* Encabezados elegantes de columna */
+.encabezado-columna {
+    color: var(--color-primario, #002132);
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-left: 16px;
+    border-left: 5px solid var(--color-texto-contenedor-primario, #77a0bf);
+}
+
+/* El segundo encabezado lleva el color de acento para contrastar */
+.encabezado-columna.el-respaldo {
+    border-left-color: var(--color-acento-rojo, #DB2D2C);
+}
+
+/* ==========================================
+   ESTILOS DE LOS PÁRRAFOS / CONTENIDO
+   ========================================== */
+.bloque-item-valor p {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    color: var(--color-texto-fondo, #1a1c1c);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+}
+
+/* Resaltado elegante de los títulos internos */
+.bloque-item-valor strong {
+    color: var(--color-primario, #002132);
+    font-weight: 700;
+    font-family: var(--fuente-cuerpo, sans-serif);
+    display: inline;
+}
+
+/* Un sutil efecto hover para que no se sienta estático ni plano */
+.bloque-item-valor {
+    padding: 8px 12px;
+    border-radius: var(--borde-redondeado, 4px);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.bloque-item-valor:hover {
+    background-color: rgba(0, 55, 81, 0.03);
+    /* Un toque muy ligero del color de fondo */
+    transform: translateX(4px);
+}
+
+/* ==========================================
+   RESPONSIVE (Cambio a una sola columna en móviles)
+   ========================================== */
+@media (max-width: 992px) {
+    .rejilla-valores {
+        grid-template-columns: 1fr;
+        /* Pasa a ser una sola columna vertical */
+        gap: 48px;
+    }
+
+    .encabezado-columna {
+        font-size: 22px;
+    }
+}

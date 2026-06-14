@@ -100,12 +100,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 64px;
+    margin-bottom: 20px;
     gap: 32px;
 }
 
 .subtitulo-seccion {
-    color: var(--color-variante-primario-fijo);
+    color: var(--color-acento-rojo);
     font-family: var(--fuente-titulos);
     font-size: 14px;
     font-weight: 700;
@@ -126,7 +126,7 @@
 }
 
 .descripcion-cabecera {
-    max-width: 448px;
+    max-width: 908px;
     /* max-w-md */
 }
 
@@ -135,7 +135,7 @@
     font-family: var(--fuente-cuerpo);
     font-size: 16px;
     line-height: 1.6;
-    margin: 0;
+    margin: 30px 0px;
 }
 
 /* Rejilla de tarjetas de servicios */
