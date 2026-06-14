@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import colombiaMap from "../img/co.svg";
-import "../css/Nosotros.css";
+import colombiaMap from "../../img/co.svg";
+import "../../css/Nosotros/Nosotros.css";
 
 const ciudades = [
     {
@@ -126,7 +126,7 @@ export default function Nosotros() {
                             <p>{ciudadActiva.rol}</p>
                             <dl>
                                 <div>
-                                    <dt>Anos de servicio</dt>
+                                    <dt>Años de servicio</dt>
                                     <dd>{ciudadActiva.anos}</dd>
                                 </div>
                                 <div>

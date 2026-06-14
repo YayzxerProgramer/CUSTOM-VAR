@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Filosofia.css';
+import '../../css/Nosotros/Filosofia.css';
 
 export default function Filosofia() {
     const acrostico = [

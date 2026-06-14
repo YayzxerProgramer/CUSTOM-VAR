@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/Hero.css';
+import '../../css/Nosotros/Hero.css';
 
 export default function HeroAcordeonCarrusel() {
     const [paginaActual, setPaginaActual] = useState(0);
@@ -13,7 +13,7 @@ export default function HeroAcordeonCarrusel() {
         // Grupo 2 (Siguientes 4)
         { id: 5, ruta: 'https://images.unsplash.com/photo-1527738697320-513f6648bc26?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', titulo: 'VAR', subtitulo: 'Soporte Técnico', descripcion: 'Planes preventivos y correctivos para plantas industriales.', enlace: '#' },
         { id: 6, ruta: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200', titulo: 'Oficinas y Servicios', subtitulo: 'Proyectos Especiales', descripcion: 'Consultoría y modelado de fluidos computarizados.', enlace: '#' },
-        { id: 7, ruta: 'https://images.unsplash.com/photo-1628372095387-017d1099fc19?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', titulo: 'Hospitales', subtitulo: 'Infraestructura', descripcion: 'Instalación de chillers y ducterías de gran escala.', enlace: '#' },
+        { id: 7, ruta: 'https://images.unsplash.com/photo-1628372095387-017d1099fc19?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', titulo: 'Hospitales', subtitulo: 'Infraestructura', descripcion: 'Instalación de chillers y ducterías de gran escala.', enlace: '#' },
         { id: 8, ruta: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', titulo: 'Hoteles', subtitulo: 'Auditorías', descripcion: 'Optimización de consumo eléctrico en sistemas térmicos.', enlace: '#' },
         { id: 9, ruta: 'https://images.unsplash.com/photo-1481437156560-3205f6a55735?q=80&w=1495&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', titulo: 'Locales Y Centros Comerciales', subtitulo: 'Buena Refrigeración', descripcion: 'Optimizacion de sistemas de refrigeración en entornos comerciales.', enlace: '#' },
     ];
@@ -44,7 +44,7 @@ export default function HeroAcordeonCarrusel() {
             </button>
 
             {/* Contenedor dinámico de paneles */}
-            <div className="contenedor-paneles-acordeon">
+            <div className="contenedor-paneles-acordeon" key={paginaActual}>
                 {panelesVisibles.map((panel) => (
                     <div
                         key={panel.id}

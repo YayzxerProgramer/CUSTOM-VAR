@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'; // Importamos NavLink
 import "../css/NavBar.css"
 
 export default function Navbar() {
@@ -9,14 +10,44 @@ export default function Navbar() {
                     <div className="zona-logotipo">
                         <img src="/src/img/logo-custom-var.jpg" alt="Logotipo CUSTOM VAR" className="logotipo" />
                     </div>
-
                     <nav className="menu-navegacion">
-                        <a className="enlace-menu enlace-activo" href="#">Nosotros</a>
-                        <a className="enlace-menu linea-inferior" href="#">Soluciones</a>
-                        <a className="enlace-menu linea-inferior" href="#">Soporte</a>
-                        <a className="enlace-menu linea-inferior" href="#">Iniciativas</a>
-                        <a className="enlace-menu linea-inferior" href="#">Talento</a>
-                        <a className="enlace-menu linea-inferior" href="#">Noticias VAR</a>
+                        {/* NavLink evalúa si la URL coincide y aplica el callback en className */}
+                        <NavLink
+                            to="/nosotros"
+                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
+                        >
+                            Nosotros
+                        </NavLink>
+                        <NavLink
+                            to="/soluciones"
+                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
+                        >
+                            Soluciones
+                        </NavLink>
+                        <NavLink
+                            to="/soporte"
+                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
+                        >
+                            Soporte
+                        </NavLink>
+                        <NavLink
+                            to="/iniciativas"
+                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
+                        >
+                            Iniciativas
+                        </NavLink>
+                        <NavLink
+                            to="/talento"
+                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
+                        >
+                            Talento
+                        </NavLink>
+                        <NavLink
+                            to="/noticias"
+                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
+                        >
+                            Noticias VAR
+                        </NavLink>
                     </nav>
 
                     <button className="boton-contacto">Contacto</button>
