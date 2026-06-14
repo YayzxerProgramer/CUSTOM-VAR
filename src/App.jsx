@@ -1,37 +1,15 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar.jsx';
-import Hero from "./components/Nosotros/Hero.jsx"
-import Servicios from './components/Nosotros/Servcios.jsx';
-import CajaEstadistica from './components/Nosotros/CajaEstadistica.jsx';
-import Footer from './components/Footer.jsx';
-import Filosofia from './components/Nosotros/Filosofia.jsx';
-import Nosotros from './components/Nosotros/Nosotros.jsx';
 import BotonWhatsApp from './components/BotonWhatsapp.jsx';
-import Valor from './components/Nosotros/Valor.jsx';
+import NosotrosPage from './pages/NosotrosPage.jsx';
+import SolucionesPage from './pages/SolucionesPage.jsx';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 export default function App() {
   return (
     <>
       <Routes>
-        <Route path='/nosotros' element={
-          <>
-            <Navbar />
-            <Hero />
-            <CajaEstadistica />
-            <Nosotros />
-            <Filosofia />
-            <Servicios />
-            <Valor />
-            <Footer />
-          </>
-        } />
-        <Route path='/soluciones' element={
-          <>
-            <Navbar />
-            <Footer />
-          </>
-        } />
+        <Route path='/' element={<Navigate to='/nosotros' replace />} />
+        <Route path='/nosotros' element={<NosotrosPage />} />
+        <Route path='/soluciones' element={<SolucionesPage />} />
       </Routes>
       <BotonWhatsApp />
     </>
