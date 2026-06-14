@@ -1,0 +1,198 @@
+.carrusel-acordeon {
+    position: relative;
+    width: 100%;
+    height: var(--carrusel-altura, 560px);
+    background-color: var(--color-primario);
+    overflow: hidden;
+}
+
+.carrusel-acordeon__paneles {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.carrusel-acordeon__panel {
+    flex: 1;
+    position: relative;
+    background-color: var(--color-primario);
+    background-image: var(--imagen-fondo);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.carrusel-acordeon__panel:hover {
+    flex: 3;
+}
+
+.carrusel-acordeon__gradiente {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 21, 50, 0.95) 0%, rgba(0, 21, 50, 0.2) 70%);
+    display: flex;
+    align-items: flex-end;
+    padding: 48px 32px;
+    box-sizing: border-box;
+}
+
+.carrusel-acordeon__contenido {
+    color: var(--color-blanco-puro);
+    max-width: 400px;
+    min-width: 280px;
+}
+
+.carrusel-acordeon__subtitulo {
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-texto-contenedor-primario);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.carrusel-acordeon__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.carrusel-acordeon__descripcion {
+    font-family: var(--fuente-cuerpo);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: none;
+}
+
+.carrusel-acordeon__boton {
+    background-color: var(--color-acento-rojo);
+    color: var(--color-blanco-puro);
+    padding: 10px 24px;
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border-radius: var(--borde-redondeado);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s, background-color 0.2s ease;
+    display: inline-block;
+}
+
+.carrusel-acordeon__boton:hover {
+    background-color: var(--color-secundario);
+}
+
+.carrusel-acordeon__panel:hover .carrusel-acordeon__descripcion {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carrusel-acordeon__panel:hover .carrusel-acordeon__boton {
+    display: inline-block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carrusel-acordeon__flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 33, 50, 0.6);
+    border: none;
+    color: var(--color-blanco-puro);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carrusel-acordeon__flecha:hover {
+    background-color: var(--color-acento-rojo);
+}
+
+.carrusel-acordeon__flecha:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+.carrusel-acordeon__flecha--izquierda {
+    left: 24px;
+}
+
+.carrusel-acordeon__flecha--derecha {
+    right: 24px;
+}
+
+.carrusel-acordeon__indicadores {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 40;
+}
+
+.carrusel-acordeon__punto {
+    width: 12px;
+    height: 12px;
+    border: 0;
+    padding: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carrusel-acordeon__punto--activo {
+    background-color: var(--color-acento-rojo);
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .carrusel-acordeon__paneles {
+        flex-direction: column;
+    }
+
+    .carrusel-acordeon__panel:hover {
+        flex: 2.5;
+    }
+
+    .carrusel-acordeon__titulo {
+        font-size: 24px;
+        white-space: normal;
+    }
+
+    .carrusel-acordeon__descripcion {
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+
+    .carrusel-acordeon__flecha--izquierda {
+        left: 12px;
+    }
+
+    .carrusel-acordeon__flecha--derecha {
+        right: 12px;
+    }
+}

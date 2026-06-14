@@ -6,6 +6,7 @@ import Servicios from './components/Servcios.jsx';
 import CajaEstadistica from './components/CajaEstadistica.jsx';
 import Footer from './components/Footer.jsx';
 import Filosofia from './components/Filosofia.jsx';
+import Nosotros from './components/Nosotros.jsx';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
             <Navbar />
             <Hero />
             <CajaEstadistica />
+            <Nosotros />
             <Filosofia />
             <Servicios />
             <Footer />

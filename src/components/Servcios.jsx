@@ -4,7 +4,7 @@ import '../css/Servicios.css';
 export default function Servicios() {
     return (
         <>
-            
+
             {/* Sección de Servicios */}
             <section className="seccion-servicios corte-diagonal-inferior">
                 <div className="contenedor-servicios">
@@ -57,7 +57,6 @@ export default function Servicios() {
                                 <span className="material-symbols-outlined flecha-enlace">arrow_forward</span>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </section>
