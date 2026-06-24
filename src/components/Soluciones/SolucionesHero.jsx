@@ -7,7 +7,6 @@ export default function SolucionesHero({ onSolicitarAsesoria }) {
     return (
         <section className="soluciones-hero">
             <div className="soluciones-hero__intro">
-                <span className="soluciones-label">Soluciones</span>
                 <h1>Proyectos y servicios para cada decision critica VAR.</h1>
                 <p>
                     Conectamos su perfil operativo con estrategias de ventilacion, aire acondicionado y refrigeracion

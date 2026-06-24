@@ -1,0 +1,322 @@
+import { useMemo, useState } from 'react';
+import {
+    buyerPersonasSoporte,
+    doloresFacturacion,
+    doloresServicio,
+    etapasProyecto,
+    impactosOperacion,
+    sectoresIndustriaSoporte,
+    tiposPqrsd,
+    tiposSoporte,
+} from '../../data/soporte.js';
+import '../../css/Soporte/Soporte.css';
+
+const correoCorporativoPattern = '^[^\\s@]+@(?!gmail\\.com$)(?!hotmail\\.com$)(?!outlook\\.com$)(?!yahoo\\.com$)[^\\s@]+\\.[^\\s@]+$';
+
+function Campo({ children, etiqueta, requerido = true }) {
+    return (
+        <label className="soporte-campo">
+            <span>{etiqueta}</span>
+            {children}
+            {requerido && <small>Campo obligatorio</small>}
+        </label>
+    );
+}
+
+function GrupoOpciones({ nombre, opciones }) {
+    return (
+        <div className="soporte-opciones" role="group" aria-label={nombre}>
+            {opciones.map((opcion) => (
+                <label key={opcion}>
+                    <input type="radio" name={nombre} required />
+                    <span>{opcion}</span>
+                </label>
+            ))}
+        </div>
+    );
+}
+
+function PerfilCorporativoServicio() {
+    return (
+        <div className="soporte-paso">
+            <span className="soporte-paso__numero">Paso 1</span>
+            <h3>Perfil Corporativo</h3>
+            <div className="soporte-grid">
+                <Campo etiqueta="Nombre completo">
+                    <input type="text" name="nombre" autoComplete="name" required />
+                </Campo>
+                <Campo etiqueta="Correo empresarial">
+                    <input
+                        type="email"
+                        name="correo"
+                        autoComplete="email"
+                        pattern={correoCorporativoPattern}
+                        title="Use un correo corporativo. No se aceptan dominios genericos."
+                        required
+                    />
+                </Campo>
+                <Campo etiqueta="Cargo en la organizacion">
+                    <select name="cargo" required>
+                        <option value="">Seleccione una opcion</option>
+                        {buyerPersonasSoporte.map((cargo) => (
+                            <option key={cargo}>{cargo}</option>
+                        ))}
+                    </select>
+                </Campo>
+                <Campo etiqueta="Sector industrial">
+                    <select name="sector" required>
+                        <option value="">Seleccione una opcion</option>
+                        {sectoresIndustriaSoporte.map((sector) => (
+                            <option key={sector}>{sector}</option>
+                        ))}
+                    </select>
+                </Campo>
+            </div>
+        </div>
+    );
+}
+
+function SolicitudServicioForm({ onSubmit }) {
+    return (
+        <form className="soporte-formulario" onSubmit={onSubmit}>
+            <PerfilCorporativoServicio />
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 2</span>
+                <h3>Radiografia del Proyecto</h3>
+                <p>Seleccione el dolor principal y dimensione la infraestructura para calificar el alcance del caso.</p>
+                <GrupoOpciones nombre="dolorServicio" opciones={doloresServicio} />
+                <Campo etiqueta="Dimension estimada de la infraestructura">
+                    <input type="text" name="dimension" placeholder="m2 o Toneladas de Refrigeracion" required />
+                </Campo>
+            </div>
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 3</span>
+                <h3>Urgencia y Cierre</h3>
+                <GrupoOpciones nombre="etapaProyecto" opciones={etapasProyecto} />
+            </div>
+            <button className="soporte-boton" type="submit">
+                Solicitar Diagnostico Tecnico y Cotizacion Preliminar
+            </button>
+        </form>
+    );
+}
+
+function FacturacionForm({ onSubmit }) {
+    return (
+        <form className="soporte-formulario" onSubmit={onSubmit}>
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 1</span>
+                <h3>Perfil Corporativo</h3>
+                <div className="soporte-grid">
+                    <Campo etiqueta="Nombre y apellido">
+                        <input type="text" name="nombre" autoComplete="name" required />
+                    </Campo>
+                    <Campo etiqueta="Correo">
+                        <input type="email" name="correo" autoComplete="email" required />
+                    </Campo>
+                    <Campo etiqueta="Nombre y NIT de la organizacion">
+                        <input type="text" name="organizacion" required />
+                    </Campo>
+                    <Campo etiqueta="Cargo en la organizacion">
+                        <input type="text" name="cargo" required />
+                    </Campo>
+                </div>
+            </div>
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 2</span>
+                <h3>Radiografia del Requerimiento</h3>
+                <GrupoOpciones nombre="dolorFacturacion" opciones={doloresFacturacion} />
+            </div>
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 3</span>
+                <h3>Detalles del Requerimiento</h3>
+                <Campo etiqueta="Descripcion breve">
+                    <textarea
+                        name="descripcion"
+                        rows="5"
+                        placeholder="Indique servicio recibido, numero de factura pendiente de pago o detalle administrativo."
+                        required
+                    />
+                </Campo>
+            </div>
+            <button className="soporte-boton" type="submit">
+                Solicitar informacion
+            </button>
+        </form>
+    );
+}
+
+function PqrsdForm({ onSubmit }) {
+    return (
+        <form className="soporte-formulario" onSubmit={onSubmit}>
+            <div className="soporte-mensaje">
+                En nuestra busqueda constante por la excelencia y la continuidad de su operacion, su retroalimentacion es vital.
+                Registre su solicitud aqui; analizaremos su caso de inmediato para ofrecerle una respuesta prioritaria.
+            </div>
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 1</span>
+                <h3>Identificacion del Cliente y del Contrato</h3>
+                <div className="soporte-grid">
+                    <Campo etiqueta="Razon social / empresa">
+                        <input type="text" name="razonSocial" required />
+                    </Campo>
+                    <Campo etiqueta="Nombre del contacto autorizado">
+                        <input type="text" name="contacto" autoComplete="name" required />
+                    </Campo>
+                    <Campo etiqueta="Correo electronico corporativo">
+                        <input type="email" name="correo" autoComplete="email" required />
+                    </Campo>
+                    <Campo etiqueta="Telefono directo / extension">
+                        <input type="tel" name="telefono" autoComplete="tel" required />
+                    </Campo>
+                    <Campo etiqueta="Contrato, proyecto o factura">
+                        <input type="text" name="contrato" required />
+                    </Campo>
+                </div>
+            </div>
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 2</span>
+                <h3>Clasificacion de la Solicitud</h3>
+                <GrupoOpciones nombre="tipoPqrsd" opciones={tiposPqrsd} />
+            </div>
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 3</span>
+                <h3>Detalle Tecnico e Impacto Operativo</h3>
+                <div className="soporte-grid">
+                    <Campo etiqueta="Asunto de la solicitud">
+                        <input type="text" name="asunto" required />
+                    </Campo>
+                    <Campo etiqueta="Sede, planta o ubicacion del equipo">
+                        <input type="text" name="ubicacion" placeholder="Edificio corporativo - Piso 4" required />
+                    </Campo>
+                </div>
+                <Campo etiqueta="Descripcion detallada">
+                    <textarea
+                        name="descripcion"
+                        rows="6"
+                        placeholder="Describa los hechos, modelos de equipos afectados o situaciones especificas para agilizar la investigacion tecnica."
+                        required
+                    />
+                </Campo>
+                <GrupoOpciones nombre="impactoOperacion" opciones={impactosOperacion} />
+                <Campo etiqueta="Evidencias / archivos adjuntos" requerido={false}>
+                    <input type="file" name="evidencias" accept=".pdf,.jpg,.jpeg,.png" multiple />
+                </Campo>
+                <p className="soporte-ayuda">
+                    Adjunte fotos del panel de control, reportes de error del sistema BMS, videos del ruido o documentos de soporte.
+                </p>
+            </div>
+            <div className="soporte-paso">
+                <span className="soporte-paso__numero">Paso 4</span>
+                <h3>Consentimiento Legal</h3>
+                <label className="soporte-consentimiento">
+                    <input type="checkbox" required />
+                    <span>Acepto la Politica de Tratamiento de Datos Personales y los tiempos de respuesta legales de atencion corporativa.</span>
+                </label>
+            </div>
+            <button className="soporte-boton" type="submit">
+                Radicar Solicitud con Prioridad
+            </button>
+        </form>
+    );
+}
+
+function FormularioActivo({ tipo, onSubmit }) {
+    if (tipo === 'facturacion') {
+        return <FacturacionForm onSubmit={onSubmit} />;
+    }
+
+    if (tipo === 'pqrsd') {
+        return <PqrsdForm onSubmit={onSubmit} />;
+    }
+
+    return <SolicitudServicioForm onSubmit={onSubmit} />;
+}
+
+export default function Soporte() {
+    const [tipoActivo, setTipoActivo] = useState(tiposSoporte[0].id);
+    const [radicado, setRadicado] = useState('');
+
+    const soporteActivo = useMemo(
+        () => tiposSoporte.find((tipo) => tipo.id === tipoActivo) ?? tiposSoporte[0],
+        [tipoActivo],
+    );
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        const consecutivo = Math.floor(1000 + Math.random() * 9000);
+        setRadicado(`HVAC-2026-${consecutivo}`);
+    }
+
+    return (
+        <main className="pagina-soporte">
+            <section className="soporte-hero">
+                <div className="soporte-container">
+                    <span className="soporte-label">Soporte CUSTOM VAR</span>
+                    <h1>Atencion corporativa para solicitudes criticas y administrativas.</h1>
+                    <p>
+                        Centralice solicitudes de servicio, facturacion, pagaduria y PQRSD en un flujo claro,
+                        trazable y orientado a la continuidad de su operacion.
+                    </p>
+                </div>
+            </section>
+
+            <section className="soporte-panel">
+                <div className="soporte-container soporte-panel__grid">
+                    <aside className="soporte-selector" aria-label="Tipos de soporte">
+                        {tiposSoporte.map((tipo) => (
+                            <button
+                                className={tipo.id === tipoActivo ? 'is-active' : ''}
+                                key={tipo.id}
+                                type="button"
+                                onClick={() => {
+                                    setTipoActivo(tipo.id);
+                                    setRadicado('');
+                                }}
+                            >
+                                <span>{tipo.titulo}</span>
+                                <small>{tipo.descripcion}</small>
+                            </button>
+                        ))}
+                    </aside>
+
+                    <div className="soporte-contenido">
+                        <div className="soporte-contenido__header">
+                            <span className="soporte-label">{soporteActivo.titulo}</span>
+                            <h2>{soporteActivo.cta}</h2>
+                            <p>{soporteActivo.descripcion}</p>
+                        </div>
+
+                        {radicado && (
+                            <div className="soporte-confirmacion" role="status">
+                                <strong>Solicitud Recibida Correctamente.</strong>
+                                <span>Su requerimiento ha sido asignado al radicado No. {radicado}.</span>
+                                <span>
+                                    Si el impacto fue marcado como Alto / Critico, el equipo indicado sera notificado para
+                                    priorizar la respuesta.
+                                </span>
+                            </div>
+                        )}
+
+                        <FormularioActivo tipo={tipoActivo} onSubmit={handleSubmit} />
+
+                        {tipoActivo === 'pqrsd' && (
+                            <div className="soporte-respuesta">
+                                <h3>Respuesta consultiva post-envio</h3>
+                                <p>
+                                    El caso se enruta segun su clasificacion: reclamos tecnicos de alto impacto al lider de
+                                    servicios, quejas administrativas al area administrativa y casos comerciales al lider
+                                    comercial para gestionar la cuenta antes de que escale.
+                                </p>
+                                <p>
+                                    Recibira un correo formal confirmando el radicado y el plazo maximo de contacto de 24 horas
+                                    habiles para coordinar la solucion.
+                                </p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+        </main>
+    );
+}

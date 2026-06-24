@@ -52,15 +52,15 @@ export default function OfertaSoluciones({ onSolicitarAsesoria }) {
             <section className="soluciones-bloque" id="proyectos">
                 <div className="soluciones-container soluciones-bloque__intro">
                     <span className="soluciones-label">Proyectos</span>
-                    <h2>Diseno, implementacion y consultoria.</h2>
+                    <h2>Diseño, implementación y consultoría.</h2>
                 </div>
                 <CarruselOferta onSolicitarAsesoria={onSolicitarAsesoria} />
                 <div className="soluciones-container">
                     <p className="soluciones-texto-pdf">
-                        Ofrecemos un acompanamiento total a sus requerimientos de Ventilacion, Aire acondicionado y
-                        Refrigeracion. Prestos a asistirle en el diseno, seleccion, suministro e instalacion de sistemas
-                        nuevos, asi como en la implementacion de estrategias Operacion, mantenimiento preventivo,
-                        reparaciones y modernizacion, para que sus proyectos o instalaciones funcionen del modo mas
+                        Ofrecemos un acompañamiento total a sus requerimientos de Ventilación, Aire acondicionado y
+                        Refrigeración. Prestos a asistirle en el diseño, seleccion, suministro e instalación de sistemas
+                        nuevos, así como en la implementación de estrategias Operación, mantenimiento preventivo,
+                        reparaciones y modernización, para que sus proyectos o instalaciones funcionen del modo más
                         eficiente posible y dentro de su presupuesto.
                     </p>
                 </div>
@@ -72,12 +72,12 @@ export default function OfertaSoluciones({ onSolicitarAsesoria }) {
             <section className="soluciones-bloque soluciones-bloque--oscuro" id="servicios">
                 <div className="soluciones-container soluciones-bloque__intro">
                     <span className="soluciones-label">Servicios</span>
-                    <h2>Operacion, mantenimiento, reparacion y modernizacion.</h2>
+                    <h2>Operación, mantenimiento, reparación y modernización.</h2>
                 </div>
                 <CarruselOferta onSolicitarAsesoria={onSolicitarAsesoria} />
                 <div className="soluciones-container">
                     <p className="soluciones-texto-pdf soluciones-texto-pdf--oscuro">
-                        Ruta al ÉXITO: Diseñemos juntos el programa de mantenimiento centrado en confiabilidad,
+                        Diseñemos juntos el programa de mantenimiento centrado en confiabilidad,
                         Manejamos un modelo de contratación flexible, que cubre la atención por evento, la atención
                         cíclica programada, hasta la posibilidad de que un miembro de nuestro equipo tenga presencia
                         a tiempo parcial o completo en sus instalaciones. De acuerdo a su actividad y requerimientos,
