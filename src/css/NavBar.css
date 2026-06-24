@@ -45,14 +45,13 @@
 
 .envoltura-navegacion {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
     align-items: center;
     height: 80px;
-    padding-left: var(--separacion-lateral);
+    padding-left: 50px;
     padding-right: var(--separacion-lateral);
     max-width: var(--ancho-maximo-contenedor);
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: 0 auto;
 }
 
 /* Logotipo */
@@ -63,8 +62,8 @@
 }
 
 .logotipo {
-    width: 200px;
-    height: 50px;
+    width: 400px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -110,6 +109,7 @@
 
 /* Botón Contacto */
 .boton-contacto {
+    margin-left: auto;
     background-color: var(--color-contenedor-primario);
     color: var(--color-blanco-puro);
     padding: 8px 24px;
@@ -140,6 +140,7 @@
 @media (min-width: 768px) {
     .menu-navegacion {
         display: flex;
+        flex-grow: 1;
     }
 }
 

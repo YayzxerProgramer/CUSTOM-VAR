@@ -8,10 +8,9 @@ export default function Navbar() {
             <header className="encabezado-navegacion">
                 <div className="envoltura-navegacion">
                     <div className="zona-logotipo">
-                        <img src="/src/img/logo-custom-var.jpg" alt="Logotipo CUSTOM VAR" className="logotipo" />
+                        <img src="/src/img/LogoCustomBlanco.png" alt="Logotipo CUSTOM VAR" className="logotipo" />
                     </div>
                     <nav className="menu-navegacion">
-                        {/* NavLink evalúa si la URL coincide y aplica el callback en className */}
                         <NavLink
                             to="/nosotros"
                             className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
@@ -28,13 +27,13 @@ export default function Navbar() {
                             to="/soporte"
                             className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
                         >
-                            Soporte
+                            Proyectos
                         </NavLink>
                         <NavLink
                             to="/iniciativas"
                             className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
                         >
-                            Iniciativas
+                            Servicios
                         </NavLink>
                         <NavLink
                             to="/talento"

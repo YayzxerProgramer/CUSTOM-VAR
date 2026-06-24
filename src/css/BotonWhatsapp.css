@@ -1,7 +1,7 @@
 /* ==========================================
    CONTENEDOR GLOBAL FLOTANTE
    ========================================== */
-.contenedor-whatsapp-flotante {
+.wsp-widget {
     position: fixed;
     bottom: 32px;
     right: 32px;
@@ -11,15 +11,16 @@
     z-index: 9999;
     /* Asegura que esté por encima de cualquier otro elemento */
     gap: 12px;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 /* ==========================================
    BOTÓN CIRCULAR DE WHATSAPP
    ========================================== */
-.enlace-whatsapp-icono {
+.wsp-float-btn {
     background-color: #25D366;
     /* Verde oficial de WhatsApp */
-    color: var(--color-blanco-puro, #FFFFFF);
+    color: #FFFFFF;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -29,15 +30,18 @@
     box-shadow: 0 4px 16px rgba(0, 33, 50, 0.3);
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
-.icono-whatsapp-svg {
-    width: 32px;
-    height: 32px;
+.wsp-float-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.4);
 }
 
 /* Efectos al pasar el cursor por el botón */
-.enlace-whatsapp-icono:hover {
+.wsp-float-btn:hover {
     background-color: #20ba5a;
     transform: scale(1.1) rotate(8deg);
     box-shadow: 0 8px 24px rgba(0, 33, 50, 0.4);
@@ -46,32 +50,36 @@
 /* ==========================================
    CUADRO DE TEXTO / BOCADILLO DE MENSAJE
    ========================================== */
-.bocadillo-whatsapp {
+.wsp-bubble {
     position: relative;
-    background-color: var(--color-blanco-puro, #FFFFFF);
+    background-color: #FFFFFF;
     border-left: 4px solid #25D366;
     padding: 16px 36px 16px 20px;
-    border-radius: var(--borde-redondeado, 8px);
-    box-shadow: 0 4px 20px rgba(0, 33, 50, 0.15);
-    max-width: 240px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 220px;
     animation: deslizarMensaje 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.texto-bocadillo {
-    font-family: var(--fuente-cuerpo, sans-serif);
-    color: var(--color-primario, #002132);
+.wsp-bubble-title {
+    color: #333333;
     font-size: 14px;
     line-height: 1.4;
     margin: 0;
 }
 
-.texto-bocadillo strong {
+.wsp-bubble-link {
     color: #25D366;
     display: block;
-    margin-top: 2px;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.flecha-bocadillo {
+/* Flecha del bocadillo (estilo del segundo bloque) */
+.wsp-bubble::after {
+    content: '';
     position: absolute;
     bottom: -8px;
     right: 24px;
@@ -79,11 +87,11 @@
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid var(--color-blanco-puro, #FFFFFF);
+    border-top: 8px solid #FFFFFF;
 }
 
 /* Botón de cierre (X) */
-.boton-cerrar-bocadillo {
+.wsp-bubble-close {
     position: absolute;
     top: 6px;
     right: 10px;
@@ -97,8 +105,9 @@
     transition: color 0.2s ease;
 }
 
-.boton-cerrar-bocadillo:hover {
-    color: var(--color-acento-rojo, #DB2D2C);
+.wsp-bubble-close:hover {
+    color: #DB2D2C;
+    /* Rojo de acento para el cierre */
 }
 
 /* ==========================================
@@ -120,27 +129,30 @@
    RESPONSIVE MÓVIL
    ========================================== */
 @media (max-width: 480px) {
-    .contenedor-whatsapp-flotante {
+    .wsp-widget {
         bottom: 20px;
         right: 20px;
     }
 
-    .bocadillo-whatsapp {
+    .wsp-bubble {
         max-width: 180px;
         padding: 12px 28px 12px 14px;
     }
 
-    .texto-bocadillo {
+    .wsp-bubble-title,
+    .wsp-bubble-link {
         font-size: 13px;
     }
 
-    .enlace-whatsapp-icono {
+    .wsp-float-btn {
         width: 52px;
         height: 52px;
     }
 
-    .icono-whatsapp-svg {
-        width: 26px;
-        height: 26px;
+    .wsp-float-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.4);
     }
 }
