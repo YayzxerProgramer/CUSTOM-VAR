@@ -36,7 +36,7 @@ export default function CarruselAcordeon({
 
     return (
         <section
-            className={`carrusel-acordeon ${className}`.trim()}
+            className= "carrusel-acordeon"
             aria-label={ariaLabel}
             style={altura ? { '--carrusel-altura': altura } : undefined}
         >
