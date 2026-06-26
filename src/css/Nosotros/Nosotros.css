@@ -244,8 +244,12 @@
     padding: 0;
     position: absolute;
     top: var(--y);
-    transform: translate(-12px, -12px);
+    transform: translate(-10px, -10px);
     z-index: 3;
+}
+
+.city-marker--logo {
+    transform: translate(-20px, -20px);
 }
 
 .city-marker__dot {
@@ -255,6 +259,14 @@
     box-shadow: 0 0 0 7px rgba(219, 45, 44, 0.18), 0 10px 24px rgba(0, 33, 50, 0.18);
     height: 20px;
     width: 20px;
+}
+
+.city-marker__logo {
+    filter: drop-shadow(0 6px 14px rgba(0, 33, 50, 0.25));
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.25s ease, filter 0.25s ease;
+    width: auto;
 }
 
 .city-marker__name {
@@ -285,6 +297,13 @@
 .city-marker.is-active .city-marker__dot {
     background: var(--custom-blue);
     box-shadow: 0 0 0 8px rgba(0, 33, 50, 0.16), 0 12px 28px rgba(0, 33, 50, 0.22);
+}
+
+.city-marker:hover .city-marker__logo,
+.city-marker:focus-visible .city-marker__logo,
+.city-marker.is-active .city-marker__logo {
+    filter: drop-shadow(0 10px 22px rgba(0, 33, 50, 0.35));
+    transform: scale(1.18);
 }
 
 .map-quote {

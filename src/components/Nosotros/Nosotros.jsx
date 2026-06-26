@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import colombiaMap from "../../img/co.svg";
+import logoSolo from "../../img/LogoSolo.png";
 import "../../css/Nosotros/Nosotros.css";
 
 const ciudades = [
@@ -14,6 +15,7 @@ const ciudades = [
         proyectos: "Por confirmar",
         x: 44,
         y: 25,
+        useLogo: true,
     },
     {
         id: "barranquilla",
@@ -26,6 +28,7 @@ const ciudades = [
         proyectos: "Por confirmar",
         x: 47,
         y: 20,
+        useLogo: true,
     },
     {
         id: "medellin",
@@ -62,6 +65,7 @@ const ciudades = [
         proyectos: "Por confirmar",
         x: 39,
         y: 55,
+        useLogo: true,
     },
 ];
 
@@ -151,14 +155,23 @@ export default function Nosotros() {
 
                             {ciudades.map((item) => (
                                 <button
-                                    className={`city-marker ${ciudadActiva.id === item.id ? "is-active" : ""}`}
+                                    className={`city-marker ${item.useLogo ? "city-marker--logo" : ""} ${ciudadActiva.id === item.id ? "is-active" : ""}`}
                                     key={item.id}
                                     style={{ "--x": `${item.x}%`, "--y": `${item.y}%` }}
                                     onClick={() => setCiudadActiva(item)}
                                     onMouseEnter={() => setCiudadActiva(item)}
                                     aria-label={`Ver informacion de ${item.ciudad}`}
                                 >
-                                    <span className="city-marker__dot" />
+                                    {item.useLogo ? (
+                                        <img
+                                            className="city-marker__logo"
+                                            src={logoSolo}
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    ) : (
+                                        <span className="city-marker__dot" />
+                                    )}
                                     <span className="city-marker__name">{item.ciudad}</span>
                                 </button>
                             ))}

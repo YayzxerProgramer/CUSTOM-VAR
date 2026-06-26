@@ -1,6 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'; // Importamos NavLink
+import { NavLink } from 'react-router-dom';
 import "../css/NavBar.css"
+
+const ENLACES = [
+    { to: "/nosotros", label: "Nosotros" },
+    { to: "/soluciones", label: "Soluciones" },
+    { to: "/soporte", label: "Proyectos" },
+    { to: "/iniciativas", label: "Servicios" },
+    { to: "/talento", label: "Talento" },
+    { to: "/noticias", label: "Noticias" },
+];
 
 export default function Navbar() {
     return (
@@ -11,47 +20,32 @@ export default function Navbar() {
                         <img src="/src/img/LogoCustomBlanco.png" alt="Logotipo CUSTOM VAR" className="logotipo" />
                     </div>
                     <nav className="menu-navegacion">
-                        <NavLink
-                            to="/nosotros"
-                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
-                        >
-                            Nosotros
-                        </NavLink>
-                        <NavLink
-                            to="/soluciones"
-                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
-                        >
-                            Soluciones
-                        </NavLink>
-                        <NavLink
-                            to="/soporte"
-                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
-                        >
-                            Proyectos
-                        </NavLink>
-                        <NavLink
-                            to="/iniciativas"
-                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
-                        >
-                            Servicios
-                        </NavLink>
-                        <NavLink
-                            to="/talento"
-                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
-                        >
-                            Talento
-                        </NavLink>
-                        <NavLink
-                            to="/noticias"
-                            className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
-                        >
-                            Noticias
-                        </NavLink>
+                        {ENLACES.map(({ to, label }) => (
+                            <NavLink
+                                key={to}
+                                to={to}
+                                className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
+                            >
+                                {label}
+                            </NavLink>
+                        ))}
                     </nav>
-
                     <button className="boton-contacto">Contacto</button>
                 </div>
             </header>
+
+            <nav className="barra-inferior-movil" aria-label="Navegación móvil">
+                {ENLACES.map(({ to, label }) => (
+                    <NavLink
+                        key={to}
+                        to={to}
+                        className={({ isActive }) => isActive ? "tab-movil tab-activo" : "tab-movil"}
+                    >
+                        {label}
+                    </NavLink>
+                ))}
+                <button className="tab-movil tab-contacto">Contacto</button>
+            </nav>
         </div>
     );
 }

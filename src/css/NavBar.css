@@ -45,14 +45,13 @@
 
 .envoltura-navegacion {
     display: flex;
-    justify-content: space-around;
-    gap: 200px;
+    justify-content: space-between;
     align-items: center;
+    gap: 24px;
     height: 80px;
-    padding-left: 50px;
-    padding-right: var(--separacion-lateral);
-    max-width: var(--ancho-maximo-contenedor);
-    margin-right: auto;
+    padding: 0 var(--separacion-lateral) 0 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Logotipo */
@@ -60,31 +59,28 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-shrink: 0;
+    height: 100%;
+    width: 350px;
+    justify-content: flex-start;
 }
 
 .logotipo {
-    width: 400px;
-    height: 200px;
-    object-fit: cover;
-}
-
-.titulo-logotipo {
-    font-family: var(--fuente-titulos);
-    font-size: 32px;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-    font-weight: 600;
-    color: var(--color-blanco-puro);
-    display: none;
-    /* Oculto en móviles por defecto */
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 
 /* Menú de Navegación */
 .menu-navegacion {
     display: none;
-    /* Oculto en móviles por defecto */
     align-items: center;
     gap: var(--separacion-menu);
+    flex: 1;
+    justify-content: center;
+    margin-right: 210px;
+
 }
 
 .enlace-menu {
@@ -110,10 +106,10 @@
 
 /* Botón Contacto */
 .boton-contacto {
-    margin-left: auto;
+    flex-shrink: 0;
     background-color: var(--color-contenedor-primario);
     color: var(--color-blanco-puro);
-    padding: 8px 24px;
+    padding: 10px 28px;
     font-family: var(--fuente-titulos);
     font-size: 14px;
     line-height: 1.0;
@@ -135,20 +131,194 @@
 }
 
 /* ==========================================
+   BARRA DE NAVEGACIÓN INFERIOR (Móvil)
+   ========================================== */
+.barra-inferior-movil {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: var(--color-primario);
+    box-shadow: 0 -4px 16px rgba(0, 33, 50, 0.5);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    height: 56px;
+    align-items: stretch;
+    padding: 0 4px;
+}
+
+.barra-inferior-movil::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-movil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 0 20px;
+    font-family: var(--fuente-titulos);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.tab-movil:hover {
+    color: var(--color-blanco-puro);
+}
+
+.tab-activo {
+    color: var(--color-texto-contenedor-primario);
+    border-bottom-color: var(--color-texto-contenedor-primario);
+}
+
+.tab-contacto {
+    background-color: var(--color-contenedor-primario);
+    color: var(--color-blanco-puro);
+    border-radius: var(--borde-redondeado);
+    border-top: none;
+    border-bottom: none;
+    margin: 10px 12px 10px 6px;
+    padding: 0 18px;
+    height: 36px;
+    transition: background-color 0.2s ease;
+}
+
+.tab-contacto:hover {
+    background-color: var(--color-variante-primario-fijo);
+    color: var(--color-blanco-puro);
+}
+
+/* ==========================================
    PUNTOS DE QUIEBRE (Responsive)
    ========================================== */
-/* Pantallas medianas en adelante (Equivalente a md:) */
-@media (min-width: 768px) {
-    .menu-navegacion {
+
+/* Móvil: < 768px */
+@media (max-width: 767px) {
+    .logotipo {
+        height: 72px;
+        width: auto;
+    }
+
+    .envoltura-navegacion {
+        justify-content: center;
+        padding: 0 var(--separacion-lateral);
+        height: 88px;
+    }
+
+    .boton-contacto {
+        display: none;
+    }
+
+    .barra-inferior-movil {
         display: flex;
-        flex-grow: 1;
     }
 }
 
-/* Pantallas grandes en adelante (Equivalente a lg:) */
-@media (min-width: 1024px) {
-    .titulo-logotipo {
-        display: block;
+/* Tablet: ≥ 768px (mostrar menú) */
+@media (min-width: 768px) {
+    .menu-navegacion {
+        display: flex;
+    }
+}
+
+/* ==========================================
+   LAPTOP: 1024px - 1439px
+   Logo izquierda | nav centrado | botón derecha
+   ========================================== */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .envoltura-navegacion {
+        height: 72px;
+        gap: 16px;
+        padding: 0 32px 0 32px;
+    }
+
+    .logotipo {
+        height: 300px;
+        width: auto;
+    }
+
+    .menu-navegacion {
+        gap: 22px;
+    }
+
+    .enlace-menu {
+        font-size: 13px;
+        letter-spacing: 0.08em;
+    }
+
+    .boton-contacto {
+        padding: 8px 22px;
+        font-size: 13px;
+    }
+}
+
+/* ==========================================
+   PC DE ESCRITORIO: ≥ 1440px
+   ========================================== */
+@media (min-width: 1440px) {
+    .envoltura-navegacion {
+        height: 76px;
+        gap: 24px;
+        padding: 0 48px 0 48px;
+    }
+
+    .logotipo {
+        height: 350px;
+    }
+
+    .menu-navegacion {
+        gap: var(--separacion-menu);
+    }
+
+    .enlace-menu {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+    }
+
+    .boton-contacto {
+        padding: 10px 28px;
+        font-size: 14px;
+    }
+}
+
+/* ==========================================
+   PANTALLAS GRANDES: ≥ 1920px
+   ========================================== */
+@media (min-width: 1920px) {
+    .envoltura-navegacion {
+        height: 84px;
+        padding: 0 64px 0 64px;
+    }
+
+    .logotipo {
+        height: 72px;
+        width: auto;
+    }
+
+    .menu-navegacion {
+        gap: 40px;
+    }
+
+    .enlace-menu {
+        font-size: 15px;
+    }
+
+    .boton-contacto {
+        padding: 12px 32px;
+        font-size: 15px;
     }
 }
 
