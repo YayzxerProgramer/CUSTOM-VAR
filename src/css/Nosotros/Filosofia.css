@@ -1,159 +1,123 @@
 /* ==========================================
-   SECCIÓN FILOSOFÍA GENERAL
+   CONTENEDOR DE LA SECCIÓN
    ========================================== */
 .seccion-filosofia {
-    background-color: var(--color-fondo);
-    padding-top: var(--relleno-seccion);
-    padding-bottom: var(--relleno-seccion);
+    background-color: var(--color-blanco-puro, #ffffff);
+    padding: 50px 0;
     width: 100%;
 }
 
 .contenedor-filosofia {
-    max-width: var(--ancho-maximo-contenedor);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--separacion-lateral);
-    padding-right: var(--separacion-lateral);
+    max-width: var(--ancho-maximo-contenedor, 1200px);
+    margin: 0 auto;
+    padding: 0 var(--separacion-lateral, 24px);
 }
 
-.bloque-introduccion {
+/* Texto introductorio superior idéntico al PDF */
+.bloque-introduccion-filosofia {
+    max-width: 1000px;
     margin-bottom: 48px;
-    max-width: 900px;
 }
 
-.titulo-filosofia {
-    color: var(--color-primario);
-    font-family: var(--fuente-titulos);
-    font-size: 42px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    margin-top: 0;
-    margin-bottom: 16px;
-}
-
-.texto-filosofia {
-    color: var(--color-texto-fondo);
-    font-family: var(--fuente-cuerpo);
-    font-size: 17px;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* ==========================================
-   ESTRUCTURA DEL ACRÓSTICO
-   ========================================== */
-.lista-acrostico {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* Separación entre filas */
-}
-
-.tarjeta-acrostico {
-    display: flex;
-    background-color: var(--color-blanco-puro);
-    border-radius: var(--borde-redondeado);
-    box-shadow: 0 4px 10px rgba(0, 33, 50, 0.06);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efecto interactivo al pasar el mouse */
-.tarjeta-acrostico:hover {
-    transform: translateX(8px);
-    box-shadow: 0 8px 20px rgba(0, 33, 50, 0.12);
-}
-
-/* Bloque de la Letra Inicial */
-.contenedor-letra {
-    background-color: var(--color-contenedor-primario);
-    width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    /* Evita que la cajita de la letra se deforme */
-    transition: background-color 0.3s ease;
-}
-
-.tarjeta-acrostico:hover .contenedor-letra {
-    background-color: var(--color-acento-rojo);
-    /* Cambia a tu color de acento en hover */
-}
-
-.letra-inicial {
-    color: var(--color-blanco-puro);
-    font-family: var(--fuente-titulos);
+.titulo-seccion-filosofia {
+    color: var(--color-primario, #002132);
+    font-family: var(--fuente-titulos, sans-serif);
     font-size: 48px;
     font-weight: 700;
-    line-height: 1;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-/* Bloque del Texto Informativo */
-.contenido-acrostico {
-    padding: 24px 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-}
-
-.encabezado-termino {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
-}
-
-.termino-ingles {
-    color: var(--color-primario);
-    font-family: var(--fuente-titulos);
-    font-size: 22px;
-    font-weight: 700;
-    margin: 0;
-}
-
-.separador-termino {
-    color: var(--color-texto-contenedor-primario);
-    font-weight: 600;
-}
-
-.termino-espanol {
-    color: var(--color-variante-primario-fijo);
-    font-family: var(--fuente-cuerpo);
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.descripcion-termino {
-    color: #555555;
-    font-family: var(--fuente-cuerpo);
-    font-size: 15px;
-    line-height: 1.4;
+.texto-introduccion-filosofia {
+    color: var(--color-texto-fondo, #4a5568);
+    font-family: var(--fuente-cuerpo, sans-serif);
+    font-size: 16px;
+    line-height: 1.7;
     margin: 0;
 }
 
 /* ==========================================
-    RESPONSIVE
-    ========================================== */
-@media (max-width: 576px) {
-    .tarjeta-acrostico {
-        flex-direction: column;
-        /* Se apila verticalmente en celulares muy pequeños */
-    }
+   DISEÑO DE LA TABLA INGENIERIL
+   ========================================== */
+.contenedor-tabla-responsiva {
+    width: 100%;
+    overflow-x: auto;
+    /* Permite scroll horizontal solo si la pantalla es extremadamente pequeña */
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0, 33, 50, 0.06);
+}
 
-    .contenedor-letra {
-        width: 100%;
-        padding: 12px 0;
-    }
+.tabla-acrostico-custom {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    min-width: 700px;
+    /* Evita que la estructura se colapse en pantallas pequeñas */
+}
 
-    .contenido-acrostico {
-        padding: 16px;
-    }
+/* Estilo general de las celdas */
+.tabla-acrostico-custom td {
+    padding: 20px 24px;
+    border: 1px solid #e2e8f0;
+    font-family: var(--fuente-cuerpo, sans-serif);
+    font-size: 15px;
+    color: #4a5568;
+    vertical-align: middle;
+}
 
-    .encabezado-termino {
-        flex-wrap: wrap;
-        gap: 4px;
-    }
+/* Columnas del acróstico (Bloque Izquierdo) */
+.celda-letra-acrostico {
+    background-color: var(--color-primario, #002132);
+    color: #ffffff !important;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    width: 70px;
+    padding: 0 !important;
+    /* Manejado por los sub-bloques internos */
+    border: 1px solid var(--color-primario, #002132) !important;
+}
+
+/* Contenedor interno para letras compartidas (U-S y T-O) */
+.bloque-letras-unidas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    /* Separación proporcional vertical */
+    height: 100%;
+    padding: 20px 0;
+}
+
+/* Columna de Conceptos en Inglés */
+.celda-concepto-ingles {
+    font-family: var(--fuente-titulos, sans-serif) !important;
+    font-weight: 700;
+    color: var(--color-primario, #002132) !important;
+    font-size: 16px !important;
+    width: 20%;
+}
+
+/* Columna de Traducción al Español */
+.celda-traduccion-espanol {
+    color: var(--color-acento-rojo, #DB2D2C) !important;
+    font-weight: 600;
+    width: 20%;
+}
+
+/* Columna de Descripción de Filosofía */
+.celda-descripcion-filosofia {
+    line-height: 1.5;
+    width: 50%;
+}
+
+/* ==========================================
+   EFECTOS DE INTERACCIÓN (HOVER)
+   ========================================== */
+.tabla-acrostico-custom tr:hover td:not(.celda-letra-acrostico) {
+    background-color: #f8fafc;
+    transition: background-color 0.2s ease;
 }

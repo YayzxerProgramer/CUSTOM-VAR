@@ -45,13 +45,14 @@
 
 .envoltura-navegacion {
     display: flex;
-    gap: 20px;
+    justify-content: space-around;
+    gap: 200px;
     align-items: center;
     height: 80px;
     padding-left: 50px;
     padding-right: var(--separacion-lateral);
     max-width: var(--ancho-maximo-contenedor);
-    margin-right: 0 auto;
+    margin-right: auto;
 }
 
 /* Logotipo */

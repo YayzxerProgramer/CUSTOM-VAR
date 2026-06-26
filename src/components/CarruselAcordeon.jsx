@@ -3,7 +3,7 @@ import '../css/CarruselAcordeon.css';
 
 export default function CarruselAcordeon({
     items = [],
-    itemsPorPagina = 3,
+    itemsPorPagina = 3, 
     className = '',
     ariaLabel = 'Carrusel de contenidos',
     textoBoton = 'Explorar solucion',
@@ -35,8 +35,9 @@ export default function CarruselAcordeon({
     };
 
     return (
+        /* CORRECCIÓN: Ahora concatenamos la prop className externa correctamente */
         <section
-            className= "carrusel-acordeon"
+            className={`carrusel-acordeon ${className}`.trim()}
             aria-label={ariaLabel}
             style={altura ? { '--carrusel-altura': altura } : undefined}
         >

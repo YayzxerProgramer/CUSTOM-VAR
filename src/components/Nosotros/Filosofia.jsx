@@ -2,52 +2,78 @@ import React from 'react';
 import '../../css/Nosotros/Filosofia.css';
 
 export default function Filosofia() {
-    const acrostico = [
-        { letra: 'C', termino: 'Customer', traduccion: 'Cliente', descripcion: 'Los clientes como nuestro centro y enfoque.' },
-        { letra: 'U', termino: 'Customizable', traduccion: 'Personalizable', descripcion: 'Soluciones a la medida de cada requerimiento.' },
-        { letra: 'S', termino: 'Customs', traduccion: 'Costumbres', descripcion: 'Como lo hacían los abuelos. ¡Con Honorabilidad!' },
-        { letra: 'T', termino: 'Tradición', traduccion: 'Generación de valor', descripcion: 'Tradición, generación de valor y soluciones personalizadas.' },
-        { letra: 'O', termino: 'Optimización', traduccion: 'A la medida', descripcion: 'Desarrollo de proyectos de manera responsable y exacta.' },
-        { letra: 'M', termino: 'Custom House', traduccion: 'Aduana', descripcion: 'Generación de valor para las partes interesadas.' },
-    ];
-
     return (
         <section className="seccion-filosofia">
             <div className="contenedor-filosofia">
-
-                {/* Bloque de Introducción */}
-                <div className="bloque-introduccion">
-                    <h2 className="titulo-filosofia">FILOSOFÍA CUSTOM</h2>
-                    <p className="texto-filosofia">
-                        Somos una empresa con vocación de servicio, basada en la filosofía representada en nuestro nombre,
-                        el cual hace referencia a la tradición, generación de valor y a soluciones personalizadas, por ende
-                        es nuestro compromiso dar respuesta a las necesidades de nuestros clientes de manera responsable y
-                        a la medida de sus requerimientos, convirtiéndonos en la mejor opción para el desarrollo de sus proyectos.
+                <header className="bloque-introduccion-filosofia">
+                    <h2 className="titulo-seccion-filosofia">FILOSOFÍA CUSTOM</h2>
+                    <p className="texto-introduccion-filosofia">
+                        Somos una empresa con vocación de servicio, basada en la filosofía representada en nuestro
+                        nombre, el cual hace referencia a la tradición, generación de valor y a soluciones personalizadas,
+                        por ende es nuestro compromiso dar respuesta a las necesidades de nuestros clientes de manera
+                        responsable y a la medida de sus requerimientos, convirtiéndonos en la mejor opción para el
+                        desarrollo de sus proyectos.
                     </p>
-                </div>
+                </header>
 
-                {/* Contenedor del Acróstico */}
-                <div className="lista-acrostico">
-                    {acrostico.map((item, indice) => (
-                        <div key={indice} className="tarjeta-acrostico">
+                <div className="contenedor-tabla-responsiva">
+                    <table className="tabla-acrostico-custom">
+                        <tbody>
+                            {/* Fila 1: Incluye la 'C' que abarca su propia fila */}
+                            <tr>
+                                <td className="celda-letra-acrostico pilar-c">C</td>
+                                <td className="celda-concepto-ingles">Customer</td>
+                                <td className="celda-traduccion-espanol">Cliente</td>
+                                <td className="celda-descripcion-filosofia">Los clientes como nuestro centro y enfoque</td>
+                            </tr>
 
-                            {/* Letra del Acróstico */}
-                            <div className="contenedor-letra">
-                                <span className="letra-inicial">{item.letra}</span>
-                            </div>
+                            {/* Fila 2: Incluye la 'U' y la 'S' combinadas verticalmente en el diseño del PDF */}
+                            <tr>
+                                <td className="celda-letra-acrostico pilar-u-s" rowSpan="2">
+                                    <div className="bloque-letras-unidas">
+                                        <span>U</span>
+                                        <span>S</span>
+                                    </div>
+                                </td>
+                                <td className="celda-concepto-ingles">Customizable</td>
+                                <td className="celda-traduccion-espanol">Personalizable</td>
+                                <td className="celda-descripcion-filosofia">Soluciones a la medida de cada requerimiento</td>
+                            </tr>
+                            {/* Fila 3: Comparte la celda 'U S' anterior */}
+                            <tr>
+                                <td className="celda-concepto-ingles">Customs</td>
+                                <td className="celda-traduccion-espanol">Costumbres</td>
+                                <td className="celda-descripcion-filosofia">Como lo hacían los abuelos. ¡Con Honorabilidad!</td>
+                            </tr>
 
-                            {/* Contenido Descriptivo */}
-                            <div className="contenido-acrostico">
-                                <div className="encabezado-termino">
-                                    <h3 className="termino-ingles">{item.termino}</h3>
-                                    <span className="separador-termino">/</span>
-                                    <h4 className="termino-espanol">{item.traduccion}</h4>
-                                </div>
-                                <p className="descripcion-termino">{item.descripcion}</p>
-                            </div>
+                            {/* Fila 4: Incluye la 'T' y la 'O' combinadas verticalmente en el diseño del PDF */}
+                            <tr>
+                                <td className="celda-letra-acrostico pilar-t-o" rowSpan="2">
+                                    <div className="bloque-letras-unidas">
+                                        <span>T</span>
+                                        <span>O</span>
+                                    </div>
+                                </td>
+                                <td className="celda-concepto-ingles">Tradición</td>
+                                <td className="celda-traduccion-espanol">Generación de valor</td>
+                                <td className="celda-descripcion-filosofia">Tradición, generación de valor y soluciones personalizadas.</td>
+                            </tr>
+                            {/* Fila 5: Comparte la celda 'T O' anterior */}
+                            <tr>
+                                <td className="celda-concepto-ingles">Optimización</td>
+                                <td className="celda-traduccion-espanol">A la medida</td>
+                                <td className="celda-descripcion-filosofia">Desarrollo de proyectos de manera responsable y exacta.</td>
+                            </tr>
 
-                        </div>
-                    ))}
+                            {/* Fila 6: Incluye la 'M' que abarca su propia fila */}
+                            <tr>
+                                <td className="celda-letra-acrostico pilar-m">M</td>
+                                <td className="celda-concepto-ingles">Custom House</td>
+                                <td className="celda-traduccion-espanol">Aduana</td>
+                                <td className="celda-descripcion-filosofia">Generación de valor para las partes interesadas.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

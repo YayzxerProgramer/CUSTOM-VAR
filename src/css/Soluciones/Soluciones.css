@@ -124,295 +124,171 @@ UTILIDADES DE POSICIONAMIENTO Y CLASES
     padding-right: var(--separacion-lateral, 24px);
 }
 
-/* DESPUÉS */
-.oferta-grid {
-    .rejilla-tarjetas {
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 24px;
-    }
+.rejilla-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 24px;
+}
 
-    .oferta-card {
-        background: #ffffff;
-        border: 1px solid #dce5eb;
-        border-left: 4px solid var(--color-primario);
-        box-shadow: 0 4px 14px rgba(0, 33, 50, 0.06);
-        display: grid;
-        grid-template-columns: 180px 1fr;
-
-        /* ==========================================
+/* ==========================================
    COMPONENTE TARJETA PERSONA
    ========================================== */
-        .tarjeta-persona {
-            background-color: var(--color-blanco-puro, #ffffff);
-            border-top: 4px solid var(--color-acento-rojo, #db2d2c);
-            /* border-secondary */
-            box-shadow:
-                0 4px 6px -1px rgba(0, 0, 0, 0.1),
-                0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            /* shadow-md */
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition:
-                box-shadow 0.25s ease,
-                transform 0.25s ease;
-        }
+.tarjeta-persona {
+    background-color: var(--color-blanco-puro, #ffffff);
+    border-top: 4px solid var(--color-acento-rojo, #DB2D2C);
+    /* border-secondary */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-        .oferta-card:hover {
-            box-shadow: 0 8px 28px rgba(0, 33, 50, 0.13);
-            transform: translateY(-3px);
-            transition:
-                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+.tarjeta-persona:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    /* hover:shadow-xl */
+}
 
-        .oferta-card__media {
-            .tarjeta-persona:hover {
-                box-shadow:
-                    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-                    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-                /* hover:shadow-xl */
-            }
+/* Bloque Multimedia de la Tarjeta */
+.contenedor-imagen-tarjeta {
+    position: relative;
+    height: 192px;
+    /* h-48 */
+    overflow: hidden;
+}
 
-            /* Bloque Multimedia de la Tarjeta */
-            .contenedor-imagen-tarjeta {
-                position: relative;
-                min-height: 220px;
-                height: 192px;
-                /* h-48 */
-                overflow: hidden;
-            }
+.imagen-tarjeta {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-            .imagen-tarjeta {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            }
+.group:hover .imagen-tarjeta {
+    transform: scale(1.10);
+    /* group-hover:scale-110 */
+}
 
-            .group:hover .imagen-tarjeta {
-                transform: scale(1.1);
-                /* group-hover:scale-110 */
-            }
+.capa-superpuesta-tarjeta {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 33, 50, 0.2);
+    /* bg-primary/20 */
+    transition: background-color 0.5s ease;
+}
 
-            .capa-superpuesta-tarjeta {
-                position: absolute;
-                width: 100%;
-            }
+.group:hover .capa-superpuesta-tarjeta {
+    background-color: transparent;
+    /* group-hover:bg-transparent */
+}
 
-            .oferta-card__media::after {
-                background: linear-gradient(to right,
-                        rgba(0, 21, 50, 0.4),
-                        rgba(0, 21, 50, 0));
-                content: "";
-                inset: 0;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-color: rgba(0, 33, 50, 0.2);
-                /* bg-primary/20 */
-                transition: background-color 0.5s ease;
-            }
+/* Contenido Interno y Textos */
+.contenido-tarjeta {
+    padding: 24px;
+    /* p-stack-md aproximado */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 
-            .oferta-card__media span {
-                align-items: center;
-                background: var(--color-acento-rojo);
-                bottom: 14px;
-                color: #ffffff;
+.titulo-tarjeta {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 20px;
+    /* font-headline-sm */
+    color: var(--color-primario, #002132);
+    /* text-primary */
+    margin-top: 0;
+    margin-bottom: 12px;
+    /* mb-3 */
+    font-weight: 700;
+}
 
-                .group:hover .capa-superpuesta-tarjeta {
-                    background-color: transparent;
-                    /* group-hover:bg-transparent */
-                }
+.descripcion-tarjeta {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    font-size: 15px;
+    /* text-body-md */
+    color: var(--color-texto-fondo, #4a5568);
+    /* text-on-surface-variant */
+    margin-top: 0;
+    margin-bottom: 16px;
+    /* mb-4 */
+    line-height: 1.5;
+}
 
-                /* Contenido Interno y Textos */
-                .contenido-tarjeta {
-                    padding: 24px;
-                    /* p-stack-md aproximado */
-                    display: flex;
-                    font-size: 1.4rem;
-                    height: 40px;
-                    justify-content: center;
-                    left: 14px;
-                    position: absolute;
-                    width: 40px;
-                    z-index: 2;
-                    flex-direction: column;
-                    flex-grow: 1;
-                }
+/* Sección de Botones Inferiores */
+.acciones-tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* space-y-2 */
+    padding-top: 8px;
+    border-top: 1px solid var(--color-borde, #e2e8f0);
+    /* border-surface-container */
+    margin-top: auto;
+    /* mt-auto */
+}
 
-                .titulo-tarjeta {
-                    font-family: var(--fuente-titulos, sans-serif);
-                    font-size: 20px;
-                    /* font-headline-sm */
-                    color: var(--color-primario, #002132);
-                    /* text-primary */
-                    margin-top: 0;
-                    margin-bottom: 12px;
-                    /* mb-3 */
-                    font-weight: 700;
-                }
+.boton-tarjeta {
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-weight: 700;
+    /* font-label-bold */
+    font-size: 13px;
+    /* text-label-bold */
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
 
-                .oferta-card__contenido {
-                    padding: 22px 24px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                }
+.boton-esquema {
+    border-color: var(--color-primario, #002132);
+    background-color: transparent;
+    color: var(--color-primario, #002132);
+}
 
-                .oferta-card__contenido>span {
-                    color: var(--color-acento-rojo);
-                    display: block;
-                    font-family: var(--fuente-titulos);
-                    font-size: 0.82rem;
-                    font-weight: 700;
-                    letter-spacing: 0.12em;
-                    text-transform: uppercase;
-                    margin-bottom: 6px;
+.boton-esquema:hover {
+    background-color: var(--color-primario, #002132);
+    color: var(--color-blanco-puro, #ffffff);
+}
 
-                    .descripcion-tarjeta {
-                        font-family: var(--fuente-cuerpo, sans-serif);
-                        font-size: 15px;
-                        /* text-body-md */
-                        color: var(--color-texto-fondo, #4a5568);
-                        /* text-on-surface-variant */
-                        margin-top: 0;
-                        margin-bottom: 16px;
-                        /* mb-4 */
-                        line-height: 1.5;
-                    }
+.boton-solido {
+    background-color: var(--color-acento-rojo, #DB2D2C);
+    /* bg-secondary */
+    color: var(--color-blanco-puro, #ffffff);
+}
 
-                    .oferta-card__contenido h3 {
-                        color: var(--color-primario);
-                        font-family: var(--fuente-titulos);
-                        font-size: clamp(1rem, 1.6vw, 1.4rem);
-                        font-weight: 700;
-                        line-height: 1.1;
-                        margin: 0 0 10px;
+.boton-solido:hover {
+    background-color: #b91c1c;
+    /* hover:bg-deep-red (Simulado) */
+}
 
-                        /* Sección de Botones Inferiores */
-                        .acciones-tarjeta {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 8px;
-                            /* space-y-2 */
-                            padding-top: 8px;
-                            border-top: 1px solid var(--color-borde, #e2e8f0);
-                            /* border-surface-container */
-                            margin-top: auto;
-                            /* mt-auto */
-                        }
-
-                        .boton-tarjeta {
-                            width: 100%;
-                            padding-top: 8px;
-                            padding-bottom: 8px;
-                            font-family: var(--fuente-titulos, sans-serif);
-                            font-weight: 700;
-                            /* font-label-bold */
-                            font-size: 13px;
-                            /* text-label-bold */
-                            text-transform: uppercase;
-                        }
-
-                        .oferta-card__contenido p {
-                            color: #667985;
-                            font-family: var(--fuente-cuerpo);
-                            font-size: 0.88rem;
-                            line-height: 1.6;
-                            margin: 0 0 16px;
-                            cursor: pointer;
-                            border: 2px solid transparent;
-                            transition: all 0.3s ease;
-                        }
-
-                        .boton-esquema {
-                            border-color: var(--color-primario, #002132);
-                            background-color: transparent;
-                            color: var(--color-primario, #002132);
-                        }
-
-                        .oferta-card__contenido button {
-                            align-self: flex-start;
-                            background: var(--color-primario);
-                        }
-
-                        @media (max-width: 900px) {
-                            .oferta-grid {
-                                grid-template-columns: 1fr;
-                            }
-                        }
-
-                        @media (max-width: 760px) {
-                            .soluciones-hero__intro {
-                                padding-top: 42px;
-                            }
-
-                            .soluciones-buyer-carousel {
-                                height: 760px;
-
-                                .boton-esquema:hover {
-                                    background-color: var(--color-primario, #002132);
-                                    color: var(--color-blanco-puro, #ffffff);
-                                }
-
-                                .boton-solido {
-                                    background-color: var(--color-acento-rojo, #db2d2c);
-                                    /* bg-secondary */
-                                    color: var(--color-blanco-puro, #ffffff);
-                                }
-
-                                .boton-solido:hover {
-                                    background-color: #b91c1c;
-                                    /* hover:bg-deep-red (Simulado) */
-                                }
-
-                                /* ==========================================
+/* ==========================================
    MEDIA QUERIES (RESPONSIVE)
    ========================================== */
-                                @media (min-width: 768px) {
-                                    .seccion-tarjetas-persona {
-                                        padding-top: 80px;
-                                        /* py-section-padding */
-                                        padding-bottom: 80px;
-                                    }
+@media (min-width: 768px) {
+    .seccion-tarjetas-persona {
+        padding-top: 80px;
+        /* py-section-padding */
+        padding-bottom: 80px;
+    }
 
-                                    .buyer-card__banner {
-                                        max-height: 520px;
-                                        opacity: 1;
-                                        transform: none;
-                                    }
+    .rejilla-tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        /* md:grid-cols-2 */
+    }
+}
 
-                                    .oferta-card {
-                                        grid-template-columns: 1fr;
-                                    }
-
-                                    .oferta-card__media {
-                                        min-height: 180px;
-                                    }
-                                }
-
-                                .rejilla-tarjetas {
-                                    grid-template-columns: repeat(2, minmax(0, 1fr));
-                                    /* md:grid-cols-2 */
-                                }
-
-                                @media (min-width: 1024px) {
-                                    .rejilla-tarjetas {
-                                        grid-template-columns: repeat(4, minmax(0, 1fr));
-                                        /* lg:grid-cols-4 */
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+@media (min-width: 1024px) {
+    .rejilla-tarjetas {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        /* lg:grid-cols-4 */
     }
 }

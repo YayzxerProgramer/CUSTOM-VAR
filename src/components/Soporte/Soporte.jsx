@@ -11,7 +11,8 @@ import {
 } from '../../data/soporte.js';
 import '../../css/Soporte/Soporte.css';
 
-const correoCorporativoPattern = '^[^\\s@]+@(?!gmail\\.com$)(?!hotmail\\.com$)(?!outlook\\.com$)(?!yahoo\\.com$)[^\\s@]+\\.[^\\s@]+$';
+const correoCorporativoPattern = '^[^\\s@]+@(?!gmail\\.com$)(?!outlook\\.com$)(?!yahoo\\.com$)[^\\s@]+\\.[^\\s@]+$';
+const N8N_WEBHOOK_URL = 'http://localhost:5678/webhook-test/ca33ba91-66d0-49e5-b6d3-b025dc25830a';
 
 function Campo({ children, etiqueta, requerido = true }) {
     return (
@@ -28,7 +29,7 @@ function GrupoOpciones({ nombre, opciones }) {
         <div className="soporte-opciones" role="group" aria-label={nombre}>
             {opciones.map((opcion) => (
                 <label key={opcion}>
-                    <input type="radio" name={nombre} required />
+                    <input type="radio" name={nombre} value={opcion} required />
                     <span>{opcion}</span>
                 </label>
             ))}
@@ -39,7 +40,6 @@ function GrupoOpciones({ nombre, opciones }) {
 function PerfilCorporativoServicio() {
     return (
         <div className="soporte-paso">
-            <span className="soporte-paso__numero">Paso 1</span>
             <h3>Perfil Corporativo</h3>
             <div className="soporte-grid">
                 <Campo etiqueta="Nombre completo">
@@ -76,12 +76,11 @@ function PerfilCorporativoServicio() {
     );
 }
 
-function SolicitudServicioForm({ onSubmit }) {
+function SolicitudServicioForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
             <PerfilCorporativoServicio />
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 2</span>
                 <h3>Radiografia del Proyecto</h3>
                 <p>Seleccione el dolor principal y dimensione la infraestructura para calificar el alcance del caso.</p>
                 <GrupoOpciones nombre="dolorServicio" opciones={doloresServicio} />
@@ -90,22 +89,21 @@ function SolicitudServicioForm({ onSubmit }) {
                 </Campo>
             </div>
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 3</span>
-                <h3>Urgencia y Cierre</h3>
+                <h3>Etapa del Proyecto
+                </h3>
                 <GrupoOpciones nombre="etapaProyecto" opciones={etapasProyecto} />
             </div>
-            <button className="soporte-boton" type="submit">
-                Solicitar Diagnostico Tecnico y Cotizacion Preliminar
+            <button className="soporte-boton" type="submit" disabled={cargando}>
+                {cargando ? 'Enviando requerimiento...' : 'Solicitar Diagnostico Técnico y Cotización Preliminar'}
             </button>
         </form>
     );
 }
 
-function FacturacionForm({ onSubmit }) {
+function FacturacionForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 1</span>
                 <h3>Perfil Corporativo</h3>
                 <div className="soporte-grid">
                     <Campo etiqueta="Nombre y apellido">
@@ -123,12 +121,10 @@ function FacturacionForm({ onSubmit }) {
                 </div>
             </div>
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 2</span>
                 <h3>Radiografia del Requerimiento</h3>
                 <GrupoOpciones nombre="dolorFacturacion" opciones={doloresFacturacion} />
             </div>
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 3</span>
                 <h3>Detalles del Requerimiento</h3>
                 <Campo etiqueta="Descripcion breve">
                     <textarea
@@ -139,14 +135,14 @@ function FacturacionForm({ onSubmit }) {
                     />
                 </Campo>
             </div>
-            <button className="soporte-boton" type="submit">
-                Solicitar informacion
+            <button className="soporte-boton" type="submit" disabled={cargando}>
+                {cargando ? 'Procesando...' : 'Solicitar informacion'}
             </button>
         </form>
     );
 }
 
-function PqrsdForm({ onSubmit }) {
+function PqrsdForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
             <div className="soporte-mensaje">
@@ -154,7 +150,6 @@ function PqrsdForm({ onSubmit }) {
                 Registre su solicitud aqui; analizaremos su caso de inmediato para ofrecerle una respuesta prioritaria.
             </div>
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 1</span>
                 <h3>Identificacion del Cliente y del Contrato</h3>
                 <div className="soporte-grid">
                     <Campo etiqueta="Razon social / empresa">
@@ -175,12 +170,10 @@ function PqrsdForm({ onSubmit }) {
                 </div>
             </div>
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 2</span>
                 <h3>Clasificacion de la Solicitud</h3>
                 <GrupoOpciones nombre="tipoPqrsd" opciones={tiposPqrsd} />
             </div>
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 3</span>
                 <h3>Detalle Tecnico e Impacto Operativo</h3>
                 <div className="soporte-grid">
                     <Campo etiqueta="Asunto de la solicitud">
@@ -207,45 +200,79 @@ function PqrsdForm({ onSubmit }) {
                 </p>
             </div>
             <div className="soporte-paso">
-                <span className="soporte-paso__numero">Paso 4</span>
                 <h3>Consentimiento Legal</h3>
                 <label className="soporte-consentimiento">
                     <input type="checkbox" required />
                     <span>Acepto la Politica de Tratamiento de Datos Personales y los tiempos de respuesta legales de atencion corporativa.</span>
                 </label>
             </div>
-            <button className="soporte-boton" type="submit">
-                Radicar Solicitud con Prioridad
+            <button className="soporte-boton" type="submit" disabled={cargando}>
+                {cargando ? 'Radicando caso...' : 'Radicar Solicitud con Prioridad'}
             </button>
         </form>
     );
 }
 
-function FormularioActivo({ tipo, onSubmit }) {
+function FormularioActivo({ tipo, onSubmit, cargando }) {
     if (tipo === 'facturacion') {
-        return <FacturacionForm onSubmit={onSubmit} />;
+        return <FacturacionForm onSubmit={onSubmit} cargando={cargando} />;
     }
 
     if (tipo === 'pqrsd') {
-        return <PqrsdForm onSubmit={onSubmit} />;
+        return <PqrsdForm onSubmit={onSubmit} cargando={cargando} />;
     }
 
-    return <SolicitudServicioForm onSubmit={onSubmit} />;
+    return <SolicitudServicioForm onSubmit={onSubmit} cargando={cargando} />;
 }
 
 export default function Soporte() {
     const [tipoActivo, setTipoActivo] = useState(tiposSoporte[0].id);
     const [radicado, setRadicado] = useState('');
+    const [cargando, setCargando] = useState(false);
+    const [errorEnvio, setErrorEnvio] = useState('');
 
     const soporteActivo = useMemo(
         () => tiposSoporte.find((tipo) => tipo.id === tipoActivo) ?? tiposSoporte[0],
         [tipoActivo],
     );
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
+        setCargando(true);
+        setErrorEnvio('');
+        setRadicado('');
+
+        // Generamos el número de radicado correspondiente
         const consecutivo = Math.floor(1000 + Math.random() * 9000);
-        setRadicado(`HVAC-2026-${consecutivo}`);
+        const numeroRadicado = `HVAC-2026-${consecutivo}`;
+
+        // Instanciamos FormData directamente del formulario objetivo
+        const formData = new FormData(event.target);
+
+        // Adjuntamos metadatos clave para estructurar el árbol de decisión en n8n
+        formData.append('tipoFormulario', tipoActivo);
+        formData.append('radicado', numeroRadicado);
+        formData.append('fechaEnvio', new Date().toISOString());
+
+        try {
+            const response = await fetch(N8N_WEBHOOK_URL, {
+                method: 'POST',
+                body: formData, // Mandamos FormData nativo para soportar la subida de archivos (adjuntos) automáticamente
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error en servidor: ${response.statusText}`);
+            }
+
+            // Si n8n responde correctamente, pintamos el radicado en la interfaz
+            setRadicado(numeroRadicado);
+            event.target.reset(); // Reseteamos campos
+        } catch (error) {
+            console.error('Error al despachar a n8n:', error);
+            setErrorEnvio('No pudimos conectar con el servidor de soporte. Por favor intente de nuevo.');
+        } finally {
+            setCargando(false);
+        }
     }
 
     return (
@@ -272,6 +299,7 @@ export default function Soporte() {
                                 onClick={() => {
                                     setTipoActivo(tipo.id);
                                     setRadicado('');
+                                    setErrorEnvio('');
                                 }}
                             >
                                 <span>{tipo.titulo}</span>
@@ -298,7 +326,13 @@ export default function Soporte() {
                             </div>
                         )}
 
-                        <FormularioActivo tipo={tipoActivo} onSubmit={handleSubmit} />
+                        {errorEnvio && (
+                            <div className="soporte-error" style={{ color: 'var(--color-acento-rojo, #DB2D2C)', marginBottom: '20px', fontWeight: 'bold' }}>
+                                {errorEnvio}
+                            </div>
+                        )}
+
+                        <FormularioActivo tipo={tipoActivo} onSubmit={handleSubmit} cargando={cargando} />
 
                         {tipoActivo === 'pqrsd' && (
                             <div className="soporte-respuesta">

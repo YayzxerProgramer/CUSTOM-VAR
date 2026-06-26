@@ -45,7 +45,7 @@ export default function Navbar() {
                             to="/noticias"
                             className={({ isActive }) => isActive ? "enlace-menu enlace-activo" : "enlace-menu linea-inferior"}
                         >
-                            Noticias VAR
+                            Noticias
                         </NavLink>
                     </nav>
 
