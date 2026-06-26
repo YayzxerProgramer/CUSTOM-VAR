@@ -1,7 +1,7 @@
 import CarruselAcordeon from '../CarruselAcordeon.jsx';
 import { categoriasIndustria, proyectos, servicios } from '../../data/soluciones.js';
 
-function CarruselOferta({ onSolicitarAsesoria }) {
+function CarruselOferta() {
     return (
         <CarruselAcordeon
             items={categoriasIndustria}
@@ -11,11 +11,12 @@ function CarruselOferta({ onSolicitarAsesoria }) {
             altura="520px"
             renderItem={(item) => (
                 <div className="industria-panel">
-                    <span>{item.subtitulo}</span>
-                    <h2>{item.titulo}</h2>
-                    <button type="button" onClick={onSolicitarAsesoria}>
-                        Cuentenos su requerimiento
-                    </button>
+                    <h3 className="industria-panel__titulo">{item.titulo}</h3>
+                    <div className="industria-panel__reveal">
+                        <p className="industria-panel__trio">Ventilación · Aire Acondicionado · Refrigeración</p>
+                        <p className="industria-panel__desc">{item.descripcion}</p>
+                        <a href="#proyectos" className="industria-panel__btn">Explorar solución</a>
+                    </div>
                 </div>
             )}
         />
@@ -54,7 +55,7 @@ export default function OfertaSoluciones({ onSolicitarAsesoria }) {
                     <span className="soluciones-label">Proyectos</span>
                     <h2>Diseño, implementación y consultoría.</h2>
                 </div>
-                <CarruselOferta onSolicitarAsesoria={onSolicitarAsesoria} />
+                <CarruselOferta />
                 <div className="soluciones-container">
                     <p className="soluciones-texto-pdf">
                         Ofrecemos un acompañamiento total a sus requerimientos de Ventilación, Aire acondicionado y
@@ -74,7 +75,7 @@ export default function OfertaSoluciones({ onSolicitarAsesoria }) {
                     <span className="soluciones-label">Servicios</span>
                     <h2>Operación, mantenimiento, reparación y modernización.</h2>
                 </div>
-                <CarruselOferta onSolicitarAsesoria={onSolicitarAsesoria} />
+                <CarruselOferta />
                 <div className="soluciones-container">
                     <p className="soluciones-texto-pdf soluciones-texto-pdf--oscuro">
                         Diseñemos juntos el programa de mantenimiento centrado en confiabilidad,

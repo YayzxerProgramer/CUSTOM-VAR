@@ -196,3 +196,109 @@
         right: 12px;
     }
 }
+
+/* Industria panel - carousel hover reveal */
+.industria-panel {
+    position: relative;
+    color: var(--color-blanco-puro);
+    width: 100%;
+    max-width: 520px;
+}
+
+/*
+ * El titulo es lo UNICO que se mueve. Esta anclado abajo (bottom:0) y al hacer
+ * hover sube con un transform. El resto del contenido (trio, descripcion, boton)
+ * esta posicionado fijo abajo y solo aparece con un fade, sin moverse.
+ */
+.industria-panel__titulo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: var(--fuente-titulos);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+    white-space: nowrap;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carrusel-acordeon__panel:hover .industria-panel__titulo {
+    transform: translateY(-300px);
+}
+
+/* Bloque de info: fijo abajo, solo aparece con un fade (no se desplaza). */
+.industria-panel__reveal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease 0.1s;
+}
+
+.carrusel-acordeon__panel:hover .industria-panel__reveal {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.industria-panel__desc {
+    font-family: var(--fuente-cuerpo);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0 0 20px;
+    opacity: 0.9;
+}
+
+/* Grid de 3 columnas: Ventilacion / Aire Acondicionado / Refrigeracion */
+.industria-panel__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.industria-panel__col-titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-texto-contenedor-primario);
+    margin: 0 0 6px;
+}
+
+.industria-panel__col-desc {
+    font-family: var(--fuente-cuerpo);
+    font-size: 12px;
+    line-height: 1.45;
+    margin: 0;
+    opacity: 0.85;
+}
+
+.industria-panel__btn {
+    display: inline-block;
+    background-color: var(--color-acento-rojo);
+    color: var(--color-blanco-puro);
+    padding: 10px 24px;
+    font-family: var(--fuente-titulos);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: var(--borde-redondeado);
+    transition: background-color 0.2s ease;
+}
+
+.industria-panel__btn:hover {
+    background-color: var(--color-secundario);
+}
+
+@media (max-width: 768px) {
+    .industria-panel__titulo {
+        font-size: 22px;
+        white-space: normal;
+    }
+}
