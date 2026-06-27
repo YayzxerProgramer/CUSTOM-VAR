@@ -1,0 +1,312 @@
+/* ==========================================
+   SECCIÓN ACORDEÓN DE BUYER PERSONAS
+   ========================================== */
+.acordeon-personas {
+    background: var(--color-fondo, #f9f9f9);
+    padding: 56px 0 72px;
+}
+
+/* ---------- Cabecera de la sección ---------- */
+.acordeon-personas__cabecera {
+    max-width: var(--ancho-maximo-contenedor, 1280px);
+    margin: 0 auto 36px;
+    padding: 0 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.acordeon-personas__eyebrow {
+    display: block;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-weight: 700;
+    color: var(--color-acento-rojo, #db2d2c);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.acordeon-personas__titulo {
+    font-family: var(--fuente-titulos, sans-serif);
+    color: var(--color-primario, #002132);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.acordeon-personas__ayuda {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    color: #64748b;
+    font-size: 14px;
+    max-width: 280px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.acordeon-personas__ayuda .material-symbols-outlined {
+    font-size: 20px;
+    color: #94a3a8;
+}
+
+/* ---------- Pista del acordeón ---------- */
+.acordeon-personas__pista {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 8px;
+    height: 600px;
+    min-height: 520px;
+}
+
+/* ---------- Panel individual ---------- */
+.persona-panel {
+    position: relative;
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 74px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--color-primario, #002132);
+    background-image: var(--imagen-fondo);
+    background-size: cover;
+    background-position: center;
+    transition: flex-grow 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.persona-panel--activo {
+    flex-grow: 3.1;
+}
+
+.persona-panel:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-acento-rojo, #db2d2c);
+}
+
+.persona-panel__gradiente {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 21, 38, 0.96) 8%,
+        rgba(0, 21, 38, 0.62) 48%,
+        rgba(0, 21, 38, 0.22) 100%
+    );
+}
+
+.persona-panel__num {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.05em;
+}
+
+.persona-panel__contenido {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 28px;
+    color: #fff;
+}
+
+.persona-panel__subtitulo {
+    display: block;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-texto-contenedor-primario, #77a0bf);
+    margin-bottom: 8px;
+}
+
+.persona-panel__titulo {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.12;
+    margin: 0;
+    overflow-wrap: anywhere;
+    transition: font-size 0.4s ease;
+}
+
+.persona-panel--activo .persona-panel__titulo {
+    font-size: 26px;
+}
+
+/* ---------- Contenido revelado (solo activo) ---------- */
+.persona-panel__reveal {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.55s ease, opacity 0.45s ease 0.1s;
+}
+
+.persona-panel--activo .persona-panel__reveal {
+    max-height: 520px;
+    opacity: 1;
+}
+
+.persona-panel__dolor {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 19px;
+    font-weight: 600;
+    color: #ff6b6a;
+    line-height: 1.25;
+    margin: 18px 0 0;
+    max-width: 460px;
+}
+
+.persona-panel__descripcion {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 460px;
+}
+
+.persona-panel__solucion {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 14px 0 0;
+    color: #fff;
+    max-width: 460px;
+}
+
+.persona-panel__solucion-label {
+    display: block;
+    font-family: var(--fuente-titulos, sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-texto-contenedor-primario, #77a0bf);
+    margin-bottom: 4px;
+}
+
+/* ---------- Acciones ---------- */
+.persona-panel__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.persona-panel__btn {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--borde-redondeado, 0.25rem);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.persona-panel__btn--esquema {
+    color: #fff;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    padding: 9px 16px;
+    background: transparent;
+}
+
+.persona-panel__btn--esquema:hover {
+    background: #fff;
+    color: var(--color-primario, #002132);
+}
+
+.persona-panel__btn--solido {
+    color: #fff;
+    background: var(--color-acento-rojo, #db2d2c);
+    border: none;
+    padding: 10px 18px;
+}
+
+.persona-panel__btn--solido:hover {
+    filter: brightness(1.1);
+}
+
+.persona-panel__whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 16px;
+    font-family: var(--fuente-cuerpo, sans-serif);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-whatsapp, #25d366);
+    text-decoration: none;
+}
+
+.persona-panel__whatsapp .material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* ---------- Párrafo de pie ---------- */
+.acordeon-personas__pie {
+    max-width: var(--ancho-maximo-contenedor, 1280px);
+    margin: 44px auto 0;
+    padding: 0 40px;
+}
+
+.acordeon-personas__pdf {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    color: #4a5568;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 920px;
+    border-left: 3px solid var(--color-acento-rojo, #db2d2c);
+    padding-left: 22px;
+    margin: 0;
+}
+
+.acordeon-personas__pdf strong {
+    color: var(--color-primario, #002132);
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 900px) {
+    .acordeon-personas__pista {
+        flex-direction: column;
+        height: auto;
+        min-height: 0;
+        gap: 10px;
+        padding: 0 20px;
+    }
+
+    .persona-panel {
+        min-height: 96px;
+        transition: min-height 0.45s ease;
+    }
+
+    .persona-panel--activo {
+        min-height: 560px;
+    }
+
+    .acordeon-personas__cabecera,
+    .acordeon-personas__pie {
+        padding: 0 24px;
+    }
+
+    .acordeon-personas__titulo {
+        font-size: 30px;
+    }
+}

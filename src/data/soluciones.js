@@ -132,6 +132,30 @@ export const servicios = [
     },
 ];
 
+export const pilares = [
+    {
+        id: 'ventilacion',
+        tag: 'Pilar 01',
+        icono: 'air',
+        titulo: 'Ventilación',
+        descripcion: 'Diseñamos sistemas de inyección, extracción y renovación de aire que garantizan ambientes seguros, libres de contaminantes y con la calidad de aire que cada espacio exige.',
+    },
+    {
+        id: 'aire-acondicionado',
+        tag: 'Pilar 02',
+        icono: 'ac_unit',
+        titulo: 'Aire Acondicionado',
+        descripcion: 'Climatización de precisión y confort térmico para todo tipo de inmueble, con equipos de alta eficiencia que reducen el consumo energético de forma medible.',
+    },
+    {
+        id: 'refrigeracion',
+        tag: 'Pilar 03',
+        icono: 'severe_cold',
+        titulo: 'Refrigeración',
+        descripcion: 'Aseguramos estabilidad térmica y continuidad de la cadena de frío en cámaras, CEDIS y procesos industriales donde no hay margen de error.',
+    },
+];
+
 export const industriasFormulario = [
     'Industria y Manufactura',
     'Educativo',

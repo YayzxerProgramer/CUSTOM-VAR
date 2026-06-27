@@ -20,13 +20,35 @@ ESTILOS GENERALES DE LA CABECERA
 /* ==========================================
 ELEMENTOS TIPOGRÁFICOS
    ========================================== */
+.intro-eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
 .subtitulo-soluciones {
     font-family: var(--fuente-titulos, sans-serif);
     font-weight: 700;
     color: var(--color-acento-rojo, #db2d2c);
     font-size: 14px;
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
+    letter-spacing: 0.18em;
+}
+
+.intro-eyebrow-punto {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #cbd5d8;
+    flex-shrink: 0;
+}
+
+.intro-eyebrow-secundario {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-weight: 600;
+    color: #7c8a90;
+    font-size: 14px;
+    letter-spacing: 0.18em;
 }
 
 .titulo-soluciones {

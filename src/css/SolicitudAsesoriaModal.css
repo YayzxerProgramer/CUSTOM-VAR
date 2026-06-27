@@ -1,111 +1,132 @@
+/* ==========================================
+   MODAL DE SOLICITUD DE ASESORÍA (centrado)
+   ========================================== */
 .modal-asesoria {
-    inset: 0;
     position: fixed;
+    inset: 0;
     z-index: 10000;
-
-    /* Permite desplazar todo el modal */
-    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
 }
 
 .modal-asesoria__fondo {
-    background: rgba(0, 20, 32, 0.62);
-    border: 0;
-    cursor: pointer;
-    inset: 0;
     position: fixed;
+    inset: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 21, 38, 0.6);
+    backdrop-filter: blur(3px);
+    border: 0;
+    cursor: pointer;
 }
 
 .modal-asesoria__panel {
-    background: #ffffff;
-    box-shadow: -24px 0 54px rgba(0, 33, 50, 0.22);
-    box-sizing: border-box;
-
-    /* Ya no ocupa forzosamente toda la altura */
-    min-height: 100vh;
-
-    margin-left: auto;
-    max-width: 520px;
-
-    /* Sin scroll interno */
-    overflow: visible;
-
-    padding: 42px;
     position: relative;
-    width: min(100%, 520px);
+    background: #fff;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    max-height: 92vh;
+    overflow-y: auto;
 }
 
-.modal-asesoria__cerrar {
-    align-items: center;
-    background: var(--color-primario);
-    border: 0;
-    color: #ffffff;
-    cursor: pointer;
-    display: flex;
-    height: 42px;
-    justify-content: center;
-    position: absolute;
-    right: 24px;
-    top: 24px;
-    width: 42px;
+/* ---------- Cabecera oscura ---------- */
+.modal-asesoria__cabecera {
+    background: var(--color-primario, #002132);
+    padding: 26px 30px;
+    position: relative;
 }
 
 .modal-asesoria__etiqueta {
-    color: var(--color-acento-rojo);
     display: block;
-    font-family: var(--fuente-titulos);
-    font-size: 0.9rem;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    line-height: 1;
-    margin-bottom: 14px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    color: var(--color-acento-rojo, #db2d2c);
+    margin-bottom: 6px;
 }
 
-.modal-asesoria h2 {
-    color: var(--color-primario);
-    font-family: var(--fuente-titulos);
-
-    /* Más pequeño */
-    font-size: clamp(2rem, 4vw, 3.4rem);
-
-    line-height: 0.95;
+.modal-asesoria__titulo {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
     margin: 0;
-    text-transform: uppercase;
 }
 
-.modal-asesoria p {
-    color: #667985;
-    font-family: var(--fuente-cuerpo);
-    line-height: 1.65;
-    margin: 18px 0 28px;
+.modal-asesoria__cerrar {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease;
 }
 
+.modal-asesoria__cerrar:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.modal-asesoria__cerrar .material-symbols-outlined {
+    font-size: 20px;
+}
+
+/* ---------- Formulario ---------- */
 .modal-asesoria__formulario {
-    display: grid;
+    padding: 28px 30px 32px;
+    display: flex;
+    flex-direction: column;
     gap: 18px;
 }
 
 .modal-asesoria__formulario label {
-    color: var(--color-primario);
-    display: grid;
-    font-family: var(--fuente-titulos);
-    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.modal-asesoria__formulario label span {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 12px;
     font-weight: 700;
-    gap: 8px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: var(--color-primario, #002132);
 }
 
 .modal-asesoria__formulario input,
 .modal-asesoria__formulario select,
 .modal-asesoria__formulario textarea {
-    border: 1px solid #dce5eb;
-    color: var(--color-texto-fondo);
-    font-family: var(--fuente-cuerpo);
-    font-size: 1rem;
-    padding: 13px 14px;
+    border: 1px solid #d7dee2;
+    border-radius: 5px;
+    padding: 12px 14px;
+    font-family: var(--fuente-cuerpo, sans-serif);
+    font-size: 15px;
+    outline: none;
+    color: var(--color-texto-fondo, #1a1c1c);
+    background: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.modal-asesoria__formulario input:focus,
+.modal-asesoria__formulario select:focus,
+.modal-asesoria__formulario textarea:focus {
+    border-color: var(--color-primario, #002132);
 }
 
 .modal-asesoria__formulario textarea {
@@ -113,24 +134,70 @@
 }
 
 .modal-asesoria__submit {
-    background: var(--color-acento-rojo);
-    border: 0;
-    color: #ffffff;
-    cursor: pointer;
-    font-family: var(--fuente-titulos);
-    font-size: 0.95rem;
+    margin-top: 4px;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 15px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    padding: 16px 18px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: #fff;
+    background: var(--color-acento-rojo, #db2d2c);
+    border: none;
+    padding: 15px;
+    border-radius: var(--borde-redondeado, 0.25rem);
+    cursor: pointer;
+    transition: filter 0.25s ease;
+}
+
+.modal-asesoria__submit:hover {
+    filter: brightness(1.1);
+}
+
+/* ---------- Estado de éxito ---------- */
+.modal-asesoria__exito {
+    padding: 46px 30px;
+    text-align: center;
+}
+
+.modal-asesoria__exito-icono {
+    font-size: 56px;
+    color: var(--color-whatsapp, #25d366);
+}
+
+.modal-asesoria__exito-titulo {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 24px;
+    color: var(--color-primario, #002132);
+    margin: 16px 0 10px;
+    font-weight: 700;
+}
+
+.modal-asesoria__exito-texto {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    color: #4a5568;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.modal-asesoria__exito-boton {
+    margin-top: 26px;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--color-primario, #002132);
+    border: none;
+    padding: 12px 28px;
+    border-radius: var(--borde-redondeado, 0.25rem);
+    cursor: pointer;
 }
 
 @media (max-width: 560px) {
-    .modal-asesoria__panel {
-        padding: 34px 22px;
+    .modal-asesoria__titulo {
+        font-size: 22px;
     }
-
-    .modal-asesoria h2 {
-        font-size: clamp(1.8rem, 8vw, 2.8rem);
-    }
-}   
+}
