@@ -66,7 +66,7 @@
 }
 
 .logotipo {
-    width: 350px;
+    width: 250px;
     height: auto;
     object-fit: contain;
     display: block;
@@ -79,7 +79,7 @@
     gap: var(--separacion-menu);
     flex: 1;
     justify-content: center;
-    margin-right: 210px;
+    margin-right: 200px;
 
 }
 

@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logoCustom from "../img/LogoCustom.svg";
 import "../css/NavBar.css"
 
 const ENLACES = [
     { to: "/nosotros", label: "Nosotros" },
     { to: "/soluciones", label: "Soluciones" },
-    { to: "/soporte", label: "Proyectos" },
-    { to: "/iniciativas", label: "Servicios" },
+    { to: "/soporte", label: "Soporte" },
+    { to: "/iniciativas", label: "Iniciativas" },
     { to: "/talento", label: "Talento" },
     { to: "/noticias", label: "Noticias" },
 ];
@@ -17,7 +18,7 @@ export default function Navbar() {
             <header className="encabezado-navegacion">
                 <div className="envoltura-navegacion">
                     <div className="zona-logotipo">
-                        <img src="/src/img/LogoCustomBlanco.png" alt="Logotipo CUSTOM VAR" className="logotipo" />
+                        <img src={logoCustom} alt="Logotipo CUSTOM VAR" className="logotipo" />
                     </div>
                     <nav className="menu-navegacion">
                         {ENLACES.map(({ to, label }) => (
