@@ -5,7 +5,7 @@
     background: var(--color-fondo, #f9f9f9);
     display: flex;
     justify-content: center;
-    padding: 12px 40px 0;
+    padding: 12px 40px;
 }
 
 .expandible-cta--anidado {
@@ -293,22 +293,105 @@
    RESPONSIVE
    ========================================== */
 @media (max-width: 900px) {
+    .soluciones-var {
+        padding: 48px 0 56px;
+        margin-top: 28px;
+    }
+
     .soluciones-var__grid {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
     .soluciones-var__container {
-        padding: 0 24px;
+        padding: 0 20px;
     }
 
     .soluciones-var__titulo,
     .proyectos-detalle__titulo {
-        font-size: 28px;
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    .soluciones-var__intro,
+    .proyectos-detalle__intro {
+        font-size: 15px;
+    }
+
+    .pilar-card__titulo {
+        font-size: 20px;
+    }
+
+    .pilar-card__body {
+        padding: 18px;
+    }
+
+    .proyectos-detalle {
+        margin-top: 40px;
+        padding-top: 40px;
+    }
+
+    .proyectos-detalle__lista {
+        gap: 36px;
+        margin-top: 32px;
     }
 
     .proyecto-fila,
     .proyecto-fila--invertida {
         flex-direction: column;
-        gap: 24px;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .proyecto-fila__media {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        max-width: 100%;
+    }
+
+    .proyecto-fila__texto {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .proyecto-fila__titulo {
+        font-size: 22px;
+    }
+
+    .proyecto-fila__desc {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .proyecto-fila__btn {
+        padding: 11px 18px;
+        font-size: 12px;
+    }
+
+    .expandible-cta {
+        padding: 12px 20px;
+    }
+
+    .expandible-cta__boton {
+        padding: 13px 28px;
+        font-size: 13px;
+    }
+
+    .expandible-cta--anidado {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .soluciones-var__titulo,
+    .proyectos-detalle__titulo {
+        font-size: 22px;
+    }
+
+    .proyecto-fila__titulo {
+        font-size: 20px;
     }
 }

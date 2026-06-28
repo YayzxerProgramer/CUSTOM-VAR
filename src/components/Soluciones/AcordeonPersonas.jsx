@@ -1,17 +1,15 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { buyerPersonas } from '../../data/soluciones.js';
 import '../../css/Soluciones/AcordeonPersonas.css';
 
 const WHATSAPP_HREF = 'https://wa.me/573006830303';
+const ENLACE_PROYECTOS = '/soluciones#proyectos';
+const ENLACE_SERVICIOS = '/soluciones#servicios';
+const ENLACE_SOPORTE = '/soporte#formulario-solicitud';
 
-export default function AcordeonPersonas({ onSolicitarAsesoria }) {
+export default function AcordeonPersonas() {
     const [activo, setActivo] = useState(0);
-
-    // Evita que los clics en enlaces/botones internos reactiven el panel
-    const detener = (evento) => {
-        evento.preventDefault();
-        evento.stopPropagation();
-    };
 
     return (
         <section className="acordeon-personas">
@@ -46,7 +44,8 @@ export default function AcordeonPersonas({ onSolicitarAsesoria }) {
                             }}
                         >
                             <div className="persona-panel__gradiente" />
-                            <span className="persona-panel__num">{`0${indice + 1}`}</span>
+                            {/* El numero se mueve fuera de la imagen a la
+                                pista de navegacion inferior en CSS */}
 
                             <div className="persona-panel__contenido">
                                 <span className="persona-panel__subtitulo">{persona.subtitulo}</span>
@@ -61,22 +60,20 @@ export default function AcordeonPersonas({ onSolicitarAsesoria }) {
                                     </p>
 
                                     <div className="persona-panel__acciones">
-                                        <a href="#" onClick={detener} className="persona-panel__btn persona-panel__btn--esquema">
+                                        <Link
+                                            to={ENLACE_PROYECTOS}
+                                            onClick={(e) => e.stopPropagation()}
+                                            className="persona-panel__btn persona-panel__btn--esquema"
+                                        >
                                             Ver Proyectos
-                                        </a>
-                                        <a href="#" onClick={detener} className="persona-panel__btn persona-panel__btn--esquema">
-                                            Ver Servicios
-                                        </a>
-                                        <button
-                                            type="button"
+                                        </Link>
+                                        <Link
+                                            to={ENLACE_SOPORTE}
+                                            onClick={(e) => e.stopPropagation()}
                                             className="persona-panel__btn persona-panel__btn--solido"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                onSolicitarAsesoria?.();
-                                            }}
                                         >
                                             Cuéntanos tu requerimiento
-                                        </button>
+                                        </Link>
                                     </div>
 
                                     <a
@@ -92,6 +89,29 @@ export default function AcordeonPersonas({ onSolicitarAsesoria }) {
                                 </div>
                             </div>
                         </article>
+                    );
+                })}
+            </div>
+
+            {/* Pista de navegacion: botones numerados para seleccionar
+                el perfil sin tocar la imagen. Visibles solo en
+                responsive (oculto en desktop via CSS). */}
+            <div className="acordeon-personas__nav" role="tablist">
+                {buyerPersonas.map((persona, indice) => {
+                    const estaActivo = activo === indice;
+                    return (
+                        <button
+                            key={persona.id}
+                            type="button"
+                            role="tab"
+                            aria-selected={estaActivo}
+                            aria-label={`Ver perfil ${indice + 1}: ${persona.titulo}`}
+                            className={`acordeon-personas__nav-btn ${estaActivo ? 'acordeon-personas__nav-btn--activo' : ''}`}
+                            onClick={() => setActivo(indice)}
+                        >
+                            <span className="acordeon-personas__nav-num">{`0${indice + 1}`}</span>
+                            <span className="acordeon-personas__nav-label">{persona.subtitulo}</span>
+                        </button>
                     );
                 })}
             </div>

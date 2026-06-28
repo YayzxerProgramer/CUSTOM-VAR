@@ -5,7 +5,7 @@ export const panelesHeroNosotros = [
         titulo: 'Industria y Manufactura',
         subtitulo: 'Sistemas Industriales',
         descripcion: 'Controlamos el calor generado por maquinaria pesada y los gases de proceso para proteger a sus operadores y mantener la línea de producción activa. Diseñamos sistemas de ventilación industrial, climatización de zonas de trabajo y extracción de contaminantes adaptados a las exigencias de cada planta.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ export const panelesHeroNosotros = [
         titulo: 'Educativo',
         subtitulo: 'Climatizacion VAR',
         descripcion: 'Garantizamos ambientes de aprendizaje con temperatura y calidad de aire óptimas para la concentración y el bienestar de estudiantes y docentes. Desde aulas hasta laboratorios, diseñamos soluciones que cumplen normativas de ventilación y eficiencia energética.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ export const panelesHeroNosotros = [
         titulo: 'Restaurantes',
         subtitulo: 'Cadena de Frio',
         descripcion: 'Mantenemos cocinas seguras con extracción eficiente de humos y grasas, y garantizamos el confort térmico en salas de comensales. Aseguramos también la cadena de frío en cámaras y equipos de refrigeración para preservar la calidad de sus alimentos.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ export const panelesHeroNosotros = [
         titulo: 'Centros de Datos',
         subtitulo: 'Control Termico',
         descripcion: 'Protegemos sus activos digitales con sistemas de enfriamiento de precisión que mantienen temperaturas y humedades estrictamente controladas. Diseñamos soluciones redundantes que garantizan disponibilidad continua y eficiencia energética medible.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ export const panelesHeroNosotros = [
         titulo: 'VAR',
         subtitulo: 'Soporte Tecnico',
         descripcion: 'Ofrecemos consultoría integral en Ventilación, Aire Acondicionado y Refrigeración para proyectos que requieren visión técnica y estratégica. Acompañamos desde la ingeniería conceptual hasta la puesta en marcha y el mantenimiento de largo plazo.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
     {
         id: 6,
@@ -45,7 +45,7 @@ export const panelesHeroNosotros = [
         titulo: 'Oficinas y Edificios',
         subtitulo: 'Proyectos Especiales',
         descripcion: 'Optimizamos el confort térmico y la calidad del aire en oficinas y edificios corporativos para elevar la productividad y reducir el consumo energético. Integramos sistemas BMS para el control inteligente de la climatización por zonas.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
     {
         id: 7,
@@ -53,7 +53,7 @@ export const panelesHeroNosotros = [
         titulo: 'Hospitales',
         subtitulo: 'Infraestructura',
         descripcion: 'Diseñamos sistemas de ventilación y climatización que cumplen las normas más exigentes de calidad de aire para entornos hospitalarios y quirúrgicos. Garantizamos presiones diferenciales, filtración HEPA y control térmico preciso en áreas críticas.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
     {
         id: 8,
@@ -61,7 +61,7 @@ export const panelesHeroNosotros = [
         titulo: 'Hoteles',
         subtitulo: 'Auditorias',
         descripcion: 'Creamos experiencias de confort personalizadas para huéspedes mediante sistemas de climatización silenciosos y eficientes en cada habitación y área común. Reducimos el consumo energético con estrategias de control inteligente y mantenimiento proactivo.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
     {
         id: 9,
@@ -69,6 +69,6 @@ export const panelesHeroNosotros = [
         titulo: 'Locales y Centros Comerciales',
         subtitulo: 'Buena Refrigeracion',
         descripcion: 'Aseguramos el confort de compradores y empleados con climatización eficiente en grandes superficies y locales comerciales. Gestionamos también los sistemas de refrigeración para exhibición y almacenaje de perecederos, cumpliendo normativas sanitarias.',
-        enlace: '/soluciones',
+        enlace: '/soluciones#nuestras-soluciones',
     },
 ];

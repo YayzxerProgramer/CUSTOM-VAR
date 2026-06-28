@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logoCustom from "../img/LogoCustom.svg";
 import "../css/NavBar.css"
@@ -31,7 +30,6 @@ export default function Navbar() {
                             </NavLink>
                         ))}
                     </nav>
-                    <button className="boton-contacto">Contacto</button>
                 </div>
             </header>
 
@@ -45,7 +43,6 @@ export default function Navbar() {
                         {label}
                     </NavLink>
                 ))}
-                <button className="tab-movil tab-contacto">Contacto</button>
             </nav>
         </div>
     );

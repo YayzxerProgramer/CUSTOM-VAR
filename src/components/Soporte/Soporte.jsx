@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
     buyerPersonasSoporte,
     doloresFacturacion,
@@ -10,6 +11,8 @@ import {
     tiposSoporte,
 } from '../../data/soporte.js';
 import '../../css/Soporte/Soporte.css';
+
+const FORMULARIO_HASH = 'formulario-solicitud';
 
 const correoCorporativoPattern = '^[^\\s@]+@(?!gmail\\.com$)(?!outlook\\.com$)(?!yahoo\\.com$)[^\\s@]+\\.[^\\s@]+$';
 const N8N_WEBHOOK_URL = 'http://localhost:5678/webhook-test/ca33ba91-66d0-49e5-b6d3-b025dc25830a';
@@ -230,6 +233,14 @@ export default function Soporte() {
     const [radicado, setRadicado] = useState('');
     const [cargando, setCargando] = useState(false);
     const [errorEnvio, setErrorEnvio] = useState('');
+    const { hash } = useLocation();
+    const formularioRef = useRef(null);
+
+    useEffect(() => {
+        if (hash === `#${FORMULARIO_HASH}` && formularioRef.current) {
+            formularioRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, [hash]);
 
     const soporteActivo = useMemo(
         () => tiposSoporte.find((tipo) => tipo.id === tipoActivo) ?? tiposSoporte[0],
@@ -309,7 +320,7 @@ export default function Soporte() {
                     </aside>
 
                     <div className="soporte-contenido">
-                        <div className="soporte-contenido__header">
+                        <div className="soporte-contenido__header" id={FORMULARIO_HASH} ref={formularioRef}>
                             <span className="soporte-label">{soporteActivo.titulo}</span>
                             <h2>{soporteActivo.cta}</h2>
                             <p>{soporteActivo.descripcion}</p>

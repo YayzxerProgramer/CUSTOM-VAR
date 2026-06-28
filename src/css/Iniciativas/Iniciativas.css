@@ -22,7 +22,7 @@
 }
 
 .iniciativas-eyebrow--eco {
-    color: var(--color-eco, #1da66b);
+    color: var(--color-acento-rojo);
 }
 
 .iniciativas-titulo {
@@ -58,7 +58,7 @@
     width: 420px;
     height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(29, 166, 107, 0.28), transparent 68%);
+    background: radial-gradient(circle, rgba(166, 29, 29, 0.584), transparent 68%);
     pointer-events: none;
 }
 
@@ -81,7 +81,7 @@
 .iniciativas-hero__marca {
     font-family: var(--fuente-titulos, sans-serif);
     font-weight: 700;
-    color: var(--color-eco, #1da66b);
+    color: var(--color-acento-rojo);
     font-size: 14px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -298,7 +298,7 @@
 
 .iniciativa__icono .material-symbols-outlined {
     font-size: 26px;
-    color: var(--color-eco, #1da66b);
+    color: var(--color-acento-rojo);
 }
 
 .iniciativa__categoria {
@@ -307,7 +307,7 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-eco, #1da66b);
+    color: var(--color-acento-rojo);
     display: block;
 }
 
@@ -375,7 +375,7 @@
     margin: 48px auto 0;
 }
 
-.iniciativas-apoyo__nota > .material-symbols-outlined {
+.iniciativas-apoyo__nota>.material-symbols-outlined {
     font-size: 24px;
     color: #8a99a0;
     flex-shrink: 0;
@@ -542,7 +542,7 @@
     gap: 7px;
 }
 
-.iniciativas-modal__formulario label > span {
+.iniciativas-modal__formulario label>span {
     font-family: var(--fuente-titulos, sans-serif);
     font-size: 12px;
     font-weight: 700;
@@ -645,15 +645,16 @@
 
 @media (max-width: 768px) {
     .iniciativas-hero {
-        padding: 72px 0 64px;
+        /* El body ya tiene padding-top: 104px; aquí solo dejamos un respiro. */
+        padding: 24px 0 56px;
     }
 
     .iniciativas-hero__titulo {
-        font-size: 40px;
+        font-size: 32px;
     }
 
     .iniciativas-hero__descripcion {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .iniciativas-titulo {

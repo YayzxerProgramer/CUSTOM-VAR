@@ -14,7 +14,6 @@
     margin-right: auto;
     padding-left: var(--separacion-lateral, 24px);
     padding-right: var(--separacion-lateral, 24px);
-    max-height: 800px;
 }
 
 .titulo-seccion-valores {
@@ -121,5 +120,30 @@
 
     .encabezado-columna {
         font-size: 22px;
+    }
+}
+
+@media (max-width: 640px) {
+    .titulo-seccion-valores {
+        font-size: 28px;
+        margin-bottom: 36px;
+    }
+
+    .seccion-valores {
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+
+    .encabezado-columna {
+        font-size: 19px;
+        padding-left: 12px;
+    }
+
+    .bloque-item-valor p {
+        font-size: 15px;
+    }
+
+    .bloque-item-valor {
+        padding: 6px 8px;
     }
 }

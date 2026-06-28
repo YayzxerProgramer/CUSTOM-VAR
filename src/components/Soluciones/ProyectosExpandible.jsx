@@ -1,10 +1,57 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { pilares, proyectos } from '../../data/soluciones.js';
 import '../../css/Soluciones/ProyectosExpandible.css';
 
-export default function ProyectosExpandible({ onSolicitarAsesoria }) {
+const SECCION_NUESTRAS_SOLUCIONES = 'nuestras-soluciones';
+const SECCION_PROYECTOS = 'proyectos';
+
+export default function ProyectosExpandible() {
+    const { hash } = useLocation();
     const [verSoluciones, setVerSoluciones] = useState(false);
     const [verProyectos, setVerProyectos] = useState(false);
+    const seccionRef = useRef(null);
+    const proyectosTituloRef = useRef(null);
+
+    // Si la URL trae un hash, abrimos el panel correspondiente.
+    // Lo hacemos en un effect para no llamar setState durante el render.
+    useEffect(() => {
+        if (hash === `#${SECCION_PROYECTOS}`) {
+            setVerSoluciones(true);
+            setVerProyectos(true);
+        } else if (hash === `#${SECCION_NUESTRAS_SOLUCIONES}`) {
+            setVerSoluciones(true);
+            setVerProyectos(false);
+        }
+    }, [hash]);
+
+    // Scroll automatico SOLO cuando la URL trae un hash (navegacion
+    // desde otro link). Si el usuario hace click en "Ver proyectos"
+    // o "Ver menos" no debe saltar la pantalla.
+    useEffect(() => {
+        if (!hash) return;
+        let destino = null;
+        if (hash === `#${SECCION_PROYECTOS}` && verProyectos) {
+            destino = proyectosTituloRef.current;
+        } else if (hash === `#${SECCION_NUESTRAS_SOLUCIONES}` && verSoluciones) {
+            destino = seccionRef.current;
+        }
+        if (destino) {
+            destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, [hash, verSoluciones, verProyectos]);
+
+    const alternarSoluciones = () => {
+        setVerSoluciones((v) => {
+            // Al cerrar "soluciones", cerramos tambien proyectos (esta anidado dentro).
+            if (v) setVerProyectos(false);
+            return !v;
+        });
+    };
+
+    const alternarProyectos = () => {
+        setVerProyectos((v) => !v);
+    };
 
     return (
         <>
@@ -13,7 +60,7 @@ export default function ProyectosExpandible({ onSolicitarAsesoria }) {
                 <button
                     type="button"
                     className="expandible-cta__boton"
-                    onClick={() => setVerSoluciones((v) => !v)}
+                    onClick={alternarSoluciones}
                     aria-expanded={verSoluciones}
                 >
                     {verSoluciones ? 'Ver menos' : 'Ver más'}
@@ -27,7 +74,7 @@ export default function ProyectosExpandible({ onSolicitarAsesoria }) {
             </div>
 
             {verSoluciones && (
-                <section className="soluciones-var">
+                <section className="soluciones-var" id={SECCION_NUESTRAS_SOLUCIONES} ref={seccionRef}>
                     <div className="soluciones-var__container">
                         <span className="soluciones-var__eyebrow">Nuestras soluciones</span>
                         <h2 className="soluciones-var__titulo">
@@ -58,7 +105,7 @@ export default function ProyectosExpandible({ onSolicitarAsesoria }) {
                             <button
                                 type="button"
                                 className="expandible-cta__boton expandible-cta__boton--rojo"
-                                onClick={() => setVerProyectos((v) => !v)}
+                                onClick={alternarProyectos}
                                 aria-expanded={verProyectos}
                             >
                                 {verProyectos ? 'Ver menos' : 'Ver proyectos'}
@@ -74,7 +121,11 @@ export default function ProyectosExpandible({ onSolicitarAsesoria }) {
                         {verProyectos && (
                             <div className="proyectos-detalle">
                                 <span className="proyectos-detalle__eyebrow">Proyectos</span>
-                                <h2 className="proyectos-detalle__titulo">
+                                <h2
+                                    className="proyectos-detalle__titulo"
+                                    id={SECCION_PROYECTOS}
+                                    ref={proyectosTituloRef}
+                                >
                                     Diseño, implementación y consultoría
                                 </h2>
                                 <p className="proyectos-detalle__intro">
@@ -100,14 +151,13 @@ export default function ProyectosExpandible({ onSolicitarAsesoria }) {
                                                 </span>
                                                 <h3 className="proyecto-fila__titulo">{proyecto.titulo}</h3>
                                                 <p className="proyecto-fila__desc">{proyecto.descripcion}</p>
-                                                <button
-                                                    type="button"
+                                                <Link
+                                                    to="/soporte#formulario-solicitud"
                                                     className="proyecto-fila__btn"
-                                                    onClick={onSolicitarAsesoria}
                                                 >
                                                     Cuéntenos su requerimiento
                                                     <span className="material-symbols-outlined">arrow_forward</span>
-                                                </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     ))}

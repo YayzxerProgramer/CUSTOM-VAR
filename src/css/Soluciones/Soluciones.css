@@ -3,7 +3,9 @@ ESTILOS GENERALES DE LA CABECERA
    ========================================== */
 .cabecera-introduccion {
     background-color: var(--color-blanco-puro, #ffffff);
-    padding-top: 128px;
+    /* El body ya tiene padding-top: 104px en móvil y 80px en desktop; aquí
+       dejamos un respiro adicional para que el contenido no se vea pegado. */
+    padding-top: 32px;
     /* Equivalente a pt-32 */
     padding-bottom: var(--relleno-seccion, 80px);
     width: 100%;
@@ -122,6 +124,21 @@ UTILIDADES DE POSICIONAMIENTO Y CLASES
 /* ==========================================
    MEDIA QUERIES (RESPONSIVE)
    ========================================== */
+@media (max-width: 767px) {
+    .cabecera-introduccion {
+        padding-top: 32px;
+    }
+
+    .titulo-soluciones {
+        font-size: 30px;
+        line-height: 1.15;
+    }
+
+    .descripcion-soluciones {
+        font-size: 16px;
+    }
+}
+
 @media (min-width: 768px) {
     .titulo-soluciones {
         font-size: 48px;

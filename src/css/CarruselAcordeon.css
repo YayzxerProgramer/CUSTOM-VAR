@@ -1,7 +1,7 @@
 .carrusel-acordeon {
     position: relative;
     width: 100%;
-    height: var(--carrusel-altura, 560px);
+    height: var(--carrusel-altura, 100vh);
     background-color: var(--color-primario);
     overflow: hidden;
 }
@@ -169,13 +169,44 @@
     transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
-    .carrusel-acordeon__paneles {
-        flex-direction: column;
+/* En tablet/móvil (<=900px) sacamos las flechas y las bolitas
+       de encima de la imagen: las ponemos debajo del acordeón en
+       una franja blanca, y las flechas totalmente transparentes. */
+@media (max-width: 900px) {
+    .carrusel-acordeon {
+        /* En móvil usamos scroll vertical para evitar que el contenido se amontone */
+        height: var(--carrusel-altura, calc(100vh - 160px));
+        min-height: 520px;
+        overflow-y: auto;
     }
 
+    .carrusel-acordeon__paneles {
+        flex-direction: column;
+        height: auto;
+        min-height: 100%;
+    }
+
+    .carrusel-acordeon__panel {
+        flex: 1 1 auto;
+        min-height: 260px;
+        height: 260px;
+    }
+
+    /* El hover de altura no aplica en táctil: lo desactivamos.
+       La expansión real la gestiona JS añadiendo .expandido al panel
+       cuando el usuario lo toca. */
     .carrusel-acordeon__panel:hover {
-        flex: 2.5;
+        flex: 1 1 auto;
+        height: 260px;
+    }
+
+    .carrusel-acordeon__panel--expandido {
+        height: auto;
+        min-height: 420px;
+    }
+
+    .carrusel-acordeon__gradiente {
+        padding: 24px 20px;
     }
 
     .carrusel-acordeon__titulo {
@@ -188,12 +219,58 @@
         margin-bottom: 16px;
     }
 
-    .carrusel-acordeon__flecha--izquierda {
-        left: 12px;
+    /* Flechas fuera de la imagen: las sacamos del flujo absoluto
+       y las colocamos junto a los indicadores, debajo del acordeón.
+       Totalmente transparentes: sin fondo visible, ni en hover. */
+    .carrusel-acordeon__flecha {
+        position: static;
+        top: auto;
+        transform: none;
+        width: 42px;
+        height: 42px;
+        background-color: transparent;
+        border: 1px solid transparent;
+        color: var(--color-primario, #002132);
+        box-shadow: none;
     }
 
+    .carrusel-acordeon__flecha:hover,
+    .carrusel-acordeon__flecha:active,
+    .carrusel-acordeon__flecha:focus {
+        background-color: transparent;
+        color: var(--color-acento-rojo);
+        transform: none;
+        outline: none;
+    }
+
+    .carrusel-acordeon__flecha--izquierda,
     .carrusel-acordeon__flecha--derecha {
-        right: 12px;
+        left: auto;
+        right: auto;
+    }
+
+    /* En móvil sacamos las bolitas de encima de la imagen y las
+       ponemos debajo del acordeón, junto a las flechas, en una
+       franja blanca centrada. */
+    .carrusel-acordeon__indicadores {
+        position: static;
+        transform: none;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 20px;
+        margin: 0;
+        background-color: var(--color-blanco-puro, #ffffff);
+        gap: 14px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .carrusel-acordeon__punto {
+        background-color: rgba(0, 33, 50, 0.25);
+    }
+
+    .carrusel-acordeon__punto--activo {
+        background-color: var(--color-acento-rojo);
     }
 }
 
@@ -297,8 +374,77 @@
 }
 
 @media (max-width: 768px) {
+    .industria-panel {
+        max-width: 100%;
+    }
+
     .industria-panel__titulo {
+        position: static;
         font-size: 22px;
         white-space: normal;
+        margin-bottom: 12px;
+        transform: none !important;
+    }
+
+    /* En móvil el contenido extra esta oculto por defecto.
+       Al hacer click (clase .expandido que gestiona el JS) se muestra
+       SOLO el titulo + el grid de 3 columnas. Descripcion y boton
+       permanecen ocultos. */
+    .industria-panel__reveal {
+        position: static;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: opacity 0.35s ease, max-height 0.45s ease;
+    }
+
+    .carrusel-acordeon__panel--expandido .industria-panel__reveal {
+        opacity: 1;
+        max-height: 800px;
+        pointer-events: auto;
+    }
+
+    /* En móvil nunca se muestran la descripcion larga ni el boton */
+    .carrusel-acordeon__panel--expandido .industria-panel__desc,
+    .carrusel-acordeon__panel--expandido .industria-panel__btn {
+        display: none;
+    }
+
+    .industria-panel__desc {
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0 0 14px;
+    }
+
+    /* Grid de 3 columnas se mantiene, con tipografía más legible */
+    .industria-panel__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .industria-panel__col-titulo {
+        font-size: 11px;
+        margin-bottom: 4px;
+        letter-spacing: 0.04em;
+    }
+
+    .industria-panel__col-desc {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .industria-panel__btn {
+        font-size: 12px;
+        padding: 9px 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    /* En pantallas muy estrechas el grid pasa a 1 columna para no romperse */
+    .industria-panel__grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 }

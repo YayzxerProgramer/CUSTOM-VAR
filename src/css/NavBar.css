@@ -207,15 +207,27 @@
 
 /* Móvil: < 768px */
 @media (max-width: 767px) {
+    /* El navbar es fixed: dejamos espacio arriba en el body para que el contenido
+       no quede tapado. Como el navbar es position:fixed, ignora el padding del body
+       y se queda anclado arriba del viewport. */
+    body {
+        padding-top: 104px;
+    }
+
     .logotipo {
-        height: 72px;
+        height: 92px;
         width: auto;
+    }
+
+    .zona-logotipo {
+        width: auto;
+        justify-content: center;
     }
 
     .envoltura-navegacion {
         justify-content: center;
         padding: 0 var(--separacion-lateral);
-        height: 88px;
+        height: 104px;
     }
 
     .boton-contacto {
@@ -231,6 +243,12 @@
 @media (min-width: 768px) {
     .menu-navegacion {
         display: flex;
+    }
+
+    /* El navbar es fixed: dejamos espacio arriba en el body para que el contenido
+       no quede tapado. Como el navbar es position:fixed, ignora el padding del body. */
+    body {
+        padding-top: 80px;
     }
 }
 

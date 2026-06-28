@@ -46,8 +46,9 @@
     padding-left: var(--separacion-lateral);
     padding-right: var(--separacion-lateral);
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1xl));
-    gap: 32px;
+    /* Movil: 2 columnas (2x2). El breakpoint md (768px) lo lleva a 4. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
     text-align: center;
 }
 
@@ -230,6 +231,35 @@
 
     .rejilla-servicios {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .numero-estadistica {
+        font-size: 40px;
+    }
+
+    .etiqueta-estadistica {
+        font-size: 11px;
+    }
+
+    .texto-descripcion {
+        margin: 24px 0;
+    }
+
+    .seccion-servicios {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .envoltura-estadisticas {
+        /* 2x2 explicito en movil */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 20px;
+    }
+
+    .bloque-estadistica {
+        padding: 4px 0;
     }
 }
 

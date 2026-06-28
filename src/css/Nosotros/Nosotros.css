@@ -309,9 +309,9 @@
 .map-quote {
     color: var(--custom-blue);
     font-family: 'Nunito Sans';
-    font-size: clamp(0.5rem, 2vw, 1.15rem);
+    font-size: clamp(1rem, 2.6vw, 1.15rem);
     font-style: italic;
-    line-height: 1.55;
+    line-height: 1.6;
     margin: 28px auto 0;
     max-width: 720px;
     text-align: center;

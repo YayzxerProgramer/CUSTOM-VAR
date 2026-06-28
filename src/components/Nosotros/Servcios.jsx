@@ -1,5 +1,7 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../css/Nosotros/Servicios.css';
+
+const ENLACE_NUESTRAS_SOLUCIONES = '/soluciones#nuestras-soluciones';
 
 export default function Servicios() {
     return (
@@ -35,10 +37,10 @@ export default function Servicios() {
                             <span className="material-symbols-outlined icono-servicio">mode_fan</span>
                             <h3 className="titulo-tarjeta">Ventilación</h3>
                             <p className="texto-tarjeta">Diseño e implementación de sistemas de inyección y extracción mecánica para procesos industriales pesados.</p>
-                            <a className="enlace-tarjeta grupo-enlace" href="#">
+                            <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución
                                 <span className="material-symbols-outlined flecha-enlace">arrow_forward</span>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Tarjeta 2 */}
@@ -46,10 +48,10 @@ export default function Servicios() {
                             <span className="material-symbols-outlined icono-servicio">ac_unit</span>
                             <h3 className="titulo-tarjeta">Aire Acondicionado</h3>
                             <p className="texto-tarjeta">Climatización de precisión y confort con tecnología VRF y chillers de alta eficiencia energética.</p>
-                            <a className="enlace-tarjeta grupo-enlace" href="#">
+                            <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución
                                 <span className="material-symbols-outlined flecha-enlace">arrow_forward</span>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Tarjeta 3 */}
@@ -57,10 +59,10 @@ export default function Servicios() {
                             <span className="material-symbols-outlined icono-servicio">kitchen</span>
                             <h3 className="titulo-tarjeta">Refrigeración</h3>
                             <p className="texto-tarjeta">Sistemas de cadena de frío y cuartos fríos para la industria alimentaria y farmacéutica.</p>
-                            <a className="enlace-tarjeta grupo-enlace" href="#">
+                            <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución
                                 <span className="material-symbols-outlined flecha-enlace">arrow_forward</span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

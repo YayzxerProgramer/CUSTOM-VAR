@@ -258,6 +258,61 @@
     font-size: 18px;
 }
 
+/* ---------- Pista de navegación (solo en responsive) ----------
+   Botones numerados debajo del acordeón para que el usuario
+   cambie de perfil sin tocar la imagen. Son transparentes y
+   estan sobre una franja blanca. */
+.acordeon-personas__nav {
+    display: none;
+    max-width: var(--ancho-maximo-contenedor, 1280px);
+    margin: 16px auto 0;
+    padding: 0 20px;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.acordeon-personas__nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--color-primario, #002132);
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.acordeon-personas__nav-btn:hover,
+.acordeon-personas__nav-btn:focus {
+    background: transparent;
+    border-color: transparent;
+    color: var(--color-acento-rojo, #db2d2c);
+    outline: none;
+}
+
+.acordeon-personas__nav-btn--activo {
+    color: var(--color-acento-rojo, #db2d2c);
+    border-color: rgba(219, 45, 44, 0.35);
+}
+
+.acordeon-personas__nav-num {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+}
+
+.acordeon-personas__nav-label {
+    white-space: nowrap;
+}
+
 /* ---------- Párrafo de pie ---------- */
 .acordeon-personas__pie {
     max-width: var(--ancho-maximo-contenedor, 1280px);
@@ -284,21 +339,25 @@
    RESPONSIVE
    ========================================== */
 @media (max-width: 900px) {
+    .acordeon-personas {
+        padding: 40px 0 56px;
+    }
+
     .acordeon-personas__pista {
         flex-direction: column;
         height: auto;
         min-height: 0;
-        gap: 10px;
+        gap: 12px;
         padding: 0 20px;
     }
 
     .persona-panel {
-        min-height: 96px;
+        min-height: 100px;
         transition: min-height 0.45s ease;
     }
 
     .persona-panel--activo {
-        min-height: 560px;
+        min-height: 620px;
     }
 
     .acordeon-personas__cabecera,
@@ -307,6 +366,59 @@
     }
 
     .acordeon-personas__titulo {
-        font-size: 30px;
+        font-size: 28px;
+    }
+
+    .persona-panel__contenido {
+        padding: 22px 22px 26px;
+    }
+
+    .persona-panel--activo .persona-panel__titulo {
+        font-size: 22px;
+    }
+
+    .persona-panel__dolor {
+        font-size: 17px;
+        line-height: 1.35;
+    }
+
+    .persona-panel__descripcion,
+    .persona-panel__solucion {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .persona-panel__acciones {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 18px;
+    }
+
+    .persona-panel__btn {
+        text-align: center;
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .acordeon-personas__pdf {
+        font-size: 15px;
+        line-height: 1.7;
+        padding-left: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .acordeon-personas__cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .acordeon-personas__ayuda {
+        max-width: 100%;
+    }
+
+    .acordeon-personas__pie {
+        margin-top: 32px;
     }
 }

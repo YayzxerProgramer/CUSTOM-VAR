@@ -3,7 +3,7 @@ import '../css/CarruselAcordeon.css';
 
 export default function CarruselAcordeon({
     items = [],
-    itemsPorPagina = 3, 
+    itemsPorPagina = 3,
     className = '',
     ariaLabel = 'Carrusel de contenidos',
     textoBoton = 'Explorar solucion',
@@ -12,6 +12,7 @@ export default function CarruselAcordeon({
     obtenerKey = (item, indice) => item.id ?? indice,
 }) {
     const [paginaActual, setPaginaActual] = useState(0);
+    const [indiceExpandido, setIndiceExpandido] = useState(null);
     const cantidadPorPagina = Math.max(1, Number(itemsPorPagina) || 1);
 
     const totalPaginas = Math.ceil(items.length / cantidadPorPagina);
@@ -32,6 +33,12 @@ export default function CarruselAcordeon({
 
     const irAPaginaAnterior = () => {
         setPaginaActual((prev) => (prev - 1 + totalPaginas) % totalPaginas);
+    };
+
+    // Click en un panel lo abre. Click en otro cambia al nuevo.
+    // No hay toggle: una vez abierto, solo cambia al tocar otro.
+    const manejarTapPanel = (indiceGlobal) => {
+        setIndiceExpandido(indiceGlobal);
     };
 
     return (
@@ -61,8 +68,18 @@ export default function CarruselAcordeon({
                     return (
                         <article
                             key={obtenerKey(item, indice)}
-                            className="carrusel-acordeon__panel"
+                            className={`carrusel-acordeon__panel ${indiceExpandido === (paginaSegura * cantidadPorPagina + indice) ? 'carrusel-acordeon__panel--expandido' : ''}`.trim()}
                             style={imagen ? { '--imagen-fondo': `url(${imagen})` } : undefined}
+                            onClick={() => manejarTapPanel(paginaSegura * cantidadPorPagina + indice)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(evento) => {
+                                if (evento.key === 'Enter' || evento.key === ' ') {
+                                    evento.preventDefault();
+                                    manejarTapPanel(paginaSegura * cantidadPorPagina + indice);
+                                }
+                            }}
+                            aria-expanded={indiceExpandido === (paginaSegura * cantidadPorPagina + indice) ? 'true' : 'false'}
                         >
                             <div className="carrusel-acordeon__gradiente">
                                 {renderItem ? (

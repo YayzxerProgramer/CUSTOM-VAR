@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import CarruselAcordeon from '../CarruselAcordeon.jsx';
 import { panelesHeroNosotros } from '../../data/nosotrosHero.js';
 import '../../css/Nosotros/Hero.css';
@@ -24,7 +25,6 @@ export default function Hero() {
             itemsPorPagina={3}
             className="hero-carrusel"
             ariaLabel="Soluciones por sector"
-            altura="calc(100vh - 80px)"
             renderItem={(item) => (
                 <div className="industria-panel">
                     <h3 className="industria-panel__titulo">{item.titulo}</h3>
@@ -38,7 +38,7 @@ export default function Hero() {
                                 </div>
                             ))}
                         </div>
-                        <a href={item.enlace} className="industria-panel__btn">Explorar solución</a>
+                        <Link to={item.enlace} className="industria-panel__btn">Explorar solución</Link>
                     </div>
                 </div>
             )}
