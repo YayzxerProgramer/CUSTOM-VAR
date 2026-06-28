@@ -1,0 +1,127 @@
+export const contactosTalento = [
+    {
+        id: 'gerencia',
+        nombre: 'Carolina Vallejo',
+        cargo: 'Gerencia General',
+        tel: '+57 300 000 0001',
+        linkedin: '#',
+        img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop',
+    },
+    {
+        id: 'comercial',
+        nombre: 'Dirección Comercial',
+        cargo: 'Gerencia Comercial',
+        tel: '+57 300 000 0002',
+        linkedin: '#',
+        img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop',
+    },
+    {
+        id: 'proyectos',
+        nombre: 'Dirección de Proyectos',
+        cargo: 'Ingeniería y Proyectos',
+        tel: '+57 300 000 0003',
+        linkedin: '#',
+        img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=400&auto=format&fit=crop',
+    },
+    {
+        id: 'servicios',
+        nombre: 'Dirección de Servicios',
+        cargo: 'Operación y Mantenimiento',
+        tel: '+57 300 000 0004',
+        linkedin: '#',
+        img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop',
+    },
+    {
+        id: 'administracion',
+        nombre: 'Administración',
+        cargo: 'Facturación y Pagaduría',
+        tel: '+57 300 000 0005',
+        linkedin: '#',
+        img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop',
+    },
+    {
+        id: 'talento',
+        nombre: 'Talento Humano',
+        cargo: 'Gestión Humana',
+        tel: '+57 300 000 0006',
+        linkedin: '#',
+        img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop',
+    },
+];
+
+export const vacantesTalento = [
+    {
+        id: 'ventas',
+        titulo: 'Representante de Ventas',
+        icono: 'handshake',
+        meta: 'Ingeniería · 3 años de experiencia',
+        funciones:
+            'Prospectar y captar nuevos clientes para la comercialización de productos, repuestos y servicios VAR; identificar necesidades técnicas y comerciales; elaborar cotizaciones y propuestas técnico-comerciales; realizar visitas técnicas; coordinar con proyectos y servicios la ejecución de las soluciones; gestionar negociaciones y cierre de contratos; promover contratos de mantenimiento y participar en licitaciones.',
+        responsabilidades:
+            'Identificar necesidades del cliente, preparar propuestas técnicas, brindar asesoría técnica y comercial, gestionar el ciclo de ventas, colaborar con equipos internos, realizar presentaciones técnicas y mantenerse actualizado sobre tendencias del mercado y avances tecnológicos.',
+        requisitos:
+            'Profesional en ingeniería mecánica, electromecánica, eléctrica, industrial o afines, con tres (3) años de experiencia, preferiblemente en ventas de productos y servicios de ventilación, aire acondicionado o refrigeración. Manejo de herramientas ofimáticas, elaboración de propuestas, habilidades de negociación, comunicación efectiva, servicio al cliente y orientación a resultados.',
+    },
+    {
+        id: 'proyectos',
+        titulo: 'Ingeniero de Proyectos',
+        icono: 'architecture',
+        meta: 'Ingeniería · +3 años de experiencia',
+        funciones:
+            'Ejecutar los proyectos según planes y especificaciones; asegurar el uso eficiente de materiales, equipos y personal; coordinar contratistas y proveedores para cumplir plazos y estándares; identificar y resolver problemas durante la ejecución; realizar inspecciones y controles de obra; gestionar la documentación; realizar visitas técnicas; gestionar riesgos y asegurar el cumplimiento del presupuesto.',
+        responsabilidades:
+            'Garantizar la correcta ejecución de los proyectos, supervisar el cumplimiento de estándares técnicos y tiempos, optimizar recursos, coordinar contratistas y proveedores, gestionar riesgos y conflictos, mantener la documentación técnica actualizada y asegurar la satisfacción del cliente.',
+        requisitos:
+            'Profesional en ingeniería civil, mecánica, industrial o afines, con más de tres (3) años de experiencia, conocimientos técnicos enfocados en proyectos, habilidades de liderazgo y gestión, comunicación efectiva para coordinar contratistas y proveedores, y capacidad de resolución de problemas.',
+    },
+    {
+        id: 'servicios',
+        titulo: 'Ingeniero de Servicios',
+        icono: 'engineering',
+        meta: 'Ingeniería · 5 años de experiencia',
+        funciones:
+            'Asegurar la correcta ejecución de los servicios cumpliendo estándares de calidad, tiempos y costos; supervisar, coordinar y acompañar al personal técnico; organizar tareas diarias asignando recursos y prioridades; realizar visitas técnicas y atención a clientes; gestionar cotizaciones, informes y reportes; controlar presupuestos y cronogramas; implementar mejoras operativas.',
+        responsabilidades:
+            'Garantizar calidad y eficiencia en los servicios técnicos, velar por cronogramas y costos, supervisar y desarrollar al personal técnico, mantener altos niveles de satisfacción del cliente, asegurar el cumplimiento de normas de seguridad industrial, optimizar recursos, promover la mejora continua y garantizar el cierre de los servicios.',
+        requisitos:
+            'Profesional en ingeniería mecánica, electromecánica, eléctrica, industrial o afines, con cinco (5) años de experiencia en coordinación y ejecución de servicios de mantenimiento e instalación VAR, supervisión de personal técnico, mantenimiento preventivo y correctivo, interpretación de planos, indicadores de gestión, seguridad industrial y herramientas ofimáticas.',
+    },
+    {
+        id: 'supervisor',
+        titulo: 'Supervisor de Servicios',
+        icono: 'supervisor_account',
+        meta: 'Técnico/Tecnólogo · 2 años de experiencia',
+        funciones:
+            'Coordinar, organizar y dirigir las actividades del equipo técnico; supervisar mantenimientos e instalaciones; evaluar el desempeño del personal; planificar tareas y recursos; supervisar la calidad de los trabajos; realizar procesos administrativos y comerciales; verificar montajes y parámetros operativos; controlar tiempos de ejecución y realizar visitas técnicas.',
+        responsabilidades:
+            'Garantizar la correcta ejecución y calidad de los servicios, supervisar el cumplimiento de tiempos y estándares técnicos, asegurar el adecuado funcionamiento de los sistemas VAR, optimizar recursos y herramientas, mantener la satisfacción del cliente y promover la mejora continua de los procesos.',
+        requisitos:
+            'Técnico o tecnólogo en refrigeración, climatización o afines, con conocimientos en refrigeración y ductería, habilidades para manejo de personal y optimización de recursos, y mínimo dos (2) años de experiencia.',
+    },
+    {
+        id: 'tecnico',
+        titulo: 'Técnico en Refrigeración (VAR)',
+        icono: 'build',
+        meta: 'Técnico/Tecnólogo · 1 año de experiencia',
+        funciones:
+            'Realizar instalación de equipos de aire acondicionado, ejecutar mantenimientos preventivos y correctivos, verificar parámetros de operación de los equipos y atender las necesidades y requerimientos del cliente durante la prestación del servicio.',
+        responsabilidades:
+            'Garantizar la correcta instalación y mantenimiento de los equipos, verificar el adecuado funcionamiento de los sistemas intervenidos, cumplir con los estándares de calidad establecidos y brindar atención adecuada y oportuna a los clientes.',
+        requisitos:
+            'Técnico o tecnólogo en refrigeración o afines, con mínimo un (1) año de experiencia en instalación y mantenimiento de aires acondicionados, conocimientos en el área, atención al cliente, comunicación oral y escrita, liderazgo y trabajo en equipo.',
+    },
+    {
+        id: 'comercial',
+        titulo: 'Agente Comercial',
+        icono: 'support_agent',
+        meta: 'Tecnólogo/Profesional · 1-2 años de experiencia',
+        funciones:
+            'Buscar nuevos clientes potenciales por internet, actualizar bases de datos, realizar llamadas en frío y contactos comerciales, agendar visitas, solicitar y elaborar cotizaciones, realizar seguimiento post-cotización y negociación, gestionar órdenes de compra, coordinar transporte y entregas, facturar y realizar seguimiento postventa y fidelización.',
+        responsabilidades:
+            'Garantizar el seguimiento y cierre de oportunidades comerciales, cumplir metas e indicadores de ventas, mantener actualizada la información comercial y administrativa, coordinar compras y entregas, brindar seguimiento a clientes, fortalecer la fidelización y asegurar la gestión documental y operativa.',
+        requisitos:
+            'Tecnólogo o profesional en áreas administrativas, financieras, comerciales o afines, con conocimientos en refrigeración, herramientas ofimáticas, elaboración de cotizaciones y propuestas, planeación comercial, comunicación asertiva, organización del tiempo, orientación al cliente y liderazgo. Experiencia de uno (1) a dos (2) años.',
+    },
+];
+
+export const correoTalento = 'talento@customsoluciones.com';

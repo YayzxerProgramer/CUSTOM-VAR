@@ -5,8 +5,8 @@ import "../css/NavBar.css"
 const ENLACES = [
     { to: "/nosotros", label: "Nosotros" },
     { to: "/soluciones", label: "Soluciones" },
-    { to: "/soporte", label: "Proyectos" },
-    { to: "/iniciativas", label: "Servicios" },
+    { to: "/soporte", label: "Soporte" },
+    { to: "/iniciativas", label: "Iniciativas" },
     { to: "/talento", label: "Talento" },
     { to: "/noticias", label: "Noticias" },
 ];
