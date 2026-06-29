@@ -62,7 +62,11 @@ export default function AcordeonPersonas() {
                                     <div className="persona-panel__acciones">
                                         <Link
                                             to={ENLACE_PROYECTOS}
-                                            onClick={(e) => e.stopPropagation()}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                e.preventDefault();
+                                                window.dispatchEvent(new CustomEvent('solicitar-proyectos'));
+                                            }}
                                             className="persona-panel__btn persona-panel__btn--esquema"
                                         >
                                             Ver Proyectos

@@ -10,8 +10,31 @@ export default function ProyectosExpandible() {
     const { hash } = useLocation();
     const [verSoluciones, setVerSoluciones] = useState(false);
     const [verProyectos, setVerProyectos] = useState(false);
+    const [solicitudScroll, setSolicitudScroll] = useState(0);
     const seccionRef = useRef(null);
     const proyectosTituloRef = useRef(null);
+
+    // El boton "Ver Proyectos" del acordeon emite este evento en cada click.
+    // Como navegar al mismo hash no re-dispara nada, abrimos los paneles y
+    // bumpeamos el nonce para forzar el scroll siempre.
+    useEffect(() => {
+        const abrir = () => {
+            setVerSoluciones(true);
+            setVerProyectos(true);
+            setSolicitudScroll((n) => n + 1);
+        };
+        window.addEventListener('solicitar-proyectos', abrir);
+        return () => window.removeEventListener('solicitar-proyectos', abrir);
+    }, []);
+
+    // Se ejecuta tras montar el titulo de proyectos (render condicional),
+    // en cada solicitud, aunque verProyectos ya fuera true.
+    useEffect(() => {
+        if (solicitudScroll === 0) return;
+        if (verProyectos && proyectosTituloRef.current) {
+            proyectosTituloRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, [solicitudScroll, verProyectos]);
 
     // Si la URL trae un hash, abrimos el panel correspondiente.
     // Lo hacemos en un effect para no llamar setState durante el render.
