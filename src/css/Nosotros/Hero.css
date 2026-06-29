@@ -1,9 +1,9 @@
 .hero-carrusel {
-    width: 99.2vw;
+    width: 100%;
     /* Por defecto ocupa el alto del viewport menos el navbar superior.
        En móvil, se reduce aún más para dejar sitio a la barra de
        navegación inferior. */
-    --carrusel-altura: calc(100vh - 80px);
+    --carrusel-altura: calc(100vh - var(--altura-navbar));
 }
 
 /* En móvil, el navbar inferior ocupa 56px. Ajustamos la altura del hero
@@ -33,51 +33,37 @@
     transition: flex 0.85s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* En el hero de nosotros las flechas y las bolitas NUNCA van
-       sobre la imagen. Las sacamos del flujo absoluto y las ponemos
-       en una franja blanca centrada debajo del acordeón. Las flechas
-       totalmente transparentes, sin fondo ni en hover. */
-.hero-carrusel .carrusel-acordeon__flecha {
-    position: static;
-    top: auto;
-    left: auto;
-    right: auto;
-    transform: none;
-    background-color: transparent;
-    border: 1px solid transparent;
-    color: var(--color-primario, #002132);
-    box-shadow: none;
-    width: 44px;
-    height: 44px;
-}
+/* Las flechas y los puntos flotan sobre la imagen con el estilo base
+   (botones circulares semi-transparentes a izquierda/derecha y los
+   puntos centrados abajo). No se sobreescriben aqui a proposito. */
 
-.hero-carrusel .carrusel-acordeon__flecha:hover,
-.hero-carrusel .carrusel-acordeon__flecha:active,
-.hero-carrusel .carrusel-acordeon__flecha:focus {
-    background-color: transparent;
-    color: var(--color-acento-rojo);
-    transform: none;
-    outline: none;
-}
+/* ==========================================
+   MOVIL: el carrusel hace scroll vertical (overflow-y: auto).
+   - Flechas centradas verticalmente, sobre la imagen del medio.
+   - Puntos transparentes sobre la imagen y FIJOS (sticky) para que
+     sigan visibles al desplazar, sin la franja blanca que separaba
+     el carrusel de la caja de estadistica.
+   ========================================== */
+@media (max-width: 900px) {
+    .hero-carrusel .carrusel-acordeon__flecha {
+        top: 50%;
+    }
 
-.hero-carrusel .carrusel-acordeon__indicadores {
-    position: static;
-    transform: none;
-    justify-content: center;
-    align-items: center;
-    padding: 14px 20px;
-    margin: 0;
-    background-color: var(--color-blanco-puro, #ffffff);
-    gap: 14px;
-    display: flex;
-    flex-direction: row;
-    border-top: 1px solid #eef2f4;
-}
+    .hero-carrusel .carrusel-acordeon__indicadores {
+        position: sticky;
+        bottom: 12px;
+        background-color: transparent;
+        border-top: 0;
+        padding: 8px 0;
+        z-index: 40;
+    }
 
-.hero-carrusel .carrusel-acordeon__punto {
-    background-color: rgba(0, 33, 50, 0.25);
-}
+    .hero-carrusel .carrusel-acordeon__punto {
+        background-color: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    }
 
-.hero-carrusel .carrusel-acordeon__punto--activo {
-    background-color: var(--color-acento-rojo);
+    .hero-carrusel .carrusel-acordeon__punto--activo {
+        background-color: var(--color-acento-rojo);
+    }
 }

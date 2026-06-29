@@ -219,34 +219,43 @@
         margin-bottom: 16px;
     }
 
-    /* Flechas fuera de la imagen: las sacamos del flujo absoluto
-       y las colocamos junto a los indicadores, debajo del acordeón.
-       Totalmente transparentes: sin fondo visible, ni en hover. */
+    /* Flechas visibles sobre la imagen también en móvil: las dejamos
+       flotando como botones redondos, igual que en escritorio pero
+       ancladas en la parte superior del acordeón para que no se pierdan
+       con el scroll vertical. */
     .carrusel-acordeon__flecha {
-        position: static;
-        top: auto;
-        transform: none;
+        position: absolute;
+        top: 130px;
+        transform: translateY(-50%);
         width: 42px;
         height: 42px;
-        background-color: transparent;
-        border: 1px solid transparent;
-        color: var(--color-primario, #002132);
+        background-color: rgba(0, 33, 50, 0.6);
+        border: none;
+        color: var(--color-blanco-puro);
         box-shadow: none;
+        z-index: 40;
     }
 
     .carrusel-acordeon__flecha:hover,
     .carrusel-acordeon__flecha:active,
     .carrusel-acordeon__flecha:focus {
-        background-color: transparent;
-        color: var(--color-acento-rojo);
-        transform: none;
+        background-color: var(--color-acento-rojo);
+        color: var(--color-blanco-puro);
         outline: none;
     }
 
-    .carrusel-acordeon__flecha--izquierda,
-    .carrusel-acordeon__flecha--derecha {
-        left: auto;
+    .carrusel-acordeon__flecha:active {
+        transform: translateY(-50%) scale(0.9);
+    }
+
+    .carrusel-acordeon__flecha--izquierda {
+        left: 12px;
         right: auto;
+    }
+
+    .carrusel-acordeon__flecha--derecha {
+        right: 12px;
+        left: auto;
     }
 
     /* En móvil sacamos las bolitas de encima de la imagen y las

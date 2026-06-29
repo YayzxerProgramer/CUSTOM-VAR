@@ -19,6 +19,17 @@
     --ancho-maximo-contenedor: 1280px;
     --separacion-menu: 32px;
     --borde-redondeado: 0.25rem;
+
+    /* Altura del navbar fijo. Se sincroniza por breakpoint mas abajo y
+       se usa en el padding-top del body y en el offset del hero. */
+    --altura-navbar: 80px;
+}
+
+/* El navbar es fixed: reservamos en el body un espacio igual a su altura
+   para que el contenido no quede tapado. Usa la variable para que ambos
+   valores coincidan en todos los breakpoints. */
+body {
+    padding-top: var(--altura-navbar);
 }
 
 /* ==========================================
@@ -207,11 +218,10 @@
 
 /* Móvil: < 768px */
 @media (max-width: 767px) {
-    /* El navbar es fixed: dejamos espacio arriba en el body para que el contenido
-       no quede tapado. Como el navbar es position:fixed, ignora el padding del body
-       y se queda anclado arriba del viewport. */
-    body {
-        padding-top: 104px;
+    /* Navbar superior mas alto en movil. El padding-top del body lo toma
+       de la variable global. */
+    :root {
+        --altura-navbar: 104px;
     }
 
     .logotipo {
@@ -244,12 +254,6 @@
     .menu-navegacion {
         display: flex;
     }
-
-    /* El navbar es fixed: dejamos espacio arriba en el body para que el contenido
-       no quede tapado. Como el navbar es position:fixed, ignora el padding del body. */
-    body {
-        padding-top: 80px;
-    }
 }
 
 /* ==========================================
@@ -257,6 +261,10 @@
    Logo izquierda | nav centrado | botón derecha
    ========================================== */
 @media (min-width: 1024px) and (max-width: 1439px) {
+    :root {
+        --altura-navbar: 72px;
+    }
+
     .envoltura-navegacion {
         height: 72px;
         gap: 16px;
@@ -287,6 +295,10 @@
    PC DE ESCRITORIO: ≥ 1440px
    ========================================== */
 @media (min-width: 1440px) {
+    :root {
+        --altura-navbar: 76px;
+    }
+
     .envoltura-navegacion {
         height: 76px;
         gap: 24px;
@@ -316,6 +328,10 @@
    PANTALLAS GRANDES: ≥ 1920px
    ========================================== */
 @media (min-width: 1920px) {
+    :root {
+        --altura-navbar: 84px;
+    }
+
     .envoltura-navegacion {
         height: 84px;
         padding: 0 64px 0 64px;
