@@ -5,14 +5,39 @@ import '../../css/Soluciones/ProyectosExpandible.css';
 
 const SECCION_NUESTRAS_SOLUCIONES = 'nuestras-soluciones';
 const SECCION_PROYECTOS = 'proyectos';
+const DURACION_DOBLEZ = 220; // ms, debe coincidir con la transicion en ProyectosExpandible.css
 
 export default function ProyectosExpandible() {
     const { hash } = useLocation();
     const [verSoluciones, setVerSoluciones] = useState(false);
     const [verProyectos, setVerProyectos] = useState(false);
     const [solicitudScroll, setSolicitudScroll] = useState(0);
+    const [detalleAbierto, setDetalleAbierto] = useState(() => new Set());
+    const [doblando, setDoblando] = useState(() => new Set());
     const seccionRef = useRef(null);
     const proyectosTituloRef = useRef(null);
+
+    // Anima el "doblez" del texto: primero pliega el contenido breve,
+    // luego lo reemplaza por la informacion completa (y viceversa al cerrar).
+    const alternarDetalleProyecto = (id) => {
+        if (doblando.has(id)) return;
+        setDoblando((prev) => new Set(prev).add(id));
+        window.setTimeout(() => {
+            setDetalleAbierto((prev) => {
+                const siguiente = new Set(prev);
+                if (siguiente.has(id)) siguiente.delete(id);
+                else siguiente.add(id);
+                return siguiente;
+            });
+            requestAnimationFrame(() => {
+                setDoblando((prev) => {
+                    const siguiente = new Set(prev);
+                    siguiente.delete(id);
+                    return siguiente;
+                });
+            });
+        }, DURACION_DOBLEZ);
+    };
 
     // El boton "Ver Proyectos" del acordeon emite este evento en cada click.
     // Como navegar al mismo hash no re-dispara nada, abrimos los paneles y
@@ -173,7 +198,66 @@ export default function ProyectosExpandible() {
                                                     {proyecto.icono}
                                                 </span>
                                                 <h3 className="proyecto-fila__titulo">{proyecto.titulo}</h3>
-                                                <p className="proyecto-fila__desc">{proyecto.descripcion}</p>
+
+                                                <div className="proyecto-fila__doblez">
+                                                    <div
+                                                        className={`proyecto-fila__contenido ${
+                                                            doblando.has(proyecto.id)
+                                                                ? 'proyecto-fila__contenido--doblando'
+                                                                : ''
+                                                        }`}
+                                                    >
+                                                        {detalleAbierto.has(proyecto.id) ? (
+                                                            <div className="proyecto-fila__detalle">
+                                                                {proyecto.detalle.parrafos.map((parrafo, i) => (
+                                                                    <p key={i}>{parrafo}</p>
+                                                                ))}
+                                                                {proyecto.detalle.alcance && (
+                                                                    <>
+                                                                        <h4>Alcance del proyecto</h4>
+                                                                        <ul>
+                                                                            {proyecto.detalle.alcance.map((item, i) => (
+                                                                                <li key={i}>{item}</li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    </>
+                                                                )}
+                                                            </div>
+                                                        ) : (
+                                                            <>
+                                                                <dl className="proyecto-fila__info">
+                                                                    {proyecto.detalle.info.map(({ label, valor }) => (
+                                                                        <div key={label}>
+                                                                            <dt>{label}</dt>
+                                                                            <dd>{valor}</dd>
+                                                                        </div>
+                                                                    ))}
+                                                                </dl>
+                                                                <p className="proyecto-fila__desc">{proyecto.descripcion}</p>
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                </div>
+
+                                                <button
+                                                    type="button"
+                                                    className="proyecto-fila__ver-mas"
+                                                    onClick={() => alternarDetalleProyecto(proyecto.id)}
+                                                    aria-expanded={detalleAbierto.has(proyecto.id)}
+                                                >
+                                                    {detalleAbierto.has(proyecto.id) ? 'Ver menos' : 'Ver más'}
+                                                    <span
+                                                        className="material-symbols-outlined"
+                                                        style={{
+                                                            transform: `rotate(${
+                                                                detalleAbierto.has(proyecto.id) ? '180deg' : '0deg'
+                                                            })`,
+                                                        }}
+                                                    >
+                                                        expand_more
+                                                    </span>
+                                                </button>
+
                                                 <Link
                                                     to="/soporte#formulario-solicitud"
                                                     className="proyecto-fila__btn"
