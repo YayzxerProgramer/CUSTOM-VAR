@@ -1,3 +1,34 @@
+// Importaciones de fotos de proyectos (usadas por los carruseles)
+import justicia1 from '../img/proyectos-img/JUSTICIA_1.jpg';
+import justicia2 from '../img/proyectos-img/JUSTICIA_2.jpg';
+import justicia3 from '../img/proyectos-img/JUSTICIA_3.jpg';
+import justicia4 from '../img/proyectos-img/JUSTICIA_4.jpg';
+import justicia5 from '../img/proyectos-img/JUSTICIA_5.jpg';
+
+import biblioteca1 from '../img/proyectos-img/BIBLIOTECA_1.jpg';
+import biblioteca2 from '../img/proyectos-img/BIBLIOTECA_2.jpeg';
+import biblioteca3 from '../img/proyectos-img/BIBLIOTECA_3.jpg';
+import biblioteca4 from '../img/proyectos-img/BIBLIOTECA_4.jpeg';
+import biblioteca5 from '../img/proyectos-img/BIBLIOTECA_5.jpg';
+
+import camara1 from '../img/proyectos-img/CAMARA_1.jpg';
+import camara2 from '../img/proyectos-img/CAMARA_2.jpg';
+import camara3 from '../img/proyectos-img/CAMARA_3.jpg';
+import camara4 from '../img/proyectos-img/CAMARA_4.jpg';
+import camara5 from '../img/proyectos-img/CAMARA_5.jpg';
+
+import puerto1 from '../img/proyectos-img/PUERTO_1.jpg';
+import puerto2 from '../img/proyectos-img/PUERTO_2.jpg';
+import puerto3 from '../img/proyectos-img/PUERTO_3.jpg';
+import puerto4 from '../img/proyectos-img/PUERTO_4.jpg';
+import puerto5 from '../img/proyectos-img/PUERTO_5.jpg';
+
+import bomi1 from '../img/proyectos-img/BOMI_1.jpg';
+import bomi2 from '../img/proyectos-img/BOMI_2.jpg';
+import bomi3 from '../img/proyectos-img/BOMI_3.jpg';
+import bomi4 from '../img/proyectos-img/BOMI_4.jpg';
+import bomi5 from '../img/proyectos-img/BOMI_5.jpg';
+
 export const buyerPersonas = [
     {
         id: 'constructores',
@@ -55,6 +86,8 @@ export const proyectos = [
         icono: 'gavel',
         titulo: 'Palacio de Justicia, Calarcá',
         imagen: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200&auto=format&fit=crop',
+        altPrefix: 'Palacio de Justicia de Calarcá',
+        carrusel: [justicia1, justicia2, justicia3, justicia4, justicia5],
         descripcion: 'Sistema HVAC integral para el Complejo Judicial de Calarcá (Quindío): climatización VRF LG, ventilación mecánica en baterías sanitarias y extracción automatizada de CO en parqueaderos, con ductería fabricada en nuestra planta TECNICONDUCTOS.',
         detalle: {
             parrafos: [
@@ -80,11 +113,12 @@ export const proyectos = [
         icono: 'local_library',
         titulo: 'Biblioteca Pública Piloto de Medellín',
         imagen: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop',
-        descripcion: 'Climatización de alta eficiencia con tecnología VRV Daikin para la Biblioteca Pública Piloto, con diseño HVAC ajustado por nuestro equipo de ingeniería para respetar el valor patrimonial del edificio y control centralizado vía IP.',
+        altPrefix: 'Biblioteca Pública Piloto de Medellín',
+        carrusel: [biblioteca1, biblioteca2, biblioteca3, biblioteca4, biblioteca5],
+        descripcion: "La Biblioteca Pública Piloto Sede Carlos E. Restrepo de Medellín, una de las instituciones culturales más emblemáticas de Colombia y referente nacional en preservación del conocimiento, requirió una solución integral de climatización y ventilación que garantizara el confort de sus usuarios, protegiera sus espacios y respetara la arquitectura del edificio.",
         detalle: {
             parrafos: [
-                'La Biblioteca Pública Piloto Sede Carlos E. Restrepo de Medellín, una de las instituciones culturales más emblemáticas de Colombia y referente nacional en preservación del conocimiento, requirió una solución integral de climatización y ventilación que garantizara el confort de sus usuarios, protegiera sus espacios y respetara la arquitectura del edificio.',
-                'Para atender este desafío, se desarrolló un sistema HVAC de alta eficiencia basado en tecnología VRV marca DAIKIN, complementado con soluciones de automatización y ventilación mecánica que optimizan el desempeño energético, mejoran la Calidad del Aire Interior (IAQ) y proporcionan un control inteligente de toda la infraestructura.',
+
                 'Uno de los principales diferenciadores del proyecto fue el ajuste del diseño HVAC realizado por el equipo de ingeniería de CUSTOM, permitiendo adaptar la solución a las condiciones arquitectónicas y funcionales de la edificación sin comprometer su valor patrimonial.',
                 'La implementación de un sistema de control centralizado vía IP permitió monitorear y administrar en tiempo real todos los equipos de climatización desde una plataforma única, facilitando la operación, el mantenimiento y la eficiencia del sistema.',
                 'Como complemento, se diseñó e instaló un sistema de ventilación para la subestación eléctrica mediante equipos Soler & Palau, automatizado con controladores Full Gauge, garantizando una adecuada disipación térmica y la protección de los equipos eléctricos.',
@@ -104,11 +138,11 @@ export const proyectos = [
         icono: 'apartment',
         titulo: 'Cámara de Comercio de Bogotá – Sede Soacha',
         imagen: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop',
-        descripcion: 'Solución integral de climatización VRF Samsung DVM, ventilación mecánica, automatización SIEMENS y monitoreo de CO₂, incluyendo presurización automática de escaleras contra incendio.',
+        altPrefix: 'Cámara de Comercio de Bogotá – Sede Soacha',
+        carrusel: [camara1, camara2, camara3, camara4, camara5],
+        descripcion: 'El proyecto fue desarrollado con el objetivo de proporcionar ambientes confortables, seguros y energéticamente eficientes mediante la implementación de soluciones integrales de climatización, ventilación mecánica y automatización, garantizando altos estándares de confort térmico, Calidad del Aire Interior (IAQ) y seguridad para los ocupantes de la edificación.',
         detalle: {
             parrafos: [
-                'La Cámara de Comercio de Bogotá, entidad privada sin ánimo de lucro encargada de administrar los registros mercantiles, fortalecer el tejido empresarial y promover el desarrollo económico de Bogotá y varios municipios de Cundinamarca, construyó su nueva sede en Soacha como un espacio moderno destinado a la atención de empresarios, emprendedores y ciudadanos.',
-                'El proyecto fue desarrollado con el objetivo de proporcionar ambientes confortables, seguros y energéticamente eficientes mediante la implementación de soluciones integrales de climatización, ventilación mecánica y automatización, garantizando altos estándares de confort térmico, Calidad del Aire Interior (IAQ) y seguridad para los ocupantes de la edificación.',
                 'La ejecución representó un importante desafío, ya que gran parte de la obra se desarrolló durante la emergencia sanitaria ocasionada por el COVID-19. A pesar de las restricciones y la suspensión temporal del proyecto, el equipo de CUSTOM permaneció en Soacha durante varios meses para garantizar la continuidad de los trabajos, demostrando compromiso, capacidad de adaptación y cumplimiento de los más altos estándares de calidad hasta la entrega final del proyecto.',
             ],
             alcance: [
@@ -125,6 +159,42 @@ export const proyectos = [
                 { label: 'Contratista Principal', valor: 'Alianza Civil Soacha' },
                 { label: 'Ubicación', valor: 'Soacha, Cundinamarca – Colombia' },
                 { label: 'Año de ejecución', valor: '2019 – 2020' },
+            ],
+        },
+    },
+    {
+        id: 'puerto',
+        icono: 'directions_boat',
+        titulo: 'Puerto',
+        imagen: 'https://images.unsplash.com/photo-1577416412292-747c6607f055?q=80&w=1200&auto=format&fit=crop',
+        altPrefix: 'Proyecto Puerto',
+        carrusel: [puerto1, puerto2, puerto3, puerto4, puerto5],
+        descripcion: 'Descripción pendiente del proyecto Puerto (será redactada por el cliente).',
+        detalle: {
+            parrafos: ['Información detallada pendiente de redacción.'],
+            alcance: [],
+            info: [
+                { label: 'Cliente / Propietario', valor: 'Pendiente' },
+                { label: 'Ubicación', valor: 'Pendiente' },
+                { label: 'Año de ejecución', valor: 'Pendiente' },
+            ],
+        },
+    },
+    {
+        id: 'bomi',
+        icono: 'warehouse',
+        titulo: 'Bomi',
+        imagen: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1200&auto=format&fit=crop',
+        altPrefix: 'Proyecto Bomi',
+        carrusel: [bomi1, bomi2, bomi3, bomi4, bomi5],
+        descripcion: 'Descripción pendiente del proyecto Bomi (será redactada por el cliente).',
+        detalle: {
+            parrafos: ['Información detallada pendiente de redacción.'],
+            alcance: [],
+            info: [
+                { label: 'Cliente / Propietario', valor: 'Pendiente' },
+                { label: 'Ubicación', valor: 'Pendiente' },
+                { label: 'Año de ejecución', valor: 'Pendiente' },
             ],
         },
     },

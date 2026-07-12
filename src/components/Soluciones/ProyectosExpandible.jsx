@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { pilares, proyectos } from '../../data/soluciones.js';
+import Carrusel from './Carrusel.jsx';
 import '../../css/Soluciones/ProyectosExpandible.css';
 
 const SECCION_NUESTRAS_SOLUCIONES = 'nuestras-soluciones';
@@ -191,8 +192,19 @@ export default function ProyectosExpandible() {
                                         >
                                             <div
                                                 className="proyecto-fila__media"
-                                                style={{ '--imagen-fondo': `url(${proyecto.imagen})` }}
-                                            />
+                                                style={
+                                                    proyecto.carrusel
+                                                        ? undefined
+                                                        : { '--imagen-fondo': `url(${proyecto.imagen})` }
+                                                }
+                                            >
+                                                {proyecto.carrusel && (
+                                                    <Carrusel
+                                                        fotos={proyecto.carrusel}
+                                                        altPrefix={proyecto.altPrefix || proyecto.titulo}
+                                                    />
+                                                )}
+                                            </div>
                                             <div className="proyecto-fila__texto">
                                                 <span className="material-symbols-outlined proyecto-fila__icono">
                                                     {proyecto.icono}

@@ -17,6 +17,14 @@ const FORMULARIO_HASH = 'formulario-solicitud';
 const correoCorporativoPattern = '^[^\\s@]+@(?!gmail\\.com$)(?!outlook\\.com$)(?!yahoo\\.com$)[^\\s@]+\\.[^\\s@]+$';
 const N8N_WEBHOOK_URL = 'http://localhost:5678/webhook-test/ca33ba91-66d0-49e5-b6d3-b025dc25830a';
 
+// Mapea la opcion elegida en "Etapa del Proyecto" a la etiqueta canonica
+// que n8n espera en el campo `etapaProyecto`.
+const ETAPA_PROYECTO_A_PRIORIDAD = new Map([
+    ['Presupuestacion anual / Planificacion a futuro (6-12 meses).', 'SOLICITUD - FUTURO'],
+    ['Ingenieria en desarrollo / Compra a mediano plazo (3-6 meses).', 'SOLICITUD - MEDIANO PLAZO'],
+    ['Reemplazo inmediato por falla / Construccion en curso (Urgente).', 'SOLICITUD - URGENTE'],
+]);
+
 function Campo({ children, etiqueta, requerido = true }) {
     return (
         <label className="soporte-campo">
@@ -264,6 +272,26 @@ export default function Soporte() {
         formData.append('tipoFormulario', tipoActivo);
         formData.append('radicado', numeroRadicado);
         formData.append('fechaEnvio', new Date().toISOString());
+
+        // Normalizamos el valor que llega a n8n segun el tipo de formulario.
+        // La idea es que n8n reciba etiquetas canonicas (URGENTE / MAYUSCULAS / etc.)
+        // en lugar del texto largo que ve el usuario en pantalla.
+        if (tipoActivo === 'servicio') {
+            const etapa = formData.get('etapaProyecto');
+            const prioridad = ETAPA_PROYECTO_A_PRIORIDAD.get(etapa);
+            if (prioridad) formData.set('etapaProyecto', prioridad);
+        } else if (tipoActivo === 'facturacion') {
+            const dolor = formData.get('dolorFacturacion');
+            if (dolor) formData.set('dolorFacturacion', dolor.toUpperCase());
+        } else if (tipoActivo === 'pqrsd') {
+            const tipo = formData.get('tipoPqrsd');
+            if (tipo) {
+                // El label viene como "Peticion: ...", "Queja: ...", etc.
+                // Tomamos la primera palabra antes de los dos puntos.
+                const categoria = tipo.split(':')[0].trim().toUpperCase();
+                formData.set('tipoPqrsd', categoria);
+            }
+        }
 
         try {
             const response = await fetch(N8N_WEBHOOK_URL, {

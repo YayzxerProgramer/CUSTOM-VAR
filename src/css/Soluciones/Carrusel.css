@@ -1,0 +1,75 @@
+/* ==========================================
+   CARRUSEL DE FOTOS (genérico, reutilizable)
+   Reemplaza la imagen estática de fondo de
+   cada proyecto por un slider auto-deslizante.
+   ========================================== */
+.carrusel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #dfe6ea;
+    box-shadow: 0 14px 30px rgba(0, 33, 50, 0.14);
+}
+
+.carrusel__ventana {
+    position: absolute;
+    inset: 0;
+}
+
+.carrusel__foto {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 800ms ease-in-out;
+    pointer-events: none;
+}
+
+.carrusel__foto--activa {
+    opacity: 1;
+    z-index: 1;
+}
+
+.carrusel__indicadores {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+    padding: 6px 10px;
+    background: rgba(0, 33, 50, 0.35);
+    border-radius: 999px;
+}
+
+.carrusel__punto {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.carrusel__punto:hover {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.carrusel__punto--activo {
+    background: #fff;
+    transform: scale(1.25);
+}
+
+@media (max-width: 900px) {
+    .carrusel {
+        border-radius: 6px;
+    }
+}
