@@ -293,35 +293,24 @@ export default function Soporte() {
             }
         }
 
-        // Construimos el payload final: metadatos + campos del formulario,
-        // renombrando `dolorServicio` a `Causa Servicio` y capitalizando todos
-        // los valores string para que lleguen tal cual al Excel/hoja de n8n.
-        const payload = {
-            tipoFormulario: tipoActivo,
-            radicado: numeroRadicado,
-            fechaEnvio: new Date().toISOString(),
-        };
+        // Adjuntamos metadatos clave para estructurar el árbol de decisión en n8n
+        formData.append('tipoFormulario', tipoActivo);
+        formData.append('radicado', numeroRadicado);
+        formData.append('fechaEnvio', new Date().toISOString());
 
-        for (const [clave, valor] of formData.entries()) {
-            // Los archivos adjuntos (File) no se capitalizan ni se renombran;
-            // se envian tal cual para soportar la subida desde el front.
-            if (valor instanceof File) {
-                if (valor.size > 0) {
-                    payload[clave === CLAVE_DOLOR_SERVICIO ? CLAVE_CAUSA_SERVICIO : clave] = valor;
-                }
-                continue;
-            }
-
+        // Capitalizamos en masa todos los valores string del FormData,
+        // y renombramos `dolorServicio` a `Causa Servicio` para n8n.
+        for (const [clave, valor] of Array.from(formData.entries())) {
+            formData.delete(clave);
             const claveFinal = clave === CLAVE_DOLOR_SERVICIO ? CLAVE_CAUSA_SERVICIO : clave;
             const valorCapitalizado = typeof valor === 'string' ? valor.toUpperCase() : valor;
-            payload[claveFinal] = valorCapitalizado;
+            formData.append(claveFinal, valorCapitalizado);
         }
 
         try {
             const response = await fetch(N8N_WEBHOOK_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
+                body: formData, // Mandamos FormData nativo para soportar la subida de archivos (adjuntos) automáticamente
             });
 
             if (!response.ok) {
