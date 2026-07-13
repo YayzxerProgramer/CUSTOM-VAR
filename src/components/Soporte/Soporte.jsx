@@ -273,28 +273,37 @@ export default function Soporte() {
         // Instanciamos FormData directamente del formulario objetivo
         const formData = new FormData(event.target);
 
-        // Normalizamos el valor que llega a n8n segun el tipo de formulario.
-        // La idea es que n8n reciba etiquetas canonicas (URGENTE / MAYUSCULAS / etc.)
-        // en lugar del texto largo que ve el usuario en pantalla.
+        // Calculamos el tipo de formulario que viajara a n8n segun el caso:
+        //   - Servicio  -> SOLICITUD - FUTURO / MEDIANO PLAZO / URGENTE (etapa del proyecto)
+        //   - Facturacion -> "Facturacion y Pagaduria"
+        //   - PQRSD    -> Queja / Peticion / Reclamo / Sugerencia / Denuncia (clasificacion)
+        let tipoFormularioCanonico = tipoActivo;
+
         if (tipoActivo === 'servicio') {
             const etapa = formData.get('etapaProyecto');
             const prioridad = ETAPA_PROYECTO_A_PRIORIDAD.get(etapa);
-            if (prioridad) formData.set('etapaProyecto', prioridad);
+            if (prioridad) {
+                formData.set('etapaProyecto', prioridad);
+                tipoFormularioCanonico = prioridad;
+            }
         } else if (tipoActivo === 'facturacion') {
             const dolor = formData.get('dolorFacturacion');
             if (dolor) formData.set('dolorFacturacion', dolor.toUpperCase());
+            tipoFormularioCanonico = 'Facturacion y Pagaduria';
         } else if (tipoActivo === 'pqrsd') {
             const tipo = formData.get('tipoPqrsd');
             if (tipo) {
                 // El label viene como "Peticion: ...", "Queja: ...", etc.
-                // Tomamos la primera palabra antes de los dos puntos.
-                const categoria = tipo.split(':')[0].trim().toUpperCase();
+                // Tomamos la primera palabra antes de los dos puntos y la normalizamos a Title Case.
+                const categoriaCruda = tipo.split(':')[0].trim();
+                const categoria = categoriaCruda.charAt(0).toUpperCase() + categoriaCruda.slice(1).toLowerCase();
                 formData.set('tipoPqrsd', categoria);
+                tipoFormularioCanonico = categoria;
             }
         }
 
         // Adjuntamos metadatos clave para estructurar el árbol de decisión en n8n
-        formData.append('tipoFormulario', tipoActivo);
+        formData.append('tipoFormulario', tipoFormularioCanonico);
         formData.append('radicado', numeroRadicado);
         formData.append('fechaEnvio', new Date().toISOString());
 
@@ -303,8 +312,7 @@ export default function Soporte() {
         for (const [clave, valor] of Array.from(formData.entries())) {
             formData.delete(clave);
             const claveFinal = clave === CLAVE_DOLOR_SERVICIO ? CLAVE_CAUSA_SERVICIO : clave;
-            const valorCapitalizado = typeof valor === 'string' ? valor.toUpperCase() : valor;
-            formData.append(claveFinal, valorCapitalizado);
+            formData.append(claveFinal, valor);
         }
 
         try {
