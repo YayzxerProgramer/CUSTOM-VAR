@@ -17,17 +17,17 @@ import camara3 from '../img/proyectos-img/CAMARA_3.jpg';
 import camara4 from '../img/proyectos-img/CAMARA_4.jpg';
 import camara5 from '../img/proyectos-img/CAMARA_5.jpg';
 
-import puerto1 from '../img/proyectos-img/PUERTO_1.jpg';
-import puerto2 from '../img/proyectos-img/PUERTO_2.jpg';
-import puerto3 from '../img/proyectos-img/PUERTO_3.jpg';
-import puerto4 from '../img/proyectos-img/PUERTO_4.jpg';
-import puerto5 from '../img/proyectos-img/PUERTO_5.jpg';
+import dimar1 from '../img/proyectos-img/DIMAR_1.jpg';
+import dimar2 from '../img/proyectos-img/DIMAR_2.jpg';
+import dimar3 from '../img/proyectos-img/DIMAR_3.jpg';
+import dimar4 from '../img/proyectos-img/DIMAR_4.jpg';
+import dimar5 from '../img/proyectos-img/DIMAR_5.jpg';
 
-import bomi1 from '../img/proyectos-img/BOMI_1.jpg';
-import bomi2 from '../img/proyectos-img/BOMI_2.jpg';
-import bomi3 from '../img/proyectos-img/BOMI_3.jpg';
-import bomi4 from '../img/proyectos-img/BOMI_4.jpg';
-import bomi5 from '../img/proyectos-img/BOMI_5.jpg';
+import roche1 from '../img/proyectos-img/ROCHE_1.jpg';
+import roche2 from '../img/proyectos-img/ROCHE_2.jpg';
+import roche3 from '../img/proyectos-img/ROCHE_3.jpg';
+import roche4 from '../img/proyectos-img/ROCHE_4.jpg';
+import roche5 from '../img/proyectos-img/ROCHE_5.jpg';
 
 export const buyerPersonas = [
     {
@@ -115,10 +115,11 @@ export const proyectos = [
         imagen: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop',
         altPrefix: 'Biblioteca Pública Piloto de Medellín',
         carrusel: [biblioteca1, biblioteca2, biblioteca3, biblioteca4, biblioteca5],
-        descripcion: "La Biblioteca Pública Piloto Sede Carlos E. Restrepo de Medellín, una de las instituciones culturales más emblemáticas de Colombia y referente nacional en preservación del conocimiento, requirió una solución integral de climatización y ventilación que garantizara el confort de sus usuarios, protegiera sus espacios y respetara la arquitectura del edificio.",
+        descripcion: 'Solución integral de climatización y ventilación para la Biblioteca Pública Piloto Sede Carlos E. Restrepo, basada en tecnología VRV DAIKIN con control centralizado vía IP y ventilación para subestación eléctrica Soler & Palau.',
         detalle: {
             parrafos: [
-
+                'La Biblioteca Pública Piloto Sede Carlos E. Restrepo de Medellín, una de las instituciones culturales más emblemáticas de Colombia y referente nacional en preservación del conocimiento, requirió una solución integral de climatización y ventilación que garantizara el confort de sus usuarios, protegiera sus espacios y respetara la arquitectura del edificio.',
+                'Para atender este desafío, se desarrolló un sistema HVAC de alta eficiencia basado en tecnología VRV marca DAIKIN, complementado con soluciones de automatización y ventilación mecánica que optimizan el desempeño energético, mejoran la Calidad del Aire Interior (IAQ) y proporcionan un control inteligente de toda la infraestructura.',
                 'Uno de los principales diferenciadores del proyecto fue el ajuste del diseño HVAC realizado por el equipo de ingeniería de CUSTOM, permitiendo adaptar la solución a las condiciones arquitectónicas y funcionales de la edificación sin comprometer su valor patrimonial.',
                 'La implementación de un sistema de control centralizado vía IP permitió monitorear y administrar en tiempo real todos los equipos de climatización desde una plataforma única, facilitando la operación, el mantenimiento y la eficiencia del sistema.',
                 'Como complemento, se diseñó e instaló un sistema de ventilación para la subestación eléctrica mediante equipos Soler & Palau, automatizado con controladores Full Gauge, garantizando una adecuada disipación térmica y la protección de los equipos eléctricos.',
@@ -140,9 +141,11 @@ export const proyectos = [
         imagen: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop',
         altPrefix: 'Cámara de Comercio de Bogotá – Sede Soacha',
         carrusel: [camara1, camara2, camara3, camara4, camara5],
-        descripcion: 'El proyecto fue desarrollado con el objetivo de proporcionar ambientes confortables, seguros y energéticamente eficientes mediante la implementación de soluciones integrales de climatización, ventilación mecánica y automatización, garantizando altos estándares de confort térmico, Calidad del Aire Interior (IAQ) y seguridad para los ocupantes de la edificación.',
+        descripcion: 'Solución integral de climatización VRF Samsung DVM, ventilación mecánica, automatización SIEMENS y presurización de escaleras contra incendio, ejecutada durante la pandemia con continuidad operativa garantizada.',
         detalle: {
             parrafos: [
+                'La Cámara de Comercio de Bogotá, entidad privada sin ánimo de lucro encargada de administrar los registros mercantiles, fortalecer el tejido empresarial y promover el desarrollo económico de Bogotá y varios municipios de Cundinamarca, construyó su nueva sede en Soacha como un espacio moderno destinado a la atención de empresarios, emprendedores y ciudadanos.',
+                'El proyecto fue desarrollado con el objetivo de proporcionar ambientes confortables, seguros y energéticamente eficientes mediante la implementación de soluciones integrales de climatización, ventilación mecánica y automatización, garantizando altos estándares de confort térmico, Calidad del Aire Interior (IAQ) y seguridad para los ocupantes de la edificación.',
                 'La ejecución representó un importante desafío, ya que gran parte de la obra se desarrolló durante la emergencia sanitaria ocasionada por el COVID-19. A pesar de las restricciones y la suspensión temporal del proyecto, el equipo de CUSTOM permaneció en Soacha durante varios meses para garantizar la continuidad de los trabajos, demostrando compromiso, capacidad de adaptación y cumplimiento de los más altos estándares de calidad hasta la entrega final del proyecto.',
             ],
             alcance: [
@@ -163,38 +166,77 @@ export const proyectos = [
         },
     },
     {
-        id: 'puerto',
-        icono: 'directions_boat',
-        titulo: 'Puerto',
-        imagen: 'https://images.unsplash.com/photo-1577416412292-747c6607f055?q=80&w=1200&auto=format&fit=crop',
-        altPrefix: 'Proyecto Puerto',
-        carrusel: [puerto1, puerto2, puerto3, puerto4, puerto5],
-        descripcion: 'Descripción pendiente del proyecto Puerto (será redactada por el cliente).',
+        id: 'roche-tenjo',
+        icono: 'vaccines',
+        titulo: 'Centro Logístico Farmacéutico ROCHE – Tenjo',
+        imagen: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=1200&auto=format&fit=crop',
+        altPrefix: 'Centro Logístico Farmacéutico ROCHE – Tenjo',
+        carrusel: [roche1, roche2, roche3, roche4, roche5],
+        descripcion: 'Sistema de climatización confiable para el almacenamiento de productos farmacéuticos bajo condiciones controladas de temperatura, ejecutado en menos de 30 días con ductería fabricada en TECNICONDUCTOS Bogotá.',
         detalle: {
-            parrafos: ['Información detallada pendiente de redacción.'],
-            alcance: [],
+            parrafos: [
+                'La multinacional farmacéutica ROCHE, líder mundial en investigación y desarrollo de medicamentos y soluciones para el sector salud, requería un sistema de climatización confiable para su nuevo centro logístico destinado al almacenamiento de productos farmacéuticos bajo condiciones controladas de temperatura.',
+                'El proyecto fue desarrollado con el objetivo de garantizar la estabilidad de las condiciones ambientales requeridas para la conservación de medicamentos, asegurando un control preciso de la temperatura, eficiencia operativa y confiabilidad del sistema HVAC, elementos fundamentales para la cadena logística del sector farmacéutico.',
+                'Uno de los principales desafíos fue el tiempo de ejecución, gracias a la planeación, coordinación y capacidad operativa del equipo de CUSTOM, el proyecto fue desarrollado en menos de 30 días, cumpliendo con los cronogramas establecidos y los altos estándares de calidad exigidos para este tipo de instalaciones.',
+                'Como parte de la solución, toda la ductería HVAC fue fabricada en nuestra planta especializada TECNICONDUCTOS Bogotá, garantizando precisión en la fabricación, tiempos de entrega optimizados y un estricto control de calidad durante todo el proceso.',
+            ],
             info: [
-                { label: 'Cliente / Propietario', valor: 'Pendiente' },
-                { label: 'Ubicación', valor: 'Pendiente' },
-                { label: 'Año de ejecución', valor: 'Pendiente' },
+                { label: 'Cliente Final', valor: 'ROCHE' },
+                { label: 'Operador Logístico', valor: 'BOMI' },
+                { label: 'Ubicación', valor: 'Tenjo, Cundinamarca – Colombia' },
+                { label: 'Año de ejecución', valor: '2022' },
             ],
         },
     },
     {
-        id: 'bomi',
-        icono: 'warehouse',
-        titulo: 'Bomi',
-        imagen: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1200&auto=format&fit=crop',
-        altPrefix: 'Proyecto Bomi',
-        carrusel: [bomi1, bomi2, bomi3, bomi4, bomi5],
-        descripcion: 'Descripción pendiente del proyecto Bomi (será redactada por el cliente).',
+        id: 'dimar-turbo',
+        icono: 'directions_boat',
+        titulo: 'Capitanía de Puerto DIMAR – Turbo, Antioquia',
+        imagen: 'https://images.unsplash.com/photo-1577416412292-747c6607f055?q=80&w=1200&auto=format&fit=crop',
+        altPrefix: 'Capitanía de Puerto DIMAR – Turbo',
+        carrusel: [dimar1, dimar2, dimar3, dimar4, dimar5],
+        descripcion: 'Solución integral de climatización VRF LG Multi V 5 y ventilación Soler & Palau para infraestructura marítima estratégica, con ductería fabricada en TECNICONDUCTOS Cartagena y diseño adaptado al clima del Caribe colombiano.',
         detalle: {
-            parrafos: ['Información detallada pendiente de redacción.'],
-            alcance: [],
+            parrafos: [
+                'La Dirección General Marítima (DIMAR), entidad adscrita al Ministerio de Defensa Nacional, es la autoridad marítima de Colombia, responsable de regular, controlar y garantizar la seguridad de las actividades marítimas, fluviales y portuarias del país.',
+                'Para la nueva Capitanía de Puerto de Turbo, se desarrolló una solución integral de climatización y ventilación orientada a garantizar ambientes confortables, seguros y energéticamente eficientes, acordes con las necesidades operativas de una infraestructura estratégica para el desarrollo marítimo y portuario de la región de Urabá.',
+                'Este edificio adquiere una importancia especial al convertirse en el centro de vigilancia y control del tráfico marítimo asociado al desarrollo de Puerto Antioquia, uno de los proyectos logísticos más relevantes del país, fortaleciendo la capacidad operativa de la autoridad marítima nacional.',
+            ],
+            alcance: [
+                'Suministro e instalación del sistema de Aire Acondicionado VRF LG Multi V 5.',
+                'Instalación de extractores y ventiladores Jet Line de Soler & Palau, garantizando una adecuada ventilación mecánica y renovación del aire.',
+                'Fabricación e instalación de la ductería HVAC, fabricada en nuestra planta especializada TECNICONDUCTOS (Cartagena).',
+                'Desarrollo de una solución HVAC diseñada para operar de manera eficiente en las condiciones climáticas de alta temperatura y humedad propias de la región del Caribe colombiano.',
+            ],
             info: [
-                { label: 'Cliente / Propietario', valor: 'Pendiente' },
-                { label: 'Ubicación', valor: 'Pendiente' },
-                { label: 'Año de ejecución', valor: 'Pendiente' },
+                { label: 'Cliente / Propietario', valor: 'Ministerio de Defensa Nacional – Dirección General Marítima (DIMAR)' },
+                { label: 'Contratista Principal', valor: 'UT Golfo de Urabá' },
+                { label: 'Ubicación', valor: 'Turbo, Antioquia – Colombia' },
+                { label: 'Año de ejecución', valor: '2023' },
+            ],
+        },
+    },
+    {
+        id: 'centro-adulto-mayor-bogota',
+        icono: 'volunteer_activism',
+        titulo: 'Unidad Operativa de Atención al Adulto Mayor El Camino – Bogotá',
+        imagen: 'https://images.unsplash.com/photo-1581579188871-45ea61f2a0c8?q=80&w=1200&auto=format&fit=crop',
+        altPrefix: 'Unidad Operativa de Atención al Adulto Mayor El Camino – Bogotá',
+        carrusel: [], // sin carrusel por ahora
+        descripcion: 'Ingeniería en ventilación mecánica para la infraestructura social más grande de Bogotá destinada a la atención integral del adulto mayor, con extractores CFP Soler & Palau, CASALS y ductería metálica TECNICONDUCTOS.',
+        detalle: {
+            parrafos: [
+                'La Secretaría Distrital de Integración Social, entidad de la Alcaldía Mayor de Bogotá, lidera programas orientados a la protección, inclusión y bienestar de las poblaciones más vulnerables. Como parte de este compromiso, desarrolló el Centro de Atención para Personas Mayores en Condición de Calle, considerado la infraestructura social más grande de Bogotá para la atención integral de esta población.',
+                'El complejo reúne servicios de Centro Vida, Centro Día y Centro de Protección, ofreciendo espacios destinados al cuidado, atención médica, alimentación, acompañamiento psicosocial y actividades de bienestar para personas mayores, bajo condiciones que priorizan la seguridad, el confort y la salud.',
+                'Para responder a las exigencias de este proyecto, se implementó una solución integral de ventilación mecánica diseñada para garantizar una adecuada renovación del aire, la extracción eficiente en áreas críticas y condiciones ambientales óptimas para usuarios, personal asistencial y visitantes.',
+                'El sistema incorpora extractores CFP de Soler & Palau, extractores de cocina CASALS, campanas de extracción y una red de ductería metálica diseñada para asegurar un funcionamiento eficiente, confiable y acorde con las necesidades operativas de la edificación.',
+                'Como parte del valor agregado del proyecto, toda la ductería metálica fue fabricada en nuestra planta especializada TECNICONDUCTOS (Bogotá), garantizando altos estándares de calidad, precisión en la fabricación y un estricto control durante todo el proceso constructivo.',
+            ],
+            info: [
+                { label: 'Propietario', valor: 'Alcaldía Mayor de Bogotá – Secretaría Distrital de Integración Social' },
+                { label: 'Contratista Principal', valor: 'Consorcio Bacatá' },
+                { label: 'Ubicación', valor: 'Bogotá D.C. – Colombia' },
+                { label: 'Año de ejecución', valor: '2024' },
             ],
         },
     },

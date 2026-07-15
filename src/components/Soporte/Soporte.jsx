@@ -289,7 +289,7 @@ export default function Soporte() {
         } else if (tipoActivo === 'facturacion') {
             const dolor = formData.get('dolorFacturacion');
             if (dolor) formData.set('dolorFacturacion', dolor.toUpperCase());
-            tipoFormularioCanonico = 'Facturacion y Pagaduria';
+            tipoFormularioCanonico = 'FACTURACION Y PAGADURIA';
         } else if (tipoActivo === 'pqrsd') {
             const tipo = formData.get('tipoPqrsd');
             if (tipo) {

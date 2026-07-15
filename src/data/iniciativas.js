@@ -31,53 +31,52 @@ export const pilaresIniciativas = [
     },
 ];
 
+// Texto introductorio del bloque "Iniciativas" (provisto por el cliente).
+export const introduccionIniciativas = {
+    titulo: 'Iniciativas',
+    parrafos: [
+        'En CUSTOM Ventilación, Aire Acondicionado y Refrigeración creemos que nuestro propósito va más allá de diseñar e implementar soluciones HVAC, también creemos en generar un impacto positivo en las comunidades donde estamos presentes, apoyando iniciativas que promuevan el desarrollo social, la cultura, el deporte y las nuevas generaciones.',
+        'Cada proyecto que realizamos representa una oportunidad para contribuir al crecimiento de nuestra región y respaldar a quienes, con esfuerzo y dedicación, trabajan por alcanzar sus sueños. Nuestro compromiso con la responsabilidad social refleja los valores que nos identifican como empresa: solidaridad, trabajo en equipo, inclusión y construcción de oportunidades.',
+        'En CUSTOM entendemos que el verdadero crecimiento empresarial también se mide por el impacto positivo que dejamos en las personas.',
+    ],
+};
+
 export const iniciativasApoyadas = [
     {
-        id: 'eslam',
+        id: 'eslam-talento',
         categoria: 'Cultura y danza',
-        titulo: 'ESLAM · Academia de baile',
+        titulo: 'Estrellas Latinoamericanas – ESLAM · Impulsando el talento artístico de nuestra niñez',
         icono: 'music_note',
         fotoTag: 'ESLAM',
         img: 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?q=80&w=1200&auto=format&fit=crop',
         texto:
-            'El buen clima se complementa con el arte y la danza. Potenciamos el tejido social apoyando iniciativas culturales como la academia de baile @ESLAM, impulsando a decenas de niños, jóvenes y familias a brillar a través de la cultura, la disciplina y el movimiento.',
+            'La cultura transforma vidas y fortalece el sentido de pertenencia de las comunidades. Por esta razón, apoyamos a la Academia de Baile Estrellas Latinoamericanas – ESLAM mediante la donación de un equipo de aire acondicionado que fue rifado durante uno de sus eventos artísticos. Esta iniciativa permitió recaudar recursos para financiar la participación de niños y jóvenes en diferentes presentaciones culturales, contribuyendo al desarrollo de sus procesos de formación artística y brindándoles nuevas oportunidades para representar con orgullo el talento cartagenero.',
     },
     {
-        id: 'mercedes',
-        categoria: 'Deporte y equipo',
-        titulo: 'Profe Mercedes · Escuela de Béisbol',
+        id: 'beisbol-femenino',
+        categoria: 'Deporte femenino',
+        titulo: 'Equipo de Béisbol Femenino de Bolívar · Creemos en el poder del deporte femenino',
         icono: 'sports_baseball',
-        fotoTag: 'MERCEDES',
+        fotoTag: 'BEISBOL',
         img: 'https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop',
         texto:
-            'El buen clima se fortalece con el deporte y el trabajo en equipo. Apoyamos la escuela de Béisbol dirigida por la campeona Mercedes Belford, impulsando a decenas de niños, jóvenes y familias a crecer a través de la constancia, la sana competencia y el amor por la pelota caliente.',
+            'El deporte inspira disciplina, liderazgo, trabajo en equipo y perseverancia. Como parte de nuestro compromiso con la equidad y el desarrollo del talento deportivo, apoyamos al Equipo de Béisbol Femenino en su participación en el I Campeonato Regional Femenino, realizado en la ciudad de Barranquilla. Con este aporte contribuimos a que las deportistas pudieran representar a su región en una competencia de alto nivel, promoviendo el crecimiento del deporte femenino y respaldando a mujeres que, con esfuerzo y dedicación, continúan abriendo camino para las nuevas generaciones.',
     },
     {
-        id: 'mundobonito',
-        categoria: 'Bienestar integral',
-        titulo: 'Mundo Bonito · Movimiento Global de la Felicidad',
-        icono: 'self_improvement',
-        fotoTag: 'DÍA DE LA FELICIDAD',
-        img: 'https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1200&auto=format&fit=crop',
+        id: 'eslam-tradiciones',
+        categoria: 'Cultura y tradiciones',
+        titulo: 'Estrellas Latinoamericanas – ESLAM · Preservando tradiciones',
+        icono: 'celebration',
+        fotoTag: 'ESLAM',
+        img: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1200&auto=format&fit=crop',
         texto:
-            'El buen clima se protege cuidando la mente y el corazón, en busca de la plenitud. Junto a @MundoBonito.org impulsamos una cultura de bienestar integral mediante el modelo SPIRE, para que cada persona aprenda a gestionar su bienestar espiritual, físico, intelectual, relacional y emocional.',
-    },
-    {
-        id: 'ambiente',
-        categoria: 'Medio ambiente',
-        titulo: 'Clima para el Planeta',
-        icono: 'eco',
-        fotoTag: 'MEDIO AMBIENTE',
-        img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop',
-        texto:
-            'El buen clima se propicia cuando asumimos la responsabilidad de cuidar el entorno. Mitigamos el impacto de nuestra operación VAR mediante la clasificación de residuos en la fuente, las Buenas Prácticas de Refrigeración (BPR) y la vinculación activa a la red nacional de reciclaje de refrigerantes, para heredar un entorno saludable a las próximas generaciones.',
+            'Las Fiestas de Independencia de Cartagena representan una de las expresiones culturales más importantes del Caribe colombiano. Con el propósito de contribuir a la preservación de esta tradición, apoyamos nuevamente a la Academia de Baile Estrellas Latinoamericanas – ESLAM y a su comparsa "Cartagena de Indias la Fantástica". Nuestro aporte económico permitió apoyar los traslados y refrigerios de los niños participantes, facilitando su presencia en el tradicional Bando de las Fiestas de Independencia. Más que una contribución financiera, esta iniciativa representa nuestro compromiso con el fortalecimiento de la identidad cultural, el trabajo en equipo y el desarrollo integral de la niñez y la juventud cartagenera.',
     },
 ];
 
 export const opcionesIniciativa = [
-    'ESLAM · Academia de baile',
-    'Profe Mercedes · Escuela de Béisbol',
-    'Mundo Bonito · Felicidad',
-    'Medio Ambiente',
+    'Estrellas Latinoamericanas – ESLAM',
+    'Equipo de Béisbol Femenino de Bolívar',
+    'Fiestas de Independencia de Cartagena',
     'Otra / general',
 ];
