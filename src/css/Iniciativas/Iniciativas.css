@@ -256,10 +256,25 @@
     position: relative;
 }
 
+.iniciativa__media--foto {
+    align-self: flex-start;
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    background-color: transparent;
+}
+
+.iniciativa__foto {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .iniciativa__tag {
     position: absolute;
     top: 18px;
     left: 18px;
+    z-index: 3;
     font-family: ui-monospace, monospace;
     font-size: 10px;
     letter-spacing: 0.04em;
