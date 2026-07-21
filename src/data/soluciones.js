@@ -29,6 +29,11 @@ import roche3 from '../img/proyectos-img/ROCHE_3.jpg';
 import roche4 from '../img/proyectos-img/ROCHE_4.jpg';
 import roche5 from '../img/proyectos-img/ROCHE_5.jpg';
 
+import adultoMayor1 from '../img/proyectos-img/ADULTO_MAYOR_1.png';
+import adultoMayor2 from '../img/proyectos-img/ADULTO_MAYOR_2.png';
+import adultoMayor3 from '../img/proyectos-img/ADULTO_MAYOR_3.png';
+import adultoMayor4 from '../img/proyectos-img/ADULTO_MAYOR_4.png';
+
 export const buyerPersonas = [
     {
         id: 'constructores',
@@ -222,7 +227,7 @@ export const proyectos = [
         titulo: 'Unidad Operativa de Atención al Adulto Mayor El Camino – Bogotá',
         imagen: 'https://images.unsplash.com/photo-1581579188871-45ea61f2a0c8?q=80&w=1200&auto=format&fit=crop',
         altPrefix: 'Unidad Operativa de Atención al Adulto Mayor El Camino – Bogotá',
-        carrusel: [], // sin carrusel por ahora
+        carrusel: [adultoMayor1, adultoMayor2, adultoMayor3, adultoMayor4],
         descripcion: 'Ingeniería en ventilación mecánica para la infraestructura social más grande de Bogotá destinada a la atención integral del adulto mayor, con extractores CFP Soler & Palau, CASALS y ductería metálica TECNICONDUCTOS.',
         detalle: {
             parrafos: [
