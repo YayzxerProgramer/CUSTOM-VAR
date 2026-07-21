@@ -4,6 +4,7 @@ import {
     opcionesIniciativa,
     pilaresIniciativas,
 } from '../../data/iniciativas.js';
+import Carrusel from '../Soluciones/Carrusel.jsx';
 import '../../css/Iniciativas/Iniciativas.css';
 
 function ParticiparModal({ abierto, onCerrar }) {
@@ -176,9 +177,20 @@ export default function Iniciativas() {
                             className={`iniciativa ${indice % 2 ? 'iniciativa--invertida' : ''}`}
                         >
                             <div
-                                className="iniciativa__media"
-                                style={{ backgroundImage: `url(${iniciativa.img})` }}
+                                className={`iniciativa__media ${
+                                    iniciativa.carrusel?.length ? '' : 'iniciativa__media--foto'
+                                }`}
                             >
+                                {iniciativa.carrusel?.length > 0 ? (
+                                    <Carrusel fotos={iniciativa.carrusel} altPrefix={iniciativa.titulo} />
+                                ) : (
+                                    <img
+                                        className="iniciativa__foto"
+                                        src={iniciativa.img}
+                                        alt={iniciativa.titulo}
+                                        loading="lazy"
+                                    />
+                                )}
                                 <span className="iniciativa__tag">foto CUSTOM + {iniciativa.fotoTag}</span>
                             </div>
                             <div className="iniciativa__cuerpo">
