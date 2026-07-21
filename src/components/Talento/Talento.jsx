@@ -37,14 +37,6 @@ function ContactosActuales() {
                     </article>
                 ))}
             </div>
-
-            <div className="talento-contactos__nota">
-                <span className="material-symbols-outlined">badge</span>
-                <p>
-                    Directorio con fotografía profesional, estilo firma de correo. Solo se publican
-                    números corporativos y perfiles de LinkedIn.
-                </p>
-            </div>
         </section>
     );
 }
