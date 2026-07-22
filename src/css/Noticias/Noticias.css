@@ -8,6 +8,19 @@
     overflow-x: hidden;
 }
 
+.noticias-estado {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--color-texto-fondo, #1a1c1c);
+    font-size: 16px;
+    opacity: 0.75;
+}
+
+.noticias-estado--error {
+    color: var(--color-acento-rojo, #db2d2c);
+    opacity: 1;
+}
+
 /* ---------- Hero ---------- */
 .noticias-hero {
     position: relative;
