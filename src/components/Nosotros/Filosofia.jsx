@@ -17,6 +17,11 @@ const VALORES = [
         descripcion:
             'Cada requerimiento es único. Diseñamos propuestas personalizadas que se ajustan a las necesidades reales.',
     },
+    {
+        titulo: 'Generación de Valor',
+        descripcion:
+            'Cada proyecto debe generar valor real para todas las partes interesadas: clientes, colaboradores, aliados y comunidad, no solo para la compañía.',
+    },
 ];
 
 /**

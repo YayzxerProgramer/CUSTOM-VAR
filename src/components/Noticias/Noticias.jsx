@@ -1,19 +1,22 @@
 import { useMemo, useState } from 'react';
-import { fuentesNoticias, noticiasVar } from '../../data/noticias.js';
+import { useJsonData } from '../../hooks/useJsonData.js';
 import '../../css/Noticias/Noticias.css';
 
 export default function Noticias() {
     const [fuente, setFuente] = useState('todas');
+    const { datos, cargando, error } = useJsonData('/data/noticias.json');
 
-    const destacada = useMemo(
-        () => noticiasVar.find((noticia) => noticia.destacada) ?? noticiasVar[0],
-        [],
-    );
+    const destacada = useMemo(() => {
+        if (!datos) return null;
+        return datos.noticias.find((noticia) => noticia.destacada) ?? datos.noticias[0];
+    }, [datos]);
 
-    const noticiasFiltradas = useMemo(
-        () => (fuente === 'todas' ? noticiasVar : noticiasVar.filter((n) => n.fuente === fuente)),
-        [fuente],
-    );
+    const noticiasFiltradas = useMemo(() => {
+        if (!datos) return [];
+        return fuente === 'todas'
+            ? datos.noticias
+            : datos.noticias.filter((n) => n.fuente === fuente);
+    }, [datos, fuente]);
 
     return (
         <main className="pagina-noticias">
@@ -39,7 +42,7 @@ export default function Noticias() {
             <div className="noticias-filtros">
                 <div className="noticias-filtros__inner">
                     <span className="noticias-filtros__label">Fuente:</span>
-                    {fuentesNoticias.map((opcion) => (
+                    {(datos?.fuentes ?? []).map((opcion) => (
                         <button
                             key={opcion}
                             type="button"
@@ -54,72 +57,79 @@ export default function Noticias() {
                 </div>
             </div>
 
-            <section className="noticias-destacada">
-                <div className="noticias-destacada__contenedor">
-                    <a
-                        className="noticia-destacada"
-                        href={destacada.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <div
-                            className="noticia-destacada__media"
-                            style={{ backgroundImage: `url(${destacada.img})` }}
-                        >
-                            <span className="noticia-destacada__badge">Destacada</span>
-                        </div>
-                        <div className="noticia-destacada__cuerpo">
-                            <div className="noticia-destacada__meta">
-                                <span className="noticia-destacada__fuente">{destacada.fuente}</span>
-                                <span className="noticia-destacada__punto" />
-                                <span className="noticia-destacada__fecha">{destacada.fecha}</span>
-                            </div>
-                            <h2 className="noticia-destacada__titulo">{destacada.titulo}</h2>
-                            <p className="noticia-destacada__resumen">{destacada.resumen}</p>
-                            <span className="noticia-destacada__enlace">
-                                Leer en la fuente
-                                <span className="material-symbols-outlined">open_in_new</span>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </section>
+            {cargando && <p className="noticias-estado">Cargando noticias...</p>}
+            {error && <p className="noticias-estado noticias-estado--error">No se pudieron cargar las noticias. Intente de nuevo más tarde.</p>}
 
-            <section className="noticias-grid">
-                {noticiasFiltradas.map((noticia) => (
-                    <a
-                        key={noticia.id}
-                        className="noticia-card"
-                        href={noticia.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <div
-                            className="noticia-card__media"
-                            style={{ backgroundImage: `url(${noticia.img})` }}
+            {destacada && (
+                <section className="noticias-destacada">
+                    <div className="noticias-destacada__contenedor">
+                        <a
+                            className="noticia-destacada"
+                            href={destacada.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            <span className="noticia-card__fuente">{noticia.fuente}</span>
-                        </div>
-                        <div className="noticia-card__cuerpo">
-                            <div className="noticia-card__meta">
-                                <span
-                                    className="noticia-card__categoria"
-                                    style={{ color: noticia.catColor, background: noticia.catSoft }}
-                                >
-                                    {noticia.categoria}
-                                </span>
-                                <span className="noticia-card__fecha">{noticia.fecha}</span>
+                            <div
+                                className="noticia-destacada__media"
+                                style={{ backgroundImage: `url(${destacada.img})` }}
+                            >
+                                <span className="noticia-destacada__badge">Destacada</span>
                             </div>
-                            <h3 className="noticia-card__titulo">{noticia.titulo}</h3>
-                            <p className="noticia-card__resumen">{noticia.resumen}</p>
-                            <span className="noticia-card__enlace">
-                                Leer más
-                                <span className="material-symbols-outlined">open_in_new</span>
-                            </span>
-                        </div>
-                    </a>
-                ))}
-            </section>
+                            <div className="noticia-destacada__cuerpo">
+                                <div className="noticia-destacada__meta">
+                                    <span className="noticia-destacada__fuente">{destacada.fuente}</span>
+                                    <span className="noticia-destacada__punto" />
+                                    <span className="noticia-destacada__fecha">{destacada.fecha}</span>
+                                </div>
+                                <h2 className="noticia-destacada__titulo">{destacada.titulo}</h2>
+                                <p className="noticia-destacada__resumen">{destacada.resumen}</p>
+                                <span className="noticia-destacada__enlace">
+                                    Leer en la fuente
+                                    <span className="material-symbols-outlined">open_in_new</span>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            )}
+
+            {datos && (
+                <section className="noticias-grid">
+                    {noticiasFiltradas.map((noticia) => (
+                        <a
+                            key={noticia.id}
+                            className="noticia-card"
+                            href={noticia.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <div
+                                className="noticia-card__media"
+                                style={{ backgroundImage: `url(${noticia.img})` }}
+                            >
+                                <span className="noticia-card__fuente">{noticia.fuente}</span>
+                            </div>
+                            <div className="noticia-card__cuerpo">
+                                <div className="noticia-card__meta">
+                                    <span
+                                        className="noticia-card__categoria"
+                                        style={{ color: noticia.catColor, background: noticia.catSoft }}
+                                    >
+                                        {noticia.categoria}
+                                    </span>
+                                    <span className="noticia-card__fecha">{noticia.fecha}</span>
+                                </div>
+                                <h3 className="noticia-card__titulo">{noticia.titulo}</h3>
+                                <p className="noticia-card__resumen">{noticia.resumen}</p>
+                                <span className="noticia-card__enlace">
+                                    Leer más
+                                    <span className="material-symbols-outlined">open_in_new</span>
+                                </span>
+                            </div>
+                        </a>
+                    ))}
+                </section>
+            )}
 
             <section className="noticias-aviso">
                 <div className="noticias-aviso__contenedor">

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { contactosTalento, correoTalento, vacantesTalento } from '../../data/talento.js';
+import { useJsonData } from '../../hooks/useJsonData.js';
 import '../../css/Talento/Talento.css';
 
-function ContactosActuales() {
+function ContactosActuales({ contactosTalento }) {
     return (
         <section className="talento-contactos">
             <div className="talento-contactos__cabecera">
@@ -37,19 +37,11 @@ function ContactosActuales() {
                     </article>
                 ))}
             </div>
-
-            <div className="talento-contactos__nota">
-                <span className="material-symbols-outlined">badge</span>
-                <p>
-                    Directorio con fotografía profesional, estilo firma de correo. Solo se publican
-                    números corporativos y perfiles de LinkedIn.
-                </p>
-            </div>
         </section>
     );
 }
 
-function TrabajaConNosotros() {
+function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
     const [abierto, setAbierto] = useState(0);
 
     const alternar = (indice) => setAbierto((actual) => (actual === indice ? -1 : indice));
@@ -144,6 +136,7 @@ function TrabajaConNosotros() {
 
 export default function Talento() {
     const [tab, setTab] = useState('contactos');
+    const { datos, cargando, error } = useJsonData('/data/talento.json');
 
     return (
         <main className="pagina-talento">
@@ -183,7 +176,19 @@ export default function Talento() {
                 </div>
             </div>
 
-            {tab === 'contactos' ? <ContactosActuales /> : <TrabajaConNosotros />}
+            {cargando && <p className="talento-estado">Cargando información...</p>}
+            {error && <p className="talento-estado talento-estado--error">No se pudo cargar la información. Intente de nuevo más tarde.</p>}
+
+            {datos && (
+                tab === 'contactos' ? (
+                    <ContactosActuales contactosTalento={datos.contactos} />
+                ) : (
+                    <TrabajaConNosotros
+                        vacantesTalento={datos.vacantes}
+                        correoTalento={datos.correoContacto}
+                    />
+                )
+            )}
         </main>
     );
 }
