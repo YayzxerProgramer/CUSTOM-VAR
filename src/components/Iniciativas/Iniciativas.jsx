@@ -227,14 +227,6 @@ export default function Iniciativas() {
                         </article>
                     ))}
                 </div>
-
-                <div className="iniciativas-apoyo__nota">
-                    <span className="material-symbols-outlined">verified_user</span>
-                    <p>
-                        El uso de imágenes de terceros y de menores involucrados se gestiona y autoriza
-                        con Carolina Vallejo, garantizando los permisos correspondientes.
-                    </p>
-                </div>
             </section>
 
             <section className="iniciativas-cta">
