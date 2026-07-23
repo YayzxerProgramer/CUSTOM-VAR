@@ -1,3 +1,4 @@
+import './index.css';
 import BotonWhatsApp from './components/BotonWhatsapp.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import NosotrosPage from './pages/NosotrosPage.jsx';
