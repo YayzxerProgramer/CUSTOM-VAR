@@ -191,7 +191,6 @@ export default function Iniciativas() {
                                         loading="lazy"
                                     />
                                 )}
-                                <span className="iniciativa__tag">foto CUSTOM + {iniciativa.fotoTag}</span>
                             </div>
                             <div className="iniciativa__cuerpo">
                                 <div className="iniciativa__encabezado">
@@ -201,8 +200,8 @@ export default function Iniciativas() {
                                         </span>
                                     </div>
                                     <div>
-                                        <span className="iniciativa__categoria">
-                                            {iniciativa.categoria}
+                                        <span className="iniciativa__eslogan">
+                                            {iniciativa.eslogan}
                                         </span>
                                         <h3 className="iniciativa__titulo">{iniciativa.titulo}</h3>
                                     </div>

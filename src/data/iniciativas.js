@@ -51,33 +51,36 @@ export const iniciativasApoyadas = [
     {
         id: 'eslam-talento',
         categoria: 'Cultura y danza',
-        titulo: 'Estrellas Latinoamericanas – ESLAM · Impulsando el talento artístico de nuestra niñez',
+        titulo: 'Estrellas Latinoamericanas – ESLAM',
+        eslogan: 'Impulsando el talento artístico de nuestra niñez',
         icono: 'music_note',
         fotoTag: 'ESLAM',
         img: eslam1,
         texto:
-            'La cultura transforma vidas y fortalece el sentido de pertenencia de las comunidades. Por esta razón, apoyamos a la Academia de Baile Estrellas Latinoamericanas – ESLAM mediante la donación de un equipo de aire acondicionado que fue rifado durante uno de sus eventos artísticos. Esta iniciativa permitió recaudar recursos para financiar la participación de niños y jóvenes en diferentes presentaciones culturales, contribuyendo al desarrollo de sus procesos de formación artística y brindándoles nuevas oportunidades para representar con orgullo el talento cartagenero.',
+            'La cultura transforma vidas y fortalece el sentido de pertenencia. Por eso, apoyamos a la Academia de Baile Estrellas Latinoamericanas – ESLAM mediante la donación de un equipo de aire acondicionado rifado en uno de sus eventos artísticos. Con lo recaudado, niños y jóvenes pudieron participar en presentaciones culturales, desarrollar su formación artística y representar con orgullo el talento cartagenero.',
     },
     {
         id: 'beisbol-femenino',
         categoria: 'Deporte femenino',
-        titulo: 'Equipo de Béisbol Femenino de Bolívar · Creemos en el poder del deporte femenino',
+        titulo: 'Equipo de Béisbol Femenino de Bolívar',
+        eslogan: 'Creemos en el poder del deporte femenino',
         icono: 'sports_baseball',
         fotoTag: 'BEISBOL',
         img: beisbol1,
         carrusel: [beisbol1, beisbol2, beisbol3],
         texto:
-            'El deporte inspira disciplina, liderazgo, trabajo en equipo y perseverancia. Como parte de nuestro compromiso con la equidad y el desarrollo del talento deportivo, apoyamos al Equipo de Béisbol Femenino en su participación en el I Campeonato Regional Femenino, realizado en la ciudad de Barranquilla. Con este aporte contribuimos a que las deportistas pudieran representar a su región en una competencia de alto nivel, promoviendo el crecimiento del deporte femenino y respaldando a mujeres que, con esfuerzo y dedicación, continúan abriendo camino para las nuevas generaciones.',
+            'El deporte inspira disciplina, liderazgo y perseverancia. Como parte de nuestro compromiso con la equidad, apoyamos al Equipo de Béisbol Femenino de Bolívar en su participación en el I Campeonato Regional Femenino, realizado en Barranquilla. Con este aporte contribuimos a que las deportistas representaran a su región en una competencia de alto nivel, promoviendo el crecimiento del deporte femenino y respaldando a mujeres que continúan abriendo camino para las nuevas generaciones.',
     },
     {
         id: 'eslam-tradiciones',
         categoria: 'Cultura y tradiciones',
-        titulo: 'Estrellas Latinoamericanas – ESLAM · Preservando tradiciones',
+        titulo: 'Estrellas Latinoamericanas – ESLAM',
+        eslogan: 'Preservando tradiciones',
         icono: 'celebration',
         fotoTag: 'ESLAM',
         img: eslam2,
         texto:
-            'Las Fiestas de Independencia de Cartagena representan una de las expresiones culturales más importantes del Caribe colombiano. Con el propósito de contribuir a la preservación de esta tradición, apoyamos nuevamente a la Academia de Baile Estrellas Latinoamericanas – ESLAM y a su comparsa "Cartagena de Indias la Fantástica". Nuestro aporte económico permitió apoyar los traslados y refrigerios de los niños participantes, facilitando su presencia en el tradicional Bando de las Fiestas de Independencia. Más que una contribución financiera, esta iniciativa representa nuestro compromiso con el fortalecimiento de la identidad cultural, el trabajo en equipo y el desarrollo integral de la niñez y la juventud cartagenera.',
+            'Las Fiestas de Independencia de Cartagena son una de las expresiones culturales más importantes del Caribe colombiano. Para contribuir a su preservación, apoyamos nuevamente a la Academia Estrellas Latinoamericanas – ESLAM y a su comparsa "Cartagena de Indias la Fantástica". Nuestro aporte apoyó traslados y refrigerios de los niños durante el tradicional Bando de las Fiestas, reafirmando nuestro compromiso con la identidad cultural, el trabajo en equipo y la juventud cartagenera.',
     },
 ];
 
