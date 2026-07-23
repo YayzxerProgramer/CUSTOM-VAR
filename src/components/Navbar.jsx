@@ -3,7 +3,7 @@ import logoCustom from "../img/LogoCustom.svg";
 import "../css/NavBar.css"
 
 const ENLACES = [
-    { to: "/nosotros", label: "Nosotros" },
+    { to: "/", label: "Nosotros" },
     { to: "/soluciones", label: "Soluciones" },
     { to: "/soporte", label: "Soporte" },
     { to: "/iniciativas", label: "Iniciativas" },

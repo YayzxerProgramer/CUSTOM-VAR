@@ -15,7 +15,7 @@ import '../../css/Soporte/Soporte.css';
 const FORMULARIO_HASH = 'formulario-solicitud';
 
 const correoCorporativoPattern = '^[^\\s@]+@(?!gmail\\.com$)(?!outlook\\.com$)(?!yahoo\\.com$)[^\\s@]+\\.[^\\s@]+$';
-const N8N_WEBHOOK_URL = 'http://localhost:5678/webhook-test/ca33ba91-66d0-49e5-b6d3-b025dc25830a';
+const N8N_WEBHOOK_URL = 'https://n8n-production-e356.up.railway.app/webhook/custom-form';
 
 // Mapea la opcion elegida en "Etapa del Proyecto" a la etiqueta canonica
 // que n8n espera en el campo `etapaProyecto`.
