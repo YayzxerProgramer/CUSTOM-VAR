@@ -13,8 +13,7 @@ export default function App() {
     <>
       <ScrollToTop />
       <Routes>
-        <Route path='/' element={<Navigate to='/nosotros' replace />} />
-        <Route path='/nosotros' element={<NosotrosPage />} />
+        <Route path='/' element={<NosotrosPage />} />
         <Route path='/soluciones' element={<SolucionesPage />} />
         <Route path='/soporte' element={<SoportePage />} />
         <Route path='/talento' element={<TalentoPage />} />
