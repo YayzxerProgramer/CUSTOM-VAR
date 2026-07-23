@@ -141,7 +141,15 @@ export default function ProyectosExpandible() {
                             {pilares.map((pilar) => (
                                 <article className="pilar-card" key={pilar.id}>
                                     <div className="pilar-card__media">
-                                        <span className="material-symbols-outlined">{pilar.icono}</span>
+                                        <img
+                                            src={pilar.imagen}
+                                            alt={pilar.titulo}
+                                            className="pilar-card__foto"
+                                            loading="lazy"
+                                        />
+                                        <span className="pilar-card__icono-insignia material-symbols-outlined">
+                                            {pilar.icono}
+                                        </span>
                                     </div>
                                     <div className="pilar-card__body">
                                         <span className="pilar-card__tag">{pilar.tag}</span>

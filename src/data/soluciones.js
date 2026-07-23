@@ -1,3 +1,7 @@
+import ventilacionImg from '../img/ventilacion.avif';
+import aireImg from '../img/aire.jpeg';
+import refrigeracionImg from '../img/refrigeracion.jpg';
+
 export const buyerPersonas = [
     {
         id: 'constructores',
@@ -93,6 +97,7 @@ export const pilares = [
         tag: 'Pilar 01',
         icono: 'air',
         titulo: 'Ventilación',
+        imagen: ventilacionImg,
         descripcion: 'Diseñamos sistemas de inyección, extracción y renovación de aire que garantizan ambientes seguros, libres de contaminantes y con la calidad de aire que cada espacio exige.',
     },
     {
@@ -100,6 +105,7 @@ export const pilares = [
         tag: 'Pilar 02',
         icono: 'ac_unit',
         titulo: 'Aire Acondicionado',
+        imagen: aireImg,
         descripcion: 'Climatización de precisión y confort térmico para todo tipo de inmueble, con equipos de alta eficiencia que reducen el consumo energético de forma medible.',
     },
     {
@@ -107,6 +113,7 @@ export const pilares = [
         tag: 'Pilar 03',
         icono: 'severe_cold',
         titulo: 'Refrigeración',
+        imagen: refrigeracionImg,
         descripcion: 'Aseguramos estabilidad térmica y continuidad de la cadena de frío en cámaras, CEDIS y procesos industriales donde no hay margen de error.',
     },
 ];

@@ -134,16 +134,31 @@
 .pilar-card__media {
     position: relative;
     aspect-ratio: 4 / 3;
-    background-image: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e6ebee 12px 24px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     border-bottom: 1px solid #e2e8eb;
 }
 
-.pilar-card__media .material-symbols-outlined {
-    font-size: 52px;
-    color: #9fb0b8;
+.pilar-card__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pilar-card__icono-insignia {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0, 33, 50, 0.65);
+    color: #fff;
+    font-size: 24px;
+    backdrop-filter: blur(2px);
 }
 
 .pilar-card__body {
