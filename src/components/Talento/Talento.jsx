@@ -24,14 +24,9 @@ function ContactosActuales({ contactosTalento }) {
                                 <span className="material-symbols-outlined">call</span>
                                 {contacto.tel}
                             </span>
-                            <a
-                                className="contacto-card__linkedin"
-                                href={contacto.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <span className="material-symbols-outlined">link</span>
-                                LinkedIn
+                            <a className="contacto-card__correo" href={`mailto:${contacto.correo}`}>
+                                <span className="material-symbols-outlined">mail</span>
+                                {contacto.correo}
                             </a>
                         </div>
                     </article>

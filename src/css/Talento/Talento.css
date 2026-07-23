@@ -244,7 +244,7 @@
     color: #8a99a0;
 }
 
-.contacto-card__linkedin {
+.contacto-card__correo {
     font-size: 14px;
     color: #0a66c2;
     font-weight: 700;
@@ -254,11 +254,11 @@
     gap: 8px;
 }
 
-.contacto-card__linkedin:hover {
+.contacto-card__correo:hover {
     text-decoration: underline;
 }
 
-.contacto-card__linkedin .material-symbols-outlined {
+.contacto-card__correo .material-symbols-outlined {
     font-size: 17px;
 }
 
@@ -545,7 +545,7 @@
     }
 
     .talento-tabs {
-        top: 0;
+        top: var(--altura-navbar);
     }
 
     .talento-tabs__inner {
