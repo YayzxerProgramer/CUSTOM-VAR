@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { pilares, proyectos } from '../../data/soluciones.js';
+import { pilares } from '../../data/soluciones.js';
+import { useJsonData } from '../../hooks/useJsonData.js';
 import Carrusel from './Carrusel.jsx';
 import '../../css/Soluciones/ProyectosExpandible.css';
 
@@ -17,6 +18,8 @@ export default function ProyectosExpandible() {
     const [doblando, setDoblando] = useState(() => new Set());
     const seccionRef = useRef(null);
     const proyectosTituloRef = useRef(null);
+    const { datos, cargando, error } = useJsonData('/data/proyectos.json');
+    const proyectos = datos?.proyectos ?? [];
 
     // Anima el "doblez" del texto: primero pliega el contenido breve,
     // luego lo reemplaza por la informacion completa (y viceversa al cerrar).
@@ -181,6 +184,15 @@ export default function ProyectosExpandible() {
                                     Acompañamos cada proyecto desde la ingeniería conceptual hasta la
                                     puesta en marcha.
                                 </p>
+
+                                {cargando && (
+                                    <p className="proyectos-estado">Cargando proyectos...</p>
+                                )}
+                                {error && (
+                                    <p className="proyectos-estado proyectos-estado--error">
+                                        No se pudieron cargar los proyectos. Intente de nuevo más tarde.
+                                    </p>
+                                )}
 
                                 <div className="proyectos-detalle__lista">
                                     {proyectos.map((proyecto, indice) => (

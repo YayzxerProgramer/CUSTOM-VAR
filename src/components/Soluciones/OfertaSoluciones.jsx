@@ -1,5 +1,5 @@
 import CarruselAcordeon from '../CarruselAcordeon.jsx';
-import { categoriasIndustria, proyectos, servicios } from '../../data/soluciones.js';
+import { categoriasIndustria, servicios } from '../../data/soluciones.js';
 
 function CarruselOferta() {
     return (
@@ -47,7 +47,7 @@ function OfertaGrid({ items, tipo, onSolicitarAsesoria }) {
     );
 }
 
-export default function OfertaSoluciones({ onSolicitarAsesoria }) {
+export default function OfertaSoluciones({ onSolicitarAsesoria, proyectos = [] }) {
     return (
         <>
             <section className="soluciones-bloque" id="proyectos">

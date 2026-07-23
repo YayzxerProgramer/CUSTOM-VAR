@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import {
-    iniciativasApoyadas,
-    opcionesIniciativa,
-    pilaresIniciativas,
-} from '../../data/iniciativas.js';
+import { opcionesIniciativa, pilaresIniciativas } from '../../data/iniciativas.js';
+import { useJsonData } from '../../hooks/useJsonData.js';
 import Carrusel from '../Soluciones/Carrusel.jsx';
 import '../../css/Iniciativas/Iniciativas.css';
 
@@ -103,6 +100,8 @@ export default function Iniciativas() {
     const [modalAbierto, setModalAbierto] = useState(false);
     const abrirModal = () => setModalAbierto(true);
     const cerrarModal = () => setModalAbierto(false);
+    const { datos, cargando, error } = useJsonData('/data/iniciativas.json');
+    const iniciativasApoyadas = datos?.iniciativasApoyadas ?? [];
 
     return (
         <main className="pagina-iniciativas">
@@ -169,6 +168,13 @@ export default function Iniciativas() {
                         bienestar y el medio ambiente en las regiones donde operamos.
                     </p>
                 </div>
+
+                {cargando && <p className="iniciativas-estado">Cargando iniciativas...</p>}
+                {error && (
+                    <p className="iniciativas-estado iniciativas-estado--error">
+                        No se pudieron cargar las iniciativas. Intente de nuevo más tarde.
+                    </p>
+                )}
 
                 <div className="iniciativas-apoyo__lista">
                     {iniciativasApoyadas.map((iniciativa, indice) => (
