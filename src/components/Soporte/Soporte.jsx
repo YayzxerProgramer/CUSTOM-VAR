@@ -53,7 +53,14 @@ function TurnstileWidget() {
 
         const render = () => {
             if (!contenedorRef.current || !window.turnstile) return;
-            widgetId = window.turnstile.render(contenedorRef.current, { sitekey: TURNSTILE_SITE_KEY });
+            widgetId = window.turnstile.render(contenedorRef.current, {
+                sitekey: TURNSTILE_SITE_KEY,
+                'error-callback': () => {
+                    if (widgetId !== null && window.turnstile) {
+                        window.turnstile.reset(widgetId);
+                    }
+                },
+            });
         };
 
         // El script de Turnstile carga async; en una SPA puede terminar de cargar
