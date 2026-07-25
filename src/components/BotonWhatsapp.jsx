@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../css/BotonWhatsapp.css"
+import btnWsp from "../img/BtnWsp.png";
 
 function BotonWhatsapp() {
     const [showBubble, setShowBubble] = useState(false);
@@ -54,7 +55,7 @@ function BotonWhatsapp() {
                 rel="noopener noreferrer"
                 className="wsp-float-btn"
             >
-                <img src="/src/img/BtnWsp.png" alt="Contacto WhatsApp" />
+                <img src={btnWsp} alt="Contacto WhatsApp" />
             </a >
         </div >
     );

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
     buyerPersonasSoporte,
@@ -10,6 +10,7 @@ import {
     tiposPqrsd,
     tiposSoporte,
 } from '../../data/soporte.js';
+import TurnstileWidget from '../TurnstileWidget.jsx';
 import '../../css/Soporte/Soporte.css';
 
 const FORMULARIO_HASH = 'formulario-solicitud';
@@ -17,7 +18,6 @@ const FORMULARIO_HASH = 'formulario-solicitud';
 const correoCorporativoPattern = '^[^\\s@]+@(?!gmail\\.com$)(?!outlook\\.com$)(?!yahoo\\.com$)[^\\s@]+\\.[^\\s@]+$';
 const N8N_WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL;
 const N8N_WEBHOOK_TOKEN = import.meta.env.VITE_N8N_WEBHOOK_TOKEN;
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 // Mapea la opcion elegida en "Etapa del Proyecto" a la etiqueta canonica
 // que n8n espera en el campo `etapaProyecto`.
@@ -40,51 +40,6 @@ function Campo({ children, etiqueta, requerido = true }) {
             {requerido && <small>Campo obligatorio</small>}
         </label>
     );
-}
-
-function TurnstileWidget() {
-    const contenedorRef = useRef(null);
-
-    useEffect(() => {
-        if (!TURNSTILE_SITE_KEY || !contenedorRef.current) return;
-
-        let widgetId = null;
-        let intervalo = null;
-
-        const render = () => {
-            if (!contenedorRef.current || !window.turnstile) return;
-            widgetId = window.turnstile.render(contenedorRef.current, {
-                sitekey: TURNSTILE_SITE_KEY,
-                'error-callback': () => {
-                    if (widgetId !== null && window.turnstile) {
-                        window.turnstile.reset(widgetId);
-                    }
-                },
-            });
-        };
-
-        // El script de Turnstile carga async; en una SPA puede terminar de cargar
-        // antes o despues de que este componente monte, asi que esperamos a que
-        // `window.turnstile` exista en vez de depender del escaneo automatico.
-        if (window.turnstile) {
-            render();
-        } else {
-            intervalo = setInterval(() => {
-                if (window.turnstile) {
-                    clearInterval(intervalo);
-                    render();
-                }
-            }, 200);
-        }
-
-        return () => {
-            if (intervalo) clearInterval(intervalo);
-            if (widgetId !== null && window.turnstile) window.turnstile.remove(widgetId);
-        };
-    }, []);
-
-    if (!TURNSTILE_SITE_KEY) return null;
-    return <div ref={contenedorRef} />;
 }
 
 function AvisoModal({ radicado, error, onCerrar }) {
