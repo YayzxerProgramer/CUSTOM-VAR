@@ -15,7 +15,9 @@ import '../../css/Soporte/Soporte.css';
 const FORMULARIO_HASH = 'formulario-solicitud';
 
 const correoCorporativoPattern = '^[^\\s@]+@(?!gmail\\.com$)(?!outlook\\.com$)(?!yahoo\\.com$)[^\\s@]+\\.[^\\s@]+$';
-const N8N_WEBHOOK_URL = 'https://n8n-production-e356.up.railway.app/webhook/custom-form';
+const N8N_WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL;
+const N8N_WEBHOOK_TOKEN = import.meta.env.VITE_N8N_WEBHOOK_TOKEN;
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 // Mapea la opcion elegida en "Etapa del Proyecto" a la etiqueta canonica
 // que n8n espera en el campo `etapaProyecto`.
@@ -37,6 +39,79 @@ function Campo({ children, etiqueta, requerido = true }) {
             {children}
             {requerido && <small>Campo obligatorio</small>}
         </label>
+    );
+}
+
+function TurnstileWidget() {
+    const contenedorRef = useRef(null);
+
+    useEffect(() => {
+        if (!TURNSTILE_SITE_KEY || !contenedorRef.current) return;
+
+        let widgetId = null;
+        let intervalo = null;
+
+        const render = () => {
+            if (!contenedorRef.current || !window.turnstile) return;
+            widgetId = window.turnstile.render(contenedorRef.current, { sitekey: TURNSTILE_SITE_KEY });
+        };
+
+        // El script de Turnstile carga async; en una SPA puede terminar de cargar
+        // antes o despues de que este componente monte, asi que esperamos a que
+        // `window.turnstile` exista en vez de depender del escaneo automatico.
+        if (window.turnstile) {
+            render();
+        } else {
+            intervalo = setInterval(() => {
+                if (window.turnstile) {
+                    clearInterval(intervalo);
+                    render();
+                }
+            }, 200);
+        }
+
+        return () => {
+            if (intervalo) clearInterval(intervalo);
+            if (widgetId !== null && window.turnstile) window.turnstile.remove(widgetId);
+        };
+    }, []);
+
+    if (!TURNSTILE_SITE_KEY) return null;
+    return <div ref={contenedorRef} />;
+}
+
+function AvisoModal({ radicado, error, onCerrar }) {
+    const estado = error ? 'error' : radicado ? 'exito' : null;
+    if (!estado) return null;
+
+    return (
+        <div className="soporte-modal" role="dialog" aria-modal="true">
+            <button className="soporte-modal__fondo" aria-label="Cerrar" onClick={onCerrar} />
+            <div className="soporte-modal__panel">
+                <div className={`soporte-modal__cabecera soporte-modal__cabecera--${estado}`}>
+                    <span className="soporte-modal__etiqueta">
+                        {estado === 'exito' ? 'Solicitud recibida' : 'No pudimos procesar la solicitud'}
+                    </span>
+                    <button type="button" className="soporte-modal__cerrar" onClick={onCerrar} aria-label="Cerrar aviso">
+                        <span className="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div className="soporte-modal__cuerpo">
+                    {estado === 'exito' ? (
+                        <>
+                            <p>Su requerimiento ha sido asignado al radicado No. <strong>{radicado}</strong>.</p>
+                            <p>
+                                Si el impacto fue marcado como Alto / Critico, el equipo indicado sera notificado para
+                                priorizar la respuesta.
+                            </p>
+                        </>
+                    ) : (
+                        <p>{error}</p>
+                    )}
+                    <button type="button" className="soporte-boton" onClick={onCerrar}>Aceptar</button>
+                </div>
+            </div>
+        </div>
     );
 }
 
@@ -109,7 +184,9 @@ function SolicitudServicioForm({ onSubmit, cargando }) {
                 </h3>
                 <GrupoOpciones nombre="etapaProyecto" opciones={etapasProyecto} />
             </div>
+            <TurnstileWidget />
             <button className="soporte-boton" type="submit" disabled={cargando}>
+                {cargando && <span className="soporte-spinner" aria-hidden="true" />}
                 {cargando ? 'Enviando requerimiento...' : 'Solicitar Diagnostico Técnico y Cotización Preliminar'}
             </button>
         </form>
@@ -151,7 +228,9 @@ function FacturacionForm({ onSubmit, cargando }) {
                     />
                 </Campo>
             </div>
+            <TurnstileWidget />
             <button className="soporte-boton" type="submit" disabled={cargando}>
+                {cargando && <span className="soporte-spinner" aria-hidden="true" />}
                 {cargando ? 'Procesando...' : 'Solicitar informacion'}
             </button>
         </form>
@@ -222,7 +301,9 @@ function PqrsdForm({ onSubmit, cargando }) {
                     <span>Acepto la Politica de Tratamiento de Datos Personales y los tiempos de respuesta legales de atencion corporativa.</span>
                 </label>
             </div>
+            <TurnstileWidget />
             <button className="soporte-boton" type="submit" disabled={cargando}>
+                {cargando && <span className="soporte-spinner" aria-hidden="true" />}
                 {cargando ? 'Radicando caso...' : 'Radicar Solicitud con Prioridad'}
             </button>
         </form>
@@ -260,6 +341,11 @@ export default function Soporte() {
         [tipoActivo],
     );
 
+    function cerrarAviso() {
+        setRadicado('');
+        setErrorEnvio('');
+    }
+
     async function handleSubmit(event) {
         event.preventDefault();
         setCargando(true);
@@ -296,7 +382,7 @@ export default function Soporte() {
                 // El label viene como "Peticion: ...", "Queja: ...", etc.
                 // Tomamos la primera palabra antes de los dos puntos y la normalizamos a Title Case.
                 const categoriaCruda = tipo.split(':')[0].trim();
-                const categoria = categoriaCruda.charAt(0).toUpperCase() + categoriaCruda.slice(1).toLowerCase();
+                const categoria = categoriaCruda.toUpperCase();
                 formData.set('tipoPqrsd', categoria);
                 tipoFormularioCanonico = categoria;
             }
@@ -318,8 +404,13 @@ export default function Soporte() {
         try {
             const response = await fetch(N8N_WEBHOOK_URL, {
                 method: 'POST',
+                headers: { 'X-Webhook-Token': N8N_WEBHOOK_TOKEN },
                 body: formData, // Mandamos FormData nativo para soportar la subida de archivos (adjuntos) automáticamente
             });
+
+            if (response.status === 403) {
+                throw new Error('RECHAZADO');
+            }
 
             if (!response.ok) {
                 throw new Error(`Error en servidor: ${response.statusText}`);
@@ -330,7 +421,11 @@ export default function Soporte() {
             event.target.reset(); // Reseteamos campos
         } catch (error) {
             console.error('Error al despachar a n8n:', error);
-            setErrorEnvio('No pudimos conectar con el servidor de soporte. Por favor intente de nuevo.');
+            setErrorEnvio(
+                error.message === 'RECHAZADO'
+                    ? 'No pudimos validar la solicitud. Por favor intente de nuevo.'
+                    : 'No pudimos conectar con el servidor de soporte. Por favor intente de nuevo.',
+            );
         } finally {
             setCargando(false);
         }
@@ -359,8 +454,7 @@ export default function Soporte() {
                                 type="button"
                                 onClick={() => {
                                     setTipoActivo(tipo.id);
-                                    setRadicado('');
-                                    setErrorEnvio('');
+                                    cerrarAviso();
                                 }}
                             >
                                 <span>{tipo.titulo}</span>
@@ -375,23 +469,6 @@ export default function Soporte() {
                             <h2>{soporteActivo.cta}</h2>
                             <p>{soporteActivo.descripcion}</p>
                         </div>
-
-                        {radicado && (
-                            <div className="soporte-confirmacion" role="status">
-                                <strong>Solicitud Recibida Correctamente.</strong>
-                                <span>Su requerimiento ha sido asignado al radicado No. {radicado}.</span>
-                                <span>
-                                    Si el impacto fue marcado como Alto / Critico, el equipo indicado sera notificado para
-                                    priorizar la respuesta.
-                                </span>
-                            </div>
-                        )}
-
-                        {errorEnvio && (
-                            <div className="soporte-error" style={{ color: 'var(--color-acento-rojo, #DB2D2C)', marginBottom: '20px', fontWeight: 'bold' }}>
-                                {errorEnvio}
-                            </div>
-                        )}
 
                         <FormularioActivo tipo={tipoActivo} onSubmit={handleSubmit} cargando={cargando} />
 
@@ -412,6 +489,8 @@ export default function Soporte() {
                     </div>
                 </div>
             </section>
+
+            <AvisoModal radicado={radicado} error={errorEnvio} onCerrar={cerrarAviso} />
         </main>
     );
 }

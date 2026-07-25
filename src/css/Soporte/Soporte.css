@@ -248,7 +248,6 @@
 }
 
 .soporte-mensaje,
-.soporte-confirmacion,
 .soporte-respuesta {
     border-left: 5px solid var(--color-acento-rojo);
     font-family: var(--fuente-cuerpo);
@@ -259,20 +258,6 @@
 .soporte-mensaje {
     background: #f4f8fa;
     color: var(--color-primario);
-}
-
-.soporte-confirmacion {
-    background: var(--color-primario);
-    color: #ffffff;
-    display: grid;
-    gap: 6px;
-    margin: 0 34px;
-}
-
-.soporte-confirmacion strong {
-    font-family: var(--fuente-titulos);
-    font-size: 1.45rem;
-    text-transform: uppercase;
 }
 
 .soporte-boton {
@@ -296,6 +281,99 @@
 .soporte-boton:hover {
     background: #b90d18;
     transform: translateY(-2px);
+}
+
+.soporte-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: soporte-girar 0.7s linear infinite;
+}
+
+@keyframes soporte-girar {
+    to { transform: rotate(360deg); }
+}
+
+.soporte-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.soporte-modal__fondo {
+    position: absolute;
+    inset: 0;
+    border: none;
+    cursor: pointer;
+    background: rgba(0, 21, 38, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.soporte-modal__panel {
+    position: relative;
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid #dce5eb;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+.soporte-modal__cabecera {
+    padding: 22px 26px;
+    position: relative;
+    color: #ffffff;
+}
+
+.soporte-modal__cabecera--exito {
+    background: var(--color-primario);
+}
+
+.soporte-modal__cabecera--error {
+    background: var(--color-acento-rojo);
+}
+
+.soporte-modal__etiqueta {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+}
+
+.soporte-modal__cerrar {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.soporte-modal__cuerpo {
+    padding: 26px;
+    display: grid;
+    gap: 14px;
+    font-family: var(--fuente-cuerpo);
+    color: var(--color-primario);
+    line-height: 1.6;
+}
+
+.soporte-modal__cuerpo .soporte-boton {
+    justify-self: start;
 }
 
 .soporte-respuesta {
@@ -331,7 +409,6 @@
         padding: 24px;
     }
 
-    .soporte-confirmacion,
     .soporte-respuesta {
         margin-left: 24px;
         margin-right: 24px;

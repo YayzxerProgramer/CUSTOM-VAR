@@ -116,11 +116,14 @@ export default function Iniciativas() {
                     </div>
                     <h1 className="iniciativas-hero__titulo">Compartimos el buen clima de Colombia</h1>
                     <p className="iniciativas-hero__descripcion">
-                        Para nosotros, el «buen clima» no solo se mide en grados centígrados; se vive en
-                        el impacto que dejamos en las comunidades y en el planeta, y en todo lo que
-                        aprendemos de cada persona con la que nos relacionamos. Al elegirnos como su
-                        aliado en soluciones VAR, usted se vincula a una cadena de valor responsable,
-                        alineada con los Objetivos de Desarrollo Sostenible.
+                        En CUSTOM creemos que nuestro propósito va más allá de diseñar e implementar
+                        soluciones HVAC: generamos un impacto positivo en las comunidades donde estamos
+                        presentes, apoyando iniciativas de desarrollo social, cultura, deporte y nuevas
+                        generaciones. Cada proyecto es una oportunidad para impulsar el crecimiento de
+                        nuestra región y respaldar a quienes trabajan por alcanzar sus sueños, reflejando
+                        los valores que nos identifican: solidaridad, trabajo en equipo, inclusión y
+                        construcción de oportunidades. Para nosotros, el verdadero crecimiento empresarial
+                        también se mide por el impacto positivo que dejamos en las personas.
                     </p>
                 </div>
             </header>
