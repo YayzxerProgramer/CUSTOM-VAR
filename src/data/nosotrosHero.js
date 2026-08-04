@@ -4,7 +4,7 @@ export const panelesHeroNosotros = [
         ruta: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200',
         titulo: 'Industria y Manufactura',
         subtitulo: 'Sistemas Industriales',
-        descripcion: 'Controlamos el calor generado por maquinaria pesada y los gases de proceso para proteger a sus operadores y mantener la línea de producción activa. Diseñamos sistemas de ventilación industrial, climatización de zonas de trabajo y extracción de contaminantes adaptados a las exigencias de cada planta.',
+        descripcion: '¿Las altas temperaturas, el polvo y la ventilación deficiente están afectando la productividad y la seguridad de su operación? Diseñamos soluciones de climatización y ventilación industrial que optimizan los procesos, protegen los equipos y crean ambientes de trabajo más eficientes.',
         enlace: '/soluciones#nuestras-soluciones',
     },
     {
@@ -12,7 +12,7 @@ export const panelesHeroNosotros = [
         ruta: 'https://plus.unsplash.com/premium_photo-1680807869780-e0876a6f3cd5?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         titulo: 'Educativo',
         subtitulo: 'Climatizacion VAR',
-        descripcion: 'Garantizamos ambientes de aprendizaje con temperatura y calidad de aire óptimas para la concentración y el bienestar de estudiantes y docentes. Desde aulas hasta laboratorios, diseñamos soluciones que cumplen normativas de ventilación y eficiencia energética.',
+        descripcion: '¿Sabía que una mejor calidad del aire en los centros educativos puede aumentar la concentración, favorecer el aprendizaje y mejorar el bienestar de estudiantes y docentes? En CUSTOM creamos espacios confortables con climatización eficiente y aire de calidad para mejorar la experiencia de estudiantes y docentes.',
         enlace: '/soluciones#nuestras-soluciones',
     },
     {
@@ -20,7 +20,7 @@ export const panelesHeroNosotros = [
         ruta: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         titulo: 'Restaurantes',
         subtitulo: 'Cadena de Frio',
-        descripcion: 'Mantenemos cocinas seguras con extracción eficiente de humos y grasas, y garantizamos el confort térmico en salas de comensales. Aseguramos también la cadena de frío en cámaras y equipos de refrigeración para preservar la calidad de sus alimentos.',
+        descripcion: 'El calor, los olores y la mala extracción afectan la experiencia de los clientes y el desempeño de la cocina. Implementamos sistemas que mejoran la ventilación, el confort y la calidad del ambiente para cada espacio.',
         enlace: '/soluciones#nuestras-soluciones',
     },
     {
@@ -28,7 +28,7 @@ export const panelesHeroNosotros = [
         ruta: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200',
         titulo: 'Centros de Datos',
         subtitulo: 'Control Termico',
-        descripcion: 'Protegemos sus activos digitales con sistemas de enfriamiento de precisión que mantienen temperaturas y humedades estrictamente controladas. Diseñamos soluciones redundantes que garantizan disponibilidad continua y eficiencia energética medible.',
+        descripcion: '¿Está preparado para evitar que una falla en la climatización detenga su operación? Una falla en la climatización puede significar pérdida de información, interrupciones y altos costos operativos; por esta razón, implementamos sistemas de precisión que mantienen la temperatura y humedad controladas para garantizar la continuidad de su infraestructura tecnológica.',
         enlace: '/soluciones#nuestras-soluciones',
     },
     {
@@ -44,7 +44,7 @@ export const panelesHeroNosotros = [
         ruta: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200',
         titulo: 'Oficinas y Edificios',
         subtitulo: 'Proyectos Especiales',
-        descripcion: 'Optimizamos el confort térmico y la calidad del aire en oficinas y edificios corporativos para elevar la productividad y reducir el consumo energético. Integramos sistemas BMS para el control inteligente de la climatización por zonas.',
+        descripcion: 'Espacios con mala climatización generan incomodidad, baja productividad y mayores costos de operación. Diseñamos soluciones eficientes que crean ambientes confortables para colaboradores y visitantes durante toda la jornada.',
         enlace: '/soluciones#nuestras-soluciones',
     },
     {
@@ -52,7 +52,7 @@ export const panelesHeroNosotros = [
         ruta: 'https://images.unsplash.com/photo-1628372095387-017d1099fc19?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         titulo: 'Hospitales',
         subtitulo: 'Infraestructura',
-        descripcion: 'Diseñamos sistemas de ventilación y climatización que cumplen las normas más exigentes de calidad de aire para entornos hospitalarios y quirúrgicos. Garantizamos presiones diferenciales, filtración HEPA y control térmico preciso en áreas críticas.',
+        descripcion: '¿La calidad del aire de sus instalaciones cumple con las exigencias de un entorno hospitalario? La calidad del aire no solo brinda confort, también protege la salud de pacientes y personal médico. En CUSTOM desarrollamos soluciones que favorecen ambientes controlados, confort térmico y una adecuada renovación del aire en áreas críticas.',
         enlace: '/soluciones#nuestras-soluciones',
     },
     {
@@ -60,7 +60,7 @@ export const panelesHeroNosotros = [
         ruta: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         titulo: 'Hoteles',
         subtitulo: 'Auditorias',
-        descripcion: 'Creamos experiencias de confort personalizadas para huéspedes mediante sistemas de climatización silenciosos y eficientes en cada habitación y área común. Reducimos el consumo energético con estrategias de control inteligente y mantenimiento proactivo.',
+        descripcion: 'La comodidad de sus huéspedes comienza con una temperatura perfecta. Ofrecemos soluciones que mejoran la experiencia del cliente, optimizan el consumo energético y mantienen el confort durante todo el día.',
         enlace: '/soluciones#nuestras-soluciones',
     },
     {
@@ -68,7 +68,7 @@ export const panelesHeroNosotros = [
         ruta: 'https://images.unsplash.com/photo-1481437156560-3205f6a55735?q=80&w=1495&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         titulo: 'Locales y Centros Comerciales',
         subtitulo: 'Buena Refrigeracion',
-        descripcion: 'Aseguramos el confort de compradores y empleados con climatización eficiente en grandes superficies y locales comerciales. Gestionamos también los sistemas de refrigeración para exhibición y almacenaje de perecederos, cumpliendo normativas sanitarias.',
+        descripcion: '¿Sabía que el confort influye directamente en el tiempo de permanencia y la experiencia de compra de sus clientes? Creamos sistemas de climatización que mantienen ambientes agradables, eficientes y preparados para recibir un alto flujo de personas.',
         enlace: '/soluciones#nuestras-soluciones',
     },
 ];

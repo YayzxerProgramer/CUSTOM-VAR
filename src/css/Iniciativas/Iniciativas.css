@@ -610,6 +610,27 @@
     filter: brightness(1.08);
 }
 
+.iniciativas-modal__submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
+.iniciativas-spinner {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 9px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    vertical-align: -2px;
+    animation: iniciativas-girar 0.7s linear infinite;
+}
+
+@keyframes iniciativas-girar {
+    to { transform: rotate(360deg); }
+}
+
 .iniciativas-modal__exito {
     padding: 46px 30px;
     text-align: center;
@@ -618,6 +639,10 @@
 .iniciativas-modal__exito-icono {
     font-size: 56px;
     color: var(--color-whatsapp, #25d366);
+}
+
+.iniciativas-modal__exito-icono--error {
+    color: var(--color-acento-rojo, #DB2D2C);
 }
 
 .iniciativas-modal__exito-titulo {

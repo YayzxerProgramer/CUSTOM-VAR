@@ -2,22 +2,62 @@ import { useState } from 'react';
 import { opcionesIniciativa, pilaresIniciativas } from '../../data/iniciativas.js';
 import { useJsonData } from '../../hooks/useJsonData.js';
 import Carrusel from '../Soluciones/Carrusel.jsx';
+import TurnstileWidget from '../TurnstileWidget.jsx';
 import '../../css/Iniciativas/Iniciativas.css';
+
+const N8N_INICIATIVAS_WEBHOOK_URL = import.meta.env.VITE_N8N_INICIATIVAS_WEBHOOK_URL;
+const N8N_WEBHOOK_TOKEN = import.meta.env.VITE_N8N_WEBHOOK_TOKEN;
 
 function ParticiparModal({ abierto, onCerrar }) {
     const [enviado, setEnviado] = useState(false);
+    const [cargando, setCargando] = useState(false);
+    const [error, setError] = useState('');
 
     if (!abierto) return null;
 
     const cerrar = () => {
         setEnviado(false);
+        setError('');
         onCerrar?.();
     };
 
-    const enviar = (evento) => {
+    async function enviar(evento) {
         evento.preventDefault();
-        setEnviado(true);
-    };
+        setCargando(true);
+        setError('');
+
+        const formData = new FormData(evento.target);
+        formData.append('tipoFormulario', 'INICIATIVAS - PARTICIPAR');
+        formData.append('fechaEnvio', new Date().toISOString());
+
+        try {
+            const response = await fetch(N8N_INICIATIVAS_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'X-Webhook-Token': N8N_WEBHOOK_TOKEN },
+                body: formData,
+            });
+
+            if (response.status === 403) {
+                throw new Error('RECHAZADO');
+            }
+
+            if (!response.ok) {
+                throw new Error(`Error en servidor: ${response.statusText}`);
+            }
+
+            setEnviado(true);
+            evento.target.reset();
+        } catch (err) {
+            console.error('Error al despachar a n8n:', err);
+            setError(
+                err.message === 'RECHAZADO'
+                    ? 'No pudimos validar la solicitud. Por favor intente de nuevo.'
+                    : 'No pudimos enviar su mensaje. Por favor intente de nuevo.',
+            );
+        } finally {
+            setCargando(false);
+        }
+    }
 
     return (
         <div className="iniciativas-modal" role="dialog" aria-modal="true">
@@ -55,19 +95,34 @@ function ParticiparModal({ abierto, onCerrar }) {
                             Cerrar
                         </button>
                     </div>
+                ) : error ? (
+                    <div className="iniciativas-modal__exito">
+                        <span className="material-symbols-outlined iniciativas-modal__exito-icono iniciativas-modal__exito-icono--error">
+                            error
+                        </span>
+                        <h4 className="iniciativas-modal__exito-titulo">No pudimos enviar su mensaje</h4>
+                        <p className="iniciativas-modal__exito-texto">{error}</p>
+                        <button
+                            type="button"
+                            className="iniciativas-modal__exito-boton"
+                            onClick={() => setError('')}
+                        >
+                            Reintentar
+                        </button>
+                    </div>
                 ) : (
                     <form className="iniciativas-modal__formulario" onSubmit={enviar}>
                         <label>
                             <span>Nombre</span>
-                            <input required type="text" placeholder="Su nombre completo" />
+                            <input required type="text" name="nombre" placeholder="Su nombre completo" />
                         </label>
                         <label>
-                            <span>Correo electrónico / Teléfono</span>
-                            <input required type="text" placeholder="correo@empresa.com  ·  +57 ..." />
+                            <span>Correo electrónico</span>
+                            <input required type="email" name="contacto" placeholder="correo@empresa.com" />
                         </label>
                         <label>
                             <span>Iniciativa de interés</span>
-                            <select required defaultValue="">
+                            <select required defaultValue="" name="iniciativa">
                                 <option value="" disabled>
                                     Seleccione una iniciativa
                                 </option>
@@ -83,11 +138,14 @@ function ParticiparModal({ abierto, onCerrar }) {
                             <textarea
                                 required
                                 rows="3"
+                                name="mensaje"
                                 placeholder="Cuéntenos cómo le gustaría aportar..."
                             />
                         </label>
-                        <button type="submit" className="iniciativas-modal__submit">
-                            Enviar mensaje
+                        <TurnstileWidget />
+                        <button type="submit" className="iniciativas-modal__submit" disabled={cargando}>
+                            {cargando && <span className="iniciativas-spinner" aria-hidden="true" />}
+                            {cargando ? 'Enviando...' : 'Enviar mensaje'}
                         </button>
                     </form>
                 )}
@@ -116,11 +174,14 @@ export default function Iniciativas() {
                     </div>
                     <h1 className="iniciativas-hero__titulo">Compartimos el buen clima de Colombia</h1>
                     <p className="iniciativas-hero__descripcion">
-                        Para nosotros, el «buen clima» no solo se mide en grados centígrados; se vive en
-                        el impacto que dejamos en las comunidades y en el planeta, y en todo lo que
-                        aprendemos de cada persona con la que nos relacionamos. Al elegirnos como su
-                        aliado en soluciones VAR, usted se vincula a una cadena de valor responsable,
-                        alineada con los Objetivos de Desarrollo Sostenible.
+                        En CUSTOM creemos que nuestro propósito va más allá de diseñar e implementar
+                        soluciones HVAC: generamos un impacto positivo en las comunidades donde estamos
+                        presentes, apoyando iniciativas de desarrollo social, cultura, deporte y nuevas
+                        generaciones. Cada proyecto es una oportunidad para impulsar el crecimiento de
+                        nuestra región y respaldar a quienes trabajan por alcanzar sus sueños, reflejando
+                        los valores que nos identifican: solidaridad, trabajo en equipo, inclusión y
+                        construcción de oportunidades. Para nosotros, el verdadero crecimiento empresarial
+                        también se mide por el impacto positivo que dejamos en las personas.
                     </p>
                 </div>
             </header>
