@@ -105,8 +105,20 @@
     font-weight: 700;
     letter-spacing: 0.04em;
     line-height: 1.2;
-    margin: 0 0 14px;
+    margin: 0 0 4px;
     text-transform: uppercase;
+}
+
+.tarjeta-valor__subtitulo {
+    display: block;
+    color: var(--color-primario, #002132);
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 12px;
 }
 
 .tarjeta-valor__linea {

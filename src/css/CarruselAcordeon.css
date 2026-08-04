@@ -414,23 +414,21 @@
         pointer-events: auto;
     }
 
-    /* En móvil nunca se muestran la descripcion larga ni el boton */
-    .carrusel-acordeon__panel--expandido .industria-panel__desc,
-    .carrusel-acordeon__panel--expandido .industria-panel__btn {
-        display: none;
+    /* En móvil se oculta el trío/grid de nombre VAR + descripción VAR para reducir espacio */
+    .industria-panel__trio,
+    .industria-panel__grid {
+        display: none !important;
     }
 
-    .industria-panel__desc {
+    .carrusel-acordeon__panel--expandido .industria-panel__desc {
+        display: block !important;
         font-size: 13px;
-        line-height: 1.6;
+        line-height: 1.5;
         margin: 0 0 14px;
     }
 
-    /* Grid de 3 columnas se mantiene, con tipografía más legible */
-    .industria-panel__grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin-bottom: 16px;
+    .carrusel-acordeon__panel--expandido .industria-panel__btn {
+        display: inline-block !important;
     }
 
     .industria-panel__col-titulo {

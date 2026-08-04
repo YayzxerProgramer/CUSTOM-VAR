@@ -7,7 +7,7 @@ import SolucionesPage from './pages/SolucionesPage.jsx';
 import TalentoPage from './pages/TalentoPage.jsx';
 import NoticiasPage from './pages/NoticiasPage.jsx';
 import IniciativasPage from './pages/IniciativasPage.jsx';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 export default function App() {
   return (

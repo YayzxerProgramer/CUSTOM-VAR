@@ -3,24 +3,28 @@ import '../../css/Nosotros/Filosofia.css';
 
 const VALORES = [
     {
-        titulo: 'Servicio',
+        titulo: 'CUSTOMER',
+        subtitulo: 'CLIENTES',
         descripcion:
-            'Vocación de servicio como principio fundamental: acompañar al cliente antes, durante y después de cada proyecto.',
+            'Nuestros clientes son la razón de ser de la organización y el centro de todas nuestras decisiones.',
     },
     {
-        titulo: 'Tradición',
+        titulo: 'CUSTOMIZABLE',
+        subtitulo: 'SOLUCIONES A LA MEDIDA',
         descripcion:
-            'La experiencia y el conocimiento acumulados nos permiten responder con criterio, oficio y responsabilidad.',
+            'Desarrollamos soluciones adaptadas a las necesidades y objetivos de cada cliente.',
     },
     {
-        titulo: 'Soluciones a la medida',
+        titulo: 'CUSTOM',
+        subtitulo: 'TRADICIÓN',
         descripcion:
-            'Cada requerimiento es único. Diseñamos propuestas personalizadas que se ajustan a las necesidades reales.',
+            'Actuamos con integridad, compromiso y respeto, preservando los valores que han construido nuestra trayectoria.',
     },
     {
-        titulo: 'Generación de Valor',
+        titulo: 'CUSTOMS',
+        subtitulo: 'ADUANA',
         descripcion:
-            'Cada proyecto debe generar valor real para todas las partes interesadas: clientes, colaboradores, aliados y comunidad, no solo para la compañía.',
+            'Facilitamos la conexión entre clientes, proveedores y soluciones, impulsando relaciones de confianza y crecimiento.',
     },
 ];
 
@@ -63,6 +67,9 @@ export default function Filosofia() {
                             <h3 className="tarjeta-valor__titulo">
                                 {resaltarCustom(valor.titulo)}
                             </h3>
+                            {valor.subtitulo && (
+                                <span className="tarjeta-valor__subtitulo">{valor.subtitulo}</span>
+                            )}
                             <span className="tarjeta-valor__linea" aria-hidden="true" />
                             <p className="tarjeta-valor__descripcion">
                                 {resaltarCustom(valor.descripcion)}
