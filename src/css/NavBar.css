@@ -23,6 +23,7 @@
     /* Altura del navbar fijo. Se sincroniza por breakpoint mas abajo y
        se usa en el padding-top del body y en el offset del hero. */
     --altura-navbar: 80px;
+    --ancho-logo: clamp(250px, 15vw, 310px);
 }
 
 /* El navbar es fixed: reservamos en el body un espacio igual a su altura
@@ -59,7 +60,7 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-    height: 80px;
+    height: var(--altura-navbar);
     padding: 0 var(--separacion-lateral) 0 40px;
     width: 100%;
     box-sizing: border-box;
@@ -72,13 +73,14 @@ body {
     gap: 16px;
     flex-shrink: 0;
     height: 100%;
-    width: 350px;
+    width: clamp(280px, 18vw, 340px);
     justify-content: flex-start;
 }
 
 .logotipo {
-    width: 250px;
+    width: var(--ancho-logo);
     height: auto;
+    max-height: none;
     object-fit: contain;
     display: block;
 }
@@ -222,11 +224,12 @@ body {
        de la variable global. */
     :root {
         --altura-navbar: 104px;
+        --ancho-logo: clamp(230px, 58vw, 310px);
     }
 
     .logotipo {
-        height: 92px;
-        width: auto;
+        width: var(--ancho-logo);
+        height: auto;
     }
 
     .zona-logotipo {
@@ -237,7 +240,7 @@ body {
     .envoltura-navegacion {
         justify-content: center;
         padding: 0 var(--separacion-lateral);
-        height: 104px;
+        height: var(--altura-navbar);
     }
 
     .boton-contacto {
@@ -263,17 +266,18 @@ body {
 @media (min-width: 1024px) and (max-width: 1439px) {
     :root {
         --altura-navbar: 72px;
+        --ancho-logo: clamp(240px, 18vw, 290px);
     }
 
     .envoltura-navegacion {
-        height: 72px;
+        height: var(--altura-navbar);
         gap: 16px;
         padding: 0 32px 0 32px;
     }
 
     .logotipo {
-        height: 300px;
-        width: auto;
+        width: var(--ancho-logo);
+        height: auto;
     }
 
     .menu-navegacion {
@@ -297,16 +301,18 @@ body {
 @media (min-width: 1440px) {
     :root {
         --altura-navbar: 76px;
+        --ancho-logo: clamp(270px, 15vw, 320px);
     }
 
     .envoltura-navegacion {
-        height: 76px;
+        height: var(--altura-navbar);
         gap: 24px;
         padding: 0 48px 0 48px;
     }
 
     .logotipo {
-        height: 350px;
+        width: var(--ancho-logo);
+        height: auto;
     }
 
     .menu-navegacion {
@@ -330,16 +336,17 @@ body {
 @media (min-width: 1920px) {
     :root {
         --altura-navbar: 84px;
+        --ancho-logo: clamp(300px, 15vw, 360px);
     }
 
     .envoltura-navegacion {
-        height: 84px;
+        height: var(--altura-navbar);
         padding: 0 64px 0 64px;
     }
 
     .logotipo {
-        height: 72px;
-        width: auto;
+        width: var(--ancho-logo);
+        height: auto;
     }
 
     .menu-navegacion {
