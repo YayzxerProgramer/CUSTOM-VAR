@@ -10,7 +10,7 @@ const Footer = () => {
                         <span class="nombre-empresa">CUSTOM VAR</span>
                     </div>
                     <p class="descripcion-empresa">
-                        Líderes en ingeniería HVAC en Colombia. Expertos en diseño, instalación y mantenimiento de sistemas críticos.
+                        Líderes en ingeniería VAR en Colombia. Expertos en diseño, instalación y mantenimiento de sistemas críticos.
                     </p>
                     <div class="redes-sociales">
                         <a href="#" class="enlace-social">🌐</a>

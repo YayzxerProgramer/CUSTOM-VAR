@@ -21,9 +21,10 @@ const VALORES = [
             'Actuamos con integridad, compromiso y respeto, preservando los valores que han construido nuestra trayectoria.',
     },
     {
-        titulo: 'Customer',
+        titulo: 'CUSTOMS',
+        subtitulo: 'ADUANAS',
         descripcion:
-            'Del inglés "cliente": los clientes son nuestro centro y nuestro enfoque en cada decisión que tomamos.',
+            'Facilitamos la conexión entre clientes, proveedores y soluciones, impulsando relaciones de confianza y crecimiento.',
     },
 ];
 
