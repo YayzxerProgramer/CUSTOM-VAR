@@ -44,6 +44,36 @@
   <meta name="apple-mobile-web-app-title" content="CUSTOM VAR" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
 
+  <!-- SEO: Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://customvar.com/#website",
+          "url": "https://customvar.com/",
+          "name": "CUSTOM VAR",
+          "description": "CUSTOM VAR es líder en ingeniería HVAC en Colombia. Expertos en diseño, instalación y mantenimiento de sistemas críticos de climatización, ventilación y eficiencia energética.",
+          "inLanguage": "es-CO"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://customvar.com/#organization",
+          "name": "CUSTOM VAR",
+          "url": "https://customvar.com/",
+          "logo": "https://customvar.com/favicon.png",
+          "description": "Líderes en ingeniería HVAC en Colombia. Especialistas en proyectos de climatización y eficiencia energética.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cartagena",
+            "addressCountry": "CO"
+          }
+        }
+      ]
+    }
+  </script>
+
   <!-- Cloudflare Turnstile: render=explicit porque el widget se monta a mano (ver TurnstileWidget en Soporte.jsx) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>

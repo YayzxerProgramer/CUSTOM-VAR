@@ -15,11 +15,13 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path='/' element={<NosotrosPage />} />
+        <Route path='/nosotros' element={<NosotrosPage />} />
         <Route path='/soluciones' element={<SolucionesPage />} />
         <Route path='/soporte' element={<SoportePage />} />
         <Route path='/talento' element={<TalentoPage />} />
         <Route path='/noticias' element={<NoticiasPage />} />
         <Route path='/iniciativas' element={<IniciativasPage />} />
+        <Route path='*' element={<NosotrosPage />} />
       </Routes>
       <BotonWhatsApp />
     </>
