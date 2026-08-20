@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://customvar.com/</loc>
+    <loc>https://customsoluciones.com/</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://customvar.com/nosotros</loc>
+    <loc>https://customsoluciones.com/nosotros</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://customvar.com/soluciones</loc>
+    <loc>https://customsoluciones.com/soluciones</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://customvar.com/soporte</loc>
+    <loc>https://customsoluciones.com/soporte</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://customvar.com/iniciativas</loc>
+    <loc>https://customsoluciones.com/iniciativas</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://customvar.com/talento</loc>
+    <loc>https://customsoluciones.com/talento</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://customvar.com/noticias</loc>
+    <loc>https://customsoluciones.com/noticias</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
