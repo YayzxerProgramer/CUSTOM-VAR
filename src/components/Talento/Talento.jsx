@@ -7,7 +7,7 @@ function ContactosActuales({ contactosTalento }) {
         <section className="talento-contactos">
             <div className="talento-contactos__cabecera">
                 <span className="talento-eyebrow">Directorio corporativo</span>
-                <h2 className="talento-titulo">Hablemos con la persona indicada</h2>
+                <h2 className="talento-titulo">HABLEMOS CON LA PERSONA INDICADA</h2>
             </div>
 
             <div className="talento-contactos__grid">
@@ -45,7 +45,7 @@ function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
         <section className="talento-vacantes">
             <div className="talento-vacantes__cabecera">
                 <span className="talento-eyebrow">Vacantes abiertas</span>
-                <h2 className="talento-titulo">Trabaja con nosotros</h2>
+                <h2 className="talento-titulo">TRABAJA CON NOSOTROS</h2>
                 <p className="talento-vacantes__intro">
                     Buscamos sumar talento en los cargos de mayor crecimiento. Despliegue cada vacante
                     para conocer las funciones, responsabilidades y requisitos.
@@ -143,10 +143,10 @@ export default function Talento() {
                         <span className="talento-hero__punto" />
                         <span className="talento-hero__ruta">Contactos · Trabaja con nosotros</span>
                     </div>
-                    <h1 className="talento-hero__titulo">El talento detrás del buen clima</h1>
+                    <h1 className="talento-hero__titulo">EL TALENTO DETRÁS DEL BUEN CLIMA</h1>
                     <p className="talento-hero__descripcion">
                         Conozca a nuestro equipo y descubra las oportunidades para crecer
-                        profesionalmente en la industria VAR. Buscamos personas que enseñen y aprendan
+                        profesionalmente en la industria V.A.R. Buscamos personas que enseñen y aprendan
                         «desde el hacer».
                     </p>
                 </div>

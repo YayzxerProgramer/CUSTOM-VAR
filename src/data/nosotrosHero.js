@@ -34,9 +34,9 @@ export const panelesHeroNosotros = [
     {
         id: 5,
         ruta: 'https://images.unsplash.com/photo-1527738697320-513f6648bc26?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        titulo: 'VAR',
-        subtitulo: 'Soporte Tecnico',
-        descripcion: 'Ofrecemos consultoría integral en Ventilación, Aire Acondicionado y Refrigeración para proyectos que requieren visión técnica y estratégica. Acompañamos desde la ingeniería conceptual hasta la puesta en marcha y el mantenimiento de largo plazo.',
+        titulo: 'Laboratorios y Farmacéuticas',
+        subtitulo: 'Condiciones Controladas',
+        descripcion: '¿Sus procesos requieren condiciones ambientales controladas para garantizar la calidad de sus productos? Implementamos soluciones de climatización y ventilación que mantienen ambientes estables, confiables y adecuados para procesos de alta exigencia.',
         enlace: '/soluciones#nuestras-soluciones',
     },
     {

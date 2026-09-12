@@ -172,10 +172,10 @@ export default function Iniciativas() {
                         <span className="iniciativas-hero__punto" />
                         <span className="iniciativas-hero__ruta">Responsabilidad Social</span>
                     </div>
-                    <h1 className="iniciativas-hero__titulo">Compartimos el buen clima de Colombia</h1>
+                    <h1 className="iniciativas-hero__titulo">COMPARTIMOS EL BUEN CLIMA DE COLOMBIA</h1>
                     <p className="iniciativas-hero__descripcion">
                         En CUSTOM creemos que nuestro propósito va más allá de diseñar e implementar
-                        soluciones HVAC: generamos un impacto positivo en las comunidades donde estamos
+                        soluciones V.A.R.: generamos un impacto positivo en las comunidades donde estamos
                         presentes, apoyando iniciativas de desarrollo social, cultura, deporte y nuevas
                         generaciones. Cada proyecto es una oportunidad para impulsar el crecimiento de
                         nuestra región y respaldar a quienes trabajan por alcanzar sus sueños, reflejando
@@ -191,7 +191,7 @@ export default function Iniciativas() {
                     <span className="iniciativas-eyebrow iniciativas-eyebrow--eco">
                         Nuestros tres pilares
                     </span>
-                    <h2 className="iniciativas-titulo">Trabajamos bajo tres frentes de impacto</h2>
+                    <h2 className="iniciativas-titulo">TRABAJAMOS BAJO TRES FRENTES DE IMPACTO</h2>
                 </div>
                 <div className="iniciativas-pilares__grid">
                     {pilaresIniciativas.map((pilar) => (
@@ -209,7 +209,7 @@ export default function Iniciativas() {
                             <p className="pilar-card__texto">{pilar.texto}</p>
                             <span
                                 className="pilar-card__ods"
-                                style={{ color: pilar.color, background: pilar.soft }}
+                                style={{ color: pilar.color, background: pilar.soft, fontSize: '0.82rem', fontWeight: 600, padding: '6px 10px', borderRadius: '4px', display: 'inline-block', marginTop: '10px' }}
                             >
                                 {pilar.ods}
                             </span>
@@ -223,7 +223,7 @@ export default function Iniciativas() {
                     <span className="iniciativas-eyebrow iniciativas-eyebrow--eco">
                         Proyección social (RSE)
                     </span>
-                    <h2 className="iniciativas-titulo">Las iniciativas que apoyamos</h2>
+                    <h2 className="iniciativas-titulo">LAS INICIATIVAS QUE APOYAMOS</h2>
                     <p className="iniciativas-apoyo__intro">
                         Cada iniciativa es parte de nuestro compromiso con la cultura, el deporte, el
                         bienestar y el medio ambiente en las regiones donde operamos.
@@ -275,14 +275,17 @@ export default function Iniciativas() {
                                 </div>
                                 <p className="iniciativa__texto">{iniciativa.texto}</p>
                                 <div className="iniciativa__enlaces">
-                                    <a className="iniciativa__chip" href="#">
-                                        <span className="material-symbols-outlined">photo_camera</span>
-                                        Instagram
-                                    </a>
-                                    <a className="iniciativa__chip" href="#">
-                                        <span className="material-symbols-outlined">public</span>
-                                        Sitio web
-                                    </a>
+                                    {iniciativa.instagram && (
+                                        <a
+                                            className="iniciativa__chip"
+                                            href={iniciativa.instagram}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <span className="material-symbols-outlined">photo_camera</span>
+                                            Ver en Instagram
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </article>

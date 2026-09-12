@@ -2,63 +2,64 @@
    CONTENEDOR GLOBAL FLOTANTE
    ========================================== */
 .wsp-widget {
-    position: fixed;
+    align-items: flex-end;
     bottom: 32px;
-    right: 32px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    z-index: 9999;
-    /* Asegura que esté por encima de cualquier otro elemento */
-    gap: 12px;
     font-family: 'Nunito Sans', sans-serif;
+    gap: 12px;
+    position: fixed;
+    right: 32px;
+    z-index: 9999;
 }
 
 /* ==========================================
-   BOTÓN CIRCULAR DE WHATSAPP
+   BOTÓN FLOTANTE MÁXIMO CON LOGO
    ========================================== */
 .wsp-float-btn {
-    background-color: #25D366;
-    /* Verde oficial de WhatsApp */
-    color: #FFFFFF;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(0, 33, 50, 0.3);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+    border: 2.5px solid #25D366;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 33, 50, 0.25);
     cursor: pointer;
+    display: flex;
     flex-shrink: 0;
+    height: 68px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2px;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 68px;
 }
 
 .wsp-float-btn img {
-    width: 100%;
+    border-radius: 50%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.4);
+    transform: none;
+    width: 100%;
 }
 
-/* Efectos al pasar el cursor por el botón */
 .wsp-float-btn:hover {
-    background-color: #20ba5a;
-    transform: scale(1.1) rotate(8deg);
-    box-shadow: 0 8px 24px rgba(0, 33, 50, 0.4);
+    border-color: #20ba5a;
+    box-shadow: 0 10px 28px rgba(0, 33, 50, 0.35);
+    transform: scale(1.1);
 }
 
 /* ==========================================
    CUADRO DE TEXTO / BOCADILLO DE MENSAJE
    ========================================== */
 .wsp-bubble {
-    position: relative;
+    animation: deslizarMensaje 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background-color: #FFFFFF;
     border-left: 4px solid #25D366;
-    padding: 16px 36px 16px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     max-width: 220px;
-    animation: deslizarMensaje 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 16px 36px 16px 20px;
+    position: relative;
 }
 
 .wsp-bubble-title {
@@ -71,43 +72,40 @@
 .wsp-bubble-link {
     color: #25D366;
     display: block;
-    margin-top: 4px;
     font-size: 14px;
     font-weight: 600;
+    margin-top: 4px;
     text-decoration: none;
 }
 
-/* Flecha del bocadillo (estilo del segundo bloque) */
 .wsp-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    right: 24px;
-    width: 0;
-    height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-top: 8px solid #FFFFFF;
+    bottom: -8px;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: 24px;
+    width: 0;
 }
 
-/* Botón de cierre (X) */
 .wsp-bubble-close {
-    position: absolute;
-    top: 6px;
-    right: 10px;
     background: none;
     border: none;
-    font-size: 18px;
     color: #999;
     cursor: pointer;
+    font-size: 18px;
     line-height: 1;
     padding: 2px;
+    position: absolute;
+    right: 10px;
+    top: 6px;
     transition: color 0.2s ease;
 }
 
 .wsp-bubble-close:hover {
     color: #DB2D2C;
-    /* Rojo de acento para el cierre */
 }
 
 /* ==========================================
@@ -118,7 +116,6 @@
         opacity: 0;
         transform: translateY(20px) scale(0.9);
     }
-
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -130,7 +127,6 @@
    ========================================== */
 @media (max-width: 767px) {
     .wsp-widget {
-        /* Se ubica por encima de la barra inferior móvil (56px) + margen */
         bottom: 76px;
         right: 16px;
         z-index: 60;
@@ -147,15 +143,8 @@
     }
 
     .wsp-float-btn {
-        width: 52px;
-        height: 52px;
-    }
-
-    .wsp-float-btn img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: scale(1.4);
+        height: 58px;
+        width: 58px;
     }
 }
 

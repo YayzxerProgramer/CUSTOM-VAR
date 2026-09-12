@@ -15,12 +15,15 @@ export default function AcordeonPersonas() {
         <section className="acordeon-personas">
             <div className="acordeon-personas__cabecera">
                 <div>
-                    <span className="acordeon-personas__eyebrow">¿Con cuál se identifica?</span>
-                    <h2 className="acordeon-personas__titulo">Resolvemos el reto de cada perfil</h2>
+                    <span className="acordeon-personas__eyebrow">CON CUAL SE IDENTIFICA? · ENCUENTRE SU SOLUCIÓN</span>
+                    <h2 className="acordeon-personas__titulo">¿QUÉ DESAFÍO ESTÁ ENFRENTANDO?</h2>
+                    <p style={{ marginTop: '8px', color: '#64748b', fontSize: '0.95rem', maxWidth: '800px' }}>
+                        Cada proyecto tiene un reto diferente. Diseñamos, suministramos e implementamos soluciones de Ventilación, Aire Acondicionado y Refrigeración (V.A.R.) según las necesidades de cada operación, desde la etapa de diseño hasta la puesta en funcionamiento.
+                    </p>
                 </div>
                 <p className="acordeon-personas__ayuda">
                     <span className="material-symbols-outlined">touch_app</span>
-                    Seleccione un perfil para ver el detalle de su solución.
+                    Seleccione el perfil que más se acerca a su operación.
                 </p>
             </div>
 

@@ -22,9 +22,10 @@ const N8N_WEBHOOK_TOKEN = import.meta.env.VITE_N8N_WEBHOOK_TOKEN;
 // Mapea la opcion elegida en "Etapa del Proyecto" a la etiqueta canonica
 // que n8n espera en el campo `etapaProyecto`.
 const ETAPA_PROYECTO_A_PRIORIDAD = new Map([
-    ['Presupuestacion anual / Planificacion a futuro (6-12 meses).', 'SOLICITUD - FUTURO'],
-    ['Ingenieria en desarrollo / Compra a mediano plazo (3-6 meses).', 'SOLICITUD - MEDIANO PLAZO'],
-    ['Reemplazo inmediato por falla / Construccion en curso (Urgente).', 'SOLICITUD - URGENTE'],
+    ['Planeación (Presupuesto o proyecto previsto a 6–12 meses)', 'SOLICITUD - FUTURO'],
+    ['Diseño e ingeniería (Proyecto en desarrollo, compra estimada en 3–6 meses)', 'SOLICITUD - MEDIANO PLAZO'],
+    ['Construcción / ejecución (El proyecto se encuentra actualmente en ejecución)', 'SOLICITUD - MEDIANO PLAZO'],
+    ['Reemplazo inmediato (Se requiere una solución prioritaria)', 'SOLICITUD - URGENTE'],
 ]);
 
 // Renombra la clave `dolorServicio` a la etiqueta que n8n espera en el Excel.
@@ -93,7 +94,7 @@ function GrupoOpciones({ nombre, opciones }) {
 function PerfilCorporativoServicio() {
     return (
         <div className="soporte-paso">
-            <h3>Perfil Corporativo</h3>
+            <h3>DATOS DEL SOLICITANTE</h3>
             <div className="soporte-grid">
                 <Campo etiqueta="Nombre completo">
                     <input type="text" name="nombre" autoComplete="name" required />
@@ -104,21 +105,24 @@ function PerfilCorporativoServicio() {
                         name="correo"
                         autoComplete="email"
                         pattern={correoCorporativoPattern}
-                        title="Use un correo corporativo. No se aceptan dominios genericos."
+                        title="Use un correo corporativo. No se aceptan dominios genéricos."
                         required
                     />
                 </Campo>
-                <Campo etiqueta="Cargo en la organizacion">
+                <Campo etiqueta="Teléfono de contacto">
+                    <input type="tel" name="telefono" autoComplete="tel" required />
+                </Campo>
+                <Campo etiqueta="Cargo en la organización">
                     <select name="cargo" required>
-                        <option value="">Seleccione una opcion</option>
+                        <option value="">Seleccione una opción</option>
                         {buyerPersonasSoporte.map((cargo) => (
                             <option key={cargo}>{cargo}</option>
                         ))}
                     </select>
                 </Campo>
-                <Campo etiqueta="Sector industrial">
+                <Campo etiqueta="Sector empresarial">
                     <select name="sector" required>
-                        <option value="">Seleccione una opcion</option>
+                        <option value="">Seleccione una opción</option>
                         {sectoresIndustriaSoporte.map((sector) => (
                             <option key={sector}>{sector}</option>
                         ))}
@@ -132,24 +136,51 @@ function PerfilCorporativoServicio() {
 function SolicitudServicioForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
+            <p className="soporte-mensaje" style={{ marginBottom: '1.5rem' }}>
+                Cuéntenos sobre su proyecto, nuestro equipo analizará tus necesidades para identificar alternativas de climatización (ventilación, aire acondicionado y refrigeración) acordes con los requerimientos de su servicio.
+            </p>
             <PerfilCorporativoServicio />
             <div className="soporte-paso">
-                <h3>Radiografia del Proyecto</h3>
-                <p>Seleccione el dolor principal y dimensione la infraestructura para calificar el alcance del caso.</p>
+                <h3>NECESIDAD DEL PROYECTO</h3>
+                <p>Selecciona el principal desafío o necesidad que deseas resolver.</p>
                 <GrupoOpciones nombre="dolorServicio" opciones={doloresServicio} />
-                <Campo etiqueta="Dimension estimada de la infraestructura">
-                    <input type="text" name="dimension" placeholder="m2 o Toneladas de Refrigeracion" required />
-                </Campo>
             </div>
             <div className="soporte-paso">
-                <h3>Etapa del Proyecto
-                </h3>
+                <h3>DIMENSIONES DEL PROYECTO</h3>
+                <div className="soporte-grid">
+                    <Campo etiqueta="Área aproximada de la infraestructura (m²)">
+                        <input type="text" name="area" placeholder="Ej: 500 m²" required />
+                    </Campo>
+                    <Campo etiqueta="Capacidad de refrigeración requerida (TR)">
+                        <input type="text" name="tr" placeholder="Ej: 50 TR" required />
+                    </Campo>
+                    <Campo etiqueta="Número aproximado de espacios / ambientes">
+                        <input type="text" name="espacios" placeholder="Ej: 10 ambientes" required />
+                    </Campo>
+                    <Campo etiqueta="Ciudad del proyecto">
+                        <input type="text" name="ciudad" placeholder="Ej: Cartagena" required />
+                    </Campo>
+                </div>
+            </div>
+            <div className="soporte-paso">
+                <h3>ETAPA Y HORIZONTE DEL PROYECTO</h3>
                 <GrupoOpciones nombre="etapaProyecto" opciones={etapasProyecto} />
+            </div>
+            <div className="soporte-paso">
+                <h3>CUÉNTANOS SOBRE TU PROYECTO</h3>
+                <Campo etiqueta="Descripción del proyecto">
+                    <textarea
+                        name="descripcion"
+                        rows="5"
+                        placeholder="Describe brevemente el proyecto, la necesidad que deseas resolver o cualquier información técnica que consideres relevante."
+                        required
+                    />
+                </Campo>
             </div>
             <TurnstileWidget />
             <button className="soporte-boton" type="submit" disabled={cargando}>
                 {cargando && <span className="soporte-spinner" aria-hidden="true" />}
-                {cargando ? 'Enviando requerimiento...' : 'Solicitar Diagnostico Técnico y Cotización Preliminar'}
+                {cargando ? 'Enviando requerimiento...' : 'SOLICITE SU DIAGNÓSTICO TÉCNICO O COTIZACIÓN PRELIMINAR'}
             </button>
         </form>
     );
@@ -158,42 +189,62 @@ function SolicitudServicioForm({ onSubmit, cargando }) {
 function FacturacionForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
+            <div className="soporte-mensaje" style={{ marginBottom: '1.5rem' }}>
+                <strong>FACTURACIÓN Y PAGADURIA</strong><br />
+                Gestione sus solicitudes de facturación y pagos de forma ágil y centralizada.<br />
+                Selecciona el tipo de solicitud, complete la información requerida y nuestro equipo dará gestión a tu requerimiento.
+            </div>
             <div className="soporte-paso">
-                <h3>Perfil Corporativo</h3>
+                <h3>DATOS DEL SOLICITANTE</h3>
                 <div className="soporte-grid">
                     <Campo etiqueta="Nombre y apellido">
                         <input type="text" name="nombre" autoComplete="name" required />
                     </Campo>
-                    <Campo etiqueta="Correo">
+                    <Campo etiqueta="Correo electrónico">
                         <input type="email" name="correo" autoComplete="email" required />
                     </Campo>
-                    <Campo etiqueta="Nombre y NIT de la organizacion">
+                    <Campo etiqueta="Teléfono de contacto">
+                        <input type="tel" name="telefono" autoComplete="tel" required />
+                    </Campo>
+                    <Campo etiqueta="Nombre de la organización">
                         <input type="text" name="organizacion" required />
                     </Campo>
-                    <Campo etiqueta="Cargo en la organizacion">
+                    <Campo etiqueta="NIT de la organización">
+                        <input type="text" name="nit" required />
+                    </Campo>
+                    <Campo etiqueta="Cargo en la organización">
                         <input type="text" name="cargo" required />
                     </Campo>
                 </div>
             </div>
             <div className="soporte-paso">
-                <h3>Radiografia del Requerimiento</h3>
+                <h3>TIPO DE SOLICITUD</h3>
                 <GrupoOpciones nombre="dolorFacturacion" opciones={doloresFacturacion} />
             </div>
             <div className="soporte-paso">
-                <h3>Detalles del Requerimiento</h3>
-                <Campo etiqueta="Descripcion breve">
+                <h3>Detalles de la Solicitud</h3>
+                <Campo etiqueta="Descripción breve">
                     <textarea
                         name="descripcion"
                         rows="5"
-                        placeholder="Indique servicio recibido, numero de factura pendiente de pago o detalle administrativo."
+                        placeholder="Indique servicio recibido, número de factura pendiente de pago o detalle administrativo."
                         required
                     />
+                </Campo>
+            </div>
+            <div className="soporte-paso">
+                <h3>DOCUMENTOS DE SOPORTE</h3>
+                <p style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '0.75rem' }}>
+                    Puedes adjuntar órdenes de compra, facturas, comprobantes u otros documentos relacionados.
+                </p>
+                <Campo etiqueta="Adjuntar archivo" requerido={false}>
+                    <input type="file" name="evidencias" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xlsx" multiple />
                 </Campo>
             </div>
             <TurnstileWidget />
             <button className="soporte-boton" type="submit" disabled={cargando}>
                 {cargando && <span className="soporte-spinner" aria-hidden="true" />}
-                {cargando ? 'Procesando...' : 'Solicitar informacion'}
+                {cargando ? 'Procesando...' : 'Gestione su solicitud'}
             </button>
         </form>
     );
@@ -202,23 +253,24 @@ function FacturacionForm({ onSubmit, cargando }) {
 function PqrsdForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
-            <div className="soporte-mensaje">
-                En nuestra busqueda constante por la excelencia y la continuidad de su operacion, su retroalimentacion es vital.
-                Registre su solicitud aqui; analizaremos su caso de inmediato para ofrecerle una respuesta prioritaria.
+            <div className="soporte-mensaje" style={{ marginBottom: '1.5rem' }}>
+                <strong>CANAL DE PQRSD</strong><br />
+                Un espacio para recibir, gestionar y dar respuesta a tus peticiones, quejas, reclamos y sugerencias relacionados con nuestra atención y operación.<br /><br />
+                Trabajamos continuamente para brindar soluciones que respalden la continuidad de su operación. Comparta aquí su solicitud o comentario. Nuestro equipo realizará la gestión correspondiente para ofrecerle una atención ágil y oportuna.
             </div>
             <div className="soporte-paso">
-                <h3>Identificacion del Cliente y del Contrato</h3>
+                <h3>DATOS DEL SOLICITANTE</h3>
                 <div className="soporte-grid">
-                    <Campo etiqueta="Razon social / empresa">
+                    <Campo etiqueta="Razón social / empresa">
                         <input type="text" name="razonSocial" required />
                     </Campo>
                     <Campo etiqueta="Nombre del contacto autorizado">
                         <input type="text" name="contacto" autoComplete="name" required />
                     </Campo>
-                    <Campo etiqueta="Correo electronico corporativo">
+                    <Campo etiqueta="Correo electrónico corporativo">
                         <input type="email" name="correo" autoComplete="email" required />
                     </Campo>
-                    <Campo etiqueta="Telefono directo / extension">
+                    <Campo etiqueta="Teléfono directo / extensión">
                         <input type="tel" name="telefono" autoComplete="tel" required />
                     </Campo>
                     <Campo etiqueta="Contrato, proyecto o factura">
@@ -227,46 +279,52 @@ function PqrsdForm({ onSubmit, cargando }) {
                 </div>
             </div>
             <div className="soporte-paso">
-                <h3>Clasificacion de la Solicitud</h3>
+                <h3>TIPO DE SOLICITUD</h3>
                 <GrupoOpciones nombre="tipoPqrsd" opciones={tiposPqrsd} />
             </div>
             <div className="soporte-paso">
-                <h3>Detalle Tecnico e Impacto Operativo</h3>
+                <h3>DETALLES DE LA SOLICITUD</h3>
                 <div className="soporte-grid">
                     <Campo etiqueta="Asunto de la solicitud">
                         <input type="text" name="asunto" required />
                     </Campo>
-                    <Campo etiqueta="Sede, planta o ubicacion del equipo">
+                    <Campo etiqueta="Sede, planta o ubicación del equipo">
                         <input type="text" name="ubicacion" placeholder="Edificio corporativo - Piso 4" required />
                     </Campo>
                 </div>
-                <Campo etiqueta="Descripcion detallada">
+                <Campo etiqueta="Descripción detallada">
                     <textarea
                         name="descripcion"
                         rows="6"
-                        placeholder="Describa los hechos, modelos de equipos afectados o situaciones especificas para agilizar la investigacion tecnica."
+                        placeholder="Describa los hechos, modelos de equipos afectados o situaciones específicas para agilizar la investigación técnica."
                         required
                     />
                 </Campo>
-                <GrupoOpciones nombre="impactoOperacion" opciones={impactosOperacion} />
-                <Campo etiqueta="Evidencias / archivos adjuntos" requerido={false}>
-                    <input type="file" name="evidencias" accept=".pdf,.jpg,.jpeg,.png" multiple />
-                </Campo>
-                <p className="soporte-ayuda">
-                    Adjunte fotos del panel de control, reportes de error del sistema BMS, videos del ruido o documentos de soporte.
+                <div style={{ marginTop: '1rem' }}>
+                    <h4 style={{ fontSize: '1rem', color: '#1e293b', marginBottom: '0.5rem' }}>NIVEL DE AFECTACIÓN</h4>
+                    <GrupoOpciones nombre="impactoOperacion" opciones={impactosOperacion} />
+                </div>
+            </div>
+            <div className="soporte-paso">
+                <h3>DOCUMENTOS DE SOPORTE</h3>
+                <p style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '0.75rem' }}>
+                    Adjunta los archivos que consideres relevantes para la gestión de tu solicitud. Puedes adjuntar fotografías, facturas, órdenes de compra, comunicaciones, documentos técnicos u otros soportes relacionados con el caso.
                 </p>
+                <Campo etiqueta="Adjuntar archivos" requerido={false}>
+                    <input type="file" name="evidencias" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" multiple />
+                </Campo>
             </div>
             <div className="soporte-paso">
                 <h3>Consentimiento Legal</h3>
                 <label className="soporte-consentimiento">
                     <input type="checkbox" required />
-                    <span>Acepto la Politica de Tratamiento de Datos Personales y los tiempos de respuesta legales de atencion corporativa.</span>
+                    <span>Acepto la Política de Tratamiento de Datos Personales y los tiempos de respuesta legales de atención corporativa.</span>
                 </label>
             </div>
             <TurnstileWidget />
             <button className="soporte-boton" type="submit" disabled={cargando}>
                 {cargando && <span className="soporte-spinner" aria-hidden="true" />}
-                {cargando ? 'Radicando caso...' : 'Radicar Solicitud con Prioridad'}
+                {cargando ? 'Radicando caso...' : 'Radicar Solicitud'}
             </button>
         </form>
     );

@@ -7,20 +7,20 @@ export default function CajaEstadistica() {
             < div className="barra-estadisticas" >
                 <div className="envoltura-estadisticas">
                     <div className="bloque-estadistica">
-                        <p className="numero-estadistica">10+</p>
+                        <p className="numero-estadistica">16</p>
                         <p className="etiqueta-estadistica">Años de experiencia</p>
                     </div>
                     <div className="bloque-estadistica">
-                        <p className="numero-estadistica">20+</p>
-                        <p className="etiqueta-estadistica">Proyectos</p>
+                        <p className="numero-estadistica">200</p>
+                        <p className="etiqueta-estadistica">Proyectos ejecutados</p>
                     </div>
                     <div className="bloque-estadistica">
-                        <p className="numero-estadistica">4+</p>
-                        <p className="etiqueta-estadistica">Ciudades</p>
+                        <p className="numero-estadistica">25</p>
+                        <p className="etiqueta-estadistica">Ciudades atendidas</p>
                     </div>
                     <div className="bloque-estadistica">
-                        <p className="numero-estadistica">100%</p>
-                        <p className="etiqueta-estadistica">Compromiso</p>
+                        <p className="numero-estadistica">2.500</p>
+                        <p className="etiqueta-estadistica">Toneladas instaladas</p>
                     </div>
                 </div>
             </div >

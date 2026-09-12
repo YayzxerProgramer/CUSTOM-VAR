@@ -1,21 +1,21 @@
 export const tiposSoporte = [
     {
         id: 'servicio',
-        titulo: 'Solicitud de Servicio',
-        descripcion: 'Prediagnostico corporativo para priorizar proyectos VAR y cotizaciones preliminares.',
-        cta: 'Solicitar Diagnostico Tecnico y Cotizacion Preliminar',
+        titulo: 'SOLICITUDES DE SERVICIO',
+        descripcion: 'Solicite atención relacionada con nuestros servicios técnicos y proyectos V.A.R a nivel Nacional.',
+        cta: 'SOLICITE SU DIAGNÓSTICO TÉCNICO O COTIZACIÓN PRELIMINAR',
     },
     {
         id: 'facturacion',
-        titulo: 'Facturacion y Pagaduria',
-        descripcion: 'Canal para facturas, estados de cuenta, confirmaciones de recibido y programacion de pago.',
-        cta: 'Solicitar informacion',
+        titulo: 'FACTURACIÓN Y PAGADURIA',
+        descripcion: 'Encuentre aquí los canales para consultar facturación, estados de cuenta, recepción de facturas y programación de pagos.',
+        cta: 'Gestione su solicitud',
     },
     {
         id: 'pqrsd',
-        titulo: 'PQRSD',
-        descripcion: 'Radicacion prioritaria de peticiones, quejas, reclamos, sugerencias o denuncias corporativas.',
-        cta: 'Radicar Solicitud con Prioridad',
+        titulo: 'CANAL DE PQRSD',
+        descripcion: 'Presente sus peticiones, quejas, reclamos, sugerencias o denuncias.',
+        cta: 'Radicar Solicitud',
     },
 ];
 
@@ -24,50 +24,56 @@ export const buyerPersonasSoporte = [
     'Gerente de Mantenimiento',
     'Facilities Manager',
     'Administrador Retail',
-    'Gerente de Logistica o Cadena de Frio',
+    'Gerente de Logística o Cadena de Frío',
+    'Compras y Abastecimiento',
+    'Otro',
 ];
 
 export const sectoresIndustriaSoporte = [
     'Industria y Manufactura',
     'Educativo',
     'Restaurantes',
-    'Centros de Datos VAR',
+    'Centros de Datos',
     'Oficinas y Edificios',
     'Hospitales',
     'Hoteles',
     'Locales y Centros Comerciales',
+    'Otro',
 ];
 
 export const doloresServicio = [
-    'Reducir el consumo electrico de mis sistemas actuales.',
-    'Evitar paros operativos y fallas en equipos criticos.',
-    'Disenar e instalar sistemas HVAC para una nueva obra/expansion.',
-    'Resolver quejas de confort termico, malos olores o calidad de aire.',
+    'Reducir el consumo energético de los sistemas actuales.',
+    'Evitar paradas operativas y fallas en equipos críticos.',
+    'Diseñar e implementar un sistema HVAC para una nueva construcción.',
+    'Mejorar las condiciones de confort, ventilación o calidad del aire.',
+    'Modernizar o ampliar un sistema HVAC existente.',
 ];
 
 export const etapasProyecto = [
-    'Presupuestacion anual / Planificacion a futuro (6-12 meses).',
-    'Ingenieria en desarrollo / Compra a mediano plazo (3-6 meses).',
-    'Reemplazo inmediato por falla / Construccion en curso (Urgente).',
+    'Planeación (Presupuesto o proyecto previsto a 6–12 meses)',
+    'Diseño e ingeniería (Proyecto en desarrollo, compra estimada en 3–6 meses)',
+    'Construcción / ejecución (El proyecto se encuentra actualmente en ejecución)',
+    'Reemplazo inmediato (Se requiere una solución prioritaria)',
 ];
 
 export const doloresFacturacion = [
-    'Solicitar facturacion de servicio recibido.',
-    'Solicitar confirmacion de recibido factura emitida.',
-    'Solicitar estado de cuentas.',
-    'Solicitar programacion de pago.',
+    'Solicitud de facturación de compra/servicio',
+    'Confirmación de recepción de factura',
+    'Solicitud estado de cuenta/documentos financieros/certificados contables',
+    'Consultar programación de pago',
+    'Solicitud soporte o comprobante de pago',
 ];
 
 export const tiposPqrsd = [
-    'Peticion: informacion tecnica, certificaciones, documentos de ingenieria u otros administrativos.',
-    'Queja: insatisfaccion por atencion, tiempos de respuesta o deficiencias en el servicio.',
-    'Reclamo: disconformidad con rendimiento de equipo, reparacion tecnica o garantia VAR.',
-    'Sugerencia: ideas de mejora para procesos de ingenieria o mantenimiento.',
+    'Petición: información técnica, certificaciones, documentos de ingeniería u otros administrativos.',
+    'Queja: insatisfacción por atención, tiempos de respuesta o deficiencias en el servicio.',
+    'Reclamo: disconformidad con rendimiento de equipo, reparación técnica o garantía VAR.',
+    'Sugerencia: ideas de mejora para procesos de ingeniería o mantenimiento.',
     'Denuncia: reporte de una conducta irregular o ilegal.',
 ];
 
 export const impactosOperacion = [
-    'Bajo: no afecta la operacion ni el confort actual.',
-    'Medio: afecta parcialmente el confort o un area secundaria.',
-    'Alto / Critico: riesgo de paro operativo, perdida de mercancia o falla en infraestructura critica.',
+    'Bajo (No genera afectación significativa a la operación)',
+    'Medio (Genera una afectación parcial que requiere atención)',
+    'Alto / Crítico (Genera una afectación importante sobre la operación, infraestructura o continuidad del negocio)',
 ];

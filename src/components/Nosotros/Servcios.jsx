@@ -32,10 +32,10 @@ export default function Servicios() {
                     <div className="rejilla-servicios">
                         {/* Tarjeta 1 - V */}
                         <div className="tarjeta-servicio">
-                            <span className="material-symbols-outlined icono-servicio">trending_up</span>
-                            <h3 className="titulo-tarjeta">VALOR</h3>
+                            <span className="material-symbols-outlined icono-servicio">air</span>
+                            <h3 className="titulo-tarjeta">VENTILACIÓN / VALOR</h3>
                             <p className="texto-tarjeta">
-                                Generamos valor a través de soluciones que mejoran la eficiencia, el confort y el desempeño de cada proyecto. Nuestro compromiso es ofrecer productos de calidad y marcas líderes que contribuyan al bienestar de las personas y a la optimización de los espacios.
+                                Generamos valor a través de soluciones de ventilación que mejoran la eficiencia, el confort y el desempeño de cada proyecto. Nuestro compromiso es ofrecer productos de calidad y marcas líderes que contribuyan al bienestar de las personas y a la optimización de los espacios.
                             </p>
                             <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución
@@ -45,10 +45,10 @@ export default function Servicios() {
 
                         {/* Tarjeta 2 - A */}
                         <div className="tarjeta-servicio">
-                            <span className="material-symbols-outlined icono-servicio">add_circle</span>
-                            <h3 className="titulo-tarjeta">AGREGADO</h3>
+                            <span className="material-symbols-outlined icono-servicio">ac_unit</span>
+                            <h3 className="titulo-tarjeta">AIRE ACONDICIONADO / AGREGADO</h3>
                             <p className="texto-tarjeta">
-                                Aportamos valor agregado mediante disponibilidad de inventario, soporte técnico especializado, logística eficiente y un acompañamiento comercial cercano. Más que suministrar productos, brindamos soluciones que facilitan la toma de decisiones y optimizan la inversión de nuestros clientes.
+                                Aportamos valor agregado en soluciones de climatización mediante disponibilidad de inventario, soporte técnico especializado, logística eficiente y un acompañamiento comercial cercano. Más que suministrar productos, brindamos soluciones que facilitan la toma de decisiones y optimizan la inversión de nuestros clientes.
                             </p>
                             <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución
@@ -58,10 +58,10 @@ export default function Servicios() {
 
                         {/* Tarjeta 3 - R */}
                         <div className="tarjeta-servicio">
-                            <span className="material-symbols-outlined icono-servicio">verified_user</span>
-                            <h3 className="titulo-tarjeta">REPRESENTANTES</h3>
+                            <span className="material-symbols-outlined icono-servicio">severe_cold</span>
+                            <h3 className="titulo-tarjeta">REFRIGERACIÓN / REPRESENTANTES</h3>
                             <p className="texto-tarjeta">
-                                Somos representantes y distribuidores autorizados de marcas líderes del sector HVAC, garantizando productos originales, respaldo del fabricante, garantía oficial y acceso a soluciones confiables para aplicaciones residenciales, comerciales e industriales.
+                                Somos representantes de soluciones de refrigeración industrial y comercial, garantizando productos originales, respaldo de fábrica, garantía oficial y acceso a soluciones confiables para aplicaciones residenciales, comerciales e industriales.
                             </p>
                             <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución

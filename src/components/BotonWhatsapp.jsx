@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import "../css/BotonWhatsapp.css"
-import btnWsp from "../img/BtnWsp.png";
+import "../css/BotonWhatsapp.css";
+import maximoLogo from "../img/MaximoConLogo.png";
 
 function BotonWhatsapp() {
     const [showBubble, setShowBubble] = useState(false);
@@ -15,9 +15,9 @@ function BotonWhatsapp() {
 
         const timer = setTimeout(() => {
             setShowBubble(true);
-        }, 3000); 
+        }, 3000);
 
-        return () => clearTimeout(timer); 
+        return () => clearTimeout(timer);
     }, []);
 
     const handleClose = () => {
@@ -38,7 +38,8 @@ function BotonWhatsapp() {
                     </button>
                     <p className="wsp-bubble-title">¿Necesitas asesoría?</p>
 
-                    <a href={urlWhatsApp}
+                    <a
+                        href={urlWhatsApp}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="wsp-bubble-link"
@@ -46,18 +47,18 @@ function BotonWhatsapp() {
                         Contáctanos aquí
                     </a>
                 </div>
-            )
-            }
+            )}
 
-
-            <a href={urlWhatsApp}
+            <a
+                href={urlWhatsApp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="wsp-float-btn"
+                aria-label="Contactar por WhatsApp a Máximo CUSTOM V.A.R."
             >
-                <img src={btnWsp} alt="Contacto WhatsApp" />
-            </a >
-        </div >
+                <img src={maximoLogo} alt="Máximo CUSTOM V.A.R." />
+            </a>
+        </div>
     );
 }
 

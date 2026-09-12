@@ -2,7 +2,7 @@
    FOOTER
 ========================================== */
 
-.pie-pagina{
+.pie-pagina {
     background: var(--color-primario);
     padding: 80px 0 30px;
 }
@@ -11,56 +11,57 @@
    CONTENEDOR PRINCIPAL
 ========================================== */
 
-.contenedor-pie{
-    max-width: var(--ancho-maximo-contenedor);
-    margin: 0 auto;
-    padding: 0 var(--separacion-lateral);
-
+.contenedor-pie {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 50px;
-
-    border-bottom: 1px solid rgba(255,255,255,.10);
-    padding-bottom: 60px;
+    gap: 40px;
+    grid-template-columns: minmax(220px, 1.15fr) minmax(140px, 0.8fr) minmax(250px, 1.25fr) minmax(220px, 1fr);
+    margin: 0 auto;
+    max-width: var(--ancho-maximo-contenedor);
+    padding: 0 var(--separacion-lateral) 60px;
 }
 
-.columna-pie{
-    display:flex;
-    flex-direction:column;
+.columna-pie {
+    display: flex;
+    flex-direction: column;
 }
 
 /* ==========================================
-   EMPRESA
+   EMPRESA & LOGO
 ========================================== */
 
-.nombre-empresa{
-    color: var(--color-blanco-puro);
-    font-family: var(--fuente-titulos);
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+.logo-pie {
+    display: flex;
+    align-items: center;
 }
 
-.descripcion-empresa{
-    color: rgba(255,255,255,.80);
+.logo-pie__img {
+    height: 48px;
+    max-width: 100%;
+    object-fit: contain;
+    width: auto;
+}
+
+.descripcion-empresa {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--fuente-cuerpo);
     line-height: 1.8;
     margin-top: 20px;
-    font-family: var(--fuente-cuerpo);
 }
 
-.redes-sociales{
-    display:flex;
-    gap:15px;
-    margin-top:25px;
+.redes-sociales {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
 }
 
-.enlace-social{
+.enlace-social {
     color: var(--color-blanco-puro);
     font-size: 1.3rem;
-    transition:.3s;
+    transition: 0.3s;
 }
 
-.enlace-social:hover{
+.enlace-social:hover {
     color: var(--color-texto-contenedor-primario);
     transform: translateY(-4px);
 }
@@ -69,41 +70,71 @@
    TÍTULOS
 ========================================== */
 
-.titulo-columna{
+.titulo-columna {
     color: var(--color-texto-contenedor-primario);
     font-family: var(--fuente-cuerpo);
-    text-transform: uppercase;
-    font-size: .9rem;
+    font-size: 0.9rem;
+    font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 25px;
-    font-weight: 700;
+    text-transform: uppercase;
 }
 
 /* ==========================================
-   ENLACES
+   ENLACES Y CONTACTO
 ========================================== */
 
 .lista-enlaces,
-.lista-contacto{
-    list-style:none;
-    padding:0;
-    margin:0;
+.lista-contacto {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.lista-enlaces li,
-.lista-contacto li{
-    margin-bottom:15px;
+.lista-enlaces li {
+    margin-bottom: 15px;
 }
 
-.lista-enlaces a,
-.lista-contacto li{
-    color: rgba(255,255,255,.80);
-    text-decoration:none;
-    transition:.3s;
+.lista-enlaces a {
+    color: rgba(255, 255, 255, 0.8);
     font-family: var(--fuente-cuerpo);
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-.lista-enlaces a:hover{
+.lista-enlaces a:hover {
+    color: var(--color-texto-contenedor-primario);
+}
+
+.lista-contacto li {
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.95rem;
+    gap: 12px;
+    margin-bottom: 16px;
+    white-space: nowrap;
+}
+
+.columna-contacto .lista-contacto li {
+    white-space: normal;
+}
+
+.icono-contacto {
+    color: var(--color-texto-contenedor-primario);
+    flex-shrink: 0;
+}
+
+.enlace-contacto {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--fuente-cuerpo);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    word-break: break-all;
+}
+
+.enlace-contacto:hover {
     color: var(--color-texto-contenedor-primario);
 }
 
@@ -111,42 +142,40 @@
    BOLETÍN
 ========================================== */
 
-.texto-boletin{
-    color: rgba(255,255,255,.80);
-    line-height: 1.8;
-    margin-bottom:20px;
+.texto-boletin {
+    color: rgba(255, 255, 255, 0.8);
     font-family: 'Nunito Sans';
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
-.formulario-boletin{
-    display:flex;
+.formulario-boletin {
+    display: flex;
 }
 
-.campo-correo{
-    flex:1;
-    border:none;
-    outline:none;
-    padding:14px;
-    background: rgba(255,255,255,.10);
+.campo-correo {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
     color: var(--color-blanco-puro);
+    flex: 1;
+    outline: none;
+    padding: 14px;
 }
 
-.campo-correo::placeholder{
-    color: rgba(255,255,255,.60);
+.campo-correo::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
-.boton-boletin{
-    border:none;
-    padding:14px 20px;
-    cursor:pointer;
-
+.boton-boletin {
     background: var(--color-contenedor-primario);
+    border: none;
     color: var(--color-blanco-puro);
-
-    transition:.3s;
+    cursor: pointer;
+    padding: 14px 20px;
+    transition: 0.3s;
 }
 
-.boton-boletin:hover{
+.boton-boletin:hover {
     background: var(--color-variante-primario-fijo);
 }
 
@@ -154,37 +183,36 @@
    BARRA INFERIOR
 ========================================== */
 
-.barra-inferior{
-    max-width: var(--ancho-maximo-contenedor);
-    margin:0 auto;
+.barra-inferior {
+    align-items: center;
+    display: flex;
     font-family: 'Nunito Sans';
-    padding:30px var(--separacion-lateral) 0;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: var(--ancho-maximo-contenedor);
+    padding: 30px var(--separacion-lateral) 0;
 }
 
-.copyright{
-    color: rgba(255,255,255,.60);
-    font-size:.85rem;
-    text-transform:uppercase;
+.copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    text-transform: uppercase;
 }
 
-.enlaces-legales{
-    display:flex;
-    gap:25px;
+.enlaces-legales {
+    display: flex;
+    gap: 25px;
 }
 
-.enlaces-legales a{
-    color: rgba(255,255,255,.60);
-    text-decoration:none;
-    text-transform:uppercase;
-    font-size:.85rem;
-    transition:.3s;
+.enlaces-legales a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
-.enlaces-legales a:hover{
+.enlaces-legales a:hover {
     color: var(--color-texto-contenedor-primario);
 }
 
@@ -192,29 +220,26 @@
    RESPONSIVE
 ========================================== */
 
-@media (max-width: 992px){
-
-    .contenedor-pie{
+@media (max-width: 1080px) {
+    .contenedor-pie {
+        gap: 30px;
         grid-template-columns: 1fr 1fr;
     }
 
-    .barra-inferior{
-        flex-direction:column;
-        gap:20px;
-        text-align:center;
+    .barra-inferior {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
     }
-
 }
 
-@media (max-width: 768px){
-
-    .contenedor-pie{
+@media (max-width: 640px) {
+    .contenedor-pie {
         grid-template-columns: 1fr;
     }
 
-    .formulario-boletin{
-        flex-direction:column;
-        gap:10px;
+    .formulario-boletin {
+        flex-direction: column;
+        gap: 10px;
     }
-
 }
