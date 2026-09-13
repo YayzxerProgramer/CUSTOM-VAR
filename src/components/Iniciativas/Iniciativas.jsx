@@ -195,24 +195,41 @@ export default function Iniciativas() {
                 </div>
                 <div className="iniciativas-pilares__grid">
                     {pilaresIniciativas.map((pilar) => (
-                        <article
-                            key={pilar.id}
-                            className="pilar-card"
-                            style={{ borderTopColor: pilar.color }}
-                        >
-                            <div className="pilar-card__icono" style={{ background: pilar.soft }}>
-                                <span className="material-symbols-outlined" style={{ color: pilar.color }}>
-                                    {pilar.icono}
-                                </span>
+                        <article key={pilar.id} className="pilar-card">
+                            <div className="pilar-card__ods-header" style={{ backgroundColor: pilar.color }}>
+                                <span className="material-symbols-outlined">public</span>
+                                <span>OBJETIVOS DE DESARROLLO SOSTENIBLE</span>
                             </div>
-                            <h3 className="pilar-card__titulo">{pilar.titulo}</h3>
-                            <p className="pilar-card__texto">{pilar.texto}</p>
-                            <span
-                                className="pilar-card__ods"
-                                style={{ color: pilar.color, background: pilar.soft, fontSize: '0.82rem', fontWeight: 600, padding: '6px 10px', borderRadius: '4px', display: 'inline-block', marginTop: '10px' }}
-                            >
-                                {pilar.ods}
-                            </span>
+                            <div className="pilar-card__cuerpo">
+                                <div className="pilar-card__icono" style={{ background: pilar.soft }}>
+                                    <span className="material-symbols-outlined" style={{ color: pilar.color }}>
+                                        {pilar.icono}
+                                    </span>
+                                </div>
+                                <h3 className="pilar-card__titulo">{pilar.titulo}</h3>
+                                <p className="pilar-card__texto">{pilar.texto}</p>
+                                <div className="pilar-card__ods-lista">
+                                    {pilar.odsList ? (
+                                        pilar.odsList.map((odsItem) => (
+                                            <span
+                                                key={odsItem.id}
+                                                className="pilar-card__ods-pildora"
+                                                style={{
+                                                    color: odsItem.color,
+                                                    backgroundColor: odsItem.bg,
+                                                    borderColor: odsItem.color,
+                                                }}
+                                            >
+                                                {odsItem.label}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        <span className="pilar-card__ods" style={{ color: pilar.color, background: pilar.soft }}>
+                                            {pilar.ods}
+                                        </span>
+                                    )}
+                                </div>
+                            </div>
                         </article>
                     ))}
                 </div>

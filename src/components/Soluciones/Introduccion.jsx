@@ -16,13 +16,11 @@ export default function Introduccion() {
                 </div>
 
                 <h1 className="titulo-soluciones text-primary">
-                    Soluciones diseñadas para cada desafío operativo
+                    ¿Qué desafío está enfrentando?
                 </h1>
 
                 <p className="descripcion-soluciones text-on-surface-variant">
-                    Elevamos el estándar de eficiencia con ingeniería de precisión. Garantizamos
-                    el confort térmico, la continuidad operativa en ambientes críticos y la
-                    optimización radical del consumo energético.
+                    Cada proyecto tiene un reto diferente. Diseñamos, suministramos e implementamos soluciones de Ventilación, Aire Acondicionado y Refrigeración (V.A.R.) según las necesidades de cada operación, desde la etapa de diseño hasta la puesta en funcionamiento.
                 </p>
 
             </div>

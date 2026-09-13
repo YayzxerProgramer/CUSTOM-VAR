@@ -54,8 +54,8 @@
 .soporte-panel__grid {
     align-items: start;
     display: grid;
-    gap: 30px;
-    grid-template-columns: minmax(260px, 0.38fr) minmax(0, 1fr);
+    gap: 32px;
+    grid-template-columns: minmax(280px, 0.35fr) minmax(0, 1fr);
 }
 
 .soporte-selector {
@@ -112,6 +112,9 @@
 
 .soporte-contenido {
     border: 1px solid #dce5eb;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
     box-shadow: 0 16px 42px rgba(0, 33, 50, 0.08);
 }
 

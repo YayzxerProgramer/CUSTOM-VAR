@@ -136,9 +136,6 @@ function PerfilCorporativoServicio() {
 function SolicitudServicioForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
-            <p className="soporte-mensaje" style={{ marginBottom: '1.5rem' }}>
-                Cuéntenos sobre su proyecto, nuestro equipo analizará tus necesidades para identificar alternativas de climatización (ventilación, aire acondicionado y refrigeración) acordes con los requerimientos de su servicio.
-            </p>
             <PerfilCorporativoServicio />
             <div className="soporte-paso">
                 <h3>NECESIDAD DEL PROYECTO</h3>
@@ -189,11 +186,6 @@ function SolicitudServicioForm({ onSubmit, cargando }) {
 function FacturacionForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
-            <div className="soporte-mensaje" style={{ marginBottom: '1.5rem' }}>
-                <strong>FACTURACIÓN Y PAGADURIA</strong><br />
-                Gestione sus solicitudes de facturación y pagos de forma ágil y centralizada.<br />
-                Selecciona el tipo de solicitud, complete la información requerida y nuestro equipo dará gestión a tu requerimiento.
-            </div>
             <div className="soporte-paso">
                 <h3>DATOS DEL SOLICITANTE</h3>
                 <div className="soporte-grid">
@@ -478,7 +470,7 @@ export default function Soporte() {
                                 }}
                             >
                                 <span>{tipo.titulo}</span>
-                                <small>{tipo.descripcion}</small>
+                                <small>{tipo.subtitulo}</small>
                             </button>
                         ))}
                     </aside>
@@ -494,15 +486,15 @@ export default function Soporte() {
 
                         {tipoActivo === 'pqrsd' && (
                             <div className="soporte-respuesta">
-                                <h3>Respuesta consultiva post-envio</h3>
+                                <h3>Respuesta consultiva post-envío</h3>
                                 <p>
-                                    El caso se enruta segun su clasificacion: reclamos tecnicos de alto impacto al lider de
-                                    servicios, quejas administrativas al area administrativa y casos comerciales al lider
+                                    El caso se enruta según su clasificación: reclamos técnicos de alto impacto al líder de
+                                    servicios, quejas administrativas al área administrativa y casos comerciales al líder
                                     comercial para gestionar la cuenta antes de que escale.
                                 </p>
                                 <p>
-                                    Recibira un correo formal confirmando el radicado y el plazo maximo de contacto de 24 horas
-                                    habiles para coordinar la solucion.
+                                    Recibirá un correo formal confirmando el radicado y el plazo máximo de contacto de 24 horas
+                                    hábiles para coordinar la solución.
                                 </p>
                             </div>
                         )}

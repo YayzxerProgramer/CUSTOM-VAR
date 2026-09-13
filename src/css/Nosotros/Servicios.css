@@ -146,47 +146,131 @@
     gap: var(--separacion-menu);
 }
 
-/* Tarjeta Individual */
+/* Tarjeta Individual POLÍTICA CUSTOM */
 .tarjeta-servicio {
     background-color: var(--color-blanco-puro);
-    border-top: 4px solid var(--color-secundario);
-    padding: 32px;
-    box-shadow: 0 8px 12px rgba(0, 33, 50, 0.1);
-    transform: translateY(0);
-    transition: all 0.3s duration;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 33, 50, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8eb;
 }
 
 .tarjeta-servicio:hover {
-    box-shadow: 0 20px 30px rgba(0, 33, 50, 0.2);
-    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 33, 50, 0.15);
+    transform: translateY(-6px);
 }
 
-.icono-servicio {
-    color: var(--color-primario);
-    font-size: 48px;
-    /* text-5xl */
-    margin-bottom: 24px;
-    display: block;
+.tarjeta-servicio__cabecera-azul {
+    background-color: var(--color-primario, #002132);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-.titulo-tarjeta {
-    color: var(--color-primario);
+.tarjeta-servicio__icono-circulo {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.tarjeta-servicio__icono-circulo .material-symbols-outlined {
+    font-size: 20px;
+}
+
+.tarjeta-servicio__titulo-header {
     font-family: var(--fuente-titulos);
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-    margin-top: 0;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.tarjeta-servicio__foto-contenedor {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    background-color: #002132;
+}
+
+.tarjeta-servicio__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-servicio:hover .tarjeta-servicio__foto {
+    transform: scale(1.05);
+}
+
+.tarjeta-servicio__contenido {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tarjeta-servicio__badge-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
     margin-bottom: 16px;
 }
 
+.tarjeta-servicio__letra-circulo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--color-primario, #002132);
+    color: #ffffff;
+    font-family: var(--fuente-titulos);
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.titulo-tarjeta,
+.tarjeta-servicio__subtitulo-acronimo {
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    margin: 0 0 4px;
+    text-transform: uppercase;
+}
+
+.tarjeta-servicio__linea-azul {
+    width: 32px;
+    height: 3px;
+    background-color: #2563eb;
+    border-radius: 2px;
+}
+
 .texto-tarjeta {
-    color: var(--color-esquema-borde);
+    color: var(--color-esquema-borde, #4a5568);
     font-family: var(--fuente-cuerpo);
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
     margin-top: 0;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    flex: 1;
 }
 
 .enlace-tarjeta {
@@ -202,6 +286,7 @@
     align-items: center;
     gap: 8px;
     transition: color 0.3s ease;
+    margin-top: auto;
 }
 
 .enlace-tarjeta:hover {

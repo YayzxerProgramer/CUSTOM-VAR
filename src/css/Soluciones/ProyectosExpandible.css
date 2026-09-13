@@ -196,6 +196,71 @@
 }
 
 /* ==========================================
+   SOLUCIONES APLICADAS A PROYECTOS Y SERVICIOS
+   ========================================== */
+.soluciones-bloque-aplicadas {
+    margin-top: 64px;
+    padding-top: 52px;
+    border-top: 1px solid #eceff1;
+}
+
+.soluciones-aplicadas__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.solucion-card {
+    background: #ffffff;
+    border: 1px solid #e2e8eb;
+    border-radius: 8px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.solucion-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(0, 33, 50, 0.08);
+    border-color: #cbd5e1;
+}
+
+.solucion-card__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.solucion-card__icono {
+    font-size: 28px;
+    color: var(--color-acento-rojo, #db2d2c);
+    background: rgba(219, 45, 44, 0.08);
+    padding: 10px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.solucion-card__titulo {
+    font-family: var(--fuente-titulos, sans-serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primario, #002132);
+    line-height: 1.25;
+    margin: 0;
+}
+
+.solucion-card__desc {
+    font-family: var(--fuente-cuerpo, sans-serif);
+    font-size: 15px;
+    line-height: 1.65;
+    color: #4a5568;
+    margin: 0;
+}
+
+/* ==========================================
    DETALLE DE PROYECTOS (filas alternadas)
    ========================================== */
 .proyectos-detalle {
@@ -431,9 +496,23 @@
         margin-top: 28px;
     }
 
-    .soluciones-var__grid {
+    .soluciones-var__grid,
+    .soluciones-aplicadas__grid {
         grid-template-columns: 1fr;
         gap: 18px;
+    }
+
+    .soluciones-bloque-aplicadas {
+        margin-top: 40px;
+        padding-top: 36px;
+    }
+
+    .solucion-card {
+        padding: 20px;
+    }
+
+    .solucion-card__titulo {
+        font-size: 16px;
     }
 
     .soluciones-var__container {

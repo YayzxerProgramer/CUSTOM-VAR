@@ -309,8 +309,9 @@
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.carrusel-acordeon__panel:hover .industria-panel__titulo {
-    transform: translateY(-300px);
+.carrusel-acordeon__panel:hover .industria-panel__titulo,
+.carrusel-acordeon__panel--expandido .industria-panel__titulo {
+    transform: translateY(-170px);
 }
 
 /* Bloque de info: fijo abajo, solo aparece con un fade (no se desplaza). */
