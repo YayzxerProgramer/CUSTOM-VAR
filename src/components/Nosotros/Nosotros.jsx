@@ -9,8 +9,8 @@ const ciudades = [
         ciudad: "Cartagena",
         region: "Caribe",
         rol: "Sede principal de operación nacional V.A.R. y uno de los principales centros desde donde coordinamos nuestra actividad en Colombia. Desde esta ubicación atendemos proyectos para los sectores industrial, comercial, institucional y de infraestructura, respaldados por nuestra planta de producción de ductería, que fortalece nuestra capacidad para desarrollar soluciones integrales y responder con mayor agilidad a los requerimientos de cada proyecto.",
-        x: 44,
-        y: 22,
+        x: 44.5,
+        y: 22.5,
         useLogo: true,
     },
     {
@@ -18,17 +18,17 @@ const ciudades = [
         ciudad: "Bogotá",
         region: "Centro",
         rol: "Funciona como centro de distribución V.A.R. para la región centro y norte de Colombia, además de contar con planta de producción de ductería. Desde esta operación hemos participado en proyectos empresariales, farmacéuticos, institucionales, hospitalarios y de infraestructura, consolidando una capacidad de respuesta estratégica para proyectos que requieren coordinación técnica, suministro de equipos y soluciones especializadas.",
-        x: 51,
-        y: 51,
+        x: 50.3,
+        y: 51.8,
         useLogo: true,
     },
     {
         id: "cali",
         ciudad: "Cali",
         region: "Pacífico",
-        rol: "Representa nuestro centro de distribución para el suroccidente colombiano, desde donde fortalecemos nuestra capacidad de atención a proyectos y clientes de la región. Nuestra experiencia incluye el desarrollo e implementación de soluciones V.A.R. para el sector hospitalario y comercial, así como proyectos asociados a establecimientos de servicios y cadenas de droguerías, donde la confiabilidad y continuidad de los sistemas son factores fundamentales.",
-        x: 39,
-        y: 57,
+        rol: "Representa nuestro centro de distribución para el suroccidente colombiano, desde donde fortalecemos nuestra capacidad de atención a proyectos y clientes de la región. Nuestra experiencia includes el desarrollo e implementación de soluciones V.A.R. para el sector hospitalario y comercial, así como proyectos asociados a establecimientos de servicios y cadenas de droguerías, donde la confiabilidad y continuidad de los sistemas son factores fundamentales.",
+        x: 38.5,
+        y: 56.5,
         useLogo: true,
     },
     {
@@ -36,160 +36,160 @@ const ciudades = [
         ciudad: "Barranquilla",
         region: "Caribe",
         rol: "Sede Inhouse con servicios permanentes de V.A.R y desarrollo de proyectos con entidades referentes del mercado energético. Además, atendemos requerimientos técnicos de clientes en toda la ciudad mediante soluciones preventivas y correctivas.",
-        x: 47,
-        y: 17,
+        x: 46.8,
+        y: 18.5,
     },
     {
         id: "medellin",
         ciudad: "Medellín",
         region: "Antioquia",
         rol: "Desarrollamos proyectos para entidades gubernamentales e infraestructura institucional, participando en soluciones de climatización y ventilación orientadas a instalaciones que requieren altos estándares de funcionamiento. Nuestra experiencia en la región refleja la capacidad de integrar soluciones técnicas a proyectos arquitectónicos y de infraestructura con requerimientos específicos.",
-        x: 44,
-        y: 40,
+        x: 43.8,
+        y: 40.0,
     },
     {
         id: "quindio",
         ciudad: "Quindío",
         region: "Eje Cafetero",
-        rol: "Nuestra experiencia incluye la participación en proyectos institucionales y gubernamentales, además de dos operaciones Inhouse desarrolladas para el sector hotelero. Estos proyectos nos han permitido aportar soluciones V.A.R. adaptadas a instalaciones con diferentes niveles de exigencia, integrando criterios de confort, funcionalidad y desempeño para responder a las necesidades particulares de cada infraestructura.",
-        x: 42,
-        y: 51,
+        rol: "Nuestra experiencia includes la participación en proyectos institucionales y gubernamentales, además de dos operaciones Inhouse desarrolladas para el sector hotelero. Estos proyectos nos han permitido aportar soluciones V.A.R. adaptadas a instalaciones con diferentes niveles de exigencia, integrando criterios de confort, funcionalidad y desempeño para responder a las necesidades particulares de cada infraestructura.",
+        x: 43.2,
+        y: 51.5,
     },
     {
         id: "cundinamarca",
         ciudad: "Cundinamarca",
         region: "Centro",
         rol: "Concentra parte importante de nuestra experiencia en proyectos empresariales, farmacéuticos e institucionales, incluyendo instalaciones que demandan condiciones controladas y soluciones de alto desempeño. Nuestra participación en esta región ha fortalecido nuestra capacidad para atender proyectos de especialidad técnica, donde la precisión en el diseño, suministro e implementación de los sistemas V.A.R. resulta fundamental.",
-        x: 54,
-        y: 49,
+        x: 52.5,
+        y: 48.5,
     },
     {
         id: "turbo",
         ciudad: "Turbo",
         region: "Antioquia",
         rol: "Hemos participado en proyectos asociados a infraestructura marítima estratégica, aportando soluciones de ventilación y climatización para instalaciones vinculadas a la operación portuaria y al desarrollo de infraestructura de la región. Esta experiencia demuestra nuestra capacidad para llevar soluciones V.A.R. a proyectos ubicados en zonas estratégicas y con condiciones operativas particulares.",
-        x: 36,
-        y: 32,
+        x: 36.5,
+        y: 32.0,
     },
     {
         id: "popayan",
         ciudad: "Popayán",
         region: "Cauca",
         rol: "Nuestra experiencia incluye proyectos relacionados con infraestructura aeroportuaria, donde las soluciones de ventilación y climatización deben responder a criterios de confiabilidad, continuidad operativa y condiciones específicas de la infraestructura, proyecto de alta importancia para la conectividad regional.",
-        x: 37,
-        y: 64,
+        x: 36.5,
+        y: 63.5,
     },
     {
         id: "san-andres",
         ciudad: "San Andrés",
         region: "Insular",
         rol: "Hemos participado en proyectos de infraestructura aeroportuaria, llevando nuestra experiencia en soluciones V.A.R. a instalaciones ubicadas en un entorno insular con condiciones ambientales particulares. Nuestra participación evidencia la capacidad logística y técnica para desarrollar proyectos fuera de los principales centros urbanos del país.",
-        x: 9,
-        y: 14,
+        x: 8.2,
+        y: 15.6,
     },
     {
         id: "providencia",
         ciudad: "Providencia",
         region: "Insular",
         rol: "Nuestra experiencia también se extiende a Providencia, donde hemos participado en proyectos relacionados con infraestructura aeroportuaria. Estos trabajos representan nuestra capacidad para atender proyectos en territorios insulares y afrontar los retos logísticos y técnicos asociados a la implementación de soluciones de climatización y ventilación en ubicaciones de difícil acceso.",
-        x: 15,
-        y: 14,
+        x: 19.2,
+        y: 15.6,
     },
     {
         id: "bucaramanga",
         ciudad: "Bucaramanga",
         region: "Santander",
         rol: "Hemos desarrollado proyectos para diferentes sectores, incluyendo instituciones educativas y establecimientos penitenciarios, donde hemos participado en el acondicionamiento de espacios académicos y áreas hospitalarias y de sanidad. Estos proyectos reflejan nuestra capacidad para adaptar las soluciones V.A.R. a instalaciones con necesidades específicas de confort, ventilación y condiciones ambientales.",
-        x: 56,
-        y: 38,
+        x: 54.5,
+        y: 37.5,
     },
     {
         id: "cucuta",
         ciudad: "Cúcuta",
         region: "Norte de Santander",
         rol: "Nuestra experiencia en Cúcuta incluye el desarrollo de proyectos hospitalarios para entidades de la Fuerza Pública, donde las condiciones de ventilación y climatización requieren soluciones confiables y técnicamente especializadas. La participación en este tipo de infraestructura fortalece nuestra experiencia en proyectos institucionales de alta exigencia.",
-        x: 60,
-        y: 33,
+        x: 57.5,
+        y: 33.0,
     },
     {
         id: "dosquebradas",
         ciudad: "Dosquebradas",
         region: "Eje Cafetero",
         rol: "Participamos en proyectos hospitalarios enfocados en la implementación de los sistemas de ventilación y aire acondicionado para el área de urgencias, contribuyendo al acondicionamiento de espacios donde el control de las condiciones ambientales es fundamental para la operación de la infraestructura.",
-        x: 43,
-        y: 48,
+        x: 42.5,
+        y: 48.0,
     },
     {
         id: "meta",
         ciudad: "Meta",
         region: "Orinoquía",
         rol: "Nuestra experiencia en el departamento del Meta incluye proyectos para infraestructura pública y comunitaria, con participación en sedes de bomberos y bibliotecas en municipios como Villavicencio y Castilla. Estos proyectos nos han permitido desarrollar soluciones V.A.R. para espacios destinados a la atención ciudadana, garantizando condiciones adecuadas de confort y funcionamiento.",
-        x: 58,
-        y: 56,
+        x: 54.5,
+        y: 54.5,
     },
     {
         id: "tolima",
         ciudad: "Tolima",
         region: "Andina",
         rol: "Hemos participado en proyectos para la Policía Nacional y entidades bancarias, desarrollando soluciones de ventilación y aire acondicionado para diferentes tipos de infraestructura. Nuestra experiencia en ciudades como Ibagué y Melgar incluye también atención preventiva y correctiva, fortaleciendo nuestra capacidad de respuesta ante instalaciones con necesidades operativas diversas.",
-        x: 47,
-        y: 53,
+        x: 45.5,
+        y: 52.5,
     },
     {
         id: "casanare",
         ciudad: "Casanare",
         region: "Orinoquía",
         rol: "Hemos desarrollado proyectos de ventilación y aire acondicionado para infraestructura de la Policía Nacional, aportando soluciones orientadas a garantizar condiciones adecuadas de confort y funcionamiento en instalaciones institucionales. Esta experiencia evidencia nuestra capacidad para atender proyectos en diferentes regiones y contextos operativos del país.",
-        x: 65,
-        y: 46,
+        x: 62.0,
+        y: 46.0,
     },
     {
         id: "monteria",
         ciudad: "Montería",
         region: "Caribe",
         rol: "Hemos consolidado experiencia en proyectos y atención técnica para diferentes sectores. Nuestra trayectoria includes trabajos para Las Iglesias de Jesucristo de los Santos de los Últimos Días, así como atención a establecimientos comerciales como Zapaterías y Droguerías, ampliando nuestra experiencia en instalaciones comerciales, institucionales y de uso continuo.",
-        x: 41,
-        y: 28,
+        x: 42.5,
+        y: 29.5,
     },
     {
         id: "valledupar",
         ciudad: "Valledupar",
         region: "Caribe",
         rol: "Nuestra experiencia en Valledupar hace parte de la cobertura nacional desarrollada junto a Las Iglesias de Jesucristo de los Santos de los Últimos Días, participando en proyectos y requerimientos técnicos para sus instalaciones.",
-        x: 53,
-        y: 16,
+        x: 53.5,
+        y: 21.5,
     },
     {
         id: "santa-marta",
         ciudad: "Santa Marta",
         region: "Caribe",
         rol: "Representa una experiencia relevante dentro de nuestra cobertura nacional, con participación en proyectos y atención técnica para Las Iglesias de Jesucristo de los Santos de los Últimos Días, así como en infraestructura estratégica del sector portuario y energético desarrollando servicios de mantenimiento preventivo y correctivo para los sistemas de Ventilación y Aire Acondicionado.",
-        x: 49,
-        y: 14,
+        x: 49.0,
+        y: 16.5,
     },
     {
         id: "neiva",
         ciudad: "Neiva",
         region: "Andina",
         rol: "Nuestra trayectoria incluye proyectos y atención técnica para Las Iglesias de Jesucristo de los Santos de los Últimos Días, extendiendo nuestra experiencia V.A.R. hacia el sur del país.",
-        x: 45,
-        y: 60,
+        x: 44.0,
+        y: 58.0,
     },
     {
         id: "tulua",
         ciudad: "Tuluá",
         region: "Pacífico",
         rol: "Nuestra trayectoria incluye proyectos y atención técnica para Las Iglesias de Jesucristo de los Santos de los Últimos Días, extendiendo nuestra experiencia V.A.R. hacia el Valle del Cauca.",
-        x: 41,
-        y: 54,
+        x: 39.5,
+        y: 52.5,
     },
     {
         id: "sincelejo",
         ciudad: "Sincelejo",
         region: "Caribe",
         rol: "Hemos desarrollado proyectos y atención técnica para Las Iglesias de Jesucristo de los Santos de los Últimos Días, esta experiencia se suma a nuestra capacidad de atender proyectos en diferentes ciudades del país, integrando conocimiento técnico, capacidad de respuesta y experiencia en instalaciones con necesidades particulares.",
-        x: 44,
-        y: 26,
+        x: 45.5,
+        y: 26.0,
     },
 ];
 
@@ -255,25 +255,39 @@ export default function Nosotros() {
                         <div className="map-illustration">
                             <div className="map-inset-san-andres" aria-label="Archipiélago de San Andrés y Providencia">
                                 <svg className="map-inset__svg" viewBox="235 430 75 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* San Andrés Island (User SVG vector path scaled 7x) */}
-                                    <g className="island-san-andres">
+                                    {/* San Andrés Island */}
+                                    <g
+                                        className={`island-san-andres ${ciudadActiva.id === "san-andres" ? "is-active" : ""}`}
+                                        onClick={() => {
+                                            const c = ciudades.find((item) => item.id === "san-andres");
+                                            if (c) setCiudadActiva(c);
+                                        }}
+                                        role="button"
+                                        tabIndex={0}
+                                        aria-label="Seleccionar San Andrés"
+                                    >
                                         <path
                                             d="M 256.6455 465.2155 L 255.0963 466.5884 L 253.7832 470.0773 L 254.0666 471.1982 L 253.4904 473.2261 L 254.1233 474.6997 L 253.5471 478.5161 L 253.9911 479.7001 L 255.2002 477.3573 L 255.6442 474.3471 L 256.3243 473.3017 L 256.1732 471.9414 L 256.6172 471.5509 L 256.1732 469.2082 L 256.9289 468.8933 L 256.5983 467.8101 L 258.1381 467.1048 L 256.6455 465.2155 Z"
-                                            fill="#003751"
-                                            stroke="#ffffff"
-                                            strokeWidth="0.15"
+                                            className="island-path"
                                             transform="translate(256, 472) scale(7) translate(-256, -472)"
                                         />
                                         <text x="256" y="522" className="island-text" textAnchor="middle">San Andrés</text>
                                     </g>
 
-                                    {/* Providencia Island (User SVG vector path side-by-side with San Andrés, scaled 7x) */}
-                                    <g className="island-providencia">
+                                    {/* Providencia Island */}
+                                    <g
+                                        className={`island-providencia ${ciudadActiva.id === "providencia" ? "is-active" : ""}`}
+                                        onClick={() => {
+                                            const c = ciudades.find((item) => item.id === "providencia");
+                                            if (c) setCiudadActiva(c);
+                                        }}
+                                        role="button"
+                                        tabIndex={0}
+                                        aria-label="Seleccionar Providencia"
+                                    >
                                         <path
-                                            d="M 288.5745 365.5744 L 287.951 366.2041 L 287.866 367.5015 L 286.6096 367.4637 L 285.9012 369.0129 L 285.5328 371.5949 L 286.1373 373.7991 L 289.1507 372.1239 L 289.368 369.7434 L 289.9915 369.3278 L 289.2547 367.7534 L 289.6514 366.7709 L 288.8673 366.456 L 288.5745 365.5744 Z M 287.951 364.529 L 287.082 364.8816 L 287.3937 366.1664 L 282.2628 365.5744 L 287.951 364.529 Z"
-                                            fill="#003751"
-                                            stroke="#ffffff"
-                                            strokeWidth="0.15"
+                                            d="M 288.5745 365.5744 L 287.951 366.2041 L 287.866 367.5015 L 286.6096 367.4637 L 285.9012 369.0129 L 285.5328 371.5949 L 286.1373 373.7991 L 289.1507 372.1239 L 289.368 369.7434 L 289.9915 369.3278 L 289.2547 367.7534 L 289.6514 366.7709 L 288.8673 366.456 L 288.5745 365.5744 Z M 287.951 364.529 L 287.082 364.8816 L 287.3937 366.1664 L 282.2628 365.5744 L 288.5745 365.5744 Z"
+                                            className="island-path"
                                             transform="translate(288, 472) scale(7) translate(-288, -369)"
                                         />
                                         <text x="288" y="522" className="island-text" textAnchor="middle">Providencia</text>
@@ -285,7 +299,7 @@ export default function Nosotros() {
 
                             {ciudades.map((item) => (
                                 <button
-                                    className={`city-marker ${item.useLogo ? "city-marker--logo" : ""} ${ciudadActiva.id === item.id ? "is-active" : ""}`}
+                                    className={`city-marker city-marker--${item.id} ${item.useLogo ? "city-marker--logo" : ""} ${ciudadActiva.id === item.id ? "is-active" : ""}`}
                                     key={item.id}
                                     style={{ "--x": `${item.x}%`, "--y": `${item.y}%` }}
                                     onClick={() => setCiudadActiva(item)}

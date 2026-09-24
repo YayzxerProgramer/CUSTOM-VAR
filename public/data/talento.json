@@ -7,7 +7,7 @@
             "tel": "+57 310 3526476",
             "correo": "proyectos@customsoluciones.com",
             "linkedin": "#",
-            "img": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=400&auto=format&fit=crop"
+            "img": "/img/fotos-talento/1.png"
         },
         {
             "id": "servicios",
@@ -16,7 +16,7 @@
             "tel": "+57 313 2597713",
             "correo": "servicios@customsoluciones.com",
             "linkedin": "#",
-            "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
+            "img": "/img/fotos-talento/2.png"
         },
         {
             "id": "supervisor-servicios",
@@ -25,16 +25,16 @@
             "tel": "+57 301 1627483",
             "correo": "sup1-servicios@customsoluciones.com",
             "linkedin": "#",
-            "img": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+            "img": "/img/fotos-talento/3.png"
         },
         {
             "id": "hseq",
-            "nombre": "Jhon De Ávila",
-            "cargo": "Líder del Sistema Integrado de Gestión",
+            "nombre": "Diego Posada Mendoza",
+            "cargo": "Responsable SST",
             "tel": "+57 301 7384986",
             "correo": "hseq@customsoluciones.com",
             "linkedin": "#",
-            "img": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
+            "img": "/img/fotos-talento/4.png"
         },
         {
             "id": "contabilidad",
@@ -43,7 +43,7 @@
             "tel": "+57 321 8467607",
             "correo": "administracion@customsoluciones.com",
             "linkedin": "#",
-            "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
+            "img": "/img/LogoSolo.png"
         },
         {
             "id": "maximo-conforte",
@@ -52,7 +52,7 @@
             "tel": "+57 300 6830303",
             "correo": "maximoconforte@customsoluciones.com",
             "linkedin": "#",
-            "img": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=400&auto=format&fit=crop"
+            "img": "/img/fotos-talento/MAXIMO CON LOGO.png"
         }
     ],
     "vacantes": [

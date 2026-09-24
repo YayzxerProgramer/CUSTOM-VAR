@@ -301,35 +301,35 @@
     padding: 4px;
     position: absolute;
     top: var(--y);
-    transform: translate(-14px, -14px);
+    transform: translate(-10px, -10px);
     z-index: 3;
 }
 
 .city-marker:hover,
-.city-marker:focus-visible,
-.city-marker.is-active {
-    z-index: 10;
+.city-marker:focus-visible {
+    z-index: 12;
 }
 
 .city-marker--logo {
-    transform: translate(-20px, -20px);
+    transform: translate(-16px, -16px);
 }
 
 .city-marker__dot {
     background: var(--custom-red);
-    border: 3px solid #ffffff;
+    border: 2px solid #ffffff;
     border-radius: 50%;
-    box-shadow: 0 0 0 7px rgba(219, 45, 44, 0.18), 0 10px 24px rgba(0, 33, 50, 0.18);
-    height: 20px;
-    pointer-events: none;
-    width: 20px;
+    box-shadow: 0 0 0 4px rgba(219, 45, 44, 0.2), 0 6px 14px rgba(0, 33, 50, 0.15);
+    height: 13px;
+    width: 13px;
+    pointer-events: auto;
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .city-marker__logo {
-    filter: drop-shadow(0 6px 14px rgba(0, 33, 50, 0.25));
-    height: 40px;
+    filter: drop-shadow(0 4px 10px rgba(0, 33, 50, 0.2));
+    height: 30px;
     object-fit: contain;
-    pointer-events: none;
+    pointer-events: auto;
     transition: transform 0.25s ease, filter 0.25s ease;
     width: auto;
 }
@@ -346,10 +346,10 @@
     line-height: 1;
     opacity: 0;
     padding: 8px 10px;
-    pointer-events: none;
+    pointer-events: none !important;
     text-transform: uppercase;
     transform: translateX(-8px);
-    transition: 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
     white-space: nowrap;
 }
 
@@ -360,9 +360,12 @@
     transform: translateX(0);
 }
 
+.city-marker:hover .city-marker__dot,
+.city-marker:focus-visible .city-marker__dot,
 .city-marker.is-active .city-marker__dot {
-    background: var(--custom-blue);
-    box-shadow: 0 0 0 8px rgba(0, 33, 50, 0.16), 0 12px 28px rgba(0, 33, 50, 0.22);
+    background: var(--custom-red);
+    box-shadow: 0 0 0 6px rgba(219, 45, 44, 0.35), 0 8px 20px rgba(0, 33, 50, 0.25);
+    transform: scale(1.35);
 }
 
 .city-marker:hover .city-marker__logo,
@@ -370,6 +373,54 @@
 .city-marker.is-active .city-marker__logo {
     filter: drop-shadow(0 10px 22px rgba(0, 33, 50, 0.35));
     transform: scale(1.18);
+}
+
+/* Estilos para vectores SVG de las islas (mantener color original sin rojo) */
+.island-san-andres,
+.island-providencia {
+    cursor: pointer;
+    outline: none;
+}
+
+.island-path {
+    fill: #003751;
+    stroke: #ffffff;
+    stroke-width: 0.15;
+}
+
+/* Posicionamiento y desplazamiento limpio: San Andrés a la izquierda del punto, Providencia a la derecha */
+.city-marker--san-andres .city-marker__name {
+    position: absolute;
+    right: calc(100% + 8px);
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    opacity: 0;
+    pointer-events: none !important;
+}
+
+.city-marker--san-andres:hover .city-marker__name,
+.city-marker--san-andres:focus-visible .city-marker__name,
+.city-marker--san-andres.is-active .city-marker__name {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+.city-marker--providencia .city-marker__name {
+    position: absolute;
+    left: calc(100% + 8px);
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%) translateX(-10px);
+    opacity: 0;
+    pointer-events: none !important;
+}
+
+.city-marker--providencia:hover .city-marker__name,
+.city-marker--providencia:focus-visible .city-marker__name,
+.city-marker--providencia.is-active .city-marker__name {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 .map-quote {

@@ -47,48 +47,49 @@ export default function AcordeonPersonas() {
                                 pista de navegacion inferior en CSS */}
 
                             <div className="persona-panel__contenido">
-                                <span className="persona-panel__subtitulo">{persona.subtitulo}</span>
                                 <h3 className="persona-panel__titulo">{persona.titulo}</h3>
 
                                 <div className="persona-panel__reveal">
                                     <p className="persona-panel__dolor">{persona.dolor}</p>
                                     <p className="persona-panel__descripcion">{persona.descripcion}</p>
-                                    <p className="persona-panel__solucion">
-                                        <span className="persona-panel__solucion-label">Nuestra solución</span>
-                                        {persona.solucion}
-                                    </p>
+                                    <p className="persona-panel__solucion"> {persona.solucion}</p>
 
                                     <div className="persona-panel__acciones">
                                         <Link
-                                            to={ENLACE_PROYECTOS}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                e.preventDefault();
-                                                window.dispatchEvent(new CustomEvent('solicitar-proyectos'));
-                                            }}
-                                            className="persona-panel__btn persona-panel__btn--esquema"
-                                        >
-                                            Ver Proyectos
-                                        </Link>
-                                        <Link
                                             to={ENLACE_SOPORTE}
                                             onClick={(e) => e.stopPropagation()}
-                                            className="persona-panel__btn persona-panel__btn--solido"
+                                            className="persona-panel__btn persona-panel__btn--solido persona-panel__btn--ancho-completo"
                                         >
-                                            Cuéntanos tu requerimiento
+                                            <span className="material-symbols-outlined">edit_note</span>
+                                            CUÉNTANOS TU REQUERIMIENTO
                                         </Link>
+                                        <div className="persona-panel__acciones-fila2">
+                                            <Link
+                                                to={ENLACE_PROYECTOS}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    e.preventDefault();
+                                                    window.dispatchEvent(new CustomEvent('solicitar-proyectos'));
+                                                }}
+                                                className="persona-panel__btn persona-panel__btn--esquema"
+                                            >
+                                                <span className="material-symbols-outlined">architecture</span>
+                                                VER PROYECTOS
+                                            </Link>
+                                            <Link
+                                                to={ENLACE_SERVICIOS}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    e.preventDefault();
+                                                    window.dispatchEvent(new CustomEvent('solicitar-servicios'));
+                                                }}
+                                                className="persona-panel__btn persona-panel__btn--esquema"
+                                            >
+                                                <span className="material-symbols-outlined">engineering</span>
+                                                VER SERVICIOS
+                                            </Link>
+                                        </div>
                                     </div>
-
-                                    <a
-                                        href={WHATSAPP_HREF}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="persona-panel__whatsapp"
-                                        onClick={(e) => e.stopPropagation()}
-                                    >
-                                        <span className="material-symbols-outlined">chat</span>
-                                        Escríbenos por WhatsApp
-                                    </a>
                                 </div>
                             </div>
                         </article>

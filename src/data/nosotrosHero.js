@@ -25,7 +25,7 @@ export const panelesHeroNosotros = [
     },
     {
         id: 4,
-        ruta: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200',
+        ruta: 'https://plus.unsplash.com/premium_photo-1742710726634-18e31a278fc2?q=80&w=769&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         titulo: 'Centros de Datos',
         subtitulo: 'Control Termico',
         descripcion: '¿Está preparado para evitar que una falla en la climatización detenga su operación? Una falla en la climatización puede significar pérdida de información, interrupciones y altos costos operativos; por esta razón, implementamos sistemas de precisión que mantienen la temperatura y humedad controladas para garantizar la continuidad de su infraestructura tecnológica.',
@@ -33,7 +33,7 @@ export const panelesHeroNosotros = [
     },
     {
         id: 5,
-        ruta: 'https://images.unsplash.com/photo-1527738697320-513f6648bc26?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        ruta: 'https://plus.unsplash.com/premium_photo-1676325101955-1089267548d4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         titulo: 'Laboratorios y Farmacéuticas',
         subtitulo: 'Condiciones Controladas',
         descripcion: '¿Sus procesos requieren condiciones ambientales controladas para garantizar la calidad de sus productos? Implementamos soluciones de climatización y ventilación que mantienen ambientes estables, confiables y adecuados para procesos de alta exigencia.',

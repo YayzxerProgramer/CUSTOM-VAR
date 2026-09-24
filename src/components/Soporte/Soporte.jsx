@@ -204,9 +204,6 @@ function FacturacionForm({ onSubmit, cargando }) {
                     <Campo etiqueta="NIT de la organización">
                         <input type="text" name="nit" required />
                     </Campo>
-                    <Campo etiqueta="Cargo en la organización">
-                        <input type="text" name="cargo" required />
-                    </Campo>
                 </div>
             </div>
             <div className="soporte-paso">
@@ -246,8 +243,6 @@ function PqrsdForm({ onSubmit, cargando }) {
     return (
         <form className="soporte-formulario" onSubmit={onSubmit}>
             <div className="soporte-mensaje" style={{ marginBottom: '1.5rem' }}>
-                <strong>CANAL DE PQRSD</strong><br />
-                Un espacio para recibir, gestionar y dar respuesta a tus peticiones, quejas, reclamos y sugerencias relacionados con nuestra atención y operación.<br /><br />
                 Trabajamos continuamente para brindar soluciones que respalden la continuidad de su operación. Comparta aquí su solicitud o comentario. Nuestro equipo realizará la gestión correspondiente para ofrecerle una atención ágil y oportuna.
             </div>
             <div className="soporte-paso">

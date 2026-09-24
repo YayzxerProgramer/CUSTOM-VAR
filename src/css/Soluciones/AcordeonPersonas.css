@@ -202,12 +202,24 @@
 /* ---------- Acciones ---------- */
 .persona-panel__acciones {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
     margin-top: 22px;
+    max-width: 440px;
+}
+
+.persona-panel__acciones-fila2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
 }
 
 .persona-panel__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     font-family: var(--fuente-titulos, sans-serif);
     font-size: 12px;
     font-weight: 700;
@@ -217,12 +229,17 @@
     cursor: pointer;
     transition: all 0.25s ease;
     text-decoration: none;
+    text-align: center;
+}
+
+.persona-panel__btn .material-symbols-outlined {
+    font-size: 18px;
 }
 
 .persona-panel__btn--esquema {
     color: #fff;
     border: 1.5px solid rgba(255, 255, 255, 0.45);
-    padding: 9px 16px;
+    padding: 10px 14px;
     background: transparent;
 }
 
@@ -235,7 +252,12 @@
     color: #fff;
     background: var(--color-acento-rojo, #db2d2c);
     border: none;
-    padding: 10px 18px;
+    padding: 11px 18px;
+}
+
+.persona-panel__btn--ancho-completo {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .persona-panel__btn--solido:hover {

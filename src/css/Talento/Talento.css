@@ -199,13 +199,13 @@
 }
 
 .contacto-card__foto {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     flex-shrink: 0;
     background-color: #dde6ea;
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     border: 3px solid #eef2f4;
 }
 

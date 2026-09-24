@@ -173,7 +173,7 @@ export default function ProyectosExpandible() {
                         onClick={alternarProyectos}
                         aria-expanded={verProyectos}
                     >
-                        {verProyectos ? 'Ver menos' : 'VER PESTAÑA DE PROYECTOS'}
+                        {verProyectos ? 'Ver menos' : 'VER PROYECTOS'}
                         <span
                             className="material-symbols-outlined"
                             style={{ transform: `rotate(${verProyectos ? '180deg' : '0deg'})` }}
@@ -211,9 +211,8 @@ export default function ProyectosExpandible() {
                             {proyectos.map((proyecto, indice) => (
                                 <div
                                     key={proyecto.id}
-                                    className={`proyecto-fila ${
-                                        indice % 2 ? 'proyecto-fila--invertida' : ''
-                                    }`}
+                                    className={`proyecto-fila ${indice % 2 ? 'proyecto-fila--invertida' : ''
+                                        }`}
                                 >
                                     <div
                                         className="proyecto-fila__media"
@@ -238,11 +237,10 @@ export default function ProyectosExpandible() {
 
                                         <div className="proyecto-fila__doblez">
                                             <div
-                                                className={`proyecto-fila__contenido ${
-                                                    doblando.has(proyecto.id)
-                                                        ? 'proyecto-fila__contenido--doblando'
-                                                        : ''
-                                                }`}
+                                                className={`proyecto-fila__contenido ${doblando.has(proyecto.id)
+                                                    ? 'proyecto-fila__contenido--doblando'
+                                                    : ''
+                                                    }`}
                                             >
                                                 {detalleAbierto.has(proyecto.id) ? (
                                                     <div className="proyecto-fila__detalle">
@@ -286,9 +284,8 @@ export default function ProyectosExpandible() {
                                             <span
                                                 className="material-symbols-outlined"
                                                 style={{
-                                                    transform: `rotate(${
-                                                        detalleAbierto.has(proyecto.id) ? '180deg' : '0deg'
-                                                    })`,
+                                                    transform: `rotate(${detalleAbierto.has(proyecto.id) ? '180deg' : '0deg'
+                                                        })`,
                                                 }}
                                             >
                                                 expand_more
@@ -338,7 +335,7 @@ export default function ProyectosExpandible() {
                         onClick={alternarServicios}
                         aria-expanded={verServicios}
                     >
-                        {verServicios ? 'Ver menos' : 'VER PESTAÑA DE SERVICIOS PROYECTOS'}
+                        {verServicios ? 'Ver menos' : 'VER SERVICIOS'}
                         <span
                             className="material-symbols-outlined"
                             style={{ transform: `rotate(${verServicios ? '180deg' : '0deg'})` }}
@@ -368,9 +365,8 @@ export default function ProyectosExpandible() {
                             {servicios.map((servicio, indice) => (
                                 <div
                                     key={servicio.id}
-                                    className={`proyecto-fila ${
-                                        indice % 2 ? 'proyecto-fila--invertida' : ''
-                                    }`}
+                                    className={`proyecto-fila ${indice % 2 ? 'proyecto-fila--invertida' : ''
+                                        }`}
                                 >
                                     <div
                                         className="proyecto-fila__media"

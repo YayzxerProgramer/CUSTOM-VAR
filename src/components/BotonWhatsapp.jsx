@@ -6,7 +6,7 @@ function BotonWhatsapp() {
     const [showBubble, setShowBubble] = useState(false);
 
     const telefono = "+573006830303";
-    const mensajePredeterminado = "Hola, me interesa recibir asesoría sobre sus soluciones térmicas y de ingeniería.";
+    const mensajePredeterminado = "Hola, Máximo 👋 Quiero recibir asesoría en ";
     const urlWhatsApp = `https://wa.me/${telefono}?text=${encodeURIComponent(mensajePredeterminado)}`;
 
     useEffect(() => {
@@ -36,7 +36,7 @@ function BotonWhatsapp() {
                     >
                         ×
                     </button>
-                    <p className="wsp-bubble-title">¿Necesitas asesoría?</p>
+                    <p className="wsp-bubble-title">Hola, soy Máximo Conforte. ¿En qué puedo ayudarte?</p>
 
                     <a
                         href={urlWhatsApp}

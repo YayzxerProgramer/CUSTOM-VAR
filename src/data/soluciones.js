@@ -1,4 +1,4 @@
-import ventilacionImg from '../img/ventilacion.avif';
+import ventilacionImg from '../img/ventilacion.jpg';
 import aireImg from '../img/aire.jpeg';
 import refrigeracionImg from '../img/refrigeracion.jpg';
 
@@ -106,7 +106,7 @@ export const pilares = [
         tag: 'Pilar 01',
         icono: 'air',
         titulo: 'Ventilación',
-        imagen: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop',
+        imagen: ventilacionImg,
         descripcion: 'Diseñamos sistemas de inyección, extracción y renovación de aire que garantizan ambientes seguros, libres de contaminantes y con la calidad de aire que cada espacio exige.',
     },
     {

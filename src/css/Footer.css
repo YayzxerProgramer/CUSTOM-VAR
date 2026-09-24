@@ -33,13 +33,34 @@
 .logo-pie {
     display: flex;
     align-items: center;
+    gap: 14px;
 }
 
-.logo-pie__img {
+.logo-pie__icono {
     height: 48px;
-    max-width: 100%;
-    object-fit: contain;
     width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.logo-pie__texto {
+    font-family: 'CocoSharp Trial', 'CocoSharp', 'Montserrat', 'Barlow Condensed', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+}
+
+.logo-pie__texto small {
+    font-family: 'Nexa', 'Nunito Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-texto-contenedor-primario, #77a0bf);
+    letter-spacing: 0.12em;
 }
 
 .descripcion-empresa {

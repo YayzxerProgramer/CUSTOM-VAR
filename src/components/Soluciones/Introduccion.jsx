@@ -16,7 +16,7 @@ export default function Introduccion() {
                 </div>
 
                 <h1 className="titulo-soluciones text-primary">
-                    ¿Qué desafío está enfrentando?
+                    ¿QUÉ DESAFÍO ESTÁ ENFRENTANDO?
                 </h1>
 
                 <p className="descripcion-soluciones text-on-surface-variant">

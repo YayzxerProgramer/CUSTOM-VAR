@@ -39,7 +39,7 @@ export default function Servicios() {
                         </div>
                         <div className="tarjeta-servicio__foto-contenedor">
                             <img
-                                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop"
+                                src="/img/fotos-politca-var/foto-ventilacion.jpg"
                                 alt="Ventilación y ductería"
                                 className="tarjeta-servicio__foto"
                             />
@@ -72,7 +72,7 @@ export default function Servicios() {
                         </div>
                         <div className="tarjeta-servicio__foto-contenedor">
                             <img
-                                src={aireImg}
+                                src="/img/fotos-politca-var/foto-aire-acondicionado.jpg"
                                 alt="Aire Acondicionado"
                                 className="tarjeta-servicio__foto"
                             />
@@ -105,7 +105,7 @@ export default function Servicios() {
                         </div>
                         <div className="tarjeta-servicio__foto-contenedor">
                             <img
-                                src={refrigeracionImg}
+                                src="/img/fotos-politca-var/foto-refrigeracion.jpg"
                                 alt="Refrigeración"
                                 className="tarjeta-servicio__foto"
                             />
