@@ -204,8 +204,10 @@
     border-radius: 50%;
     flex-shrink: 0;
     background-color: #dde6ea;
+    /* Las fotos en /img/fotos-talento/perfil ya vienen recortadas al rostro */
     background-size: cover;
-    background-position: top center;
+    background-position: center;
+    background-repeat: no-repeat;
     border: 3px solid #eef2f4;
 }
 

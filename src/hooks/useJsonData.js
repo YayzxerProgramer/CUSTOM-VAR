@@ -13,7 +13,8 @@ export function useJsonData(url) {
     useEffect(() => {
         let activo = true;
 
-        fetch(url)
+        // no-cache: revalida con el servidor para que los cambios al JSON se vean al recargar
+        fetch(url, { cache: 'no-cache' })
             .then((respuesta) => {
                 if (!respuesta.ok) {
                     throw new Error(`No se pudo cargar ${url}`);

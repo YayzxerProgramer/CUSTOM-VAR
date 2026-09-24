@@ -37,15 +37,6 @@ function BotonWhatsapp() {
                         ×
                     </button>
                     <p className="wsp-bubble-title">Hola, soy Máximo Conforte. ¿En qué puedo ayudarte?</p>
-
-                    <a
-                        href={urlWhatsApp}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="wsp-bubble-link"
-                    >
-                        Contáctanos aquí
-                    </a>
                 </div>
             )}
 
