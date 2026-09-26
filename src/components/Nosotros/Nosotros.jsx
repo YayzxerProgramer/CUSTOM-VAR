@@ -241,8 +241,31 @@ export default function Nosotros() {
                         <span className="section-label">Presencia Nacional</span>
                         <h3>COBERTURA Y EXPERIENCIA EN TODO COLOMBIA</h3>
                         <p>
-                            Seleccione una ubicación en el mapa para conocer nuestra presencia regional y los proyectos desarrollados en cada ciudad.
+                            Seleccione una ubicación para conocer nuestra presencia regional y los proyectos desarrollados en cada ciudad.
                         </p>
+
+                        <div className="map-mobile-select">
+                            <label htmlFor="ciudad-select-mobile" className="map-mobile-select__label">
+                                Seleccionar ubicación:
+                            </label>
+                            <div className="map-mobile-select__wrapper">
+                                <select
+                                    id="ciudad-select-mobile"
+                                    className="map-mobile-select__dropdown"
+                                    value={ciudadActiva.id}
+                                    onChange={(e) => {
+                                        const c = ciudades.find((item) => item.id === e.target.value);
+                                        if (c) setCiudadActiva(c);
+                                    }}
+                                >
+                                    {ciudades.map((item) => (
+                                        <option key={item.id} value={item.id}>
+                                            {item.ciudad} ({item.region})
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
 
                         <div className="city-detail">
                             <span>{ciudadActiva.region}</span>
@@ -253,71 +276,32 @@ export default function Nosotros() {
 
                     <div className="map-card">
                         <div className="map-illustration">
-                            <div className="map-inset-san-andres" aria-label="Archipiélago de San Andrés y Providencia">
-                                <svg className="map-inset__svg" viewBox="235 430 75 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* San Andrés Island */}
-                                    <g
-                                        className={`island-san-andres ${ciudadActiva.id === "san-andres" ? "is-active" : ""}`}
-                                        onClick={() => {
-                                            const c = ciudades.find((item) => item.id === "san-andres");
-                                            if (c) setCiudadActiva(c);
-                                        }}
-                                        role="button"
-                                        tabIndex={0}
-                                        aria-label="Seleccionar San Andrés"
-                                    >
-                                        <path
-                                            d="M 256.6455 465.2155 L 255.0963 466.5884 L 253.7832 470.0773 L 254.0666 471.1982 L 253.4904 473.2261 L 254.1233 474.6997 L 253.5471 478.5161 L 253.9911 479.7001 L 255.2002 477.3573 L 255.6442 474.3471 L 256.3243 473.3017 L 256.1732 471.9414 L 256.6172 471.5509 L 256.1732 469.2082 L 256.9289 468.8933 L 256.5983 467.8101 L 258.1381 467.1048 L 256.6455 465.2155 Z"
-                                            className="island-path"
-                                            transform="translate(256, 472) scale(7) translate(-256, -472)"
-                                        />
-                                        <text x="256" y="522" className="island-text" textAnchor="middle">San Andrés</text>
-                                    </g>
-
-                                    {/* Providencia Island */}
-                                    <g
-                                        className={`island-providencia ${ciudadActiva.id === "providencia" ? "is-active" : ""}`}
-                                        onClick={() => {
-                                            const c = ciudades.find((item) => item.id === "providencia");
-                                            if (c) setCiudadActiva(c);
-                                        }}
-                                        role="button"
-                                        tabIndex={0}
-                                        aria-label="Seleccionar Providencia"
-                                    >
-                                        <path
-                                            d="M 288.5745 365.5744 L 287.951 366.2041 L 287.866 367.5015 L 286.6096 367.4637 L 285.9012 369.0129 L 285.5328 371.5949 L 286.1373 373.7991 L 289.1507 372.1239 L 289.368 369.7434 L 289.9915 369.3278 L 289.2547 367.7534 L 289.6514 366.7709 L 288.8673 366.456 L 288.5745 365.5744 Z M 287.951 364.529 L 287.082 364.8816 L 287.3937 366.1664 L 282.2628 365.5744 L 288.5745 365.5744 Z"
-                                            className="island-path"
-                                            transform="translate(288, 472) scale(7) translate(-288, -369)"
-                                        />
-                                        <text x="288" y="522" className="island-text" textAnchor="middle">Providencia</text>
-                                    </g>
-                                </svg>
-                            </div>
-
                             <img className="colombia-map" src={colombiaMap} alt="Mapa de Colombia" />
 
-                            {ciudades.map((item) => (
-                                <button
-                                    className={`city-marker city-marker--${item.id} ${item.useLogo ? "city-marker--logo" : ""} ${ciudadActiva.id === item.id ? "is-active" : ""}`}
-                                    key={item.id}
-                                    style={{ "--x": `${item.x}%`, "--y": `${item.y}%` }}
-                                    onClick={() => setCiudadActiva(item)}
-                                    aria-label={`Ver información de ${item.ciudad}`}
-                                >
-                                    {item.useLogo ? (
-                                        <img
-                                            className="city-marker__logo"
-                                            src={logoSolo}
-                                            alt=""
-                                            aria-hidden="true"
-                                        />
-                                    ) : (
-                                        <span className="city-marker__dot" />
-                                    )}
-                                    <span className="city-marker__name">{item.ciudad}</span>
-                                </button>
-                            ))}
+                            {ciudades.map((item) => {
+                                const isLeft = item.alignLeft ?? item.x >= 45;
+                                return (
+                                    <button
+                                        className={`city-marker city-marker--${item.id} ${item.useLogo ? "city-marker--logo" : ""} ${isLeft ? "city-marker--left" : ""} ${ciudadActiva.id === item.id ? "is-active" : ""}`}
+                                        key={item.id}
+                                        style={{ "--x": `${item.x}%`, "--y": `${item.y}%` }}
+                                        onClick={() => setCiudadActiva(item)}
+                                        aria-label={`Ver información de ${item.ciudad}`}
+                                    >
+                                        {item.useLogo ? (
+                                            <img
+                                                className="city-marker__logo"
+                                                src={logoSolo}
+                                                alt=""
+                                                aria-hidden="true"
+                                            />
+                                        ) : (
+                                            <span className="city-marker__dot" />
+                                        )}
+                                        <span className="city-marker__name">{item.ciudad}</span>
+                                    </button>
+                                );
+                            })}
                         </div>
                         <p className="map-quote">
                             "Somos profesionales al servicio de las personas y a traves de nuestro

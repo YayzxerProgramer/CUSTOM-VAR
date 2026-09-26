@@ -191,7 +191,7 @@
     background: #ffffff;
     border: 1px solid var(--custom-line);
     min-height: 700px;
-    overflow: visible;
+    overflow: hidden;
     padding: 24px 20px 28px;
     position: relative;
 }
@@ -202,7 +202,13 @@
     max-height: 680px;
     max-width: 680px;
     position: relative;
+    transform: scale(1.1);
+    transform-origin: center center;
     width: min(100%, 680px);
+}
+
+.map-mobile-select {
+    display: none;
 }
 
 .map-inset-san-andres {
@@ -342,22 +348,40 @@
     font-family: var(--fuente-titulos);
     font-size: 0.86rem;
     font-weight: 700;
+    left: calc(100% + 6px);
     letter-spacing: 0.08em;
     line-height: 1;
     opacity: 0;
     padding: 8px 10px;
     pointer-events: none !important;
+    position: absolute;
     text-transform: uppercase;
-    transform: translateX(-8px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px);
     transition: opacity 0.2s ease, transform 0.2s ease;
     white-space: nowrap;
+    z-index: 10;
 }
 
 .city-marker:hover .city-marker__name,
 .city-marker:focus-visible .city-marker__name,
 .city-marker.is-active .city-marker__name {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Marcadores en la zona oriente abren sus etiquetas hacia la izquierda */
+.city-marker--left .city-marker__name {
+    left: auto;
+    right: calc(100% + 6px);
+    transform: translateY(-50%) translateX(8px);
+}
+
+.city-marker--left:hover .city-marker__name,
+.city-marker--left:focus-visible .city-marker__name,
+.city-marker--left.is-active .city-marker__name {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 .city-marker:hover .city-marker__dot,
@@ -388,50 +412,26 @@
     stroke-width: 0.15;
 }
 
-/* Posicionamiento y desplazamiento limpio: San Andrés a la izquierda del punto, Providencia a la derecha */
-.city-marker--san-andres .city-marker__name {
-    position: absolute;
-    right: calc(100% + 8px);
-    left: auto;
-    top: 50%;
-    transform: translateY(-50%) translateX(10px);
-    opacity: 0;
-    pointer-events: none !important;
-}
-
-.city-marker--san-andres:hover .city-marker__name,
-.city-marker--san-andres:focus-visible .city-marker__name,
-.city-marker--san-andres.is-active .city-marker__name {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-}
-
-.city-marker--providencia .city-marker__name {
-    position: absolute;
-    left: calc(100% + 8px);
-    right: auto;
-    top: 50%;
-    transform: translateY(-50%) translateX(-10px);
-    opacity: 0;
-    pointer-events: none !important;
-}
-
-.city-marker--providencia:hover .city-marker__name,
-.city-marker--providencia:focus-visible .city-marker__name,
-.city-marker--providencia.is-active .city-marker__name {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
+/* Ocultar marcadores flotantes de islas en el gráfico del mapa (permanecen en el selector desplegable) */
+.city-marker--san-andres,
+.city-marker--providencia {
+    display: none !important;
 }
 
 .map-quote {
+    background: #ffffff;
     color: var(--custom-blue);
     font-family: 'Nunito Sans';
-    font-size: clamp(1rem, 2.6vw, 1.15rem);
+    font-size: clamp(0.95rem, 2.6vw, 1.15rem);
     font-style: italic;
     line-height: 1.6;
-    margin: 28px auto 0;
+    margin: 24px auto 0;
     max-width: 720px;
+    padding-top: 14px;
+    position: relative;
     text-align: center;
+    width: 100%;
+    z-index: 5;
 }
 
 .var-section {
@@ -554,13 +554,74 @@
         grid-template-columns: 1fr;
     }
 
+    /* Selección de ubicación en desplegable sólo en móvil */
+    .map-mobile-select {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .map-mobile-select__label {
+        color: var(--custom-blue);
+        display: block;
+        font-family: var(--fuente-titulos);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+
+    .map-mobile-select__wrapper {
+        position: relative;
+    }
+
+    .map-mobile-select__dropdown {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: var(--custom-soft);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23002132' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-position: right 16px center;
+        background-repeat: no-repeat;
+        border: 2px solid var(--custom-line);
+        border-radius: 6px;
+        color: var(--custom-blue);
+        cursor: pointer;
+        font-family: var(--fuente-titulos);
+        font-size: 1.05rem;
+        font-weight: 700;
+        outline: none;
+        padding: 14px 44px 14px 16px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+    }
+
+    .map-mobile-select__dropdown:focus {
+        border-color: var(--custom-red);
+        box-shadow: 0 0 0 3px rgba(219, 45, 44, 0.15);
+    }
+
+    /* Mapa ampliado dentro de su recuadro en móvil sin solapar el texto */
     .map-card {
-        min-height: 520px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+        overflow: hidden;
+        padding: 20px 14px 24px;
+        position: relative;
+    }
+
+    .map-illustration {
+        max-width: 100%;
+        transform: scale(1.15);
+        transform-origin: center 25%;
+        width: 100%;
+        margin-bottom: 12px;
     }
 
     .colombia-map {
-        height: 82%;
-        width: 90%;
+        height: 100%;
+        width: 100%;
     }
 
     .city-marker__name {

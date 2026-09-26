@@ -7,7 +7,7 @@
             "tel": "+57 310 3526476",
             "correo": "proyectos@customsoluciones.com",
             "linkedin": "#",
-            "img": "/img/fotos-talento/perfil/1.jpg"
+            "img": "/img/fotos-talento/1.jpg"
         },
         {
             "id": "servicios",
@@ -16,7 +16,7 @@
             "tel": "+57 313 2597713",
             "correo": "servicios@customsoluciones.com",
             "linkedin": "#",
-            "img": "/img/fotos-talento/perfil/2.jpg"
+            "img": "/img/fotos-talento/2.jpg"
         },
         {
             "id": "supervisor-servicios",
@@ -25,7 +25,7 @@
             "tel": "+57 301 1627483",
             "correo": "sup1-servicios@customsoluciones.com",
             "linkedin": "#",
-            "img": "/img/fotos-talento/perfil/3.jpg"
+            "img": "/img/fotos-talento/3.jpg"
         },
         {
             "id": "hseq",
@@ -34,7 +34,7 @@
             "tel": "+57 301 7384986",
             "correo": "hseq@customsoluciones.com",
             "linkedin": "#",
-            "img": "/img/fotos-talento/perfil/4.jpg"
+            "img": "/img/fotos-talento/5.jpg"
         },
         {
             "id": "contabilidad",
@@ -43,7 +43,7 @@
             "tel": "+57 321 8467607",
             "correo": "administracion@customsoluciones.com",
             "linkedin": "#",
-            "img": "/img/LogoSolo.png"
+            "img": "/img/fotos-talento/4.jpg"
         },
         {
             "id": "maximo-conforte",
@@ -52,7 +52,7 @@
             "tel": "+57 300 6830303",
             "correo": "maximoconforte@customsoluciones.com",
             "linkedin": "#",
-            "img": "/img/fotos-talento/MAXIMO CON LOGO.png"
+            "img": "/img/fotos-talento/MAXIMO-CON-LOGO.png"
         }
     ],
     "vacantes": [
