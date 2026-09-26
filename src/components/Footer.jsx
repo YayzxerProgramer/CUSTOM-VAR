@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoSolo from "../img/LogoSolo.png";
+import logoCustom from "../img/LogoCustom.svg";
 import "../css/Footer.css";
 
 const Footer = () => {
@@ -9,8 +9,7 @@ const Footer = () => {
             <div className="contenedor-pie">
                 <div className="columna-pie">
                     <div className="logo-pie">
-                        <img src={logoSolo} alt="CUSTOM V.A.R." className="logo-pie__icono" />
-                        <span className="logo-pie__texto">CUSTOM <small>V.A.R.</small></span>
+                        <img src={logoCustom} alt="CUSTOM V.A.R." className="logo-pie__imagen" />
                     </div>
                     <p className="descripcion-empresa">
                         Líderes en ingeniería VAR en Colombia. Expertos en diseño, instalación y mantenimiento de sistemas críticos.
