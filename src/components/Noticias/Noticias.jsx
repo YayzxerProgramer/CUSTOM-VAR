@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useJsonData } from '../../hooks/useJsonData.js';
+import Icon from '../Icon.jsx';
 import '../../css/Noticias/Noticias.css';
 
 export default function Noticias() {
@@ -85,7 +86,7 @@ export default function Noticias() {
                                 <p className="noticia-destacada__resumen">{destacada.resumen}</p>
                                 <span className="noticia-destacada__enlace">
                                     Leer en la fuente
-                                    <span className="material-symbols-outlined">open_in_new</span>
+                                    <Icon name="open_in_new" />
                                 </span>
                             </div>
                         </a>
@@ -123,7 +124,7 @@ export default function Noticias() {
                                 <p className="noticia-card__resumen">{noticia.resumen}</p>
                                 <span className="noticia-card__enlace">
                                     Leer más
-                                    <span className="material-symbols-outlined">open_in_new</span>
+                                    <Icon name="open_in_new" />
                                 </span>
                             </div>
                         </a>
@@ -134,7 +135,7 @@ export default function Noticias() {
             <section className="noticias-aviso">
                 <div className="noticias-aviso__contenedor">
                     <div className="noticias-aviso__texto">
-                        <span className="material-symbols-outlined">verified_user</span>
+                        <Icon name="verified_user" />
                         <p>
                             Las noticias enlazan a fuentes externas reconocidas del sector —
                             <strong>ACAIRE</strong>, <strong>AC-R Latinoamérica</strong> y fabricantes—.

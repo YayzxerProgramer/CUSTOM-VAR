@@ -8,6 +8,7 @@ import {
 } from '../../data/soluciones.js';
 import { useJsonData } from '../../hooks/useJsonData.js';
 import Carrusel from './Carrusel.jsx';
+import Icon from '../Icon.jsx';
 import '../../css/Soluciones/ProyectosExpandible.css';
 
 const SECCION_NUESTRAS_SOLUCIONES = 'nuestras-soluciones';
@@ -131,9 +132,7 @@ export default function ProyectosExpandible() {
                                     className="pilar-card__foto"
                                     loading="lazy"
                                 />
-                                <span className="pilar-card__icono-insignia material-symbols-outlined">
-                                    {pilar.icono}
-                                </span>
+                                <Icon name={pilar.icono} className="pilar-card__icono-insignia" />
                             </div>
                             <div className="pilar-card__body">
                                 <span className="pilar-card__tag">{pilar.tag}</span>
@@ -154,9 +153,7 @@ export default function ProyectosExpandible() {
                         {solucionesAplicadasProyectos.map((item) => (
                             <article className="solucion-card" key={item.id}>
                                 <div className="solucion-card__header">
-                                    <span className="material-symbols-outlined solucion-card__icono">
-                                        {item.icono}
-                                    </span>
+                                    <Icon name={item.icono} className="solucion-card__icono" />
                                     <h3 className="solucion-card__titulo">{item.titulo}</h3>
                                 </div>
                                 <p className="solucion-card__desc">{item.descripcion}</p>
@@ -174,12 +171,10 @@ export default function ProyectosExpandible() {
                         aria-expanded={verProyectos}
                     >
                         {verProyectos ? 'Ver menos' : 'VER PROYECTOS'}
-                        <span
-                            className="material-symbols-outlined"
+                        <Icon
+                            name="expand_more"
                             style={{ transform: `rotate(${verProyectos ? '180deg' : '0deg'})` }}
-                        >
-                            expand_more
-                        </span>
+                        />
                     </button>
                 </div>
 
@@ -230,9 +225,7 @@ export default function ProyectosExpandible() {
                                         )}
                                     </div>
                                     <div className="proyecto-fila__texto">
-                                        <span className="material-symbols-outlined proyecto-fila__icono">
-                                            {proyecto.icono}
-                                        </span>
+                                        <Icon name={proyecto.icono} className="proyecto-fila__icono" />
                                         <h3 className="proyecto-fila__titulo">{proyecto.titulo}</h3>
 
                                         <div className="proyecto-fila__doblez">
@@ -281,15 +274,13 @@ export default function ProyectosExpandible() {
                                             aria-expanded={detalleAbierto.has(proyecto.id)}
                                         >
                                             {detalleAbierto.has(proyecto.id) ? 'Ver menos' : 'Ver más'}
-                                            <span
-                                                className="material-symbols-outlined"
+                                            <Icon
+                                                name="expand_more"
                                                 style={{
                                                     transform: `rotate(${detalleAbierto.has(proyecto.id) ? '180deg' : '0deg'
                                                         })`,
                                                 }}
-                                            >
-                                                expand_more
-                                            </span>
+                                            />
                                         </button>
 
                                         <Link
@@ -297,7 +288,7 @@ export default function ProyectosExpandible() {
                                             className="proyecto-fila__btn"
                                         >
                                             Cuéntenos su requerimiento
-                                            <span className="material-symbols-outlined">arrow_forward</span>
+                                            <Icon name="arrow_forward" />
                                         </Link>
                                     </div>
                                 </div>
@@ -316,9 +307,7 @@ export default function ProyectosExpandible() {
                         {solucionesAplicadasServicios.map((item) => (
                             <article className="solucion-card" key={item.id}>
                                 <div className="solucion-card__header">
-                                    <span className="material-symbols-outlined solucion-card__icono">
-                                        {item.icono}
-                                    </span>
+                                    <Icon name={item.icono} className="solucion-card__icono" />
                                     <h3 className="solucion-card__titulo">{item.titulo}</h3>
                                 </div>
                                 <p className="solucion-card__desc">{item.descripcion}</p>
@@ -336,12 +325,10 @@ export default function ProyectosExpandible() {
                         aria-expanded={verServicios}
                     >
                         {verServicios ? 'Ver menos' : 'VER SERVICIOS'}
-                        <span
-                            className="material-symbols-outlined"
+                        <Icon
+                            name="expand_more"
                             style={{ transform: `rotate(${verServicios ? '180deg' : '0deg'})` }}
-                        >
-                            expand_more
-                        </span>
+                        />
                     </button>
                 </div>
 
@@ -373,9 +360,7 @@ export default function ProyectosExpandible() {
                                         style={{ '--imagen-fondo': `url(${servicio.imagen})` }}
                                     />
                                     <div className="proyecto-fila__texto">
-                                        <span className="material-symbols-outlined proyecto-fila__icono">
-                                            {servicio.icono}
-                                        </span>
+                                        <Icon name={servicio.icono} className="proyecto-fila__icono" />
                                         <h3 className="proyecto-fila__titulo">{servicio.titulo}</h3>
                                         <p className="proyecto-fila__desc">{servicio.descripcion}</p>
 
@@ -384,7 +369,7 @@ export default function ProyectosExpandible() {
                                             className="proyecto-fila__btn"
                                         >
                                             Cuéntenos su requerimiento
-                                            <span className="material-symbols-outlined">arrow_forward</span>
+                                            <Icon name="arrow_forward" />
                                         </Link>
                                     </div>
                                 </div>

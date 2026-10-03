@@ -269,7 +269,7 @@
     color: var(--color-primario, #002132);
 }
 
-.noticia-destacada__enlace .material-symbols-outlined {
+.noticia-destacada__enlace .custom-icon {
     font-size: 19px;
 }
 
@@ -382,7 +382,7 @@
     gap: 7px;
 }
 
-.noticia-card__enlace .material-symbols-outlined {
+.noticia-card__enlace .custom-icon {
     font-size: 17px;
 }
 
@@ -412,7 +412,7 @@
     min-width: 300px;
 }
 
-.noticias-aviso__texto > .material-symbols-outlined {
+.noticias-aviso__texto > .custom-icon {
     font-size: 30px;
     color: #8a99a0;
     flex-shrink: 0;

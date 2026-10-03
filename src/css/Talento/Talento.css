@@ -241,7 +241,7 @@
     margin-bottom: 8px;
 }
 
-.contacto-card__tel .material-symbols-outlined {
+.contacto-card__tel .custom-icon {
     font-size: 17px;
     color: #8a99a0;
 }
@@ -260,7 +260,7 @@
     text-decoration: underline;
 }
 
-.contacto-card__correo .material-symbols-outlined {
+.contacto-card__correo .custom-icon {
     font-size: 17px;
 }
 
@@ -271,7 +271,7 @@
     display: flex;
 }
 
-.talento-contactos__nota > .material-symbols-outlined {
+.talento-contactos__nota > .custom-icon {
     font-size: 22px;
     color: #8a99a0;
     flex-shrink: 0;
@@ -366,7 +366,7 @@
     transition: background 0.25s;
 }
 
-.vacante__icono .material-symbols-outlined {
+.vacante__icono .custom-icon {
     font-size: 26px;
     color: var(--color-primario, #002132);
     transition: color 0.25s;
@@ -376,7 +376,7 @@
     background: var(--color-acento-rojo, #db2d2c);
 }
 
-.vacante--abierta .vacante__icono .material-symbols-outlined {
+.vacante--abierta .vacante__icono .custom-icon {
     color: #fff;
 }
 
@@ -457,7 +457,7 @@
     color: var(--color-primario, #002132);
 }
 
-.vacante__subtitulo .material-symbols-outlined {
+.vacante__subtitulo .custom-icon {
     font-size: 18px;
 }
 
@@ -508,7 +508,7 @@
     background: var(--color-variante-primario-fijo, #1e4b66);
 }
 
-.vacante__postular .material-symbols-outlined {
+.vacante__postular .custom-icon {
     font-size: 19px;
 }
 
@@ -520,7 +520,7 @@
     gap: 7px;
 }
 
-.vacante__correo .material-symbols-outlined {
+.vacante__correo .custom-icon {
     font-size: 17px;
     color: #8a99a0;
 }

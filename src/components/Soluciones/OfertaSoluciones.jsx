@@ -1,4 +1,5 @@
 import CarruselAcordeon from '../CarruselAcordeon.jsx';
+import Icon from '../Icon.jsx';
 import {
     categoriasIndustria,
     servicios,
@@ -34,14 +35,14 @@ function AplicadasGrid({ items, onSolicitarAsesoria }) {
             {items.map((item) => (
                 <article className="oferta-card" key={item.id}>
                     <div className="oferta-card__media" style={{ height: '140px', background: 'var(--azul-marino-profundo, #0A192F)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span className="material-symbols-outlined" style={{ fontSize: '3rem', color: 'var(--rojo-custom, #DB2D2C)' }}>{item.icono}</span>
+                        <Icon name={item.icono} size={48} style={{ color: 'var(--rojo-custom, #DB2D2C)' }} />
                     </div>
                     <div className="oferta-card__contenido">
                         <h3>{item.titulo}</h3>
                         <p>{item.descripcion}</p>
                         <button type="button" onClick={onSolicitarAsesoria}>
                             Cuéntenos su requerimiento
-                            <span className="material-symbols-outlined">arrow_forward</span>
+                            <Icon name="arrow_forward" />
                         </button>
                     </div>
                 </article>
@@ -57,7 +58,7 @@ function OfertaGrid({ items, tipo, onSolicitarAsesoria }) {
                 <article className="oferta-card" key={item.id}>
                     <div className="oferta-card__media">
                         {item.imagen && <img src={item.imagen} alt="" />}
-                        <span className="material-symbols-outlined">{item.icono}</span>
+                        <Icon name={item.icono} />
                     </div>
                     <div className="oferta-card__contenido">
                         <span>{tipo}</span>
@@ -65,7 +66,7 @@ function OfertaGrid({ items, tipo, onSolicitarAsesoria }) {
                         <p>{item.descripcion}</p>
                         <button type="button" onClick={onSolicitarAsesoria}>
                             Cuéntenos su requerimiento
-                            <span className="material-symbols-outlined">arrow_forward</span>
+                            <Icon name="arrow_forward" />
                         </button>
                     </div>
                 </article>

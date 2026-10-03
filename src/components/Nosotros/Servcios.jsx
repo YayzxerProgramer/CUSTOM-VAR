@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Icon from '../Icon.jsx';
 import aireImg from '../../img/aire.jpeg';
 import refrigeracionImg from '../../img/refrigeracion.jpg';
 import '../../css/Nosotros/Servicios.css';
@@ -33,7 +34,7 @@ export default function Servicios() {
                     <div className="tarjeta-servicio">
                         <div className="tarjeta-servicio__cabecera-azul">
                             <div className="tarjeta-servicio__icono-circulo">
-                                <span className="material-symbols-outlined">air</span>
+                                <Icon name="air" />
                             </div>
                             <span className="tarjeta-servicio__titulo-header">VENTILACIÓN</span>
                         </div>
@@ -57,7 +58,7 @@ export default function Servicios() {
                             </p>
                             <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución
-                                <span className="material-symbols-outlined flecha-enlace">arrow_forward</span>
+                                <Icon name="arrow_forward" className="flecha-enlace" />
                             </Link>
                         </div>
                     </div>
@@ -66,7 +67,7 @@ export default function Servicios() {
                     <div className="tarjeta-servicio">
                         <div className="tarjeta-servicio__cabecera-azul">
                             <div className="tarjeta-servicio__icono-circulo">
-                                <span className="material-symbols-outlined">ac_unit</span>
+                                <Icon name="ac_unit" />
                             </div>
                             <span className="tarjeta-servicio__titulo-header">AIRE ACONDICIONADO</span>
                         </div>
@@ -90,7 +91,7 @@ export default function Servicios() {
                             </p>
                             <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución
-                                <span className="material-symbols-outlined flecha-enlace">arrow_forward</span>
+                                <Icon name="arrow_forward" className="flecha-enlace" />
                             </Link>
                         </div>
                     </div>
@@ -99,7 +100,7 @@ export default function Servicios() {
                     <div className="tarjeta-servicio">
                         <div className="tarjeta-servicio__cabecera-azul">
                             <div className="tarjeta-servicio__icono-circulo">
-                                <span className="material-symbols-outlined">severe_cold</span>
+                                <Icon name="severe_cold" />
                             </div>
                             <span className="tarjeta-servicio__titulo-header">REFRIGERACIÓN</span>
                         </div>
@@ -123,7 +124,7 @@ export default function Servicios() {
                             </p>
                             <Link to={ENLACE_NUESTRAS_SOLUCIONES} className="enlace-tarjeta grupo-enlace">
                                 Explorar solución
-                                <span className="material-symbols-outlined flecha-enlace">arrow_forward</span>
+                                <Icon name="arrow_forward" className="flecha-enlace" />
                             </Link>
                         </div>
                     </div>

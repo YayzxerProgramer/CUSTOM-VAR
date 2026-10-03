@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import Icon from './Icon.jsx';
 import '../css/CarruselAcordeon.css';
 
 export default function CarruselAcordeon({
@@ -55,7 +56,7 @@ export default function CarruselAcordeon({
                     aria-label="Anterior"
                     type="button"
                 >
-                    <span className="material-symbols-outlined">arrow_back_ios</span>
+                    <Icon name="arrow_back_ios" />
                 </button>
             )}
 
@@ -113,7 +114,7 @@ export default function CarruselAcordeon({
                     aria-label="Siguiente"
                     type="button"
                 >
-                    <span className="material-symbols-outlined">arrow_forward_ios</span>
+                    <Icon name="arrow_forward_ios" />
                 </button>
             )}
 

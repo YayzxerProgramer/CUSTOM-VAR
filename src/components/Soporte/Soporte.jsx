@@ -11,6 +11,7 @@ import {
     tiposSoporte,
 } from '../../data/soporte.js';
 import TurnstileWidget from '../TurnstileWidget.jsx';
+import Icon from '../Icon.jsx';
 import '../../css/Soporte/Soporte.css';
 
 const FORMULARIO_HASH = 'formulario-solicitud';
@@ -56,7 +57,7 @@ function AvisoModal({ radicado, error, onCerrar }) {
                         {estado === 'exito' ? 'Solicitud recibida' : 'No pudimos procesar la solicitud'}
                     </span>
                     <button type="button" className="soporte-modal__cerrar" onClick={onCerrar} aria-label="Cerrar aviso">
-                        <span className="material-symbols-outlined">close</span>
+                        <Icon name="close" />
                     </button>
                 </div>
                 <div className="soporte-modal__cuerpo">

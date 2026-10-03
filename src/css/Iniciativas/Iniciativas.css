@@ -184,7 +184,7 @@
     text-transform: uppercase;
 }
 
-.pilar-card__ods-header .material-symbols-outlined {
+.pilar-card__ods-header .custom-icon {
     font-size: 18px;
 }
 
@@ -205,7 +205,7 @@
     margin-bottom: 22px;
 }
 
-.pilar-card__icono .material-symbols-outlined {
+.pilar-card__icono .custom-icon {
     font-size: 30px;
 }
 
@@ -362,7 +362,7 @@
     flex-shrink: 0;
 }
 
-.iniciativa__icono .material-symbols-outlined {
+.iniciativa__icono .custom-icon {
     font-size: 26px;
     color: var(--color-acento-rojo);
 }
@@ -423,7 +423,7 @@
     color: #fff;
 }
 
-.iniciativa__chip .material-symbols-outlined {
+.iniciativa__chip .custom-icon {
     font-size: 17px;
 }
 
@@ -442,7 +442,7 @@
     margin: 48px auto 0;
 }
 
-.iniciativas-apoyo__nota>.material-symbols-outlined {
+.iniciativas-apoyo__nota>.custom-icon {
     font-size: 24px;
     color: #8a99a0;
     flex-shrink: 0;
@@ -510,7 +510,7 @@
     transform: translateY(-2px);
 }
 
-.iniciativas-cta__boton .material-symbols-outlined {
+.iniciativas-cta__boton .custom-icon {
     font-size: 20px;
 }
 
@@ -592,7 +592,7 @@
     background: rgba(255, 255, 255, 0.25);
 }
 
-.iniciativas-modal__cerrar .material-symbols-outlined {
+.iniciativas-modal__cerrar .custom-icon {
     font-size: 20px;
 }
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { buyerPersonas } from '../../data/soluciones.js';
+import Icon from '../Icon.jsx';
 import '../../css/Soluciones/AcordeonPersonas.css';
 
 const WHATSAPP_HREF = 'https://wa.me/573006830303';
@@ -18,7 +19,7 @@ export default function AcordeonPersonas() {
                     <span className="acordeon-personas__eyebrow">¿CON CUÁL SE IDENTIFICA? · ENCUENTRE SU SOLUCIÓN</span>
                 </div>
                 <p className="acordeon-personas__ayuda">
-                    <span className="material-symbols-outlined">touch_app</span>
+                    <Icon name="touch_app" />
                     Seleccione el perfil que más se acerca a su operación.
                 </p>
             </div>
@@ -60,7 +61,7 @@ export default function AcordeonPersonas() {
                                             onClick={(e) => e.stopPropagation()}
                                             className="persona-panel__btn persona-panel__btn--solido persona-panel__btn--ancho-completo"
                                         >
-                                            <span className="material-symbols-outlined">edit_note</span>
+                                            <Icon name="edit_note" />
                                             CUÉNTANOS TU REQUERIMIENTO
                                         </Link>
                                         <div className="persona-panel__acciones-fila2">
@@ -73,7 +74,7 @@ export default function AcordeonPersonas() {
                                                 }}
                                                 className="persona-panel__btn persona-panel__btn--esquema"
                                             >
-                                                <span className="material-symbols-outlined">architecture</span>
+                                                <Icon name="architecture" />
                                                 VER PROYECTOS
                                             </Link>
                                             <Link
@@ -85,7 +86,7 @@ export default function AcordeonPersonas() {
                                                 }}
                                                 className="persona-panel__btn persona-panel__btn--esquema"
                                             >
-                                                <span className="material-symbols-outlined">engineering</span>
+                                                <Icon name="engineering" />
                                                 VER SERVICIOS
                                             </Link>
                                         </div>

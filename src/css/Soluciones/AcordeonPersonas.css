@@ -50,7 +50,7 @@
     margin: 0;
 }
 
-.acordeon-personas__ayuda .material-symbols-outlined {
+.acordeon-personas__ayuda .custom-icon {
     font-size: 20px;
     color: #94a3a8;
 }
@@ -232,7 +232,7 @@
     text-align: center;
 }
 
-.persona-panel__btn .material-symbols-outlined {
+.persona-panel__btn .custom-icon {
     font-size: 18px;
 }
 
@@ -276,7 +276,7 @@
     text-decoration: none;
 }
 
-.persona-panel__whatsapp .material-symbols-outlined {
+.persona-panel__whatsapp .custom-icon {
     font-size: 18px;
 }
 

@@ -3,6 +3,7 @@ import { opcionesIniciativa, pilaresIniciativas } from '../../data/iniciativas.j
 import { useJsonData } from '../../hooks/useJsonData.js';
 import Carrusel from '../Soluciones/Carrusel.jsx';
 import TurnstileWidget from '../TurnstileWidget.jsx';
+import Icon from '../Icon.jsx';
 import '../../css/Iniciativas/Iniciativas.css';
 
 const N8N_INICIATIVAS_WEBHOOK_URL = import.meta.env.VITE_N8N_INICIATIVAS_WEBHOOK_URL;
@@ -73,15 +74,13 @@ function ParticiparModal({ abierto, onCerrar }) {
                         onClick={cerrar}
                         aria-label="Cerrar formulario"
                     >
-                        <span className="material-symbols-outlined">close</span>
+                        <Icon name="close" />
                     </button>
                 </div>
 
                 {enviado ? (
                     <div className="iniciativas-modal__exito">
-                        <span className="material-symbols-outlined iniciativas-modal__exito-icono">
-                            check_circle
-                        </span>
+                        <Icon name="check_circle" className="iniciativas-modal__exito-icono" />
                         <h4 className="iniciativas-modal__exito-titulo">¡Mensaje recibido!</h4>
                         <p className="iniciativas-modal__exito-texto">
                             Gracias por su interés en nuestras iniciativas. Nuestro equipo se pondrá en
@@ -97,9 +96,7 @@ function ParticiparModal({ abierto, onCerrar }) {
                     </div>
                 ) : error ? (
                     <div className="iniciativas-modal__exito">
-                        <span className="material-symbols-outlined iniciativas-modal__exito-icono iniciativas-modal__exito-icono--error">
-                            error
-                        </span>
+                        <Icon name="error" className="iniciativas-modal__exito-icono iniciativas-modal__exito-icono--error" />
                         <h4 className="iniciativas-modal__exito-titulo">No pudimos enviar su mensaje</h4>
                         <p className="iniciativas-modal__exito-texto">{error}</p>
                         <button
@@ -197,14 +194,12 @@ export default function Iniciativas() {
                     {pilaresIniciativas.map((pilar) => (
                         <article key={pilar.id} className="pilar-card">
                             <div className="pilar-card__ods-header" style={{ backgroundColor: pilar.color }}>
-                                <span className="material-symbols-outlined">public</span>
+                                <Icon name="public" />
                                 <span>OBJETIVOS DE DESARROLLO SOSTENIBLE</span>
                             </div>
                             <div className="pilar-card__cuerpo">
                                 <div className="pilar-card__icono" style={{ background: pilar.soft }}>
-                                    <span className="material-symbols-outlined" style={{ color: pilar.color }}>
-                                        {pilar.icono}
-                                    </span>
+                                    <Icon name={pilar.icono} style={{ color: pilar.color }} />
                                 </div>
                                 <h3 className="pilar-card__titulo">{pilar.titulo}</h3>
                                 <p className="pilar-card__texto">{pilar.texto}</p>
@@ -279,9 +274,7 @@ export default function Iniciativas() {
                             <div className="iniciativa__cuerpo">
                                 <div className="iniciativa__encabezado">
                                     <div className="iniciativa__icono">
-                                        <span className="material-symbols-outlined">
-                                            {iniciativa.icono}
-                                        </span>
+                                        <Icon name={iniciativa.icono} />
                                     </div>
                                     <div>
                                         <span className="iniciativa__eslogan">
@@ -299,7 +292,7 @@ export default function Iniciativas() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <span className="material-symbols-outlined">photo_camera</span>
+                                            <Icon name="photo_camera" />
                                             Ver en Instagram
                                         </a>
                                     )}
@@ -322,7 +315,7 @@ export default function Iniciativas() {
                     </div>
                     <button type="button" className="iniciativas-cta__boton" onClick={abrirModal}>
                         Quiero participar
-                        <span className="material-symbols-outlined">arrow_forward</span>
+                        <Icon name="arrow_forward" />
                     </button>
                 </div>
             </section>

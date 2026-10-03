@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useJsonData } from '../../hooks/useJsonData.js';
+import Icon from '../Icon.jsx';
 import '../../css/Talento/Talento.css';
 
 function ContactosActuales({ contactosTalento }) {
@@ -21,11 +22,11 @@ function ContactosActuales({ contactosTalento }) {
                             <h3 className="contacto-card__nombre">{contacto.nombre}</h3>
                             <span className="contacto-card__cargo">{contacto.cargo}</span>
                             <span className="contacto-card__tel">
-                                <span className="material-symbols-outlined">call</span>
+                                <Icon name="call" />
                                 {contacto.tel}
                             </span>
                             <a className="contacto-card__correo" href={`mailto:${contacto.correo}`}>
-                                <span className="material-symbols-outlined">mail</span>
+                                <Icon name="mail" />
                                 {contacto.correo}
                             </a>
                         </div>
@@ -71,15 +72,13 @@ function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
                                 aria-expanded={estaAbierto}
                             >
                                 <span className="vacante__icono">
-                                    <span className="material-symbols-outlined">{vacante.icono}</span>
+                                    <Icon name={vacante.icono} />
                                 </span>
                                 <span className="vacante__titulos">
                                     <span className="vacante__titulo">{vacante.titulo}</span>
                                     <span className="vacante__meta">{vacante.meta}</span>
                                 </span>
-                                <span className="material-symbols-outlined vacante__chevron">
-                                    expand_more
-                                </span>
+                                <Icon name="expand_more" className="vacante__chevron" />
                             </button>
 
                             <div className="vacante__cuerpo">
@@ -87,14 +86,14 @@ function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
                                     <div className="vacante__columnas">
                                         <div>
                                             <h4 className="vacante__subtitulo">
-                                                <span className="material-symbols-outlined">checklist</span>
+                                                <Icon name="checklist" />
                                                 Tareas y funciones
                                             </h4>
                                             <p className="vacante__texto">{vacante.funciones}</p>
                                         </div>
                                         <div>
                                             <h4 className="vacante__subtitulo">
-                                                <span className="material-symbols-outlined">stars</span>
+                                                <Icon name="stars" />
                                                 Responsabilidades claves
                                             </h4>
                                             <p className="vacante__texto">{vacante.responsabilidades}</p>
@@ -103,7 +102,7 @@ function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
 
                                     <div className="vacante__requisitos">
                                         <h4 className="vacante__subtitulo vacante__subtitulo--oscuro">
-                                            <span className="material-symbols-outlined">school</span>
+                                            <Icon name="school" />
                                             Requisitos del cargo
                                         </h4>
                                         <p className="vacante__texto">{vacante.requisitos}</p>
@@ -111,11 +110,11 @@ function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
 
                                     <div className="vacante__acciones">
                                         <a className="vacante__postular" href={mailto}>
-                                            <span className="material-symbols-outlined">attach_file</span>
+                                            <Icon name="attach_file" />
                                             Postularme · Enviar hoja de vida
                                         </a>
                                         <span className="vacante__correo">
-                                            <span className="material-symbols-outlined">mail</span>
+                                            <Icon name="mail" />
                                             {correoTalento}
                                         </span>
                                     </div>
