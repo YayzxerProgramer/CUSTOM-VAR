@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useJsonData } from '../../hooks/useJsonData.js';
 import Icon from '../Icon.jsx';
+import ModalPostulacion from './ModalPostulacion.jsx';
 import '../../css/Talento/Talento.css';
 
 function ContactosActuales({ contactosTalento }) {
@@ -39,8 +40,15 @@ function ContactosActuales({ contactosTalento }) {
 
 function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
     const [abierto, setAbierto] = useState(0);
+    const [modalAbierto, setModalAbierto] = useState(false);
+    const [vacanteSeleccionada, setVacanteSeleccionada] = useState(null);
 
     const alternar = (indice) => setAbierto((actual) => (actual === indice ? -1 : indice));
+
+    const abrirPostulacion = (vacante) => {
+        setVacanteSeleccionada(vacante);
+        setModalAbierto(true);
+    };
 
     return (
         <section className="talento-vacantes">
@@ -56,9 +64,6 @@ function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
             <div className="talento-vacantes__lista">
                 {vacantesTalento.map((vacante, indice) => {
                     const estaAbierto = abierto === indice;
-                    const mailto = `mailto:${correoTalento}?subject=${encodeURIComponent(
-                        `Postulación ${vacante.titulo}`,
-                    )}`;
 
                     return (
                         <article
@@ -109,10 +114,14 @@ function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
                                     </div>
 
                                     <div className="vacante__acciones">
-                                        <a className="vacante__postular" href={mailto}>
+                                        <button
+                                            type="button"
+                                            className="vacante__postular"
+                                            onClick={() => abrirPostulacion(vacante)}
+                                        >
                                             <Icon name="attach_file" />
                                             Postularme · Enviar hoja de vida
-                                        </a>
+                                        </button>
                                         <span className="vacante__correo">
                                             <Icon name="mail" />
                                             {correoTalento}
@@ -124,6 +133,14 @@ function TrabajaConNosotros({ vacantesTalento, correoTalento }) {
                     );
                 })}
             </div>
+
+            <ModalPostulacion
+                abierto={modalAbierto}
+                vacanteSeleccionada={vacanteSeleccionada}
+                vacantes={vacantesTalento}
+                correoTalento={correoTalento}
+                onCerrar={() => setModalAbierto(false)}
+            />
         </section>
     );
 }
