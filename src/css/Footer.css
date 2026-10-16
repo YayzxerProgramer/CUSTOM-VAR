@@ -119,11 +119,13 @@
 
 .columna-contacto .lista-contacto li {
     white-space: normal;
+    align-items: flex-start;
 }
 
 .icono-contacto {
     color: var(--color-texto-contenedor-primario);
     flex-shrink: 0;
+    margin-top: 3px;
 }
 
 .enlace-contacto {
@@ -131,11 +133,16 @@
     font-family: var(--fuente-cuerpo);
     text-decoration: none;
     transition: color 0.3s ease;
-    word-break: break-all;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .enlace-contacto:hover {
     color: var(--color-texto-contenedor-primario);
+}
+
+.enlace-direccion {
+    line-height: 1.45;
 }
 
 /* ==========================================

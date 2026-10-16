@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import logoCustom from "../img/LogoCustom.svg";
+import MapaGoogle from "./MapaGoogle.jsx";
 import "../css/Footer.css";
 
 const Footer = () => {
@@ -26,6 +26,8 @@ const Footer = () => {
                         <li><Link to="/soluciones">Soluciones</Link></li>
                         <li><Link to="/soporte">Soporte Técnico</Link></li>
                         <li><Link to="/iniciativas">Iniciativas VAR</Link></li>
+                        <li><Link to="/talento">Talento Humano</Link></li>
+                        <li><Link to="/noticias">Noticias</Link></li>
                     </ul>
                 </div>
                 <div className="columna-pie columna-contacto">
@@ -36,7 +38,15 @@ const Footer = () => {
                                 <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 1 1 18 0z" />
                                 <circle cx="12" cy="10" r="3" />
                             </svg>
-                            <span>Cartagena, Colombia</span>
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=Cl.+30+%2355-139,+Escall%C3%B3n+Villa,+Cartagena+de+Indias,+Bol%C3%ADvar"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="enlace-contacto enlace-direccion"
+                                title="Abrir ubicación en Google Maps"
+                            >
+                                Cl. 30 #55-139, Escallón Villa, Cartagena de Indias, Bolívar
+                            </a>
                         </li>
                         <li>
                             <svg className="icono-contacto" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -56,6 +66,9 @@ const Footer = () => {
                             </a>
                         </li>
                     </ul>
+
+                    {/* Mapa estático con JS de Google */}
+                    <MapaGoogle />
                 </div>
                 <div className="columna-pie">
                     <h5 className="titulo-columna">Boletín Informativo</h5>

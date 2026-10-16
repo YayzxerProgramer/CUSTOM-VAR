@@ -106,6 +106,7 @@ body {
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
+    padding: 8px 0;
 }
 
 .enlace-menu:not(.enlace-activo) {
@@ -115,6 +116,127 @@ body {
 .enlace-activo {
     color: var(--color-texto-contenedor-primario);
     border-bottom: 2px solid var(--color-texto-contenedor-primario);
+}
+
+/* ==========================================
+   TOOLTIPS EN MENÚ DE NAVEGACIÓN (DESKTOP)
+   ========================================== */
+.item-menu-contenedor {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuadro-tooltip-nav {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    width: 250px;
+    background: #001f30;
+    border: 1px solid rgba(119, 160, 191, 0.3);
+    border-top: 3px solid var(--color-texto-contenedor-primario);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 14px 16px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.22s;
+    z-index: 100;
+    text-align: left;
+}
+
+/* Flecha indicadora superior */
+.tooltip-flecha {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: var(--color-texto-contenedor-primario);
+}
+
+/* Aparición al hover o foco de teclado */
+.item-menu-contenedor:hover .cuadro-tooltip-nav,
+.item-menu-contenedor:focus-within .cuadro-tooltip-nav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Alineación inteligente en los extremos para evitar cortes */
+.item-menu-contenedor:first-child .cuadro-tooltip-nav {
+    left: 0;
+    transform: translateX(0) translateY(8px);
+}
+
+.item-menu-contenedor:first-child:hover .cuadro-tooltip-nav,
+.item-menu-contenedor:first-child:focus-within .cuadro-tooltip-nav {
+    transform: translateX(0) translateY(0);
+}
+
+.item-menu-contenedor:first-child .tooltip-flecha {
+    left: 28px;
+    transform: rotate(45deg);
+}
+
+.item-menu-contenedor:last-child .cuadro-tooltip-nav {
+    left: auto;
+    right: 0;
+    transform: translateX(0) translateY(8px);
+}
+
+.item-menu-contenedor:last-child:hover .cuadro-tooltip-nav,
+.item-menu-contenedor:last-child:focus-within .cuadro-tooltip-nav {
+    transform: translateX(0) translateY(0);
+}
+
+.item-menu-contenedor:last-child .tooltip-flecha {
+    left: auto;
+    right: 28px;
+    transform: rotate(45deg);
+}
+
+/* Cabecera del tooltip */
+.tooltip-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 6px;
+}
+
+.tooltip-punto {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-acento-rojo);
+    flex-shrink: 0;
+}
+
+.tooltip-badge {
+    font-family: var(--fuente-titulos);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-texto-contenedor-primario);
+    text-transform: uppercase;
+}
+
+.tooltip-descripcion {
+    font-family: var(--fuente-cuerpo);
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 /* Botón Contacto */
